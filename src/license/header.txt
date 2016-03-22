@@ -1,0 +1,3 @@
+${projectName} - a library from the DukeScript project.
+Visit http://dukescript.com for support and commercial license.
+

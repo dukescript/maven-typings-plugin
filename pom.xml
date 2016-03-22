@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dukescript.libraries</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>DukeScript Libraries</name>
+    <description>Wrappers for JavaScript Libraries</description>
+    <developers>
+        <developer>
+            <id>monacotoni</id>
+            <name>Anton Epple</name>
+            <email>toni.epple@dukescript.com</email>
+            <organization>Dukehoff GmbH</organization>
+            <organizationUrl>http://www.dukescript.com</organizationUrl>
+            <roles>
+                <role>Project-Administrator</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>mit</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <comments>
+                Use any version of publically available Maven Typings Plugin
+                to generate typings for any typings file you find.
+                Use the generated typings any way you want.
+            </comments>
+        </license>
+        <license>
+            <name>gpl_v3</name>
+            <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+            <comments>
+                Contribute to the Maven Typings Plugin by forking it
+                on GitHub and publishing your changes. Alternatively
+                visit http://dukescript.com for support and commercial license.
+            </comments>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/dukescript/dukescript-libraries.git</connection>
+        <url>https://github.com/dukescript/dukescript-libraries.git</url>
+        <developerConnection>scm:git:https://github.com/dukescript/dukescript-libraries.git</developerConnection>
+        <tag>release-${releaseVersion}</tag>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>presenter-snapshots</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>netbeans</id>
+            <url>http://bits.netbeans.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>snapshots</id>
+            <url>https://maven.java.net/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <net.java.html.version>1.2.3</net.java.html.version>
+        <netbeans.compile.on.save>none</netbeans.compile.on.save>
+    </properties>
+    <modules>
+        <module>mojo-base</module>
+        <module>mojo</module>
+        <module>mojo-test</module>
+        <module>typings/core</module>
+        <module>typings/dom</module>
+        <module>typings/jquery</module>
+        <module>typings/angular</module>
+        <module>typings/ko</module>
+        <module>junit-browser-runner</module>
+    </modules>
+    <profiles>
+        <profile>
+            <id>license</id>
+            <activation>
+                <property>
+                    <name>!skipLicenses</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>license-maven-plugin</artifactId>
+                        <version>1.7</version>
+                        <configuration>
+                            <inceptionYear>2016</inceptionYear>
+                            <organizationName>Dukehoff GmbH</organizationName>
+                            <failOnMissingHeader>true</failOnMissingHeader>
+                            <descriptionTemplate>src/license/header.txt</descriptionTemplate>
+                            <excludes>
+                                <exclude>**/target/**</exclude>
+                            </excludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>typings-license-check</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check-file-header</goal>
+                                    <goal>update-file-header</goal>
+                                </goals>
+                                <configuration>
+                                    <licenseName>mit</licenseName>
+                                    <failOnMissingHeader>true</failOnMissingHeader>
+                                    <descriptionTemplate>src/license/header.txt</descriptionTemplate>
+                                    <roots>
+                                        <root>typings</root>
+                                    </roots>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>junit-browser-runner-license-check</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check-file-header</goal>
+                                    <goal>update-file-header</goal>
+                                </goals>
+                                <configuration>
+                                    <licenseName>mit</licenseName>
+                                    <failOnMissingHeader>true</failOnMissingHeader>
+                                    <descriptionTemplate>src/license/header.txt</descriptionTemplate>
+                                    <roots>
+                                        <root>junit-browser-runner</root>
+                                    </roots>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>plugin-license-check</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check-file-header</goal>
+                                    <goal>update-file-header</goal>
+                                </goals>
+                                <configuration>
+                                    <licenseName>gpl_v3</licenseName>
+                                    <failOnMissingHeader>true</failOnMissingHeader>
+                                    <descriptionTemplate>src/license/header.txt</descriptionTemplate>
+                                    <roots>
+                                        <root>mojo</root>
+                                        <root>mojo-base</root>
+                                        <root>mojo-test</root>
+                                    </roots>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
