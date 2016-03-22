@@ -118,6 +118,7 @@
                             <descriptionTemplate>src/license/header.txt</descriptionTemplate>
                             <excludes>
                                 <exclude>**/target/**</exclude>
+                                <exclude>**/dependency*pom.xml</exclude>
                             </excludes>
                         </configuration>
                         <executions>
