@@ -88,6 +88,7 @@ public final class GenerateTypings extends AbstractMojo {
         if (output.isDirectory()) {
             File pkgOutput = new File(output, packageName.replace('.', File.separatorChar));
             if (pkgOutput.isDirectory()) {
+                prj.addCompileSourceRoot(output.getPath());
                 getLog().info("Skipping, output directory already exists: " + pkgOutput);
                 return;
             }
