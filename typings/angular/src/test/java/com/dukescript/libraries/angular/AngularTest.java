@@ -42,13 +42,12 @@ import org.junit.runner.RunWith;
  */
 
 @RunWith(BrowserRunner.class)
-@HTMLContent("<!DOCTYPE html>\n" +
-"<html>\n" +
-"<body ng-app='example' ng-strict-di ng-controller='SampleController'>\n" +
+@HTMLContent("\n" +
+"<div ng-app='example' ng-strict-di ng-controller='SampleController'>\n" +
 "  <h1 id='text'>Hello {{sometext}}!</h1>\n" +
 "  <button id='change' ng-click='changetext()'>Enlarge!</button>\n" +
-"</body>\n" +
-"</html>")
+"</div>\n" +
+"")
 public class AngularTest {
     IScope scope;
 
