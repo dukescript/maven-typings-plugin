@@ -137,9 +137,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.dukescript.api</groupId>
             <artifactId>junit-browser-runner</artifactId>
-            <version>${project.version}</version>
+            <version>0.6</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
