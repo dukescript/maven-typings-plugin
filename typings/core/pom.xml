@@ -136,9 +136,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.dukescript.presenters</groupId>
-            <artifactId>webkit</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.netbeans.html</groupId>
+            <artifactId>net.java.html.boot.fx</artifactId>
+            <version>${net.java.html.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
