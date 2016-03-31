@@ -95,6 +95,7 @@
         <module>typings/jquery</module>
         <module>typings/angular</module>
         <module>typings/ko</module>
+        <module>typings/typings-testing</module>
     </modules>
 
     <build>

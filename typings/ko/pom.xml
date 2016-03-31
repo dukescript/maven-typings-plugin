@@ -113,22 +113,19 @@
             <artifactId>net.java.html.lib.dom</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+
+
         <dependency>
-            <groupId>org.netbeans.html</groupId>
-            <artifactId>net.java.html.boot.fx</artifactId>
-            <version>${net.java.html.version}</version>
+            <groupId>com.dukescript.libraries</groupId>
+            <artifactId>typings-testing</artifactId>
+            <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.netbeans.html</groupId>
             <artifactId>ko4j</artifactId>
             <version>${net.java.html.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.dukescript.api</groupId>
-            <artifactId>junit-browser-runner</artifactId>
-            <version>0.6</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
