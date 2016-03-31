@@ -67,7 +67,7 @@
     HtmlJavaArray.prototype.shift = function() {
         var ret = this.arr.shift.apply(this.arr, arguments);
         HtmlJavaArrayUpdate(this.arr, this);
-        return ret;
+        return ret === undefined ? null : ret;
     };
     HtmlJavaArray.prototype.join = function() {
         return this.arr.join.apply(this.arr, arguments);
