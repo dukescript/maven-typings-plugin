@@ -133,10 +133,11 @@ public class Objs extends java.lang.Object {
   }
   /** Returns a string representation of an object. */
   public java.lang.String toString() {
+      final Object objs = $js(this);
       try {
-        return CoreTypes.toString$491($js(this));
+        return CoreTypes.toString$491(objs);
       } catch (IllegalStateException ex) {
-          return $js(this).toString();
+        return getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(objs));
       }
   }
   /** Returns the primitive value of the specified object. */
