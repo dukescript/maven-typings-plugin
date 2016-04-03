@@ -43,9 +43,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:https://github.com/dukescript/dukescript-libraries.git</connection>
-        <url>https://github.com/dukescript/dukescript-libraries.git</url>
-        <developerConnection>scm:git:https://github.com/dukescript/dukescript-libraries.git</developerConnection>
+        <connection>scm:git:https://github.com/dukescript/maven-typings-plugin.git</connection>
+        <url>https://github.com/dukescript/maven-typings-plugin.git</url>
+        <developerConnection>scm:git:https://github.com/dukescript/maven-typings-plugin.git</developerConnection>
         <tag>release-${releaseVersion}</tag>
     </scm>
 
@@ -80,7 +80,13 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <net.java.html.version>1.2.3</net.java.html.version>
@@ -178,6 +184,37 @@
                                 </configuration>
                             </execution>
                         </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>gpg-sign</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.3</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
