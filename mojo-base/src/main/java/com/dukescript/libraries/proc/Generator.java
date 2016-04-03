@@ -134,8 +134,9 @@ abstract class Generator<L> {
                     w.append(" extends ").append(mangleName(true, "Object"));
                 } else {
                     List<AST> types = heritage.get(0).getTypes();
-                    AST expr = types.get(0).getExpression().get(0);
-                    String superClass = mangleName(true, expr.getText());
+                    final AST typeZero = types.get(0);
+                    String typeName = findTypeName(typeZero);
+                    String superClass = mangleName(true, typeName);
                     w.append(" extends " + Resolver.findFQN(superClass));
                     List<Type> typeArguments = types.get(0).getTypeArguments();
                     if (!typeArguments.isEmpty()) {
@@ -230,6 +231,15 @@ abstract class Generator<L> {
                 }
                 w.append("}\n");
                 w.close();
+            }
+
+            private String findTypeName(final AST typeZero) {
+                AST expr = typeZero.getExpression().get(0);
+                String t = expr.getText();
+                if (t == null) {
+                    return "Object";
+                }
+                return t;
             }
         }
         root.visitInterfaces(new Interfaces());

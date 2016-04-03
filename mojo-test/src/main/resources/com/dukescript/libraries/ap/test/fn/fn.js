@@ -63,3 +63,7 @@ function literal(s) {
 var scope = {
     $compute : function(c) { return c(scope); }
 }
+
+function tripple() {
+    return [1, "Hi", true];
+}

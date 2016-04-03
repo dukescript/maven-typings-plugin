@@ -84,6 +84,7 @@ class ASTCntrl {
         @Property(name = "typeArguments", type = Type.class, array = true),
         @Property(name = "parameters", type = Parameter.class, array = true),
         @Property(name = "elementType", type = Type.class, array = true),
+        @Property(name = "elementTypes", type = Type.class, array = true),
         @Property(name = "members", type = Type.class, array = true)
     })
     static final class TypeCntrl {
@@ -108,6 +109,7 @@ class ASTCntrl {
                 case FunctionType:
                 case UnionType:
                 case TypeLiteral:
+                case TypeQuery:
                 case PropertySignature:
                 case IndexSignature:
                     return "null";
@@ -199,6 +201,7 @@ class ASTCntrl {
                 case ArrayType:
                 case FunctionType:
                 case UnionType:
+                case TupleType:
                 case TypePredicate:
                 case BooleanKeyword:
                     add.append("(").append(model.getBoxedJavaType()).append(")").append(expr);
@@ -259,7 +262,9 @@ class ASTCntrl {
             List<Type> typeArguments
         ) {
             switch (kind) {
-                case AnyKeyword: return "java.lang.Object";
+                case AnyKeyword:
+                case TypeQuery:
+                    return "java.lang.Object";
                 case StringLiteral:
                 case SymbolKeyword:
                 case StringKeyword: return "java.lang.String";
@@ -289,6 +294,8 @@ class ASTCntrl {
                     sb.append(">");
                     return sb.toString();
                 }
+                case TupleType:
+                    return "java.lang.Object[]";
                 case ArrayType: return intoJava ?
                     "net.java.html.lib.Array<" + elementType.get(0).getBoxedJavaType() + ">" :
                     elementType.get(0).getJavaType() + "[]";
@@ -336,7 +343,7 @@ class ASTCntrl {
         }
 
         @ComputedProperty
-        static boolean anyUsed(SyntaxKind kind, Identifier typeName, List<Type> elementType) {
+        static boolean anyUsed(SyntaxKind kind, Identifier typeName, List<Type> elementType, List<Type> elementTypes) {
             switch (kind) {
                 case AnyKeyword: return true;
                 case StringKeyword: return false;
@@ -345,6 +352,7 @@ class ASTCntrl {
                 case VoidKeyword: return false;
                 case FirstTypeNode: return false;
                 case LastTypeNode: return false;
+                case TypeQuery: return false;
                 case ArrayType: return elementType.get(0).isAnyUsed();
                 case FunctionType: return false;
                 case PropertySignature:
@@ -352,6 +360,13 @@ class ASTCntrl {
                 case UnionType: return true;
                 case TypePredicate: return true;
                 case TypeLiteral: return true;
+                case TupleType:
+                    for (Type t : elementTypes) {
+                        if (t.isAnyUsed()) {
+                            return true;
+                        }
+                    }
+                    return false;
             }
             throw new IllegalStateException("Unknown " + kind);
         }
@@ -377,6 +392,8 @@ class ASTCntrl {
                 case PropertySignature:
                 case IndexSignature:
                 case UnionType:
+                case TypeQuery:
+                case TupleType:
                     return "java.lang.Object";
             }
             throw new IllegalStateException("Unknown " + kind);

@@ -29,6 +29,7 @@ interface Literal {
     (name: 'number'): number;
     (name: 'boolean'): boolean;
     (name: string): boolean;
+    tripple: [number, string, boolean];
 }
 var literal: Literal;
 
@@ -42,3 +43,5 @@ interface Watch {
     $watch(watchExpression: (scope: IScope) => any, listener?: string): Function;
     $watch<T>(watchExpression: (scope: IScope) => T, listener?: (newValue: T, oldValue: T, scope: IScope) => any): Function;
 }
+
+declare function tripple(): [number, string, boolean];

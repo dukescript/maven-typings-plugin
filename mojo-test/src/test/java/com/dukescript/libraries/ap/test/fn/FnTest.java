@@ -114,4 +114,13 @@ public class FnTest {
         Number n = Exports.scope.$compute((Object p1) -> 42);
         assertEquals(42, n.intValue());
     }
+
+    @Test
+    public void trippleTest() {
+        Object[] arr = Exports.tripple();
+        assertEquals(3, arr.length);
+        assertTrue(arr[0] instanceof Number);
+        assertTrue(arr[1] instanceof String);
+        assertTrue(arr[2] instanceof Boolean);
+    }
 }
