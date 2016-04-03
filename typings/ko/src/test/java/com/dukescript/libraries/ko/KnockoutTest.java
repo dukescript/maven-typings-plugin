@@ -1,18 +1,19 @@
 package com.dukescript.libraries.ko;
 
-import java.util.concurrent.CountDownLatch;
-import net.java.html.BrwsrCtx;
-import net.java.html.boot.BrowserBuilder;
 import net.java.html.js.JavaScriptBody;
 import net.java.html.json.Model;
 import net.java.html.json.Models;
+import net.java.html.junit.BrowserRunner;
+import net.java.html.junit.HTMLContent;
 import net.java.html.lib.Objs;
 import net.java.html.lib.Function;
 import net.java.html.lib.ko.KnockoutObservable;
 import static net.java.html.lib.ko.Exports.ko;
 import static net.java.html.lib.dom.Exports.window;
 import org.junit.Assert;
+import static org.junit.Assert.fail;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /*
  * #%L
@@ -43,18 +44,19 @@ import org.junit.Test;
 
 @Model(className = "KnockoutModel", properties = {
 })
+@RunWith(BrowserRunner.class)
+@HTMLContent("<div data-bind=\"route: msg\">\n" +
+"    <h1>Test</h1>\n" +
+"    <ul>\n" +
+"        <li><a href=\"#/home\" id=\"home\">Home</a></li>\n" +
+"        <li><a href=\"#/page1\">Page 1</a></li>\n" +
+"        <li><a href=\"#/page2\">Page 2</a></li>\n" +
+"    </ul>\n" +
+"    <span data-bind=\"text: msg\" id=\"text\">Not initialized</span>\n" +
+"</div>")
 public class KnockoutTest {
-    void onPageLoad() {
-        Objs obj = new Objs();
-        KnockoutObservable msg = ko.observable("It runs!");
-        obj.$set("msg", msg);
-        ko.applyBindings(obj);
-        assertText("It runs!");
-        msg.$apply("It runs even better!");
-        assertText("It runs even better!");
-    }
-
     void initializeRoute() {
+        Models.toRaw(new KnockoutModel());
         Objs routing = new Objs();
         class Init implements Function.A2<Object,Function.A0<Object>, Void> {
             @Override
@@ -111,44 +113,27 @@ public class KnockoutTest {
 */
 
     @Test
-    public void initPresenter() throws Exception {
-        CountDownLatch ok = new CountDownLatch(1);
-        BrwsrCtx[] ctx = { null };
-        final BrowserBuilder builder = BrowserBuilder.newBrowser().
-            loadPage("index.html").
-            loadFinished(new Runnable() {
-                @Override
-                public void run() {
-                    Models.toRaw(new KnockoutModel());
-                    initializeRoute();
-                    onPageLoad();
-                    ctx[0] = BrwsrCtx.findDefault(KnockoutTest.class);
-                    ok.countDown();
-                }
-                
-            });
-        new Thread("Initialize") {
-            @Override
-            public void run() {
-                builder.showAndWait();
-            }
-        }.start();
-
-        ok.await();
-
-        for (;;) {
-            String[] currentText = { null };
-            CountDownLatch clickOk = new CountDownLatch(1);
-            ctx[0].execute(() -> {
+    public Runnable[] initPresenter() throws Exception {
+        initializeRoute();
+        return new Runnable[] {
+            () -> {
+                Objs obj = new Objs();
+                KnockoutObservable msg = ko.observable("It runs!");
+                obj.$set("msg", msg);
+                ko.applyBindings(obj);
+                assertText("It runs!");
+                msg.$apply("It runs even better!");
+                assertText("It runs even better!");
+            },
+            () -> {
                 triggerClick();
-                currentText[0] = assertText(null);
-                clickOk.countDown();
-            });
-            clickOk.await();
-
-            if ("home".equals(currentText[0])) {
-                break;
+            },
+            () -> {
+                String t = assertText(null);
+                if (!"home".equals(t)) {
+                    fail("Wrong currentText: " + t);
+                }
             }
-        }
+        };
     }
 }
