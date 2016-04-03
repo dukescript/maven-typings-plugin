@@ -39,6 +39,17 @@ THE SOFTWARE.
     <properties>
         <bck2brwsr.version>0.18</bck2brwsr.version>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <configuration>
+                    <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>com.dukescript.api</groupId>

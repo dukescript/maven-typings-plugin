@@ -96,8 +96,8 @@
         <module>mojo-base</module>
         <module>mojo</module>
         <module>mojo-test</module>
-        <module>typings/core</module>
-        <module>typings/dom</module>
+        <module>libs/core</module>
+        <module>libs/dom</module>
         <module>typings/jquery</module>
         <module>typings/angular</module>
         <module>typings/ko</module>
@@ -113,6 +113,17 @@
                     <version>2.10</version>
                     <configuration>
                         <junitArtifactName>com.dukescript.api:junit-osgi</junitArtifactName>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>1.6.3</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
                     </configuration>
                 </plugin>
             </plugins>
@@ -208,13 +219,6 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.3</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
