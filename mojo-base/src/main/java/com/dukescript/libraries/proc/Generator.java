@@ -151,7 +151,7 @@ abstract class Generator<L> {
                     
                 }
                 w.append(" {\n");
-                w.append("  protected " + name + "(Class<? extends Object> clazz, java.lang.Object js) {\n");
+                w.append("  protected " + name + "(java.lang.Class<? extends Object> clazz, java.lang.Object js) {\n");
                 w.append("    super(clazz, js);\n");
                 w.append("  }\n");
                 w.append("  public static " + name + " $as(java.lang.Object obj) {\n");
