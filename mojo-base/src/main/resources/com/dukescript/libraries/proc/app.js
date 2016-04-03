@@ -87,9 +87,8 @@ function dumpObject(n, space, source) {
     return copy;
 }
 
-function parseTypeScript(filename, source) {
+function parseTypeScript(filename, source, wantText) {
     var sf = ts.createSourceFile(filename, source, 2 /* Latest */);
     var copy = printChildTypes(sf, source);
-//    print(JSON.stringify(copy));
-    return copy;
+    return [copy, wantText ? JSON.stringify(copy) : null];
 }

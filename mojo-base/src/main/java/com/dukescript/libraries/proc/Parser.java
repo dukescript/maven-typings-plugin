@@ -74,7 +74,9 @@ final class Parser {
                     return Models.parse(ctx, AST.class, cachedStream);
                 }
             }
-            Object ast = parseTypeScript(filename, text);
+            boolean wantText = false;
+            Object[] astAndText = parseTypeScript(filename, text, wantText);
+            Object ast = astAndText[0];
             AST structures = Models.fromRaw(ctx, AST.class, ast);
             try (FileOutputStream os = new FileOutputStream(cache)) {
                 os.write(structures.toString().getBytes("UTF-8"));
@@ -83,8 +85,8 @@ final class Parser {
         }
     }
 
-    @JavaScriptBody(args = { "filename", "source" }, body =
-        "return parseTypeScript(filename, source);"
+    @JavaScriptBody(args = { "filename", "source", "wantText" }, body =
+        "return parseTypeScript(filename, source, wantText);"
     )
-    private static native Object parseTypeScript(String filename, String source);
+    private static native Object[] parseTypeScript(String filename, String source, boolean wantText);
 }
