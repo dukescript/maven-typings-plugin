@@ -98,10 +98,6 @@
         <module>mojo-test</module>
         <module>libs/core</module>
         <module>libs/dom</module>
-        <module>typings/jquery</module>
-        <module>typings/angular</module>
-        <module>typings/ko</module>
-        <module>typings/typings-testing</module>
     </modules>
 
     <build>
@@ -222,6 +218,20 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>typings-testing</id>
+            <activation>
+                <property>
+                    <name>!skipTests</name>
+                </property>
+            </activation>
+            <modules>
+                <module>typings/jquery</module>
+                <module>typings/angular</module>
+                <module>typings/ko</module>
+                <module>typings/typings-testing</module>
+            </modules>
         </profile>
     </profiles>
 </project>
