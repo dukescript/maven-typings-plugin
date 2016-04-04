@@ -164,6 +164,7 @@
                                     <failOnMissingHeader>true</failOnMissingHeader>
                                     <descriptionTemplate>src/license/header.txt</descriptionTemplate>
                                     <roots>
+                                        <root>libs</root>
                                         <root>typings</root>
                                     </roots>
                                 </configuration>
