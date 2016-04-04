@@ -262,8 +262,8 @@ abstract class Generator<L> {
 
     static boolean isTypeParameter(List<String> parameters, Type type) throws IOException {
         for (String p : parameters) {
-            if (type.getKind().isTypeNode()) {
-                return type.getTypeName().getText().equals(p);
+            if (type.getKind().isTypeNode() && type.getTypeName() != null) {
+                return p.equals(type.getTypeName().getText());
             }
         }
         return false;
