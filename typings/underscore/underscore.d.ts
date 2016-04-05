@@ -5908,7 +5908,7 @@ interface _ChainSingle<T> {
 	value(): T;
 }
 interface _ChainOfArrays<T> extends _Chain<T[]> {
-	flatten(): _Chain<T>;
+	// flatten(): _Chain<T>;
 }
 
 declare var _: UnderscoreStatic;
