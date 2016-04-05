@@ -554,7 +554,7 @@ abstract class Generator<L> {
             }
             try {
                 Method method = Object.class.getMethod(methodName);
-                return (method.getModifiers() & Modifier.FINAL) != 0;
+                return (method.getModifiers() & Modifier.FINAL) != 0 || (method.getReturnType().getModifiers() & Modifier.FINAL) != 0;
             } catch (NoSuchMethodException ex) {
                 return false;
             }
