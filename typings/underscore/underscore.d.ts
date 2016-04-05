@@ -3507,7 +3507,7 @@ interface UnderscoreStatic {
 	* @param object Retrieve the key or property names from this object.
 	* @return List of all the property names on `object`.
 	**/
-	keys(object: any): string[];
+//	keys(object: any): string[];
 
     /**
 	* Retrieve all the names of object's own and inherited properties.
