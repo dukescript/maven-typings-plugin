@@ -33,6 +33,7 @@ import static net.java.html.lib.Exports.*;
 import net.java.html.junit.BrowserRunner;
 import org.junit.Assert;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -190,6 +191,22 @@ public class LibCoreTest {
         });
         assertTrue(called[0], "forEach invoked");
         assertEquals(sum[0], 6.3, 0.1, "Sum computed");
+    }
+
+    @Test
+    public void keysForEach() throws Exception {
+        Objs obj = new Objs();
+        for (String key : Objs.keys(obj)) {
+            fail("No key expected in an empty object: " + key);
+        }
+        obj.$set("hi", "there");
+        obj.$set("hello", "world");
+        int cnt = 0;
+        for (String key : Objs.keys(obj)) {
+            assertTrue("hi".equals(key) || "hello".equals(key), "Key is expected: " + key);
+            cnt++;
+        }
+        assertEquals(cnt, 2, "Two keys");
     }
 
     private static void assertTrue(boolean cond, String msg) {

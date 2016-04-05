@@ -250,8 +250,8 @@ public class Objs extends java.lang.Object {
   * Returns the names of the enumerable properties and methods of an object.
   * @param o Object that contains the properties and methods. This can be an object that you created or an existing Document Object Model (DOM) object.
   */
-  public static java.lang.String[] keys(java.lang.Object o) {
-    return CoreTypes.keys$506(/* AnyKeyword*/$js(o));
+  public static Array<String> keys(java.lang.Object o) {
+    return (Array<String>)Array.$as(CoreTypes.keys$506(/* AnyKeyword*/$js(o)));
   }
   public Objs(java.lang.Object value) {
     this(Object.class, CoreTypes.new$507(/* AnyKeyword*/$js(value)));

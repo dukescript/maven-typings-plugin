@@ -1,16 +1,8 @@
 #Signature file v4.1
-#Version 
+#Version 1.0-SNAPSHOT
 
-CLSS public abstract interface java.io.Serializable
-
-CLSS public java.lang.Exception
-cons protected init(java.lang.String,java.lang.Throwable,boolean,boolean)
-cons public init()
-cons public init(java.lang.String)
-cons public init(java.lang.String,java.lang.Throwable)
-cons public init(java.lang.Throwable)
-supr java.lang.Throwable
-hfds serialVersionUID
+CLSS public abstract interface java.lang.Iterable<%0 extends java.lang.Object>
+meth public abstract java.util.Iterator<{java.lang.Iterable%0}> iterator()
 
 CLSS public java.lang.Object
 cons public init()
@@ -26,101 +18,106 @@ meth public final void wait(long,int) throws java.lang.InterruptedException
 meth public int hashCode()
 meth public java.lang.String toString()
 
-CLSS public java.lang.Throwable
-cons protected init(java.lang.String,java.lang.Throwable,boolean,boolean)
-cons public init()
-cons public init(java.lang.String)
-cons public init(java.lang.String,java.lang.Throwable)
-cons public init(java.lang.Throwable)
-intf java.io.Serializable
-meth public final java.lang.Throwable[] getSuppressed()
-meth public final void addSuppressed(java.lang.Throwable)
-meth public java.lang.StackTraceElement[] getStackTrace()
-meth public java.lang.String getLocalizedMessage()
-meth public java.lang.String getMessage()
-meth public java.lang.String toString()
-meth public java.lang.Throwable fillInStackTrace()
-meth public java.lang.Throwable getCause()
-meth public java.lang.Throwable initCause(java.lang.Throwable)
-meth public void printStackTrace()
-meth public void printStackTrace(java.io.PrintStream)
-meth public void printStackTrace(java.io.PrintWriter)
-meth public void setStackTrace(java.lang.StackTraceElement[])
+CLSS public final net.java.html.lib.$JsCallbacks$
+meth public java.lang.Object net_java_html_lib_Function$$call$Ljava_lang_Object_2_3Ljava_lang_Object_2(java.lang.Object,java.lang.Object) throws java.lang.Throwable
 supr java.lang.Object
-hfds CAUSE_CAPTION,EMPTY_THROWABLE_ARRAY,NULL_CAUSE_MESSAGE,SELF_SUPPRESSION_MESSAGE,SUPPRESSED_CAPTION,SUPPRESSED_SENTINEL,UNASSIGNED_STACK,backtrace,cause,detailMessage,serialVersionUID,stackTrace,suppressedExceptions
-hcls PrintStreamOrWriter,SentinelHolder,WrappedPrintStream,WrappedPrintWriter
+hfds VM,last,p
 
 CLSS public net.java.html.lib.Array<%0 extends java.lang.Object>
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public !varargs init({net.java.html.lib.Array%0}[])
 cons public init()
 cons public init(double)
-fld public final net.java.html.lib.Function$A0<java.lang.Number> length
-fld public static net.java.html.lib.Array<?> prototype
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Array> $AS
+fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public static net.java.html.lib.Array prototype
+intf java.lang.Iterable<{net.java.html.lib.Array%0}>
 meth public !varargs double push({net.java.html.lib.Array%0}[])
 meth public !varargs double unshift({net.java.html.lib.Array%0}[])
+meth public !varargs net.java.html.lib.Array<{net.java.html.lib.Array%0}> concat({net.java.html.lib.Array%0}[])
 meth public !varargs net.java.html.lib.Array<{net.java.html.lib.Array%0}> splice(double,double,{net.java.html.lib.Array%0}[])
 meth public <%0 extends java.lang.Object> net.java.html.lib.Array<{%%0}> map(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>)
 meth public <%0 extends java.lang.Object> net.java.html.lib.Array<{%%0}> map(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>,java.lang.Object)
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>)
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>)
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>,{%%0})
 meth public double indexOf({net.java.html.lib.Array%0})
 meth public double indexOf({net.java.html.lib.Array%0},double)
 meth public double lastIndexOf({net.java.html.lib.Array%0})
 meth public double lastIndexOf({net.java.html.lib.Array%0},double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Object[] toArray()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
-meth public static java.lang.Boolean isArray(java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],java.lang.Void>,java.lang.Object)
-meth public {net.java.html.lib.Array%0} $get(double)
-meth public {net.java.html.lib.Array%0} pop()
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],{%%0}>)
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],{%%0}>)
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},{net.java.html.lib.Array%0},java.lang.Double,{net.java.html.lib.Array%0}[],{%%0}>,{%%0})
-meth public {net.java.html.lib.Array%0} shift()
+meth public java.util.Iterator<{net.java.html.lib.Array%0}> iterator()
 meth public net.java.html.lib.Array<{net.java.html.lib.Array%0}> filter(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends java.lang.Boolean>)
 meth public net.java.html.lib.Array<{net.java.html.lib.Array%0}> filter(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends java.lang.Boolean>,java.lang.Object)
 meth public net.java.html.lib.Array<{net.java.html.lib.Array%0}> reverse()
+meth public net.java.html.lib.Array<{net.java.html.lib.Array%0}> splice(double)
+meth public static java.lang.Boolean isArray(java.lang.Object)
+meth public static net.java.html.lib.Array<?> $as(java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends java.lang.Void>,java.lang.Object)
+meth public {net.java.html.lib.Array%0} $get(double)
+meth public {net.java.html.lib.Array%0} pop()
+meth public {net.java.html.lib.Array%0} shift()
 meth public {net.java.html.lib.Array%0}[] slice()
 meth public {net.java.html.lib.Array%0}[] slice(double)
 meth public {net.java.html.lib.Array%0}[] slice(double,double)
 meth public {net.java.html.lib.Array%0}[] sort()
-meth public {net.java.html.lib.Array%0}[] sort(net.java.html.lib.Function$A2<{net.java.html.lib.Array%0},{net.java.html.lib.Array%0},java.lang.Double>)
-meth public !varargs net.java.html.lib.Array<{net.java.html.lib.Array%0}> splice(double,double,{net.java.html.lib.Array%0}[])
+meth public {net.java.html.lib.Array%0}[] sort(net.java.html.lib.Function$A2<? super {net.java.html.lib.Array%0},? super {net.java.html.lib.Array%0},? extends java.lang.Number>)
 supr net.java.html.lib.Objs
+hfds $$fn$$toArray_1
 
 CLSS public net.java.html.lib.ArrayBuffer
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(double)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.ArrayBuffer> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public static net.java.html.lib.ArrayBuffer prototype
+meth public java.lang.Number byteLength()
 meth public net.java.html.lib.ArrayBuffer slice(double)
 meth public net.java.html.lib.ArrayBuffer slice(double,double)
 meth public static java.lang.Boolean isView(java.lang.Object)
+meth public static net.java.html.lib.ArrayBuffer $as(java.lang.Object)
 supr net.java.html.lib.Objs
 
-CLSS public abstract net.java.html.lib.ArrayBufferView
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+CLSS public net.java.html.lib.ArrayBufferView
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.ArrayBufferView> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public net.java.html.lib.ArrayBuffer buffer()
+meth public static net.java.html.lib.ArrayBufferView $as(java.lang.Object)
 supr net.java.html.lib.Objs
 
-CLSS public abstract net.java.html.lib.ArrayLike<%0 extends java.lang.Object>
+CLSS public net.java.html.lib.ArrayLike<%0 extends java.lang.Object>
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.ArrayLike> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
+meth public java.lang.Number length()
+meth public static net.java.html.lib.ArrayLike $as(java.lang.Object)
 meth public {net.java.html.lib.ArrayLike%0} $get(double)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.DataView
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.DataView> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
 meth public double getFloat32(double)
 meth public double getFloat32(double,java.lang.Boolean)
 meth public double getFloat64(double)
@@ -135,6 +132,10 @@ meth public double getUint16(double,java.lang.Boolean)
 meth public double getUint32(double)
 meth public double getUint32(double,java.lang.Boolean)
 meth public double getUint8(double)
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public net.java.html.lib.ArrayBuffer buffer()
+meth public static net.java.html.lib.DataView $as(java.lang.Object)
 meth public void setFloat32(double,double)
 meth public void setFloat32(double,double,java.lang.Boolean)
 meth public void setFloat64(double,double)
@@ -152,6 +153,7 @@ meth public void setUint8(double,double)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Date
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(double)
 cons public init(double,double)
@@ -161,6 +163,7 @@ cons public init(double,double,double,double,double)
 cons public init(double,double,double,double,double,double)
 cons public init(double,double,double,double,double,double,double)
 cons public init(java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Date> $AS
 fld public static net.java.html.lib.Date prototype
 meth public double getDate()
 meth public double getDay()
@@ -213,6 +216,7 @@ meth public double setUTCMonth(double)
 meth public double setUTCMonth(double,double)
 meth public double setUTCSeconds(double)
 meth public double setUTCSeconds(double,double)
+meth public java.lang.Number valueOf()
 meth public java.lang.String toDateString()
 meth public java.lang.String toISOString()
 meth public java.lang.String toJSON()
@@ -223,7 +227,6 @@ meth public java.lang.String toLocaleTimeString()
 meth public java.lang.String toString()
 meth public java.lang.String toTimeString()
 meth public java.lang.String toUTCString()
-meth public java.lang.Number valueOf()
 meth public static double UTC(double,double)
 meth public static double UTC(double,double,double)
 meth public static double UTC(double,double,double,double)
@@ -233,160 +236,32 @@ meth public static double UTC(double,double,double,double,double,double,double)
 meth public static double now()
 meth public static double parse(java.lang.String)
 meth public static java.lang.String newDate()
+meth public static net.java.html.lib.Date $as(java.lang.Object)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Error
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Error> $AS
 fld public net.java.html.lib.Function$A0<java.lang.String> message
 fld public net.java.html.lib.Function$A0<java.lang.String> name
 fld public static net.java.html.lib.Error prototype
+meth public static net.java.html.lib.Error $as(java.lang.Object)
 meth public static net.java.html.lib.Error newError()
 meth public static net.java.html.lib.Error newError(java.lang.String)
+supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.EvalError
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.EvalError> $AS
 fld public static net.java.html.lib.EvalError prototype
+meth public static net.java.html.lib.EvalError $as(java.lang.Object)
 meth public static net.java.html.lib.EvalError newEvalError()
 meth public static net.java.html.lib.EvalError newEvalError(java.lang.String)
 supr net.java.html.lib.Error
-
-CLSS public net.java.html.lib.Float32Array
-cons public init(double)
-cons public init(net.java.html.lib.ArrayBuffer)
-cons public init(net.java.html.lib.ArrayBuffer,double)
-cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public static net.java.html.lib.Float32Array prototype
-meth public !varargs static net.java.html.lib.Float32Array of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
-meth public double indexOf(double)
-meth public double indexOf(double,double)
-meth public double lastIndexOf(double)
-meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
-meth public java.lang.String join()
-meth public java.lang.String join(java.lang.String)
-meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
-meth public net.java.html.lib.Float32Array copyWithin(double,double)
-meth public net.java.html.lib.Float32Array copyWithin(double,double,double)
-meth public net.java.html.lib.Float32Array fill(double)
-meth public net.java.html.lib.Float32Array fill(double,double)
-meth public net.java.html.lib.Float32Array fill(double,double,double)
-meth public net.java.html.lib.Float32Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Boolean>)
-meth public net.java.html.lib.Float32Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Float32Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Double>)
-meth public net.java.html.lib.Float32Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Double>,java.lang.Object)
-meth public net.java.html.lib.Float32Array reverse()
-meth public net.java.html.lib.Float32Array slice()
-meth public net.java.html.lib.Float32Array slice(double)
-meth public net.java.html.lib.Float32Array slice(double,double)
-meth public net.java.html.lib.Float32Array sort()
-meth public net.java.html.lib.Float32Array sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public net.java.html.lib.Float32Array subarray(double)
-meth public net.java.html.lib.Float32Array subarray(double,double)
-meth public static net.java.html.lib.Float32Array from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Float32Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Float32Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float32Array,java.lang.Void>,java.lang.Object)
-meth public void set(double,double)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>,double)
-supr net.java.html.lib.Objs
-
-CLSS public net.java.html.lib.Float64Array
-cons public init(double)
-cons public init(net.java.html.lib.ArrayBuffer)
-cons public init(net.java.html.lib.ArrayBuffer,double)
-cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public static net.java.html.lib.Float64Array prototype
-meth public !varargs static net.java.html.lib.Float64Array of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
-meth public double indexOf(double)
-meth public double indexOf(double,double)
-meth public double lastIndexOf(double)
-meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
-meth public java.lang.String join()
-meth public java.lang.String join(java.lang.String)
-meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
-meth public net.java.html.lib.Float64Array copyWithin(double,double)
-meth public net.java.html.lib.Float64Array copyWithin(double,double,double)
-meth public net.java.html.lib.Float64Array fill(double)
-meth public net.java.html.lib.Float64Array fill(double,double)
-meth public net.java.html.lib.Float64Array fill(double,double,double)
-meth public net.java.html.lib.Float64Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Boolean>)
-meth public net.java.html.lib.Float64Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Float64Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Double>)
-meth public net.java.html.lib.Float64Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Double>,java.lang.Object)
-meth public net.java.html.lib.Float64Array reverse()
-meth public net.java.html.lib.Float64Array slice()
-meth public net.java.html.lib.Float64Array slice(double)
-meth public net.java.html.lib.Float64Array slice(double,double)
-meth public net.java.html.lib.Float64Array sort()
-meth public net.java.html.lib.Float64Array sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public net.java.html.lib.Float64Array subarray(double)
-meth public net.java.html.lib.Float64Array subarray(double,double)
-meth public static net.java.html.lib.Float64Array from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Float64Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Float64Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Float64Array,java.lang.Void>,java.lang.Object)
-meth public void set(double,double)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>,double)
-supr net.java.html.lib.Objs
-
-CLSS public net.java.html.lib.Function
-cons public !varargs init(java.lang.String[])
-fld public final net.java.html.lib.Function$A0<java.lang.Number> length
-fld public java.lang.Object prototype
-meth public !varargs java.lang.Object bind(java.lang.Object,java.lang.Object[])
-#meth public !varargs java.lang.Object call(java.lang.Object,java.lang.Object[])
-meth public !varargs static net.java.html.lib.Function newFunction(java.lang.String[])
-meth public !varargs java.lang.Object apply(java.lang.Object,java.lang.Object[])
-supr net.java.html.lib.Objs
 
 CLSS public final net.java.html.lib.Exports
 fld public static double Infinity
@@ -401,216 +276,450 @@ meth public static java.lang.String decodeURI(java.lang.String)
 meth public static java.lang.String decodeURIComponent(java.lang.String)
 meth public static java.lang.String encodeURI(java.lang.String)
 meth public static java.lang.String encodeURIComponent(java.lang.String)
-supr java.lang.Object
-
-CLSS public abstract net.java.html.lib.IArguments
-fld public final net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> callee
-meth public java.lang.Object $get(double)
 supr net.java.html.lib.Objs
 
-CLSS public net.java.html.lib.Int16Array
+CLSS public net.java.html.lib.Float32Array
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Float32Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public static net.java.html.lib.Int16Array prototype
-meth public !varargs static net.java.html.lib.Int16Array of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public static net.java.html.lib.Float32Array prototype
+meth public !varargs static net.java.html.lib.Float32Array of(double[])
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
 meth public double indexOf(double)
 meth public double indexOf(double,double)
 meth public double lastIndexOf(double)
 meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
+meth public net.java.html.lib.Float32Array copyWithin(double,double)
+meth public net.java.html.lib.Float32Array copyWithin(double,double,double)
+meth public net.java.html.lib.Float32Array fill(double)
+meth public net.java.html.lib.Float32Array fill(double,double)
+meth public net.java.html.lib.Float32Array fill(double,double,double)
+meth public net.java.html.lib.Float32Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Float32Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Float32Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Number>)
+meth public net.java.html.lib.Float32Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Number>,java.lang.Object)
+meth public net.java.html.lib.Float32Array reverse()
+meth public net.java.html.lib.Float32Array slice()
+meth public net.java.html.lib.Float32Array slice(double)
+meth public net.java.html.lib.Float32Array slice(double,double)
+meth public net.java.html.lib.Float32Array sort()
+meth public net.java.html.lib.Float32Array sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public net.java.html.lib.Float32Array subarray(double)
+meth public net.java.html.lib.Float32Array subarray(double,double)
+meth public static net.java.html.lib.Float32Array $as(java.lang.Object)
+meth public static net.java.html.lib.Float32Array from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Float32Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Float32Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends java.lang.Void>,java.lang.Object)
+meth public void set(double,double)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
+supr net.java.html.lib.Objs
+
+CLSS public net.java.html.lib.Float64Array
+cons protected init(java.lang.Class<?>,java.lang.Object)
+cons public init(double)
+cons public init(net.java.html.lib.ArrayBuffer)
+cons public init(net.java.html.lib.ArrayBuffer,double)
+cons public init(net.java.html.lib.ArrayBuffer,double,double)
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Float64Array> $AS
+fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
+fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
+fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public static net.java.html.lib.Float64Array prototype
+meth public !varargs static net.java.html.lib.Float64Array of(double[])
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
+meth public double indexOf(double)
+meth public double indexOf(double,double)
+meth public double lastIndexOf(double)
+meth public double lastIndexOf(double,double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
+meth public java.lang.String join()
+meth public java.lang.String join(java.lang.String)
+meth public java.lang.String toLocaleString()
+meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
+meth public net.java.html.lib.Float64Array copyWithin(double,double)
+meth public net.java.html.lib.Float64Array copyWithin(double,double,double)
+meth public net.java.html.lib.Float64Array fill(double)
+meth public net.java.html.lib.Float64Array fill(double,double)
+meth public net.java.html.lib.Float64Array fill(double,double,double)
+meth public net.java.html.lib.Float64Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Float64Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Float64Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Number>)
+meth public net.java.html.lib.Float64Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Number>,java.lang.Object)
+meth public net.java.html.lib.Float64Array reverse()
+meth public net.java.html.lib.Float64Array slice()
+meth public net.java.html.lib.Float64Array slice(double)
+meth public net.java.html.lib.Float64Array slice(double,double)
+meth public net.java.html.lib.Float64Array sort()
+meth public net.java.html.lib.Float64Array sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public net.java.html.lib.Float64Array subarray(double)
+meth public net.java.html.lib.Float64Array subarray(double,double)
+meth public static net.java.html.lib.Float64Array $as(java.lang.Object)
+meth public static net.java.html.lib.Float64Array from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Float64Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Float64Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends java.lang.Void>,java.lang.Object)
+meth public void set(double,double)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
+supr net.java.html.lib.Objs
+
+CLSS public net.java.html.lib.Function
+cons protected init(java.lang.Class<?>,java.lang.Object)
+cons public !varargs init(java.lang.String[])
+fld public final net.java.html.lib.Function$A0<java.lang.Number> length
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Function> $AS
+fld public java.lang.Object prototype
+innr public abstract interface static A0
+innr public abstract interface static A1
+innr public abstract interface static A2
+innr public abstract interface static A3
+innr public abstract interface static A4
+innr public abstract interface static A5
+meth public !varargs java.lang.Object apply(java.lang.Object,java.lang.Object[])
+meth public !varargs java.lang.Object bind(java.lang.Object,java.lang.Object[])
+meth public !varargs static java.lang.Object $call(java.lang.Object,java.lang.Object[])
+meth public !varargs static net.java.html.lib.Function newFunction(java.lang.String[])
+meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(java.lang.Object,java.lang.String)
+meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(net.java.html.lib.Function$A1<java.lang.Object,?>,java.lang.Object,java.lang.String)
+meth public static net.java.html.lib.Function $as(java.lang.Object)
+meth public static net.java.html.lib.Function newFunction(net.java.html.lib.Function$A5<?,?,?,?,?,?>)
+supr net.java.html.lib.Objs
+hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1
+hcls JSFn
+
+CLSS public abstract interface static net.java.html.lib.Function$A0<%0 extends java.lang.Object>
+ outer net.java.html.lib.Function
+intf net.java.html.lib.Function$A1<java.lang.Object,{net.java.html.lib.Function$A0%0}>
+meth public abstract {net.java.html.lib.Function$A0%0} call()
+meth public {net.java.html.lib.Function$A0%0} call(java.lang.Object)
+
+CLSS public abstract interface static net.java.html.lib.Function$A1<%0 extends java.lang.Object, %1 extends java.lang.Object>
+ outer net.java.html.lib.Function
+intf net.java.html.lib.Function$A2<{net.java.html.lib.Function$A1%0},java.lang.Object,{net.java.html.lib.Function$A1%1}>
+meth public abstract {net.java.html.lib.Function$A1%1} call({net.java.html.lib.Function$A1%0})
+meth public {net.java.html.lib.Function$A1%1} call({net.java.html.lib.Function$A1%0},java.lang.Object)
+
+CLSS public abstract interface static net.java.html.lib.Function$A2<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object>
+ outer net.java.html.lib.Function
+intf net.java.html.lib.Function$A3<{net.java.html.lib.Function$A2%0},{net.java.html.lib.Function$A2%1},java.lang.Object,{net.java.html.lib.Function$A2%2}>
+meth public abstract {net.java.html.lib.Function$A2%2} call({net.java.html.lib.Function$A2%0},{net.java.html.lib.Function$A2%1})
+meth public {net.java.html.lib.Function$A2%2} call({net.java.html.lib.Function$A2%0},{net.java.html.lib.Function$A2%1},java.lang.Object)
+
+CLSS public abstract interface static net.java.html.lib.Function$A3<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object>
+ outer net.java.html.lib.Function
+intf net.java.html.lib.Function$A4<{net.java.html.lib.Function$A3%0},{net.java.html.lib.Function$A3%1},{net.java.html.lib.Function$A3%2},java.lang.Object,{net.java.html.lib.Function$A3%3}>
+meth public abstract {net.java.html.lib.Function$A3%3} call({net.java.html.lib.Function$A3%0},{net.java.html.lib.Function$A3%1},{net.java.html.lib.Function$A3%2})
+meth public {net.java.html.lib.Function$A3%3} call({net.java.html.lib.Function$A3%0},{net.java.html.lib.Function$A3%1},{net.java.html.lib.Function$A3%2},java.lang.Object)
+
+CLSS public abstract interface static net.java.html.lib.Function$A4<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object>
+ outer net.java.html.lib.Function
+intf net.java.html.lib.Function$A5<{net.java.html.lib.Function$A4%0},{net.java.html.lib.Function$A4%1},{net.java.html.lib.Function$A4%2},{net.java.html.lib.Function$A4%3},java.lang.Object,{net.java.html.lib.Function$A4%4}>
+meth public abstract {net.java.html.lib.Function$A4%4} call({net.java.html.lib.Function$A4%0},{net.java.html.lib.Function$A4%1},{net.java.html.lib.Function$A4%2},{net.java.html.lib.Function$A4%3})
+meth public {net.java.html.lib.Function$A4%4} call({net.java.html.lib.Function$A4%0},{net.java.html.lib.Function$A4%1},{net.java.html.lib.Function$A4%2},{net.java.html.lib.Function$A4%3},java.lang.Object)
+
+CLSS public abstract interface static net.java.html.lib.Function$A5<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object>
+ outer net.java.html.lib.Function
+meth public abstract {net.java.html.lib.Function$A5%5} call({net.java.html.lib.Function$A5%0},{net.java.html.lib.Function$A5%1},{net.java.html.lib.Function$A5%2},{net.java.html.lib.Function$A5%3},{net.java.html.lib.Function$A5%4})
+
+CLSS public net.java.html.lib.IArguments
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.IArguments> $AS
+fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> callee
+meth public java.lang.Number length()
+meth public java.lang.Object $get(double)
+meth public net.java.html.lib.Function callee()
+meth public static net.java.html.lib.IArguments $as(java.lang.Object)
+supr net.java.html.lib.Objs
+
+CLSS public net.java.html.lib.Int16Array
+cons protected init(java.lang.Class<?>,java.lang.Object)
+cons public init(double)
+cons public init(net.java.html.lib.ArrayBuffer)
+cons public init(net.java.html.lib.ArrayBuffer,double)
+cons public init(net.java.html.lib.ArrayBuffer,double,double)
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Int16Array> $AS
+fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
+fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
+fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public static net.java.html.lib.Int16Array prototype
+meth public !varargs static net.java.html.lib.Int16Array of(double[])
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
+meth public double indexOf(double)
+meth public double indexOf(double,double)
+meth public double lastIndexOf(double)
+meth public double lastIndexOf(double,double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
+meth public java.lang.String join()
+meth public java.lang.String join(java.lang.String)
+meth public java.lang.String toLocaleString()
+meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Int16Array copyWithin(double,double)
 meth public net.java.html.lib.Int16Array copyWithin(double,double,double)
 meth public net.java.html.lib.Int16Array fill(double)
 meth public net.java.html.lib.Int16Array fill(double,double)
 meth public net.java.html.lib.Int16Array fill(double,double,double)
-meth public net.java.html.lib.Int16Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Boolean>)
-meth public net.java.html.lib.Int16Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Int16Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Double>)
-meth public net.java.html.lib.Int16Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Double>,java.lang.Object)
+meth public net.java.html.lib.Int16Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Int16Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Int16Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Number>)
+meth public net.java.html.lib.Int16Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Number>,java.lang.Object)
 meth public net.java.html.lib.Int16Array reverse()
 meth public net.java.html.lib.Int16Array slice()
 meth public net.java.html.lib.Int16Array slice(double)
 meth public net.java.html.lib.Int16Array slice(double,double)
 meth public net.java.html.lib.Int16Array sort()
-meth public net.java.html.lib.Int16Array sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
+meth public net.java.html.lib.Int16Array sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
 meth public net.java.html.lib.Int16Array subarray(double)
 meth public net.java.html.lib.Int16Array subarray(double,double)
-meth public static net.java.html.lib.Int16Array from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Int16Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Int16Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int16Array,java.lang.Void>,java.lang.Object)
+meth public static net.java.html.lib.Int16Array $as(java.lang.Object)
+meth public static net.java.html.lib.Int16Array from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Int16Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Int16Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends java.lang.Void>,java.lang.Object)
 meth public void set(double,double)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>,double)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Int32Array
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Int32Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Int32Array prototype
 meth public !varargs static net.java.html.lib.Int32Array of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
 meth public double indexOf(double)
 meth public double indexOf(double,double)
 meth public double lastIndexOf(double)
 meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Int32Array copyWithin(double,double)
 meth public net.java.html.lib.Int32Array copyWithin(double,double,double)
 meth public net.java.html.lib.Int32Array fill(double)
 meth public net.java.html.lib.Int32Array fill(double,double)
 meth public net.java.html.lib.Int32Array fill(double,double,double)
-meth public net.java.html.lib.Int32Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Boolean>)
-meth public net.java.html.lib.Int32Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Int32Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Double>)
-meth public net.java.html.lib.Int32Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Double>,java.lang.Object)
+meth public net.java.html.lib.Int32Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Int32Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Int32Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Number>)
+meth public net.java.html.lib.Int32Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Number>,java.lang.Object)
 meth public net.java.html.lib.Int32Array reverse()
 meth public net.java.html.lib.Int32Array slice()
 meth public net.java.html.lib.Int32Array slice(double)
 meth public net.java.html.lib.Int32Array slice(double,double)
 meth public net.java.html.lib.Int32Array sort()
-meth public net.java.html.lib.Int32Array sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
+meth public net.java.html.lib.Int32Array sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
 meth public net.java.html.lib.Int32Array subarray(double)
 meth public net.java.html.lib.Int32Array subarray(double,double)
-meth public static net.java.html.lib.Int32Array from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Int32Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Int32Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int32Array,java.lang.Void>,java.lang.Object)
+meth public static net.java.html.lib.Int32Array $as(java.lang.Object)
+meth public static net.java.html.lib.Int32Array from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Int32Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Int32Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends java.lang.Void>,java.lang.Object)
 meth public void set(double,double)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>,double)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Int8Array
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Int8Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Int8Array prototype
 meth public !varargs static net.java.html.lib.Int8Array of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
 meth public double indexOf(double)
 meth public double indexOf(double,double)
 meth public double lastIndexOf(double)
 meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Int8Array copyWithin(double,double)
 meth public net.java.html.lib.Int8Array copyWithin(double,double,double)
 meth public net.java.html.lib.Int8Array fill(double)
 meth public net.java.html.lib.Int8Array fill(double,double)
 meth public net.java.html.lib.Int8Array fill(double,double,double)
-meth public net.java.html.lib.Int8Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Boolean>)
-meth public net.java.html.lib.Int8Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Int8Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Double>)
-meth public net.java.html.lib.Int8Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Double>,java.lang.Object)
+meth public net.java.html.lib.Int8Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Int8Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Int8Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Number>)
+meth public net.java.html.lib.Int8Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Number>,java.lang.Object)
 meth public net.java.html.lib.Int8Array reverse()
 meth public net.java.html.lib.Int8Array slice()
 meth public net.java.html.lib.Int8Array slice(double)
 meth public net.java.html.lib.Int8Array slice(double,double)
 meth public net.java.html.lib.Int8Array sort()
-meth public net.java.html.lib.Int8Array sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
+meth public net.java.html.lib.Int8Array sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
 meth public net.java.html.lib.Int8Array subarray(double)
 meth public net.java.html.lib.Int8Array subarray(double,double)
-meth public static net.java.html.lib.Int8Array from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Int8Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Int8Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Int8Array,java.lang.Void>,java.lang.Object)
+meth public static net.java.html.lib.Int8Array $as(java.lang.Object)
+meth public static net.java.html.lib.Int8Array from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Int8Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Int8Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends java.lang.Void>,java.lang.Object)
 meth public void set(double,double)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>,double)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 
-CLSS public abstract net.java.html.lib.JSON
+CLSS public net.java.html.lib.JSON
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.JSON> $AS
 meth public static java.lang.Object parse(java.lang.String)
-meth public static java.lang.Object parse(java.lang.String,net.java.html.lib.Function$A2<java.lang.Object,java.lang.Object,java.lang.Object>)
+meth public static java.lang.Object parse(java.lang.String,net.java.html.lib.Function$A2<? super java.lang.Object,? super java.lang.Object,?>)
 meth public static java.lang.String stringify(java.lang.Object)
 meth public static java.lang.String stringify(java.lang.Object,java.lang.Object[])
 meth public static java.lang.String stringify(java.lang.Object,java.lang.Object[],double)
 meth public static java.lang.String stringify(java.lang.Object,java.lang.Object[],java.lang.String)
-meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib.Function$A2<java.lang.String,java.lang.Object,java.lang.Object>)
-meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib.Function$A2<java.lang.String,java.lang.Object,java.lang.Object>,double)
-meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib.Function$A2<java.lang.String,java.lang.Object,java.lang.Object>,java.lang.String)
+meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib.Function$A2<? super java.lang.String,? super java.lang.Object,?>)
+meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib.Function$A2<? super java.lang.String,? super java.lang.Object,?>,double)
+meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib.Function$A2<? super java.lang.String,? super java.lang.Object,?>,java.lang.String)
+meth public static net.java.html.lib.JSON $as(java.lang.Object)
 supr net.java.html.lib.Objs
 
-CLSS public abstract net.java.html.lib.Math
+CLSS public net.java.html.lib.Math
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Math> $AS
 fld public static double E
 fld public static double LN10
 fld public static double LN2
@@ -637,11 +746,14 @@ meth public static double round(double)
 meth public static double sin(double)
 meth public static double sqrt(double)
 meth public static double tan(double)
+meth public static net.java.html.lib.Math $as(java.lang.Object)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Objs
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Objs> $AS
 fld public static java.lang.Object prototype
 meth public java.lang.Boolean hasOwnProperty(java.lang.String)
 meth public java.lang.Boolean isPrototypeOf(java.lang.Object)
@@ -656,56 +768,82 @@ meth public static <%0 extends java.lang.Object> {%%0} seal({%%0})
 meth public static java.lang.Boolean isExtensible(java.lang.Object)
 meth public static java.lang.Boolean isFrozen(java.lang.Object)
 meth public static java.lang.Boolean isSealed(java.lang.Object)
-meth public static java.lang.Object newObject()
+meth public static java.lang.Object $js(java.lang.Object)
+meth public static java.lang.Object $lazy(java.lang.Object,java.lang.String)
 meth public static java.lang.Object create(java.lang.Object)
-meth public static java.lang.Object newObject(java.lang.Object)
 meth public static java.lang.Object create(java.lang.Object,net.java.html.lib.PropertyDescriptorMap)
 meth public static java.lang.Object defineProperties(java.lang.Object,net.java.html.lib.PropertyDescriptorMap)
 meth public static java.lang.Object defineProperty(java.lang.Object,java.lang.String,net.java.html.lib.PropertyDescriptor)
 meth public static java.lang.Object getPrototypeOf(java.lang.Object)
+meth public static java.lang.Object newObject()
+meth public static java.lang.Object newObject(java.lang.Object)
 meth public static java.lang.String[] getOwnPropertyNames(java.lang.Object)
-meth public static java.lang.String[] keys(java.lang.Object)
+meth public static net.java.html.lib.Array<java.lang.String> keys(java.lang.Object)
+meth public static net.java.html.lib.Objs $as(java.lang.Object)
 meth public static net.java.html.lib.PropertyDescriptor getOwnPropertyDescriptor(java.lang.Object,java.lang.String)
 meth public void $delete(java.lang.String)
 meth public void $set(java.lang.String,java.lang.Object)
 supr java.lang.Object
+hfds $$fn$$deleteRaw_3,$$fn$$getRaw_1,$$fn$$setRaw_2,js
 
-CLSS public abstract net.java.html.lib.PromiseLike<%0 extends java.lang.Object>
+CLSS public net.java.html.lib.PromiseLike<%0 extends java.lang.Object>
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.PromiseLike> $AS
 meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then()
+meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.PromiseLike%0},? extends net.java.html.lib.Union$A2<{%%0},net.java.html.lib.PromiseLike<{%%0}>>>)
+meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.PromiseLike%0},? extends net.java.html.lib.Union$A2<{%%0},net.java.html.lib.PromiseLike<{%%0}>>>,net.java.html.lib.Function$A1<? super java.lang.Object,? extends java.lang.Void>)
+meth public static net.java.html.lib.PromiseLike $as(java.lang.Object)
 supr net.java.html.lib.Objs
 
-CLSS public abstract net.java.html.lib.PropertyDescriptor
+CLSS public net.java.html.lib.PropertyDescriptor
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.PropertyDescriptor> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> configurable
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> enumerable
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> writable
 fld public net.java.html.lib.Function$A0<java.lang.Object> value
+meth public java.lang.Boolean configurable()
+meth public java.lang.Boolean enumerable()
+meth public java.lang.Boolean writable()
 meth public java.lang.Object get()
+meth public static net.java.html.lib.PropertyDescriptor $as(java.lang.Object)
 meth public void set(java.lang.Object)
 supr net.java.html.lib.Objs
 
-CLSS public abstract net.java.html.lib.PropertyDescriptorMap
+CLSS public net.java.html.lib.PropertyDescriptorMap
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.PropertyDescriptorMap> $AS
 meth public net.java.html.lib.PropertyDescriptor $get(java.lang.String)
+meth public static net.java.html.lib.PropertyDescriptorMap $as(java.lang.Object)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.RangeError
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.RangeError> $AS
 fld public static net.java.html.lib.RangeError prototype
+meth public static net.java.html.lib.RangeError $as(java.lang.Object)
 meth public static net.java.html.lib.RangeError newRangeError()
 meth public static net.java.html.lib.RangeError newRangeError(java.lang.String)
 supr net.java.html.lib.Error
 
 CLSS public net.java.html.lib.ReferenceError
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.ReferenceError> $AS
 fld public static net.java.html.lib.ReferenceError prototype
+meth public static net.java.html.lib.ReferenceError $as(java.lang.Object)
 meth public static net.java.html.lib.ReferenceError newReferenceError()
 meth public static net.java.html.lib.ReferenceError newReferenceError(java.lang.String)
 supr net.java.html.lib.Error
 
 CLSS public net.java.html.lib.RegExp
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(java.lang.String)
 cons public init(java.lang.String,java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.RegExp> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> global
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> ignoreCase
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> multiline
@@ -722,311 +860,426 @@ fld public static java.lang.String $8
 fld public static java.lang.String $9
 fld public static java.lang.String lastMatch
 fld public static net.java.html.lib.RegExp prototype
+meth public java.lang.Boolean global()
+meth public java.lang.Boolean ignoreCase()
+meth public java.lang.Boolean multiline()
 meth public java.lang.Boolean test(java.lang.String)
+meth public java.lang.Number lastIndex()
+meth public java.lang.String source()
 meth public net.java.html.lib.RegExp compile()
 meth public net.java.html.lib.RegExpExecArray exec(java.lang.String)
+meth public static net.java.html.lib.RegExp $as(java.lang.Object)
 meth public static net.java.html.lib.RegExp newRegExp(java.lang.String)
 meth public static net.java.html.lib.RegExp newRegExp(java.lang.String,java.lang.String)
 supr net.java.html.lib.Objs
 
-CLSS public abstract net.java.html.lib.RegExpExecArray
+CLSS public net.java.html.lib.RegExpExecArray
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.RegExpExecArray> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> index
 fld public net.java.html.lib.Function$A0<java.lang.String> input
+meth public java.lang.Number index()
+meth public java.lang.String input()
+meth public static net.java.html.lib.RegExpExecArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
 
-CLSS public abstract net.java.html.lib.RegExpMatchArray
+CLSS public net.java.html.lib.RegExpMatchArray
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.RegExpMatchArray> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> index
 fld public net.java.html.lib.Function$A0<java.lang.String> input
+meth public java.lang.Number index()
+meth public java.lang.String input()
+meth public static net.java.html.lib.RegExpMatchArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
 
 CLSS public net.java.html.lib.SyntaxError
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.SyntaxError> $AS
 fld public static net.java.html.lib.SyntaxError prototype
+meth public static net.java.html.lib.SyntaxError $as(java.lang.Object)
 meth public static net.java.html.lib.SyntaxError newSyntaxError()
 meth public static net.java.html.lib.SyntaxError newSyntaxError(java.lang.String)
 supr net.java.html.lib.Error
 
-CLSS public abstract net.java.html.lib.TemplateStringsArray
+CLSS public net.java.html.lib.TemplateStringsArray
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.TemplateStringsArray> $AS
 fld public net.java.html.lib.Function$A0<java.lang.String[]> raw
+meth public java.lang.String[] raw()
+meth public static net.java.html.lib.TemplateStringsArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
 
 CLSS public net.java.html.lib.TypeError
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.TypeError> $AS
 fld public static net.java.html.lib.TypeError prototype
+meth public static net.java.html.lib.TypeError $as(java.lang.Object)
 meth public static net.java.html.lib.TypeError newTypeError()
 meth public static net.java.html.lib.TypeError newTypeError(java.lang.String)
 supr net.java.html.lib.Error
 
-CLSS public abstract net.java.html.lib.TypedPropertyDescriptor<%0 extends java.lang.Object>
+CLSS public net.java.html.lib.TypedPropertyDescriptor<%0 extends java.lang.Object>
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.TypedPropertyDescriptor> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> configurable
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> enumerable
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> writable
 fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A0<? extends {net.java.html.lib.TypedPropertyDescriptor%0}>> get
 fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super {net.java.html.lib.TypedPropertyDescriptor%0},? extends java.lang.Void>> set
 fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> value
+meth public java.lang.Boolean configurable()
+meth public java.lang.Boolean enumerable()
+meth public java.lang.Boolean writable()
+meth public net.java.html.lib.Function$A0<? extends {net.java.html.lib.TypedPropertyDescriptor%0}> get()
+meth public net.java.html.lib.Function$A1<? super {net.java.html.lib.TypedPropertyDescriptor%0},? extends java.lang.Void> set()
+meth public static net.java.html.lib.TypedPropertyDescriptor $as(java.lang.Object)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.URIError
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.URIError> $AS
 fld public static net.java.html.lib.URIError prototype
+meth public static net.java.html.lib.URIError $as(java.lang.Object)
 meth public static net.java.html.lib.URIError newURIError()
 meth public static net.java.html.lib.URIError newURIError(java.lang.String)
 supr net.java.html.lib.Error
 
 CLSS public net.java.html.lib.Uint16Array
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Uint16Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Uint16Array prototype
 meth public !varargs static net.java.html.lib.Uint16Array of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
 meth public double indexOf(double)
 meth public double indexOf(double,double)
 meth public double lastIndexOf(double)
 meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Uint16Array copyWithin(double,double)
 meth public net.java.html.lib.Uint16Array copyWithin(double,double,double)
 meth public net.java.html.lib.Uint16Array fill(double)
 meth public net.java.html.lib.Uint16Array fill(double,double)
 meth public net.java.html.lib.Uint16Array fill(double,double,double)
-meth public net.java.html.lib.Uint16Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Boolean>)
-meth public net.java.html.lib.Uint16Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Uint16Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Double>)
-meth public net.java.html.lib.Uint16Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Double>,java.lang.Object)
+meth public net.java.html.lib.Uint16Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Uint16Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Uint16Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Number>)
+meth public net.java.html.lib.Uint16Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Number>,java.lang.Object)
 meth public net.java.html.lib.Uint16Array reverse()
 meth public net.java.html.lib.Uint16Array slice()
 meth public net.java.html.lib.Uint16Array slice(double)
 meth public net.java.html.lib.Uint16Array slice(double,double)
 meth public net.java.html.lib.Uint16Array sort()
-meth public net.java.html.lib.Uint16Array sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
+meth public net.java.html.lib.Uint16Array sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
 meth public net.java.html.lib.Uint16Array subarray(double)
 meth public net.java.html.lib.Uint16Array subarray(double,double)
-meth public static net.java.html.lib.Uint16Array from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Uint16Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Uint16Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint16Array,java.lang.Void>,java.lang.Object)
+meth public static net.java.html.lib.Uint16Array $as(java.lang.Object)
+meth public static net.java.html.lib.Uint16Array from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Uint16Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Uint16Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends java.lang.Void>,java.lang.Object)
 meth public void set(double,double)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>,double)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Uint32Array
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Uint32Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Uint32Array prototype
 meth public !varargs static net.java.html.lib.Uint32Array of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
 meth public double indexOf(double)
 meth public double indexOf(double,double)
 meth public double lastIndexOf(double)
 meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Uint32Array copyWithin(double,double)
 meth public net.java.html.lib.Uint32Array copyWithin(double,double,double)
 meth public net.java.html.lib.Uint32Array fill(double)
 meth public net.java.html.lib.Uint32Array fill(double,double)
 meth public net.java.html.lib.Uint32Array fill(double,double,double)
-meth public net.java.html.lib.Uint32Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Boolean>)
-meth public net.java.html.lib.Uint32Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Uint32Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Double>)
-meth public net.java.html.lib.Uint32Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Double>,java.lang.Object)
+meth public net.java.html.lib.Uint32Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Uint32Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Uint32Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Number>)
+meth public net.java.html.lib.Uint32Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Number>,java.lang.Object)
 meth public net.java.html.lib.Uint32Array reverse()
 meth public net.java.html.lib.Uint32Array slice()
 meth public net.java.html.lib.Uint32Array slice(double)
 meth public net.java.html.lib.Uint32Array slice(double,double)
 meth public net.java.html.lib.Uint32Array sort()
-meth public net.java.html.lib.Uint32Array sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
+meth public net.java.html.lib.Uint32Array sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
 meth public net.java.html.lib.Uint32Array subarray(double)
 meth public net.java.html.lib.Uint32Array subarray(double,double)
-meth public static net.java.html.lib.Uint32Array from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Uint32Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Uint32Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint32Array,java.lang.Void>,java.lang.Object)
+meth public static net.java.html.lib.Uint32Array $as(java.lang.Object)
+meth public static net.java.html.lib.Uint32Array from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Uint32Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Uint32Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends java.lang.Void>,java.lang.Object)
 meth public void set(double,double)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>,double)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Uint8Array
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Uint8Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Uint8Array prototype
 meth public !varargs static net.java.html.lib.Uint8Array of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
 meth public double indexOf(double)
 meth public double indexOf(double,double)
 meth public double lastIndexOf(double)
 meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Uint8Array copyWithin(double,double)
 meth public net.java.html.lib.Uint8Array copyWithin(double,double,double)
 meth public net.java.html.lib.Uint8Array fill(double)
 meth public net.java.html.lib.Uint8Array fill(double,double)
 meth public net.java.html.lib.Uint8Array fill(double,double,double)
-meth public net.java.html.lib.Uint8Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Boolean>)
-meth public net.java.html.lib.Uint8Array filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Uint8Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Double>)
-meth public net.java.html.lib.Uint8Array map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Double>,java.lang.Object)
+meth public net.java.html.lib.Uint8Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Uint8Array filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Uint8Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Number>)
+meth public net.java.html.lib.Uint8Array map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Number>,java.lang.Object)
 meth public net.java.html.lib.Uint8Array reverse()
 meth public net.java.html.lib.Uint8Array slice()
 meth public net.java.html.lib.Uint8Array slice(double)
 meth public net.java.html.lib.Uint8Array slice(double,double)
 meth public net.java.html.lib.Uint8Array sort()
-meth public net.java.html.lib.Uint8Array sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
+meth public net.java.html.lib.Uint8Array sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
 meth public net.java.html.lib.Uint8Array subarray(double)
 meth public net.java.html.lib.Uint8Array subarray(double,double)
-meth public static net.java.html.lib.Uint8Array from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Uint8Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Uint8Array from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8Array,java.lang.Void>,java.lang.Object)
+meth public static net.java.html.lib.Uint8Array $as(java.lang.Object)
+meth public static net.java.html.lib.Uint8Array from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Uint8Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Uint8Array from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends java.lang.Void>,java.lang.Object)
 meth public void set(double,double)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public void set(net.java.html.lib.ArrayLike<java.lang.Double>,double)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Uint8ClampedArray
+cons protected init(java.lang.Class<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-cons public init(net.java.html.lib.ArrayLike<java.lang.Double>)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Uint8ClampedArray> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Uint8ClampedArray prototype
 meth public !varargs static net.java.html.lib.Uint8ClampedArray of(double[])
-meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,{%%0}>,{%%0})
-meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<{%%0},java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,{%%0}>,{%%0})
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>)
-meth public double find(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Array<java.lang.Double>,java.lang.Boolean>,java.lang.Object)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>)
-meth public double findIndex(net.java.html.lib.Function$A1<java.lang.Double,java.lang.Boolean>,java.lang.Object)
+meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends {%%0}>,{%%0})
+meth public <%0 extends java.lang.Object> {%%0} reduceRight(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends {%%0}>,{%%0})
+meth public double $get(double)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>)
+meth public double find(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Array<java.lang.Number>,? extends java.lang.Boolean>,java.lang.Object)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>)
+meth public double findIndex(net.java.html.lib.Function$A1<? super java.lang.Number,? extends java.lang.Boolean>,java.lang.Object)
 meth public double indexOf(double)
 meth public double indexOf(double,double)
 meth public double lastIndexOf(double)
 meth public double lastIndexOf(double,double)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Double>)
-meth public double reduce(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Double>,double)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Double>)
-meth public double reduceRight(net.java.html.lib.Function$A4<java.lang.Double,java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Double>,double)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Boolean>)
-meth public java.lang.Boolean every(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Boolean>,java.lang.Object)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Boolean>)
-meth public java.lang.Boolean some(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Boolean>,java.lang.Object)
-meth public double $get(double)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Number>)
+meth public double reduce(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Number>,double)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Number>)
+meth public double reduceRight(net.java.html.lib.Function$A4<? super java.lang.Number,? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Number>,double)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Boolean>)
+meth public java.lang.Boolean every(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Boolean>)
+meth public java.lang.Boolean some(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Boolean>,java.lang.Object)
+meth public java.lang.Number BYTES_PER_ELEMENT()
+meth public java.lang.Number byteLength()
+meth public java.lang.Number byteOffset()
+meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Uint8ClampedArray copyWithin(double,double)
 meth public net.java.html.lib.Uint8ClampedArray copyWithin(double,double,double)
 meth public net.java.html.lib.Uint8ClampedArray fill(double)
 meth public net.java.html.lib.Uint8ClampedArray fill(double,double)
 meth public net.java.html.lib.Uint8ClampedArray fill(double,double,double)
-meth public net.java.html.lib.Uint8ClampedArray filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Boolean>)
-meth public net.java.html.lib.Uint8ClampedArray filter(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Boolean>,java.lang.Object)
-meth public net.java.html.lib.Uint8ClampedArray map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Double>)
-meth public net.java.html.lib.Uint8ClampedArray map(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Double>,java.lang.Object)
+meth public net.java.html.lib.Uint8ClampedArray filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Boolean>)
+meth public net.java.html.lib.Uint8ClampedArray filter(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Boolean>,java.lang.Object)
+meth public net.java.html.lib.Uint8ClampedArray map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Number>)
+meth public net.java.html.lib.Uint8ClampedArray map(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Number>,java.lang.Object)
 meth public net.java.html.lib.Uint8ClampedArray reverse()
 meth public net.java.html.lib.Uint8ClampedArray slice()
 meth public net.java.html.lib.Uint8ClampedArray slice(double)
 meth public net.java.html.lib.Uint8ClampedArray slice(double,double)
 meth public net.java.html.lib.Uint8ClampedArray sort()
-meth public net.java.html.lib.Uint8ClampedArray sort(net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
+meth public net.java.html.lib.Uint8ClampedArray sort(net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
 meth public net.java.html.lib.Uint8ClampedArray subarray(double)
 meth public net.java.html.lib.Uint8ClampedArray subarray(double,double)
-meth public static net.java.html.lib.Uint8ClampedArray from(net.java.html.lib.ArrayLike<java.lang.Double>)
-meth public static net.java.html.lib.Uint8ClampedArray from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>)
-meth public static net.java.html.lib.Uint8ClampedArray from(net.java.html.lib.ArrayLike<java.lang.Double>,net.java.html.lib.Function$A2<java.lang.Double,java.lang.Double,java.lang.Double>,java.lang.Object)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Void>)
-meth public void forEach(net.java.html.lib.Function$A3<java.lang.Double,java.lang.Double,net.java.html.lib.Uint8ClampedArray,java.lang.Void>,java.lang.Object)
+meth public static net.java.html.lib.Uint8ClampedArray $as(java.lang.Object)
+meth public static net.java.html.lib.Uint8ClampedArray from(net.java.html.lib.ArrayLike<java.lang.Number>)
+meth public static net.java.html.lib.Uint8ClampedArray from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>)
+meth public static net.java.html.lib.Uint8ClampedArray from(net.java.html.lib.ArrayLike<java.lang.Number>,net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Number,? extends java.lang.Number>,java.lang.Object)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Void>)
+meth public void forEach(net.java.html.lib.Function$A3<? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends java.lang.Void>,java.lang.Object)
 meth public void set(double,double)
 meth public void set(net.java.html.lib.Uint8ClampedArray)
 meth public void set(net.java.html.lib.Uint8ClampedArray,double)
 supr net.java.html.lib.Objs
 
-CLSS abstract interface net.java.html.lib.package-info
+CLSS public final net.java.html.lib.Union
+cons public init()
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Union$A9> $AS
+innr public abstract static A2
+innr public abstract static A3
+innr public abstract static A4
+innr public abstract static A5
+innr public abstract static A6
+innr public abstract static A7
+innr public abstract static A8
+innr public abstract static A9
+meth public static <%0 extends net.java.html.lib.Union$A9> {%%0} $as(java.lang.Object)
+supr java.lang.Object
+
+CLSS public abstract static net.java.html.lib.Union$A2<%0 extends java.lang.Object, %1 extends java.lang.Object>
+ outer net.java.html.lib.Union
+supr net.java.html.lib.Union$A3<{net.java.html.lib.Union$A2%0},{net.java.html.lib.Union$A2%1},java.lang.Void>
+
+CLSS public abstract static net.java.html.lib.Union$A3<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object>
+ outer net.java.html.lib.Union
+supr net.java.html.lib.Union$A4<{net.java.html.lib.Union$A3%0},{net.java.html.lib.Union$A3%1},{net.java.html.lib.Union$A3%2},java.lang.Void>
+
+CLSS public abstract static net.java.html.lib.Union$A4<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object>
+ outer net.java.html.lib.Union
+supr net.java.html.lib.Union$A5<{net.java.html.lib.Union$A4%0},{net.java.html.lib.Union$A4%1},{net.java.html.lib.Union$A4%2},{net.java.html.lib.Union$A4%3},java.lang.Void>
+
+CLSS public abstract static net.java.html.lib.Union$A5<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object>
+ outer net.java.html.lib.Union
+supr net.java.html.lib.Union$A6<{net.java.html.lib.Union$A5%0},{net.java.html.lib.Union$A5%1},{net.java.html.lib.Union$A5%2},{net.java.html.lib.Union$A5%3},{net.java.html.lib.Union$A5%4},java.lang.Void>
+
+CLSS public abstract static net.java.html.lib.Union$A6<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object>
+ outer net.java.html.lib.Union
+supr net.java.html.lib.Union$A7<{net.java.html.lib.Union$A6%0},{net.java.html.lib.Union$A6%1},{net.java.html.lib.Union$A6%2},{net.java.html.lib.Union$A6%3},{net.java.html.lib.Union$A6%4},{net.java.html.lib.Union$A6%5},java.lang.Void>
+
+CLSS public abstract static net.java.html.lib.Union$A7<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object, %6 extends java.lang.Object>
+ outer net.java.html.lib.Union
+supr net.java.html.lib.Union$A8<{net.java.html.lib.Union$A7%0},{net.java.html.lib.Union$A7%1},{net.java.html.lib.Union$A7%2},{net.java.html.lib.Union$A7%3},{net.java.html.lib.Union$A7%4},{net.java.html.lib.Union$A7%5},{net.java.html.lib.Union$A7%6},java.lang.Void>
+
+CLSS public abstract static net.java.html.lib.Union$A8<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object, %6 extends java.lang.Object, %7 extends java.lang.Object>
+ outer net.java.html.lib.Union
+supr net.java.html.lib.Union$A9<{net.java.html.lib.Union$A8%0},{net.java.html.lib.Union$A8%1},{net.java.html.lib.Union$A8%2},{net.java.html.lib.Union$A8%3},{net.java.html.lib.Union$A8%4},{net.java.html.lib.Union$A8%5},{net.java.html.lib.Union$A8%6},{net.java.html.lib.Union$A8%7},java.lang.Void>
+
+CLSS public abstract static net.java.html.lib.Union$A9<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object, %6 extends java.lang.Object, %7 extends java.lang.Object, %8 extends java.lang.Object>
+ outer net.java.html.lib.Union
+meth public abstract <%0 extends java.lang.Object> {%%0} cast(java.lang.Class<{%%0}>)
+meth public abstract boolean instanceOf(java.lang.Class<?>)
+supr java.lang.Object
 

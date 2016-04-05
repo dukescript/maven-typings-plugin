@@ -3576,10 +3576,10 @@ final class CoreTypes {
 
   @net.java.html.js.JavaScriptBody(args={"o"}, body=
     "var r = Object.keys(o);\n" +
-    "return r;"
+    "return hj.array(r);"
 
   )
-  static native java.lang.String[] keys$506(java.lang.Object o);
+  static native Object keys$506(java.lang.Object o);
 
   @net.java.html.js.JavaScriptBody(args={"value"}, body=
     "return new Object(value);"

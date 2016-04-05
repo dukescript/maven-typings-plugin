@@ -92,13 +92,13 @@
                         <goals>
                             <goal>check</goal>
                         </goals>
-                        <configuration>
-                            <sigfile>src/main/java/ko.sigtest</sigfile>
-                            <packages>net.java.html.lib.ko</packages>
-                            <failOnError>false</failOnError>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <sigfile>src/main/java/ko.sigtest</sigfile>
+                    <packages>net.java.html.lib.ko</packages>
+                    <failOnError>false</failOnError>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
