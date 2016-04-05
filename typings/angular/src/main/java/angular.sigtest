@@ -36,7 +36,7 @@ meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{
 meth public static net.java.html.lib.Function $as(java.lang.Object)
 meth public static net.java.html.lib.Function newFunction(net.java.html.lib.Function$A5<?,?,?,?,?,?>)
 supr net.java.html.lib.Objs
-hfds $$fn$$isFunction_2,$$fn$$wrap_1
+hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1
 hcls JSFn
 
 CLSS public net.java.html.lib.Objs
@@ -68,7 +68,7 @@ meth public static java.lang.Object getPrototypeOf(java.lang.Object)
 meth public static java.lang.Object newObject()
 meth public static java.lang.Object newObject(java.lang.Object)
 meth public static java.lang.String[] getOwnPropertyNames(java.lang.Object)
-meth public static java.lang.String[] keys(java.lang.Object)
+meth public static net.java.html.lib.Array<java.lang.String> keys(java.lang.Object)
 meth public static net.java.html.lib.Objs $as(java.lang.Object)
 meth public static net.java.html.lib.PropertyDescriptor getOwnPropertyDescriptor(java.lang.Object,java.lang.String)
 meth public void $delete(java.lang.String)
@@ -76,354 +76,10 @@ meth public void $set(java.lang.String,java.lang.Object)
 supr java.lang.Object
 hfds $$fn$$deleteRaw_3,$$fn$$getRaw_1,$$fn$$setRaw_2,js
 
-CLSS public net.java.html.lib.dom.EventTarget
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.dom.EventTarget> $AS
-meth public java.lang.Boolean dispatchEvent(net.java.html.lib.dom.Event)
-meth public static net.java.html.lib.dom.EventTarget $as(java.lang.Object)
-meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
-meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
-meth public void removeEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
-meth public void removeEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
-supr net.java.html.lib.Objs
-
-CLSS public net.java.html.lib.dom.Window
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.dom.Window> $AS
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> closed
-fld public net.java.html.lib.Function$A0<java.lang.Number> animationStartTime
-fld public net.java.html.lib.Function$A0<java.lang.Number> devicePixelRatio
-fld public net.java.html.lib.Function$A0<java.lang.Number> innerHeight
-fld public net.java.html.lib.Function$A0<java.lang.Number> innerWidth
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<java.lang.Number> msAnimationStartTime
-fld public net.java.html.lib.Function$A0<java.lang.Number> outerHeight
-fld public net.java.html.lib.Function$A0<java.lang.Number> outerWidth
-fld public net.java.html.lib.Function$A0<java.lang.Number> pageXOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> pageYOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenLeft
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenTop
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenX
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenY
-fld public net.java.html.lib.Function$A0<java.lang.Number> scrollX
-fld public net.java.html.lib.Function$A0<java.lang.Number> scrollY
-fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchcancel
-fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchend
-fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchmove
-fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchstart
-fld public net.java.html.lib.Function$A0<java.lang.String> defaultStatus
-fld public net.java.html.lib.Function$A0<java.lang.String> doNotTrack
-fld public net.java.html.lib.Function$A0<java.lang.String> name
-fld public net.java.html.lib.Function$A0<java.lang.String> status
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.BeforeUnloadEvent,?>> onbeforeunload
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceMotionEvent,?>> ondevicemotion
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceOrientationEvent,?>> ondeviceorientation
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondrag
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragend
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragenter
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragleave
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragover
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragstart
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondrop
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onabort
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onafterprint
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onbeforeprint
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncanplay
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncanplaythrough
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onchange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncompassneedscalibration
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ondurationchange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onemptied
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onended
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oninput
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onload
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadeddata
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadedmetadata
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadstart
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onoffline
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ononline
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onorientationchange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onpause
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onplay
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onplaying
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onratechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onreset
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onseeked
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onseeking
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onstalled
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onsubmit
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onsuspend
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ontimeupdate
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onunload
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onvolumechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onwaiting
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?>> onblur
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?>> onfocus
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.HashChangeEvent,?>> onhashchange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeydown
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeypress
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeyup
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturedoubletap
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgestureend
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturehold
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturestart
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturetap
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsinertiastart
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointercancel
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerdown
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerenter
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerleave
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointermove
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerout
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerover
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerup
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MessageEvent,?>> onmessage
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onclick
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> ondblclick
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmousedown
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseenter
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseleave
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmousemove
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseout
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseover
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseup
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseWheelEvent,?>> onmousewheel
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?>> onpagehide
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?>> onpageshow
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PointerEvent,?>> oncontextmenu
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PopStateEvent,?>> onpopstate
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onprogress
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onreadystatechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.StorageEvent,?>> onstorage
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onresize
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onscroll
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onselect
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,java.lang.Boolean>> offscreenBuffering
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,java.lang.Number>> orientation
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.ApplicationCache> applicationCache
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> locationbar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> menubar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> personalbar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> scrollbars
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> statusbar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> toolbar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Crypto> crypto
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Document> document
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> frameElement
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.ErrorEventHandler> onerror
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Event> event
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.External> external
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.History> history
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Location> location
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Navigator> clientInformation
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Navigator> navigator
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Performance> performance
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Screen> screen
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.StyleMedia> styleMedia
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> frames
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> opener
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> parent
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> self
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> top
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> window
-meth public double msRequestAnimationFrame(net.java.html.lib.dom.FrameRequestCallback)
-meth public double requestAnimationFrame(net.java.html.lib.dom.FrameRequestCallback)
-meth public java.lang.Boolean closed()
-meth public java.lang.Boolean confirm()
-meth public java.lang.Boolean confirm(java.lang.String)
-meth public java.lang.Number animationStartTime()
-meth public java.lang.Number devicePixelRatio()
-meth public java.lang.Number innerHeight()
-meth public java.lang.Number innerWidth()
-meth public java.lang.Number length()
-meth public java.lang.Number msAnimationStartTime()
-meth public java.lang.Number outerHeight()
-meth public java.lang.Number outerWidth()
-meth public java.lang.Number pageXOffset()
-meth public java.lang.Number pageYOffset()
-meth public java.lang.Number screenLeft()
-meth public java.lang.Number screenTop()
-meth public java.lang.Number screenX()
-meth public java.lang.Number screenY()
-meth public java.lang.Number scrollX()
-meth public java.lang.Number scrollY()
-meth public java.lang.Object open()
-meth public java.lang.Object open(java.lang.String)
-meth public java.lang.Object open(java.lang.String,java.lang.String)
-meth public java.lang.Object open(java.lang.String,java.lang.String,java.lang.String)
-meth public java.lang.Object open(java.lang.String,java.lang.String,java.lang.String,java.lang.Boolean)
-meth public java.lang.String defaultStatus()
-meth public java.lang.String doNotTrack()
-meth public java.lang.String name()
-meth public java.lang.String prompt()
-meth public java.lang.String prompt(java.lang.String)
-meth public java.lang.String prompt(java.lang.String,java.lang.String)
-meth public java.lang.String status()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.BeforeUnloadEvent,?> onbeforeunload()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceMotionEvent,?> ondevicemotion()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceOrientationEvent,?> ondeviceorientation()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondrag()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragend()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragenter()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragleave()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragover()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragstart()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondrop()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onabort()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onafterprint()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onbeforeprint()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> oncanplay()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> oncanplaythrough()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onchange()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> oncompassneedscalibration()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> ondurationchange()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onemptied()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onended()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> oninput()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onload()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onloadeddata()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onloadedmetadata()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onloadstart()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onoffline()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> ononline()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onorientationchange()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onpause()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onplay()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onplaying()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onratechange()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onreset()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onseeked()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onseeking()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onstalled()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onsubmit()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onsuspend()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> ontimeupdate()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onunload()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onvolumechange()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onwaiting()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?> onblur()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?> onfocus()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.HashChangeEvent,?> onhashchange()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?> onkeydown()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?> onkeypress()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?> onkeyup()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturechange()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturedoubletap()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgestureend()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturehold()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturestart()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturetap()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsinertiastart()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointercancel()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerdown()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerenter()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerleave()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointermove()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerout()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerover()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerup()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MessageEvent,?> onmessage()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onclick()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> ondblclick()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmousedown()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseenter()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseleave()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmousemove()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseout()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseover()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseup()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseWheelEvent,?> onmousewheel()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?> onpagehide()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?> onpageshow()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PointerEvent,?> oncontextmenu()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PopStateEvent,?> onpopstate()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?> onprogress()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?> onreadystatechange()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.StorageEvent,?> onstorage()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?> onresize()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?> onscroll()
-meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?> onselect()
-meth public net.java.html.lib.dom.ApplicationCache applicationCache()
-meth public net.java.html.lib.dom.BarProp locationbar()
-meth public net.java.html.lib.dom.BarProp menubar()
-meth public net.java.html.lib.dom.BarProp personalbar()
-meth public net.java.html.lib.dom.BarProp scrollbars()
-meth public net.java.html.lib.dom.BarProp statusbar()
-meth public net.java.html.lib.dom.BarProp toolbar()
-meth public net.java.html.lib.dom.CSSRuleList getMatchedCSSRules(net.java.html.lib.dom.Element)
-meth public net.java.html.lib.dom.CSSRuleList getMatchedCSSRules(net.java.html.lib.dom.Element,java.lang.String)
-meth public net.java.html.lib.dom.CSSStyleDeclaration getComputedStyle(net.java.html.lib.dom.Element)
-meth public net.java.html.lib.dom.CSSStyleDeclaration getComputedStyle(net.java.html.lib.dom.Element,java.lang.String)
-meth public net.java.html.lib.dom.Crypto crypto()
-meth public net.java.html.lib.dom.Document document()
-meth public net.java.html.lib.dom.Element frameElement()
-meth public net.java.html.lib.dom.Event event()
-meth public net.java.html.lib.dom.External external()
-meth public net.java.html.lib.dom.History history()
-meth public net.java.html.lib.dom.Location location()
-meth public net.java.html.lib.dom.MediaQueryList matchMedia(java.lang.String)
-meth public net.java.html.lib.dom.MediaQueryList msMatchMedia(java.lang.String)
-meth public net.java.html.lib.dom.Navigator clientInformation()
-meth public net.java.html.lib.dom.Navigator navigator()
-meth public net.java.html.lib.dom.Performance performance()
-meth public net.java.html.lib.dom.Screen screen()
-meth public net.java.html.lib.dom.Selection getSelection()
-meth public net.java.html.lib.dom.StyleMedia styleMedia()
-meth public net.java.html.lib.dom.WebKitPoint webkitConvertPointFromNodeToPage(net.java.html.lib.dom.Node,net.java.html.lib.dom.WebKitPoint)
-meth public net.java.html.lib.dom.WebKitPoint webkitConvertPointFromPageToNode(net.java.html.lib.dom.Node,net.java.html.lib.dom.WebKitPoint)
-meth public net.java.html.lib.dom.Window $get(double)
-meth public net.java.html.lib.dom.Window frames()
-meth public net.java.html.lib.dom.Window opener()
-meth public net.java.html.lib.dom.Window parent()
-meth public net.java.html.lib.dom.Window self()
-meth public net.java.html.lib.dom.Window top()
-meth public net.java.html.lib.dom.Window window()
-meth public static net.java.html.lib.dom.Window $as(java.lang.Object)
-meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
-meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
-meth public void addEventListener(java.lang.Void,net.java.html.lib.Function$A1<? super net.java.html.lib.dom.WheelEvent,?>)
-meth public void addEventListener(java.lang.Void,net.java.html.lib.Function$A1<? super net.java.html.lib.dom.WheelEvent,?>,java.lang.Boolean)
-meth public void alert()
-meth public void alert(java.lang.Object)
-meth public void blur()
-meth public void cancelAnimationFrame(double)
-meth public void captureEvents()
-meth public void close()
-meth public void focus()
-meth public void moveBy()
-meth public void moveBy(double)
-meth public void moveBy(double,double)
-meth public void moveTo()
-meth public void moveTo(double)
-meth public void moveTo(double,double)
-meth public void msCancelRequestAnimationFrame(double)
-meth public void msWriteProfilerMark(java.lang.String)
-meth public void onerror(java.lang.String)
-meth public void onerror(java.lang.String,java.lang.String)
-meth public void onerror(java.lang.String,java.lang.String,double)
-meth public void onerror(java.lang.String,java.lang.String,double,double)
-meth public void onerror(java.lang.String,java.lang.String,double,double,net.java.html.lib.Error)
-meth public void postMessage(java.lang.Object,java.lang.String)
-meth public void postMessage(java.lang.Object,java.lang.String,java.lang.Object)
-meth public void print()
-meth public void releaseEvents()
-meth public void resizeBy()
-meth public void resizeBy(double)
-meth public void resizeBy(double,double)
-meth public void resizeTo()
-meth public void resizeTo(double)
-meth public void resizeTo(double,double)
-meth public void scroll()
-meth public void scroll(double)
-meth public void scroll(double,double)
-meth public void scrollBy()
-meth public void scrollBy(double)
-meth public void scrollBy(double,double)
-meth public void scrollTo()
-meth public void scrollTo(double)
-meth public void scrollTo(double,double)
-supr net.java.html.lib.dom.EventTarget
+CLSS public final net.java.html.lib.angular.$JsCallbacks$
+meth public java.lang.Object net_java_html_lib_Function$$call$Ljava_lang_Object_2_3Ljava_lang_Object_2(java.lang.Object,java.lang.Object) throws java.lang.Throwable
+supr java.lang.Object
+hfds VM,last,p
 
 CLSS public net.java.html.lib.angular.ComponentDefinition
 cons protected init(java.lang.Class<?>,java.lang.Object)
@@ -1836,6 +1492,355 @@ cons protected init(java.lang.Class<?>,java.lang.Object)
 fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.angular.Type> $AS
 meth public static net.java.html.lib.angular.Type $as(java.lang.Object)
 supr net.java.html.lib.Function
+
+CLSS public net.java.html.lib.dom.EventTarget
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.dom.EventTarget> $AS
+meth public java.lang.Boolean dispatchEvent(net.java.html.lib.dom.Event)
+meth public static net.java.html.lib.dom.EventTarget $as(java.lang.Object)
+meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
+meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
+meth public void removeEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
+meth public void removeEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
+supr net.java.html.lib.Objs
+
+CLSS public net.java.html.lib.dom.Window
+cons protected init(java.lang.Class<?>,java.lang.Object)
+fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.dom.Window> $AS
+fld public net.java.html.lib.Function$A0<java.lang.Boolean> closed
+fld public net.java.html.lib.Function$A0<java.lang.Number> animationStartTime
+fld public net.java.html.lib.Function$A0<java.lang.Number> devicePixelRatio
+fld public net.java.html.lib.Function$A0<java.lang.Number> innerHeight
+fld public net.java.html.lib.Function$A0<java.lang.Number> innerWidth
+fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Function$A0<java.lang.Number> msAnimationStartTime
+fld public net.java.html.lib.Function$A0<java.lang.Number> outerHeight
+fld public net.java.html.lib.Function$A0<java.lang.Number> outerWidth
+fld public net.java.html.lib.Function$A0<java.lang.Number> pageXOffset
+fld public net.java.html.lib.Function$A0<java.lang.Number> pageYOffset
+fld public net.java.html.lib.Function$A0<java.lang.Number> screenLeft
+fld public net.java.html.lib.Function$A0<java.lang.Number> screenTop
+fld public net.java.html.lib.Function$A0<java.lang.Number> screenX
+fld public net.java.html.lib.Function$A0<java.lang.Number> screenY
+fld public net.java.html.lib.Function$A0<java.lang.Number> scrollX
+fld public net.java.html.lib.Function$A0<java.lang.Number> scrollY
+fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchcancel
+fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchend
+fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchmove
+fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchstart
+fld public net.java.html.lib.Function$A0<java.lang.String> defaultStatus
+fld public net.java.html.lib.Function$A0<java.lang.String> doNotTrack
+fld public net.java.html.lib.Function$A0<java.lang.String> name
+fld public net.java.html.lib.Function$A0<java.lang.String> status
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.BeforeUnloadEvent,?>> onbeforeunload
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceMotionEvent,?>> ondevicemotion
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceOrientationEvent,?>> ondeviceorientation
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondrag
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragend
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragenter
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragleave
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragover
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragstart
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondrop
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onabort
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onafterprint
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onbeforeprint
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncanplay
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncanplaythrough
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onchange
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncompassneedscalibration
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ondurationchange
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onemptied
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onended
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oninput
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onload
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadeddata
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadedmetadata
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadstart
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onoffline
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ononline
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onorientationchange
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onpause
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onplay
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onplaying
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onratechange
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onreset
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onseeked
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onseeking
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onstalled
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onsubmit
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onsuspend
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ontimeupdate
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onunload
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onvolumechange
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onwaiting
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?>> onblur
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?>> onfocus
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.HashChangeEvent,?>> onhashchange
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeydown
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeypress
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeyup
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturechange
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturedoubletap
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgestureend
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturehold
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturestart
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturetap
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsinertiastart
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointercancel
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerdown
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerenter
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerleave
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointermove
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerout
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerover
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerup
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MessageEvent,?>> onmessage
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onclick
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> ondblclick
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmousedown
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseenter
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseleave
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmousemove
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseout
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseover
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseup
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseWheelEvent,?>> onmousewheel
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?>> onpagehide
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?>> onpageshow
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PointerEvent,?>> oncontextmenu
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PopStateEvent,?>> onpopstate
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onprogress
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onreadystatechange
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.StorageEvent,?>> onstorage
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onresize
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onscroll
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onselect
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,java.lang.Boolean>> offscreenBuffering
+fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,java.lang.Number>> orientation
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.ApplicationCache> applicationCache
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> locationbar
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> menubar
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> personalbar
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> scrollbars
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> statusbar
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> toolbar
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Crypto> crypto
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Document> document
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> frameElement
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.ErrorEventHandler> onerror
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Event> event
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.External> external
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.History> history
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Location> location
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Navigator> clientInformation
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Navigator> navigator
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Performance> performance
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Screen> screen
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.StyleMedia> styleMedia
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> frames
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> opener
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> parent
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> self
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> top
+fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> window
+meth public double msRequestAnimationFrame(net.java.html.lib.dom.FrameRequestCallback)
+meth public double requestAnimationFrame(net.java.html.lib.dom.FrameRequestCallback)
+meth public java.lang.Boolean closed()
+meth public java.lang.Boolean confirm()
+meth public java.lang.Boolean confirm(java.lang.String)
+meth public java.lang.Number animationStartTime()
+meth public java.lang.Number devicePixelRatio()
+meth public java.lang.Number innerHeight()
+meth public java.lang.Number innerWidth()
+meth public java.lang.Number length()
+meth public java.lang.Number msAnimationStartTime()
+meth public java.lang.Number outerHeight()
+meth public java.lang.Number outerWidth()
+meth public java.lang.Number pageXOffset()
+meth public java.lang.Number pageYOffset()
+meth public java.lang.Number screenLeft()
+meth public java.lang.Number screenTop()
+meth public java.lang.Number screenX()
+meth public java.lang.Number screenY()
+meth public java.lang.Number scrollX()
+meth public java.lang.Number scrollY()
+meth public java.lang.Object open()
+meth public java.lang.Object open(java.lang.String)
+meth public java.lang.Object open(java.lang.String,java.lang.String)
+meth public java.lang.Object open(java.lang.String,java.lang.String,java.lang.String)
+meth public java.lang.Object open(java.lang.String,java.lang.String,java.lang.String,java.lang.Boolean)
+meth public java.lang.String defaultStatus()
+meth public java.lang.String doNotTrack()
+meth public java.lang.String name()
+meth public java.lang.String prompt()
+meth public java.lang.String prompt(java.lang.String)
+meth public java.lang.String prompt(java.lang.String,java.lang.String)
+meth public java.lang.String status()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.BeforeUnloadEvent,?> onbeforeunload()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceMotionEvent,?> ondevicemotion()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceOrientationEvent,?> ondeviceorientation()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondrag()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragend()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragenter()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragleave()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragover()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondragstart()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?> ondrop()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onabort()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onafterprint()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onbeforeprint()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> oncanplay()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> oncanplaythrough()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onchange()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> oncompassneedscalibration()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> ondurationchange()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onemptied()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onended()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> oninput()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onload()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onloadeddata()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onloadedmetadata()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onloadstart()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onoffline()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> ononline()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onorientationchange()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onpause()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onplay()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onplaying()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onratechange()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onreset()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onseeked()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onseeking()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onstalled()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onsubmit()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onsuspend()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> ontimeupdate()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onunload()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onvolumechange()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?> onwaiting()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?> onblur()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?> onfocus()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.HashChangeEvent,?> onhashchange()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?> onkeydown()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?> onkeypress()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?> onkeyup()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturechange()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturedoubletap()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgestureend()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturehold()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturestart()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsgesturetap()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?> onmsinertiastart()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointercancel()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerdown()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerenter()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerleave()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointermove()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerout()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerover()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?> onmspointerup()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MessageEvent,?> onmessage()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onclick()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> ondblclick()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmousedown()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseenter()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseleave()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmousemove()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseout()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseover()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?> onmouseup()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseWheelEvent,?> onmousewheel()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?> onpagehide()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?> onpageshow()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PointerEvent,?> oncontextmenu()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PopStateEvent,?> onpopstate()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?> onprogress()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?> onreadystatechange()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.StorageEvent,?> onstorage()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?> onresize()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?> onscroll()
+meth public net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?> onselect()
+meth public net.java.html.lib.dom.ApplicationCache applicationCache()
+meth public net.java.html.lib.dom.BarProp locationbar()
+meth public net.java.html.lib.dom.BarProp menubar()
+meth public net.java.html.lib.dom.BarProp personalbar()
+meth public net.java.html.lib.dom.BarProp scrollbars()
+meth public net.java.html.lib.dom.BarProp statusbar()
+meth public net.java.html.lib.dom.BarProp toolbar()
+meth public net.java.html.lib.dom.CSSRuleList getMatchedCSSRules(net.java.html.lib.dom.Element)
+meth public net.java.html.lib.dom.CSSRuleList getMatchedCSSRules(net.java.html.lib.dom.Element,java.lang.String)
+meth public net.java.html.lib.dom.CSSStyleDeclaration getComputedStyle(net.java.html.lib.dom.Element)
+meth public net.java.html.lib.dom.CSSStyleDeclaration getComputedStyle(net.java.html.lib.dom.Element,java.lang.String)
+meth public net.java.html.lib.dom.Crypto crypto()
+meth public net.java.html.lib.dom.Document document()
+meth public net.java.html.lib.dom.Element frameElement()
+meth public net.java.html.lib.dom.Event event()
+meth public net.java.html.lib.dom.External external()
+meth public net.java.html.lib.dom.History history()
+meth public net.java.html.lib.dom.Location location()
+meth public net.java.html.lib.dom.MediaQueryList matchMedia(java.lang.String)
+meth public net.java.html.lib.dom.MediaQueryList msMatchMedia(java.lang.String)
+meth public net.java.html.lib.dom.Navigator clientInformation()
+meth public net.java.html.lib.dom.Navigator navigator()
+meth public net.java.html.lib.dom.Performance performance()
+meth public net.java.html.lib.dom.Screen screen()
+meth public net.java.html.lib.dom.Selection getSelection()
+meth public net.java.html.lib.dom.StyleMedia styleMedia()
+meth public net.java.html.lib.dom.WebKitPoint webkitConvertPointFromNodeToPage(net.java.html.lib.dom.Node,net.java.html.lib.dom.WebKitPoint)
+meth public net.java.html.lib.dom.WebKitPoint webkitConvertPointFromPageToNode(net.java.html.lib.dom.Node,net.java.html.lib.dom.WebKitPoint)
+meth public net.java.html.lib.dom.Window $get(double)
+meth public net.java.html.lib.dom.Window frames()
+meth public net.java.html.lib.dom.Window opener()
+meth public net.java.html.lib.dom.Window parent()
+meth public net.java.html.lib.dom.Window self()
+meth public net.java.html.lib.dom.Window top()
+meth public net.java.html.lib.dom.Window window()
+meth public static net.java.html.lib.dom.Window $as(java.lang.Object)
+meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
+meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
+meth public void addEventListener(java.lang.Void,net.java.html.lib.Function$A1<? super net.java.html.lib.dom.WheelEvent,?>)
+meth public void addEventListener(java.lang.Void,net.java.html.lib.Function$A1<? super net.java.html.lib.dom.WheelEvent,?>,java.lang.Boolean)
+meth public void alert()
+meth public void alert(java.lang.Object)
+meth public void blur()
+meth public void cancelAnimationFrame(double)
+meth public void captureEvents()
+meth public void close()
+meth public void focus()
+meth public void moveBy()
+meth public void moveBy(double)
+meth public void moveBy(double,double)
+meth public void moveTo()
+meth public void moveTo(double)
+meth public void moveTo(double,double)
+meth public void msCancelRequestAnimationFrame(double)
+meth public void msWriteProfilerMark(java.lang.String)
+meth public void onerror(java.lang.String)
+meth public void onerror(java.lang.String,java.lang.String)
+meth public void onerror(java.lang.String,java.lang.String,double)
+meth public void onerror(java.lang.String,java.lang.String,double,double)
+meth public void onerror(java.lang.String,java.lang.String,double,double,net.java.html.lib.Error)
+meth public void postMessage(java.lang.Object,java.lang.String)
+meth public void postMessage(java.lang.Object,java.lang.String,java.lang.Object)
+meth public void print()
+meth public void releaseEvents()
+meth public void resizeBy()
+meth public void resizeBy(double)
+meth public void resizeBy(double,double)
+meth public void resizeTo()
+meth public void resizeTo(double)
+meth public void resizeTo(double,double)
+meth public void scroll()
+meth public void scroll(double)
+meth public void scroll(double,double)
+meth public void scrollBy()
+meth public void scrollBy(double)
+meth public void scrollBy(double,double)
+meth public void scrollTo()
+meth public void scrollTo(double)
+meth public void scrollTo(double,double)
+supr net.java.html.lib.dom.EventTarget
 
 CLSS public net.java.html.lib.jquery.JQuery
 cons protected init(java.lang.Class<?>,java.lang.Object)
