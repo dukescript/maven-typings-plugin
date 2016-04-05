@@ -332,11 +332,15 @@ abstract class Generator<L> {
         private final Identifier name;
         private final List<String> parameters;
 
-        public MethodKey(Identifier name, List<Parameter> parameters) {
+        public MethodKey(Identifier name, List<Type> parameters, Type returnType) {
             this.name = name;
             List<String> types = new ArrayList<>(parameters.size());
-            for (Parameter p : parameters) {
-                types.add(p.getType().getRawJavaType());
+            for (Type t : parameters) {
+                if (t.getKind() == SyntaxKind.StringLiteral) {
+                    types.add(returnType.getRawJavaType());
+                    continue;
+                }
+                types.add(t.getRawJavaType());
             }
             this.parameters = types;
         }
@@ -370,7 +374,10 @@ abstract class Generator<L> {
             return true;
         }
 
-
+        @Override
+        public String toString() {
+            return "MethodKey{" + "name=" + name + ", parameters=" + parameters + '}';
+        }
     }
 
 
@@ -418,31 +425,32 @@ abstract class Generator<L> {
                 return;
             }
             int firstOptional = generateFunction(parameters,typeParameters, typeParameterNames, name, returnType, comment);
-            generated.add(new MethodKey(name, parameters));
             for (int i = firstOptional; i < parameters.size(); i++) {
                 final List<Parameter> subParameters = parameters.subList(0, i);
-                if (!generated.add(new MethodKey(name, subParameters))) {
-                    continue;
-                }
                 generateFunction(subParameters, typeParameters, typeParameterNames, name, returnType, comment);
             }
         }
 
         int generateFunction(
             List<Parameter> parameters, List<AST> typeParameters, List<Type> typeParameterNames,
-            Identifier a, Type returnType, String comment
+            Identifier name, Type returnType, String comment
         ) throws IOException {
-            if (isInObject(a.getText(), parameters)) {
+            if (isInObject(name.getText(), parameters)) {
                 emitComment(w, "  ", comment);
-                w.append("  /* cannot generate " + a.getText() + " */\n");
+                w.append("  /* cannot generate " + name.getText() + " */\n");
                 return 0;
             }
             int[] firstOptional = { 0 };
             final List<String> allTypeParams = merge(this.typeParameters, typeParameters, typeParameterNames);
             String implName = typings.generateFunction(virtual, parameters, allTypeParams,
-                a, returnType, prefix, firstOptional
+                name, returnType, prefix, firstOptional
             );
             for (List<Type> types : alternativeTypes(parameters)) {
+                final MethodKey fullMethodKey = new MethodKey(name, types, returnType);
+                if (!generated.add(fullMethodKey)) {
+                    w.append("  // skipping " + fullMethodKey + "\n");
+                    continue;
+                }
                 emitComment(w, "  ", comment);
                 if (virtual) {
                     w.append("  public ");
@@ -451,7 +459,7 @@ abstract class Generator<L> {
                 }
                 typeParameters(w, merge(null, typeParameters, typeParameterNames));
                 String javaReturn;
-                String methodName = a.getText();
+                String methodName = name.getText();
                 if (methodName == null) methodName = "nullName";
                 if (methodName.equals("valueOf")) {
                     javaReturn = returnType.getBoxedJavaType();
