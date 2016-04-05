@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -314,7 +315,7 @@ abstract class Generator<L> {
     }
 
     static List<String> merge(List<AST> thisTypeParameters, List<AST> providedParameters, List<Type> typeNames) {
-        List<String> all = new ArrayList<>();
+        LinkedHashSet<String> all = new LinkedHashSet<>();
         if (thisTypeParameters != null) for (AST p : thisTypeParameters) {
             all.add(p.getName().getText());
         }
@@ -324,7 +325,7 @@ abstract class Generator<L> {
         if (typeNames != null) for (Type p : typeNames) {
             all.add(p.getTypeName().getText());
         }
-        return all;
+        return new ArrayList<>(all);
     }
 
     private static final class MethodKey {
