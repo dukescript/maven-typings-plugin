@@ -144,9 +144,9 @@ public class ASTTest {
             + "    ]\n"
             + "}";
         Type astType = Models.parse(ctx, Type.class, new ByteArrayInputStream(type.getBytes()));
-        assertEquals("Type variable T is there", "T", astType.getType().get(0).getTypeArguments().get(0).getTypeName().getText());
+        assertEquals("Type variable T is there", "T", astType.getType().get(0).getTypeArguments().get(0).getTypeName().getSimpleName());
         astType.anonimize();
-        assertEquals("Type variable has been anonymized", "?", astType.getType().get(0).getTypeArguments().get(0).getTypeName().getText());
+        assertEquals("Type variable has been anonymized", "?", astType.getType().get(0).getTypeArguments().get(0).getTypeName().getSimpleName());
     }
     @Test
     public void substituteTypeVars2() throws IOException {
@@ -278,8 +278,8 @@ public class ASTTest {
 "    ]\n" +
 "}";
         Type astType = Models.parse(ctx, Type.class, new ByteArrayInputStream(type.getBytes()));
-        assertEquals("Type variable T is there", "T", astType.getType().get(0).getTypes().get(0).getTypeArguments().get(0).getTypeName().getText());
+        assertEquals("Type variable T is there", "T", astType.getType().get(0).getTypes().get(0).getTypeArguments().get(0).getTypeName().getSimpleName());
         astType.anonimize();
-        assertEquals("Type variable has been anonymized", "?", astType.getType().get(0).getTypes().get(0).getTypeArguments().get(0).getTypeName().getText());
+        assertEquals("Type variable has been anonymized", "?", astType.getType().get(0).getTypes().get(0).getTypeArguments().get(0).getTypeName().getSimpleName());
     }
 }

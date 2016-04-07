@@ -60,7 +60,7 @@ public class ParserTest {
         List<AST> declarations = first.getDeclarationList().getDeclarations();
         assertEquals(declarations.size(), 1, "One declaration");
         AST var = declarations.get(0);
-        assertEquals(var.getName().getText(), "NaN", "not a number is the name");
+        assertEquals(var.getName().getSimpleName(), "NaN", "not a number is the name");
         assertEquals(var.getType().getKind(), SyntaxKind.NumberKeyword);
 
         class Fields implements Visitor<Identifier, Type, Set<Type>, Void, String, Void> {
@@ -68,7 +68,7 @@ public class ParserTest {
 
             @Override
             public void visit(Identifier a, Type b, Set<Type> c, Void d, String e, Void f) {
-                Type prev = found.put(a.getText(), b);
+                Type prev = found.put(a.getSimpleName(), b);
                 assertNull(prev, "No previous value");
             }
         }
@@ -90,7 +90,7 @@ public class ParserTest {
             Map<String,List<Parameter>> found = new LinkedHashMap<>();
             @Override
             public void visit(Identifier a, Type b, List<Parameter> c, List<AST> d, String e, Void ignore) {
-                List<Parameter> prev = found.put(a.getText(), c);
+                List<Parameter> prev = found.put(a.getSimpleName(), c);
                 assertNull(prev, "No previous value");
             }
         }
@@ -113,7 +113,7 @@ public class ParserTest {
             List<Heritage> heritages;
             @Override
             public void visit(Identifier a, List<AST> c, List<AST> d, AST constructor, List<Heritage> herigateClauses, Map<String,Set<Type>> ignore) throws IOException {
-                final String name = a.getText();
+                final String name = a.getSimpleName();
                 if (name.endsWith("Constructor")) {
                     fail("There should be no constructors in the interfaces: " + name);
                 }
@@ -132,8 +132,8 @@ public class ParserTest {
         ast.visitInterfaces(interfaces);
         assertTrue(interfaces.found, "Interfaces found");
         assertEquals(interfaces.properties.size(), 2, "Two props");
-        assertEquals(interfaces.properties.get(0).getName().getText(), "name", "1st name is name");
-        assertEquals(interfaces.properties.get(1).getName().getText(), "message", "2nd name is messsage");
+        assertEquals(interfaces.properties.get(0).getName().getSimpleName(), "name", "1st name is name");
+        assertEquals(interfaces.properties.get(1).getName().getSimpleName(), "message", "2nd name is messsage");
         assertNotNull(interfaces.constructor, "Constructor class reference provided");
         assertNotNull(interfaces.heritages);
         assertEquals(interfaces.heritages.size(), 1, "One element: " + interfaces.heritages);
@@ -146,7 +146,7 @@ public class ParserTest {
             List<AST> array;
             @Override
             public void visit(Identifier a, List<AST> parameterTypes, List<AST> members, AST constructor, List<Heritage> herigateClauses, Map<String,Set<Type>> ignore) throws IOException {
-                final String name = a.getText();
+                final String name = a.getSimpleName();
                 if (name.equals("Array")) {
                     assertNull(array, "Just one definition of Array expected");
                     array = members;
@@ -161,10 +161,10 @@ public class ParserTest {
         StringBuilder found = new StringBuilder();
         for (AST m : interfaces.array) {
             found.append(m.getName()).append("\n");
-            if (m.getName() != null && "concat".equals(m.getName().getText())) {
+            if (m.getName() != null && "concat".equals(m.getName().getSimpleName())) {
                 concatCount++;
             }
-            if (m.getName() != null && "splice".equals(m.getName().getText())) {
+            if (m.getName() != null && "splice".equals(m.getName().getSimpleName())) {
                 spliceCount++;
             }
         }
@@ -178,7 +178,7 @@ public class ParserTest {
             AST arrayConstructor;
             @Override
             public void visit(Identifier a, List<AST> parameterTypes, List<AST> members, AST constructor, List<Heritage> herigateClauses, Map<String,Set<Type>> ignore) throws IOException {
-                final String name = a.getText();
+                final String name = a.getSimpleName();
                 if (name.equals("Array")) {
                     assertNull(arrayConstructor, "Just one definition of Array expected");
                     arrayConstructor = constructor;

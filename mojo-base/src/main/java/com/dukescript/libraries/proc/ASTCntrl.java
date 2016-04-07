@@ -71,9 +71,19 @@ class ASTCntrl {
     static final class TokenCntrl {
     }
     @Model(className = "Identifier", properties = {
-        @Property(name = "text", type = String.class)
+        @Property(name = "kind", type = SyntaxKind.class),
+        @Property(name = "text", type = String.class),
+        @Property(name = "right", type = Identifier.class, array = true),
     })
     static final class IdentifierCntrl {
+        @ComputedProperty
+        static String simpleName(SyntaxKind kind, String text, List<Identifier> right) {
+            if (text != null) {
+                return text;
+            } else {
+                return right.isEmpty() ? null : right.get(0).getSimpleName();
+            }
+        }
     }
     @Model(className = "Type", properties = {
         @Property(name = "kind", type = SyntaxKind.class),
@@ -132,7 +142,7 @@ class ASTCntrl {
                 }
                 List<Type> replace = new ArrayList<>();
                 for (Type t : typeArgs) {
-                    replace.add(new Type(SyntaxKind.FirstTypeNode, null, new Identifier("?")));
+                    replace.add(new Type(SyntaxKind.FirstTypeNode, null, new Identifier(null, "?")));
                 }
                 substitute(model, typeArgs, replace);
             }
@@ -274,7 +284,7 @@ class ASTCntrl {
                 case VoidKeyword: return boxed ? "java.lang.Void" : "void";
                 case FirstTypeNode:
                 case LastTypeNode: {
-                    String typeStr = typeName == null ? null : typeName.getText();
+                    String typeStr = typeName == null ? null : typeName.getSimpleName();
                     if (typeStr == null) {
                         return "net.java.html.lib.Objs";
                     }
@@ -312,7 +322,7 @@ class ASTCntrl {
                             sb.append("? super ");
                             sb.append(p.getType().getBoxedIntoJavaType()).append(",");
                         } else {
-                            sb.append(Generator.mangleName(false, p.getName().getText())).append(",");
+                            sb.append(Generator.mangleName(false, p.getName().getSimpleName())).append(",");
                         }
                     }
                     sb.append("? extends ");
@@ -402,7 +412,7 @@ class ASTCntrl {
         @ModelOperation
         static void findCalls(Type type, Map<String,Set<Type>> namedCalls, Set<Type> calls) {
             if (type.getKind().isTypeNode() && type.getTypeName() != null) {
-                final String typeName = type.getTypeName().getText();
+                final String typeName = type.getTypeName().getSimpleName();
                 if (typeName != null) {
                     Set<Type> named = namedCalls.get(typeName);
                     if (named != null) {
@@ -451,7 +461,7 @@ class ASTCntrl {
                 sb.append("::$call(Ljava/lang/Object;");
                 sb.append("[Ljava/lang/Object;");
                 sb.append(")(");
-                sb.append(name.getText());
+                sb.append(name.getSimpleName());
                 sb.append(", [");
                 cnt = 0;
                 for (Parameter p : parameters) {
@@ -467,7 +477,7 @@ class ASTCntrl {
             if (type.getKind() == SyntaxKind.StringLiteral) {
                 return "'" + type.getText() + "'";
             }
-            return name.getText();
+            return name.getSimpleName();
         }
         @ComputedProperty
         static String objs(Identifier name, Type type) {
@@ -481,20 +491,20 @@ class ASTCntrl {
                     break;
                 case FunctionType :
                     return "/* " + type.getKind() + "*/"
-                        + "$js(" + name.getText() + ")";
+                        + "$js(" + name.getSimpleName() + ")";
                 case AnyKeyword:
                 case FirstTypeNode:
                 case UnionType:
                 case TypeLiteral: {
                 final String javaType = type.getJavaType();
                     if (!javaType.equals("java.lang.Object") && javaType.startsWith("java.lang.")) {
-                        return name.getText();
+                        return name.getSimpleName();
                     }
                     return "/* " + type.getKind() + "*/" +
-                    "$js(" + name.getText() + ")";
+                    "$js(" + name.getSimpleName() + ")";
                 }
             }
-            return name.getText();
+            return name.getSimpleName();
         }
     }
 
@@ -515,7 +525,7 @@ class ASTCntrl {
                 for (AST var : declarations) {
                     final Type type = var.getType();
                     if (type.getKind().isTypeNode()) {
-                        final String typeName = type.getTypeName().getText();
+                        final String typeName = type.getTypeName().getSimpleName();
                         if (typeName == null || constructors.containsKey(typeName)) {
                             continue;
                         }
@@ -553,11 +563,11 @@ class ASTCntrl {
 
                 Set<String> typeParametersNames = new HashSet<>();
                 for (AST p : typeParameters) {
-                    String typeName = p.getName().getText();
+                    String typeName = p.getName().getSimpleName();
                     typeParametersNames.add(typeName);
                 }
                 for (AST p : classParams) {
-                    String typeName = p.getName().getText();
+                    String typeName = p.getName().getSimpleName();
                     typeParametersNames.add(typeName);
                 }
 
@@ -636,7 +646,7 @@ class ASTCntrl {
                 }
                 continue;
             }
-            final String name = ch.getName() != null ? ch.getName().getText() : "";
+            final String name = ch.getName() != null ? ch.getName().getSimpleName() : "";
             NameAndArity key = new NameAndArity(name, ch.getTypeParameters(), ch.getParameters());
             AST prev = mostTypeArity.put(key, ch);
             if (prev != null) {
@@ -664,7 +674,7 @@ class ASTCntrl {
 
     private static Type constructorFor(AST declaration) {
         for (AST member : declaration.getMembers()) {
-            if (member.getName() != null && "prototype".equals(member.getName().getText())) {
+            if (member.getName() != null && "prototype".equals(member.getName().getSimpleName())) {
                 return member.getType();
             }
         }
@@ -684,7 +694,7 @@ class ASTCntrl {
         Map<String,AST> constructors = findConstructors(self);
         for (AST ch : self.getChildren()) {
             if (ch.getKind() == SyntaxKind.InterfaceDeclaration) {
-                final String key = ch.getName().getText();
+                final String key = ch.getName().getSimpleName();
                 if (constructors.containsKey(key) && constructors.get(key) == null) {
                     continue;
                 }
@@ -700,9 +710,9 @@ class ASTCntrl {
         }
         for (Map.Entry<String, AST> entry : unique.entrySet()) {
             AST ch = entry.getValue();
-            AST chConstructor = constructors.remove(ch.getName().getText());
+            AST chConstructor = constructors.remove(ch.getName().getSimpleName());
             if (chConstructor != null) {
-                constructors.remove(chConstructor.getName().getText());
+                constructors.remove(chConstructor.getName().getSimpleName());
                 List<AST> filteredConstructors = filteredMembers(Collections.emptyList(), true, chConstructor.getMembers(), SyntaxKind.ConstructSignature, SyntaxKind.CallSignature);
                 chConstructor.getMembers().clear();
                 chConstructor.getMembers().addAll(filteredConstructors);
@@ -714,7 +724,7 @@ class ASTCntrl {
             if (ch.getKind() != SyntaxKind.InterfaceDeclaration) {
                 continue;
             }
-            if (!constructors.containsKey(ch.getName().getText())) {
+            if (!constructors.containsKey(ch.getName().getSimpleName())) {
                 continue;
             }
             final List<AST> filteredMembers = filteredMembers(ch.getTypeParameters(), true, ch.getMembers(), SyntaxKind.MethodSignature);
@@ -730,8 +740,8 @@ class ASTCntrl {
                 final Type prototype = constructorFor(ch);
                 if (prototype != null) {
                     if (prototype.getKind().isTypeNode()) {
-                        constructors.put(prototype.getTypeName().getText(), ch);
-                        constructorClasses.add(ch.getName().getText());
+                        constructors.put(prototype.getTypeName().getSimpleName(), ch);
+                        constructorClasses.add(ch.getName().getSimpleName());
                     }
                 }
             }
@@ -742,8 +752,8 @@ class ASTCntrl {
                 for (AST var : declarations) {
                     final Type type = var.getType();
                     if (type.getKind().isTypeNode()) {
-                        final String typeName = type.getTypeName().getText();
-                        String varName = var.getName().getText();
+                        final String typeName = type.getTypeName().getSimpleName();
+                        String varName = var.getName().getSimpleName();
                         if (Objects.equals(typeName, varName) || constructorClasses.contains(typeName)) {
                             constructors.put(typeName, null);
                         }
@@ -757,7 +767,7 @@ class ASTCntrl {
         Map<String,Set<Type>> callSigs = new TreeMap<>();
         for (AST ch : self.getChildren()) {
             if (ch.getKind() == SyntaxKind.InterfaceDeclaration) {
-                String name = ch.getName().getText();
+                String name = ch.getName().getSimpleName();
                 for (AST f : ch.getMembers()) {
                     if (f.getKind() == SyntaxKind.CallSignature) {
                         Set<Type> calls = callSigs.get(name);

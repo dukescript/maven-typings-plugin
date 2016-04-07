@@ -97,7 +97,7 @@ abstract class Generator<L> {
         class Interfaces implements Visitor<Identifier, List<AST>, List<AST>, AST, List<Heritage>, Map<String,Set<Type>>> {
             @Override
             public void visit(Identifier a, List<AST> typeParameters, List<AST> members, AST constructor, List<Heritage> heritage, Map<String,Set<Type>> callSigs) throws IOException {
-                String name = a.getText();
+                String name = a.getSimpleName();
                 final String fqn = packageName + "." + mangleName(false, name);
                 try {
                     generateType(fqn, name, typeParameters, heritage, constructor, a, members, callSigs);
@@ -126,7 +126,7 @@ abstract class Generator<L> {
                     String sep = "";
                     for (AST type : typeParameters) {
                         assert type.getKind() == SyntaxKind.TypeParameter : "Unexpected type: " + type;
-                        w.append(sep).append(type.getName().getText());
+                        w.append(sep).append(type.getName().getSimpleName());
                         sep = ", ";
                     }
                     w.append(">");
@@ -178,16 +178,16 @@ abstract class Generator<L> {
                         continue;
                     }
                     if (m.getKind() == SyntaxKind.IndexSignature) {
-                        Identifier getter = new Identifier("$get");
+                        Identifier getter = new Identifier(SyntaxKind.FirstTypeNode, "$get");
                         fn.visit(getter, m.getType(), m.getParameters(), m.getTypeParameters(), m.getComment(), null);
                         continue;
                     }
                     if (m.getKind() == SyntaxKind.CallSignature) {
-                        Identifier getter = new Identifier("$apply");
+                        Identifier getter = new Identifier(SyntaxKind.FirstTypeNode, "$apply");
                         fn.visit(getter, m.getType(), m.getParameters(), m.getTypeParameters(), null, null);
                     }
                     if (m.getKind() == SyntaxKind.PropertySignature) {
-                        final String fieldName = m.getName().getText();
+                        final String fieldName = m.getName().getSimpleName();
                         if (name.equals("Object") && fieldName.equals("constructor")) {
                             continue;
                         }
@@ -202,7 +202,7 @@ abstract class Generator<L> {
                 }
                 fieldGenerator.finish();
                 if (constructor != null) {
-                    w.append("  // constructor " + constructor.getName().getText() + "\n");
+                    w.append("  // constructor " + constructor.getName().getSimpleName() + "\n");
                     Functions factory = new Functions(packageName, w, typings, name);
                     Constructors cnstr = new Constructors(w, typings, typeParameters);
                     Fields flds = new Fields(factory, packageName, w, typings, false, name, Collections.emptyList());
@@ -212,12 +212,12 @@ abstract class Generator<L> {
                             continue;
                         }
                         if (m.getKind() == SyntaxKind.CallSignature) {
-                            Identifier create = new Identifier("new" + name);
+                            Identifier create = new Identifier(SyntaxKind.FirstTypeNode, "new" + name);
                             factory.visit(create, m.getType(), m.getParameters(), m.getTypeParameters(), m.getComment(), null);
                             continue;
                         }
                         if (m.getKind() == SyntaxKind.PropertySignature) {
-                            final String fieldName = m.getName().getText();
+                            final String fieldName = m.getName().getSimpleName();
                             if (generatedFields.add(fieldName)) {
                                 flds.visit(m.getName(), m.getType(), null, null, m.getComment(), null);
                             }
@@ -264,7 +264,7 @@ abstract class Generator<L> {
     static boolean isTypeParameter(List<String> parameters, Type type) throws IOException {
         for (String p : parameters) {
             if (type.getKind().isTypeNode() && type.getTypeName() != null) {
-                if (p.equals(type.getTypeName().getText())) {
+                if (p.equals(type.getTypeName().getSimpleName())) {
                     return true;
                 }
             }
@@ -317,13 +317,16 @@ abstract class Generator<L> {
     static List<String> merge(List<AST> thisTypeParameters, List<AST> providedParameters, List<Type> typeNames) {
         LinkedHashSet<String> all = new LinkedHashSet<>();
         if (thisTypeParameters != null) for (AST p : thisTypeParameters) {
-            all.add(p.getName().getText());
+            all.add(p.getName().getSimpleName());
         }
         if (providedParameters != null) for (AST p : providedParameters) {
-            all.add(p.getName().getText());
+            all.add(p.getName().getSimpleName());
         }
         if (typeNames != null) for (Type p : typeNames) {
-            all.add(p.getTypeName().getText());
+            if (p.getKind() != SyntaxKind.VoidKeyword) {
+                String name = p.getTypeName().getSimpleName();
+                all.add(name);
+            }
         }
         return new ArrayList<>(all);
     }
@@ -419,9 +422,9 @@ abstract class Generator<L> {
         }
         public void generateFunctions(Identifier name, Type returnType, List<Parameter> parameters, List<AST> typeParameters, List<Type> typeParameterNames, String comment, Void ignore)
         throws IOException {
-            if (name.getText() == null || isKeyword(name.getText())) {
+            if (name.getSimpleName() == null || isKeyword(name.getSimpleName())) {
                 emitComment(w, "  ", comment);
-                w.append("  /* cannot generate " + name.getText() + " */\n");
+                w.append("  /* cannot generate " + name.getSimpleName() + " */\n");
                 return;
             }
             int firstOptional = generateFunction(parameters,typeParameters, typeParameterNames, name, returnType, comment);
@@ -435,9 +438,9 @@ abstract class Generator<L> {
             List<Parameter> parameters, List<AST> typeParameters, List<Type> typeParameterNames,
             Identifier name, Type returnType, String comment
         ) throws IOException {
-            if (isInObject(name.getText(), parameters)) {
+            if (isInObject(name.getSimpleName(), parameters)) {
                 emitComment(w, "  ", comment);
-                w.append("  /* cannot generate " + name.getText() + " */\n");
+                w.append("  /* cannot generate " + name.getSimpleName() + " */\n");
                 return 0;
             }
             int[] firstOptional = { 0 };
@@ -459,7 +462,7 @@ abstract class Generator<L> {
                 }
                 typeParameters(w, merge(null, typeParameters, typeParameterNames));
                 String javaReturn;
-                String methodName = name.getText();
+                String methodName = name.getSimpleName();
                 if (methodName == null) methodName = "nullName";
                 if (methodName.equals("valueOf")) {
                     javaReturn = returnType.getBoxedJavaType();
@@ -487,7 +490,7 @@ abstract class Generator<L> {
                         type = returnType.getBoxedIntoJavaType();
                     }
                     w.append(type + " ");
-                    w.append(p.getName().getText());
+                    w.append(p.getName().getSimpleName());
                     sep = ", ";
                 }
                 w.append(") {\n");
@@ -589,7 +592,7 @@ abstract class Generator<L> {
             int[] firstOptional = { 0 };
             String implName = typings.generateConstructor(parameters, firstOptional, a, mergedParams);
             String sep;
-            final String functionName = a.getText();
+            final String functionName = a.getSimpleName();
             for (List<Type> types : alternativeTypes(parameters)) {
                 emitComment(w, "  ", comment);
                 w.append("  public ");
@@ -603,7 +606,7 @@ abstract class Generator<L> {
                         type = type.substring(0, type.length() - 2) + "...";
                     }
                     w.append(type + " ");
-                    w.append(p.getName().getText());
+                    w.append(p.getName().getSimpleName());
                     sep = ", ";
                 }
                 w.append(") {\n");
@@ -646,9 +649,9 @@ abstract class Generator<L> {
         public void visit(Identifier a, Type fullType, Set<Type> callableSignatures, Void d, String comment, Void ignore) throws IOException {
             Type type = fullType.clone();
             type.anonimize();
-            if (a.getText() == null || isKeyword(a.getText())) {
+            if (a.getSimpleName() == null || isKeyword(a.getSimpleName())) {
                 emitComment(w, "  ", comment);
-                w.append("  /* cannot generate " + a.getText() + " */\n");
+                w.append("  /* cannot generate " + a.getSimpleName() + " */\n");
                 return;
             }
             boolean wrap = false;
@@ -668,7 +671,7 @@ abstract class Generator<L> {
             if (fieldType.startsWith("java.lang.")) {
                 wrap = false;
             }
-            final String fieldName = a.getText();
+            final String fieldName = a.getSimpleName();
             final String javaType = type.getRawJavaType();
             if (instance) {
                 w.append("net.java.html.lib.Function.A0<");
@@ -775,7 +778,7 @@ abstract class Generator<L> {
             boolean callback = false;
             for (Parameter p : parameters) {
                 w.append(sep);
-                w.append('"').append(p.getName().getText()).append('"');
+                w.append('"').append(p.getName().getSimpleName()).append('"');
                 sep = ", ";
 
                 if (!p.isOptional()) {
@@ -788,7 +791,7 @@ abstract class Generator<L> {
             boolean wrapReturn = 
                 returnType.getKind().isTypeNode() ||
                 returnType.getKind() == SyntaxKind.ArrayType;
-            final String methodName = a.getText();
+            final String methodName = a.getSimpleName();
             w.append("}, ");
             if (callback) {
                 w.append("javacall = true, ");
@@ -824,12 +827,12 @@ abstract class Generator<L> {
                     openCall = "(";
                 } else if ("$set".equals(methodName)) {
                     generateParams = 1;
-                    closeCall = "] = " + parameters.get(1).getName().getText();
+                    closeCall = "] = " + parameters.get(1).getName().getSimpleName();
                     w.append("$dukescript$self");
                     openCall = "[";
                 } else if ("$set".equals(methodName)) {
                     generateParams = 1;
-                    closeCall = "] = " + parameters.get(1).getName().getText();
+                    closeCall = "] = " + parameters.get(1).getName().getSimpleName();
                     w.append("$dukescript$self['r']");
                     openCall = "[";
                 } else {
@@ -889,7 +892,7 @@ abstract class Generator<L> {
             for (Parameter p : parameters) {
                 w.append(sep);
                 w.append("java.lang.Object ");
-                w.append(p.getName().getText());
+                w.append(p.getName().getSimpleName());
                 sep = ", ";
             }
             w.append(");\n\n");
@@ -902,7 +905,7 @@ abstract class Generator<L> {
             boolean callback = false;
             for (Parameter p : parameters) {
                 w.append(sep);
-                w.append('"').append(p.getName().getText()).append('"');
+                w.append('"').append(p.getName().getSimpleName()).append('"');
                 sep = ", ";
 
                 if (!p.isOptional()) {
@@ -917,7 +920,7 @@ abstract class Generator<L> {
                 w.append("javacall = true, ");
             }
             w.append("body=\n    \"return new ");
-            final String functionName = a.getText();
+            final String functionName = a.getSimpleName();
             w.append(functionName).append("(");
             sep = "";
             for (Parameter p : parameters) {
@@ -936,7 +939,7 @@ abstract class Generator<L> {
             for (Parameter p : parameters) {
                 w.append(sep);
                 w.append("java.lang.Object ");
-                w.append(p.getName().getText());
+                w.append(p.getName().getSimpleName());
                 sep = ", ";
             }
             w.append(");\n\n");
