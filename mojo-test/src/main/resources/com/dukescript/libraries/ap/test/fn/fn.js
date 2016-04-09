@@ -34,7 +34,7 @@ var fn = function() {
     }
 };
 fn.fourtyTwo = 42;
-fn.rec = fn;
+fn.FnT = fn;
 fn.first = function(first, next) {
     return first;
 };

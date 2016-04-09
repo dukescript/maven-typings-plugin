@@ -74,9 +74,13 @@ abstract class Generator<L> {
                 if (findType(coreBase) != null) {
                     return coreBase;
                 }
-                final String javaBase = "java.lang." + typeStr;
-                if (findType(javaBase) != null) {
-                    return javaBase;
+                switch (typeStr) {
+                    case "String":
+                    case "Number":
+                    case "Boolean":
+                        return "java.lang." + typeStr;
+                    case "Object":
+                        return "net.java.html.lib.Objs";
                 }
                 for (String pkg : libraryImports) {
                     String fullName = pkg + "." + typeStr;
@@ -174,7 +178,7 @@ abstract class Generator<L> {
                 w.append("  public static final net.java.html.lib.Function.A1<java.lang.Object," + name + "> $AS = new net.java.html.lib.Function.A1<java.lang.Object," + name + ">() {\n");
                 w.append("    @Override\n");
                 w.append("    public " + name + " call(java.lang.Object obj) {\n");
-                w.append("      return " + name + ".$as(obj);\n");
+                w.append("      return " + packageName + "." + name + ".$as(obj);\n");
                 w.append("    }\n");
                 w.append("  };\n");
                 boolean isStatic = constructor != null && a == constructor.getName();
@@ -296,11 +300,18 @@ abstract class Generator<L> {
         return false;
     }
     
-    static String mangleName(boolean fqn, String name) {
-        if (fqn && name.equals("Array")) {
+    static String mangleName(String prefix, String name) {
+        if (prefix != null && name.equals("Array")) {
             return "net.java.html.lib.Array";
         }
-        return name.equals("Object") ? (fqn ? "net.java.html.lib.Objs" : "Objs") : name;
+        if (name.equals("Object")) {
+            return (prefix != null ? "net.java.html.lib.Objs" : "Objs") ;
+        }
+        return prefix != null ? prefix + name : name;
+    }
+
+    static String mangleName(boolean fqn, String name) {
+        return mangleName(fqn ? "" : null, name);
     }
 
     List<List<Type>> alternativeTypes(List<Parameter> parameters) {
@@ -715,7 +726,8 @@ abstract class Generator<L> {
                     if (useRaw) {
                         w.append("net.java.html.lib.Objs");
                     } else {
-                        w.append(mangleName(true, javaType));
+                        String prefix = javaType.contains(".") ? "" : packageName + ".";
+                        w.append(mangleName(prefix, javaType));
                     }
                     w.append(".$AS, ");
                 }

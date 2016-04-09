@@ -12,7 +12,7 @@ interface FnT {
   (): string;
   (x: number): string;
   fourtyTwo: number;
-  rec: FnT;
+  FnT: FnT;
   first(x: number, name?: string): number;
   first(y: number, count?: number): number;
   first(z: string, name?: string): string;

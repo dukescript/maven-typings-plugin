@@ -69,9 +69,9 @@ public class FnTest {
     @Test
     public void typedFunctionWithPropertiesOnObject() {
         FnT obj = Exports.fnT;
-        assertNotNull("fnT", obj.rec);
-        assertEquals(42, obj.rec.call().fourtyTwo.call());
-        assertEquals("Hi", obj.rec());
+        assertNotNull("fnT", obj.FnT);
+        assertEquals(42, obj.FnT.call().fourtyTwo.call());
+        assertEquals("Hi", obj.FnT());
 //        assertEquals("Length4", Exports.fnT(4));
     }
 
