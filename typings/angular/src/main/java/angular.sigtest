@@ -1498,10 +1498,6 @@ cons protected init(java.lang.Class<?>,java.lang.Object)
 fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.dom.EventTarget> $AS
 meth public java.lang.Boolean dispatchEvent(net.java.html.lib.dom.Event)
 meth public static net.java.html.lib.dom.EventTarget $as(java.lang.Object)
-meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
-meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
-meth public void removeEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
-meth public void removeEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.dom.Window
@@ -1797,8 +1793,6 @@ meth public net.java.html.lib.dom.Window self()
 meth public net.java.html.lib.dom.Window top()
 meth public net.java.html.lib.dom.Window window()
 meth public static net.java.html.lib.dom.Window $as(java.lang.Object)
-meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject)
-meth public void addEventListener(java.lang.String,net.java.html.lib.dom.EventListenerOrEventListenerObject,java.lang.Boolean)
 meth public void addEventListener(java.lang.Void,net.java.html.lib.Function$A1<? super net.java.html.lib.dom.WheelEvent,?>)
 meth public void addEventListener(java.lang.Void,net.java.html.lib.Function$A1<? super net.java.html.lib.dom.WheelEvent,?>,java.lang.Boolean)
 meth public void alert()
