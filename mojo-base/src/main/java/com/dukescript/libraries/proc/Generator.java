@@ -185,8 +185,12 @@ abstract class Generator<L> {
                 Functions fn = isStatic ?
                     new Functions(packageName, w, typings, name) : new Functions(packageName, w, typings, true, typeParameters);
                 Fields fieldGenerator = new Fields(fn, packageName, w, typings, !isStatic, name, typeParameters);
+                Constructors cnstr = new Constructors(w, typings, typeParameters);
                 for (AST m : members) {
-                    if (m.getKind() == SyntaxKind.MethodSignature) {
+                    if (
+                        m.getKind() == SyntaxKind.MethodSignature ||
+                        m.getKind() == SyntaxKind.MethodDeclaration
+                    ) {
                         fn.visit(m.getName(), m.getType(), m.getParameters(), m.getTypeParameters(), m.getComment(), null);
                         continue;
                     }
@@ -199,7 +203,10 @@ abstract class Generator<L> {
                         Identifier getter = new Identifier(SyntaxKind.FirstTypeNode, "$apply");
                         fn.visit(getter, m.getType(), m.getParameters(), m.getTypeParameters(), null, null);
                     }
-                    if (m.getKind() == SyntaxKind.PropertySignature) {
+                    if (
+                        m.getKind() == SyntaxKind.PropertySignature ||
+                        m.getKind() == SyntaxKind.PropertyDeclaration
+                    ) {
                         final String fieldName = m.getName().getSimpleName();
                         if (name.equals("Object") && fieldName.equals("constructor")) {
                             continue;
@@ -211,13 +218,16 @@ abstract class Generator<L> {
                         }
                         continue;
                     }
+                    if (m.getKind() == SyntaxKind.Constructor) {
+                        cnstr.visit(a, m.getType(), m.getParameters(), m.getTypeParameters(), m.getComment(), null);
+                        continue;
+                    }
                     w.append("  // " + m.getKind() + ": "  + m + "\n");
                 }
                 fieldGenerator.finish();
                 if (constructor != null) {
                     w.append("  // constructor " + constructor.getName().getSimpleName() + "\n");
                     Functions factory = new Functions(packageName, w, typings, name);
-                    Constructors cnstr = new Constructors(w, typings, typeParameters);
                     Fields flds = new Fields(factory, packageName, w, typings, false, name, Collections.emptyList());
                     for (AST m : constructor.getMembers()) {
                         if (m.getKind() == SyntaxKind.MethodSignature) {
@@ -257,6 +267,7 @@ abstract class Generator<L> {
             }
         }
         root.visitInterfaces(new Interfaces());
+        root.visitClasses(new Interfaces());
         typings.close();
     }
 

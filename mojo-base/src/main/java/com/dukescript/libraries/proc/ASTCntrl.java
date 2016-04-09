@@ -741,6 +741,19 @@ class ASTCntrl {
         }
     }
 
+    @ModelOperation
+    static void visitClasses(AST self, Visitor<Identifier,List<AST>,List<AST>,AST,List<Heritage>, Map<String,Set<Type>>> visitor) throws IOException {
+        Map<String,AST> unique = new TreeMap<>();
+        Map<String,Set<Type>> callSigs = findCallSignatures(self);
+        for (AST ch : self.getChildren()) {
+            if (ch.getKind() != SyntaxKind.ClassDeclaration) {
+                continue;
+            }
+            final List<AST> filteredMembers = filteredMembers(ch.getTypeParameters(), true, ch.getMembers(), SyntaxKind.MethodSignature);
+            visitor.visit(ch.getName(), ch.getTypeParameters(), filteredMembers, null, ch.getHeritageClauses(), callSigs);
+        }
+    }
+
     private static Map<String, AST> findConstructors(AST self) {
         Set<String> constructorClasses = new HashSet<>();
         Map<String,AST> constructors = new TreeMap<>();

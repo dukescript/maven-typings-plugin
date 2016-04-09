@@ -2,19 +2,14 @@
 declare function emptyVector(): Array<Number>;
 declare function addVector(v : Array<Number>, ...e : number): Array<Number>;
 
-interface StringStack {
+export class StringStack {
+    constructor(next?: StringStack);
     push(item : String): void;
     pop(): String;
     lengths(): number[];
     name: String;
     next: StringStack;
 }
-
-interface StringStackConstructor {
-    new (next? : StringStack): StringStack;
-}
-
-declare StringStack : StringStackConstructor;
 
 interface Attr {
 }
