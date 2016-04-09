@@ -672,6 +672,7 @@ abstract class Generator<L> {
         private final String prefix;
         private final String packageName;
         private final Functions fnVisitor;
+        private final Set<String> names;
 
         Fields(Functions fnVisitor, String pn, Writer w, Typings typings, boolean instance, String prefix, List<AST> typeParameters) {
             this.fnVisitor = fnVisitor;
@@ -681,6 +682,7 @@ abstract class Generator<L> {
             this.typings = typings;
             this.instance = instance;
             this.typeParameters = typeParameters;
+            this.names = new HashSet<>();
         }
 
         @Override
@@ -690,6 +692,11 @@ abstract class Generator<L> {
             if (a.getSimpleName() == null || isKeyword(a.getSimpleName())) {
                 emitComment(w, "  ", comment);
                 w.append("  /* cannot generate " + a.getSimpleName() + " */\n");
+                return;
+            }
+            final String fieldName = a.getSimpleName();
+            if (!names.add(fieldName)) {
+                w.append("  /* already generated " + a.getSimpleName() + " */\n");
                 return;
             }
             boolean wrap = false;
@@ -709,7 +716,6 @@ abstract class Generator<L> {
             if (fieldType.startsWith("java.lang.")) {
                 wrap = false;
             }
-            final String fieldName = a.getSimpleName();
             final String javaType = type.getRawJavaType();
             if (instance) {
                 w.append("net.java.html.lib.Function.A0<");
