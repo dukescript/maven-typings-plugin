@@ -33,6 +33,9 @@ interface Literal {
 }
 var literal: Literal;
 
+type OneOf = string | number;
+var oneOf: OneOf;
+declare function oneFn(x: OneOf): OneOf;
 
 interface IScope {
     $compute<T>(callback : (scope: IScope) => T): T;

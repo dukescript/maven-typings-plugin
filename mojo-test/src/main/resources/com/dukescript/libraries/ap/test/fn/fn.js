@@ -62,7 +62,12 @@ function literal(s) {
 
 var scope = {
     $compute : function(c) { return c(scope); }
-}
+};
+
+var oneOf = "two";
+var oneFn = function(id) {
+    return id;
+};
 
 function tripple() {
     return [1, "Hi", true];

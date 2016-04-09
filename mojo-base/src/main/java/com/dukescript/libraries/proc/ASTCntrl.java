@@ -688,6 +688,15 @@ class ASTCntrl {
     }
 
     @ModelOperation
+    static void findTypeAliases(AST self, Map<Identifier,Type> aliases) {
+        for (AST ch : self.getChildren()) {
+            if (ch.getKind() == SyntaxKind.TypeAliasDeclaration) {
+                aliases.put(ch.getName(), ch.getType());
+            }
+        }
+    }
+
+    @ModelOperation
     static void visitInterfaces(AST self, Visitor<Identifier,List<AST>,List<AST>,AST,List<Heritage>, Map<String,Set<Type>>> visitor) throws IOException {
         Map<String,AST> unique = new TreeMap<>();
         Map<String,Set<Type>> callSigs = findCallSignatures(self);

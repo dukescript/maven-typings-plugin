@@ -26,6 +26,7 @@ package com.dukescript.libraries.ap.test.fn;
 import net.java.html.lib.Function;
 import net.java.html.lib.Objs;
 import net.java.html.junit.BrowserRunner;
+import net.java.html.lib.Union;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -122,5 +123,23 @@ public class FnTest {
         assertTrue(arr[0] instanceof Number);
         assertTrue(arr[1] instanceof String);
         assertTrue(arr[2] instanceof Boolean);
+    }
+
+    @Test
+    public void oneFnString() {
+        Union.A2<String, Number> value = Exports.oneFn("one");
+        assertEquals("one", value.cast(String.class));
+    }
+
+    @Test
+    public void oneFnNumber() {
+        Union.A2<String, Number> value = Exports.oneFn(1);
+        assertEquals("One is returned", 1.0, (double) value.cast(Number.class), 0.1);
+    }
+
+    @Test
+    public void oneOf() {
+        Object value = Exports.oneOf.cast(String.class);
+        assertEquals("two", value);
     }
 }

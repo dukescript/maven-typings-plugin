@@ -8,6 +8,7 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -41,10 +42,20 @@ import static javax.lang.model.SourceVersion.isKeyword;
  */
 
 abstract class Generator<L> {
+    private Map<Identifier, Type> typeAliases;
+
     protected abstract Writer createSourceFile(String string, L location) throws IOException;
     protected abstract L findType(String fqn);
     protected abstract void note(String message, L e);
     protected abstract void error(String message, L e);
+
+    final Type findType(Type t) {
+        if (typeAliases != null && t.getKind() == SyntaxKind.FirstTypeNode) {
+            Type alt = typeAliases.get(t.getTypeName());
+            return alt == null ? t : alt;
+        }
+        return t;
+    }
     
     final void generateSources(
         final String[] libraryImports,
@@ -87,6 +98,8 @@ abstract class Generator<L> {
         w.append("public final class Exports extends " + mangleName(true, "Object") + " {\n");
         w.append("  private Exports() {\n");
         w.append("  }\n");
+        this.typeAliases = new HashMap<>();
+        root.findTypeAliases(typeAliases);
         final Functions fn = new Functions(packageName, w, typings, false);
         root.visitFunctions(fn);
         final Fields fields = new Fields(fn, packageName, w, typings, false, null, Collections.emptyList());
@@ -279,17 +292,18 @@ abstract class Generator<L> {
         return name.equals("Object") ? (fqn ? "net.java.html.lib.Objs" : "Objs") : name;
     }
 
-    static List<List<Type>> alternativeTypes(List<Parameter> parameters) {
+    List<List<Type>> alternativeTypes(List<Parameter> parameters) {
         if (parameters.isEmpty()) {
             return Collections.nCopies(1, new ArrayList<>());
         } else {
             final int last = parameters.size() - 1;
             Parameter p = parameters.get(last);
             List<List<Type>> types = alternativeTypes(parameters.subList(0, last));
-            List<Type> lastAlternatives = p.getType().getUnionTypes();
+            Type type = findType(p.getType());
+            List<Type> lastAlternatives = type.getUnionTypes();
             if (lastAlternatives == null) {
                 for (List<Type> t : types) {
-                    t.add(p.getType());
+                    t.add(type);
                 }
                 return types;
             } else {
@@ -443,6 +457,7 @@ abstract class Generator<L> {
                 w.append("  /* cannot generate " + name.getSimpleName() + " */\n");
                 return 0;
             }
+            returnType = findType(returnType);
             int[] firstOptional = { 0 };
             final List<String> allTypeParams = merge(this.typeParameters, typeParameters, typeParameterNames);
             String implName = typings.generateFunction(virtual, parameters, allTypeParams,
@@ -496,7 +511,8 @@ abstract class Generator<L> {
                 w.append(") {\n");
                 boolean wrap = 
                     returnType.getKind().isTypeNode() ||
-                    returnType.getKind() == SyntaxKind.FunctionType;
+                    returnType.getKind() == SyntaxKind.FunctionType ||
+                    returnType.getKind() == SyntaxKind.UnionType;
                 if (wrap) {
                     final String javaType = mangleName(true, returnType.getRawJavaType());
                     if (
@@ -601,7 +617,7 @@ abstract class Generator<L> {
                 for (int i = 0; i < parameters.size(); i++) {
                     Parameter p = parameters.get(i);
                     w.append(sep);
-                    String type = types.get(i).getJavaType();
+                    String type = findType(types.get(i)).getJavaType();
                     if (p.isVararg() && type.endsWith("[]")) {
                         type = type.substring(0, type.length() - 2) + "...";
                     }
@@ -647,7 +663,7 @@ abstract class Generator<L> {
 
         @Override
         public void visit(Identifier a, Type fullType, Set<Type> callableSignatures, Void d, String comment, Void ignore) throws IOException {
-            Type type = fullType.clone();
+            Type type = findType(fullType).clone();
             type.anonimize();
             if (a.getSimpleName() == null || isKeyword(a.getSimpleName())) {
                 emitComment(w, "  ", comment);
@@ -790,6 +806,7 @@ abstract class Generator<L> {
             }
             boolean wrapReturn = 
                 returnType.getKind().isTypeNode() ||
+                returnType.getKind() == SyntaxKind.UnionType ||
                 returnType.getKind() == SyntaxKind.ArrayType;
             final String methodName = a.getSimpleName();
             w.append("}, ");
