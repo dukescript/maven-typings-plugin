@@ -85,6 +85,7 @@ meth public static java.lang.Boolean isView(java.lang.Object)
 meth public static net.java.html.lib.ArrayBuffer $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.ArrayBufferView
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -97,6 +98,7 @@ meth public net.java.html.lib.ArrayBuffer buffer()
 meth public static net.java.html.lib.ArrayBufferView $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.ArrayLike<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -106,6 +108,7 @@ meth public static net.java.html.lib.ArrayLike $as(java.lang.Object)
 meth public {net.java.html.lib.ArrayLike%0} $get(double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.DataView
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -149,6 +152,7 @@ meth public void setUint32(double,double,java.lang.Boolean)
 meth public void setUint8(double,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Date
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -235,6 +239,7 @@ meth public static java.lang.String newDate()
 meth public static net.java.html.lib.Date $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Error
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -259,6 +264,7 @@ meth public static net.java.html.lib.EvalError newEvalError()
 meth public static net.java.html.lib.EvalError newEvalError(java.lang.String)
 supr net.java.html.lib.Error
 hfds $AS
+hcls $Constructor
 
 CLSS public final net.java.html.lib.Exports
 fld public static double Infinity
@@ -344,6 +350,7 @@ meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Float64Array
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -414,6 +421,7 @@ meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Function
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -436,7 +444,7 @@ meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{
 meth public static net.java.html.lib.Function $as(java.lang.Object)
 meth public static net.java.html.lib.Function newFunction(net.java.html.lib.Function$A5<?,?,?,?,?,?>)
 supr net.java.html.lib.Objs
-hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1,$AS
+hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1,$AS,$ASJS
 hcls JSFn
 
 CLSS public abstract interface static net.java.html.lib.Function$A0<%0 extends java.lang.Object>
@@ -483,6 +491,7 @@ meth public net.java.html.lib.Function callee()
 meth public static net.java.html.lib.IArguments $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Int16Array
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -553,6 +562,7 @@ meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Int32Array
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -623,6 +633,7 @@ meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Int8Array
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -693,6 +704,7 @@ meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.JSON
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -708,6 +720,7 @@ meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib
 meth public static net.java.html.lib.JSON $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Math
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -740,6 +753,7 @@ meth public static double tan(double)
 meth public static net.java.html.lib.Math $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Objs
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -794,6 +808,7 @@ meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> t
 meth public static net.java.html.lib.PromiseLike $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.PropertyDescriptor
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -809,6 +824,7 @@ meth public static net.java.html.lib.PropertyDescriptor $as(java.lang.Object)
 meth public void set(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.PropertyDescriptorMap
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -816,6 +832,7 @@ meth public net.java.html.lib.PropertyDescriptor $get(java.lang.String)
 meth public static net.java.html.lib.PropertyDescriptorMap $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.RangeError
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -827,6 +844,7 @@ meth public static net.java.html.lib.RangeError newRangeError()
 meth public static net.java.html.lib.RangeError newRangeError(java.lang.String)
 supr net.java.html.lib.Error
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.ReferenceError
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -838,6 +856,7 @@ meth public static net.java.html.lib.ReferenceError newReferenceError()
 meth public static net.java.html.lib.ReferenceError newReferenceError(java.lang.String)
 supr net.java.html.lib.Error
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.RegExp
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -872,6 +891,7 @@ meth public static net.java.html.lib.RegExp newRegExp(java.lang.String)
 meth public static net.java.html.lib.RegExp newRegExp(java.lang.String,java.lang.String)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.RegExpExecArray
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -882,6 +902,7 @@ meth public java.lang.String input()
 meth public static net.java.html.lib.RegExpExecArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.RegExpMatchArray
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -892,6 +913,7 @@ meth public java.lang.String input()
 meth public static net.java.html.lib.RegExpMatchArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.SyntaxError
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -903,6 +925,7 @@ meth public static net.java.html.lib.SyntaxError newSyntaxError()
 meth public static net.java.html.lib.SyntaxError newSyntaxError(java.lang.String)
 supr net.java.html.lib.Error
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.TemplateStringsArray
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -911,6 +934,7 @@ meth public java.lang.String[] raw()
 meth public static net.java.html.lib.TemplateStringsArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.TypeError
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -922,6 +946,7 @@ meth public static net.java.html.lib.TypeError newTypeError()
 meth public static net.java.html.lib.TypeError newTypeError(java.lang.String)
 supr net.java.html.lib.Error
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.TypedPropertyDescriptor<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -939,6 +964,7 @@ meth public net.java.html.lib.Function$A1<? super {net.java.html.lib.TypedProper
 meth public static net.java.html.lib.TypedPropertyDescriptor $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.URIError
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -950,6 +976,7 @@ meth public static net.java.html.lib.URIError newURIError()
 meth public static net.java.html.lib.URIError newURIError(java.lang.String)
 supr net.java.html.lib.Error
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Uint16Array
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -1020,6 +1047,7 @@ meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Uint32Array
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -1090,6 +1118,7 @@ meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Uint8Array
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -1160,6 +1189,7 @@ meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
 CLSS public net.java.html.lib.Uint8ClampedArray
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -1230,52 +1260,40 @@ meth public void set(net.java.html.lib.Uint8ClampedArray)
 meth public void set(net.java.html.lib.Uint8ClampedArray,double)
 supr net.java.html.lib.Objs
 hfds $AS
+hcls $Constructor
 
-CLSS public final net.java.html.lib.Union
-cons public init()
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Union$A9> $AS
+CLSS public abstract net.java.html.lib.Union
 innr public abstract static A2
 innr public abstract static A3
 innr public abstract static A4
 innr public abstract static A5
-innr public abstract static A6
-innr public abstract static A7
-innr public abstract static A8
-innr public abstract static A9
-meth public static <%0 extends net.java.html.lib.Union$A9> {%%0} $as(java.lang.Object)
+meth public abstract <%0 extends java.lang.Object> {%%0} cast(java.lang.Class<{%%0}>)
+meth public static <%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object> net.java.html.lib.Union$A5<{%%0},{%%1},{%%2},{%%3},{%%4}> $as(java.lang.Object,java.lang.Class<{%%0}>,java.lang.Class<{%%1}>,java.lang.Class<{%%2}>,java.lang.Class<{%%3}>,java.lang.Class<{%%4}>)
+meth public static <%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object> net.java.html.lib.Union$A4<{%%0},{%%1},{%%2},{%%3}> $as(java.lang.Object,java.lang.Class<{%%0}>,java.lang.Class<{%%1}>,java.lang.Class<{%%2}>,java.lang.Class<{%%3}>)
+meth public static <%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object> net.java.html.lib.Union$A3<{%%0},{%%1},{%%2}> $as(java.lang.Object,java.lang.Class<{%%0}>,java.lang.Class<{%%1}>,java.lang.Class<{%%2}>)
+meth public static <%0 extends java.lang.Object, %1 extends java.lang.Object> net.java.html.lib.Union$A2<{%%0},{%%1}> $as(java.lang.Object,java.lang.Class<{%%0}>,java.lang.Class<{%%1}>)
+meth public static net.java.html.lib.Union $as(java.lang.Object)
 supr java.lang.Object
+hcls Impl
 
 CLSS public abstract static net.java.html.lib.Union$A2<%0 extends java.lang.Object, %1 extends java.lang.Object>
  outer net.java.html.lib.Union
-supr net.java.html.lib.Union$A3<{net.java.html.lib.Union$A2%0},{net.java.html.lib.Union$A2%1},java.lang.Void>
+meth public abstract {net.java.html.lib.Union$A2%0} a()
+meth public abstract {net.java.html.lib.Union$A2%1} b()
+supr net.java.html.lib.Union
 
 CLSS public abstract static net.java.html.lib.Union$A3<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object>
  outer net.java.html.lib.Union
-supr net.java.html.lib.Union$A4<{net.java.html.lib.Union$A3%0},{net.java.html.lib.Union$A3%1},{net.java.html.lib.Union$A3%2},java.lang.Void>
+meth public abstract {net.java.html.lib.Union$A3%2} c()
+supr net.java.html.lib.Union$A2<{net.java.html.lib.Union$A3%0},{net.java.html.lib.Union$A3%1}>
 
 CLSS public abstract static net.java.html.lib.Union$A4<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object>
  outer net.java.html.lib.Union
-supr net.java.html.lib.Union$A5<{net.java.html.lib.Union$A4%0},{net.java.html.lib.Union$A4%1},{net.java.html.lib.Union$A4%2},{net.java.html.lib.Union$A4%3},java.lang.Void>
+meth public abstract {net.java.html.lib.Union$A4%3} d()
+supr net.java.html.lib.Union$A3<{net.java.html.lib.Union$A4%0},{net.java.html.lib.Union$A4%1},{net.java.html.lib.Union$A4%2}>
 
 CLSS public abstract static net.java.html.lib.Union$A5<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object>
  outer net.java.html.lib.Union
-supr net.java.html.lib.Union$A6<{net.java.html.lib.Union$A5%0},{net.java.html.lib.Union$A5%1},{net.java.html.lib.Union$A5%2},{net.java.html.lib.Union$A5%3},{net.java.html.lib.Union$A5%4},java.lang.Void>
-
-CLSS public abstract static net.java.html.lib.Union$A6<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object>
- outer net.java.html.lib.Union
-supr net.java.html.lib.Union$A7<{net.java.html.lib.Union$A6%0},{net.java.html.lib.Union$A6%1},{net.java.html.lib.Union$A6%2},{net.java.html.lib.Union$A6%3},{net.java.html.lib.Union$A6%4},{net.java.html.lib.Union$A6%5},java.lang.Void>
-
-CLSS public abstract static net.java.html.lib.Union$A7<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object, %6 extends java.lang.Object>
- outer net.java.html.lib.Union
-supr net.java.html.lib.Union$A8<{net.java.html.lib.Union$A7%0},{net.java.html.lib.Union$A7%1},{net.java.html.lib.Union$A7%2},{net.java.html.lib.Union$A7%3},{net.java.html.lib.Union$A7%4},{net.java.html.lib.Union$A7%5},{net.java.html.lib.Union$A7%6},java.lang.Void>
-
-CLSS public abstract static net.java.html.lib.Union$A8<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object, %6 extends java.lang.Object, %7 extends java.lang.Object>
- outer net.java.html.lib.Union
-supr net.java.html.lib.Union$A9<{net.java.html.lib.Union$A8%0},{net.java.html.lib.Union$A8%1},{net.java.html.lib.Union$A8%2},{net.java.html.lib.Union$A8%3},{net.java.html.lib.Union$A8%4},{net.java.html.lib.Union$A8%5},{net.java.html.lib.Union$A8%6},{net.java.html.lib.Union$A8%7},java.lang.Void>
-
-CLSS public abstract static net.java.html.lib.Union$A9<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object, %5 extends java.lang.Object, %6 extends java.lang.Object, %7 extends java.lang.Object, %8 extends java.lang.Object>
- outer net.java.html.lib.Union
-meth public abstract <%0 extends java.lang.Object> {%%0} cast(java.lang.Class<{%%0}>)
-meth public abstract boolean instanceOf(java.lang.Class<?>)
-supr java.lang.Object
+meth public abstract {net.java.html.lib.Union$A5%4} e()
+supr net.java.html.lib.Union$A4<{net.java.html.lib.Union$A5%0},{net.java.html.lib.Union$A5%1},{net.java.html.lib.Union$A5%2},{net.java.html.lib.Union$A5%3}>
 

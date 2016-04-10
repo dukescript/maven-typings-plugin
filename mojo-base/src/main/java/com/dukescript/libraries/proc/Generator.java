@@ -50,6 +50,9 @@ abstract class Generator<L> {
     protected abstract void error(String message, L e);
 
     final Type findType(Type t) {
+        if (t == null) {
+            return null;
+        }
         if (typeAliases != null && t.getKind() == SyntaxKind.FirstTypeNode) {
             Type alt = typeAliases.get(t.getTypeName());
             return alt == null ? t : alt;
@@ -756,6 +759,11 @@ abstract class Generator<L> {
                 }
                 readStatic(fieldName, type.getTypingsType(), type.getDefaultValue());
                 if (wrap) {
+                    if (type.getKind() == SyntaxKind.UnionType) {
+                        for (Type pt : type.getTypes()) {
+                            w.append(", ").append(pt.getBoxedJavaType()).append(".class");
+                        }
+                    }
                     w.append(")");
                 }
                 w.append(";\n");
