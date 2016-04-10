@@ -24,13 +24,11 @@ supr java.lang.Object
 hfds VM,last,p
 
 CLSS public net.java.html.lib.Array<%0 extends java.lang.Object>
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public !varargs init({net.java.html.lib.Array%0}[])
 cons public init()
 cons public init(double)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public static net.java.html.lib.Array prototype
 intf java.lang.Iterable<{net.java.html.lib.Array%0}>
 meth public !varargs double push({net.java.html.lib.Array%0}[])
 meth public !varargs double unshift({net.java.html.lib.Array%0}[])
@@ -73,12 +71,11 @@ meth public {net.java.html.lib.Array%0}[] slice(double,double)
 meth public {net.java.html.lib.Array%0}[] sort()
 meth public {net.java.html.lib.Array%0}[] sort(net.java.html.lib.Function$A2<? super {net.java.html.lib.Array%0},? super {net.java.html.lib.Array%0},? extends java.lang.Number>)
 supr net.java.html.lib.Objs
-hfds $$fn$$toArray_1
+hfds $$fn$$toArray_1,$AS
 
 CLSS public net.java.html.lib.ArrayBuffer
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.ArrayBuffer> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public static net.java.html.lib.ArrayBuffer prototype
 meth public java.lang.Number byteLength()
@@ -87,10 +84,10 @@ meth public net.java.html.lib.ArrayBuffer slice(double,double)
 meth public static java.lang.Boolean isView(java.lang.Object)
 meth public static net.java.html.lib.ArrayBuffer $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.ArrayBufferView
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.ArrayBufferView> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
@@ -99,22 +96,22 @@ meth public java.lang.Number byteOffset()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public static net.java.html.lib.ArrayBufferView $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.ArrayLike<%0 extends java.lang.Object>
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.ArrayLike> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
 meth public java.lang.Number length()
 meth public static net.java.html.lib.ArrayLike $as(java.lang.Object)
 meth public {net.java.html.lib.ArrayLike%0} $get(double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.DataView
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.DataView> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
 fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
@@ -151,9 +148,10 @@ meth public void setUint32(double,double)
 meth public void setUint32(double,double,java.lang.Boolean)
 meth public void setUint8(double,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Date
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(double)
 cons public init(double,double)
@@ -163,7 +161,6 @@ cons public init(double,double,double,double,double)
 cons public init(double,double,double,double,double,double)
 cons public init(double,double,double,double,double,double,double)
 cons public init(java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Date> $AS
 fld public static net.java.html.lib.Date prototype
 meth public double getDate()
 meth public double getDay()
@@ -224,7 +221,6 @@ meth public java.lang.String toJSON(java.lang.Object)
 meth public java.lang.String toLocaleDateString()
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toLocaleTimeString()
-meth public java.lang.String toString()
 meth public java.lang.String toTimeString()
 meth public java.lang.String toUTCString()
 meth public static double UTC(double,double)
@@ -238,12 +234,12 @@ meth public static double parse(java.lang.String)
 meth public static java.lang.String newDate()
 meth public static net.java.html.lib.Date $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Error
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Error> $AS
 fld public net.java.html.lib.Function$A0<java.lang.String> message
 fld public net.java.html.lib.Function$A0<java.lang.String> name
 fld public static net.java.html.lib.Error prototype
@@ -251,17 +247,18 @@ meth public static net.java.html.lib.Error $as(java.lang.Object)
 meth public static net.java.html.lib.Error newError()
 meth public static net.java.html.lib.Error newError(java.lang.String)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.EvalError
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.EvalError> $AS
 fld public static net.java.html.lib.EvalError prototype
 meth public static net.java.html.lib.EvalError $as(java.lang.Object)
 meth public static net.java.html.lib.EvalError newEvalError()
 meth public static net.java.html.lib.EvalError newEvalError(java.lang.String)
 supr net.java.html.lib.Error
+hfds $AS
 
 CLSS public final net.java.html.lib.Exports
 fld public static double Infinity
@@ -279,13 +276,12 @@ meth public static java.lang.String encodeURIComponent(java.lang.String)
 supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.Float32Array
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Float32Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -319,7 +315,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Float32Array copyWithin(double,double)
 meth public net.java.html.lib.Float32Array copyWithin(double,double,double)
@@ -348,15 +343,15 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Float64Array
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Float64Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -390,7 +385,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Float64Array copyWithin(double,double)
 meth public net.java.html.lib.Float64Array copyWithin(double,double,double)
@@ -419,12 +413,12 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Function
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public !varargs init(java.lang.String[])
 fld public final net.java.html.lib.Function$A0<java.lang.Number> length
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Function> $AS
 fld public java.lang.Object prototype
 innr public abstract interface static A0
 innr public abstract interface static A1
@@ -436,12 +430,13 @@ meth public !varargs java.lang.Object apply(java.lang.Object,java.lang.Object[])
 meth public !varargs java.lang.Object bind(java.lang.Object,java.lang.Object[])
 meth public !varargs static java.lang.Object $call(java.lang.Object,java.lang.Object[])
 meth public !varargs static net.java.html.lib.Function newFunction(java.lang.String[])
+meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(java.lang.Class<?>,java.lang.Object,java.lang.String)
 meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(java.lang.Object,java.lang.String)
 meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(net.java.html.lib.Function$A1<java.lang.Object,?>,java.lang.Object,java.lang.String)
 meth public static net.java.html.lib.Function $as(java.lang.Object)
 meth public static net.java.html.lib.Function newFunction(net.java.html.lib.Function$A5<?,?,?,?,?,?>)
 supr net.java.html.lib.Objs
-hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1
+hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1,$AS
 hcls JSFn
 
 CLSS public abstract interface static net.java.html.lib.Function$A0<%0 extends java.lang.Object>
@@ -479,8 +474,7 @@ CLSS public abstract interface static net.java.html.lib.Function$A5<%0 extends j
 meth public abstract {net.java.html.lib.Function$A5%5} call({net.java.html.lib.Function$A5%0},{net.java.html.lib.Function$A5%1},{net.java.html.lib.Function$A5%2},{net.java.html.lib.Function$A5%3},{net.java.html.lib.Function$A5%4})
 
 CLSS public net.java.html.lib.IArguments
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.IArguments> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Function$A0<java.lang.Number> length
 fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> callee
 meth public java.lang.Number length()
@@ -488,15 +482,15 @@ meth public java.lang.Object $get(double)
 meth public net.java.html.lib.Function callee()
 meth public static net.java.html.lib.IArguments $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Int16Array
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Int16Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -530,7 +524,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Int16Array copyWithin(double,double)
 meth public net.java.html.lib.Int16Array copyWithin(double,double,double)
@@ -559,15 +552,15 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Int32Array
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Int32Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -601,7 +594,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Int32Array copyWithin(double,double)
 meth public net.java.html.lib.Int32Array copyWithin(double,double,double)
@@ -630,15 +622,15 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Int8Array
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Int8Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -672,7 +664,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Int8Array copyWithin(double,double)
 meth public net.java.html.lib.Int8Array copyWithin(double,double,double)
@@ -701,10 +692,10 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.JSON
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.JSON> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 meth public static java.lang.Object parse(java.lang.String)
 meth public static java.lang.Object parse(java.lang.String,net.java.html.lib.Function$A2<? super java.lang.Object,? super java.lang.Object,?>)
 meth public static java.lang.String stringify(java.lang.Object)
@@ -716,10 +707,10 @@ meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib
 meth public static java.lang.String stringify(java.lang.Object,net.java.html.lib.Function$A2<? super java.lang.String,? super java.lang.Object,?>,java.lang.String)
 meth public static net.java.html.lib.JSON $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Math
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Math> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public static double E
 fld public static double LN10
 fld public static double LN2
@@ -748,13 +739,15 @@ meth public static double sqrt(double)
 meth public static double tan(double)
 meth public static net.java.html.lib.Math $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Objs
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Objs> $AS
 fld public static java.lang.Object prototype
+innr protected abstract static Constructor
+meth public <%0 extends net.java.html.lib.Objs> {%%0} $cast(java.lang.Class<{%%0}>)
 meth public java.lang.Boolean hasOwnProperty(java.lang.String)
 meth public java.lang.Boolean isPrototypeOf(java.lang.Object)
 meth public java.lang.Boolean propertyIsEnumerable(java.lang.String)
@@ -762,6 +755,7 @@ meth public java.lang.Object $get(java.lang.String)
 meth public java.lang.Object valueOf()
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public static <%0 extends java.lang.Object> {%%0} $as(java.lang.Class<{%%0}>,java.lang.Object)
 meth public static <%0 extends java.lang.Object> {%%0} freeze({%%0})
 meth public static <%0 extends java.lang.Object> {%%0} preventExtensions({%%0})
 meth public static <%0 extends java.lang.Object> {%%0} seal({%%0})
@@ -769,7 +763,6 @@ meth public static java.lang.Boolean isExtensible(java.lang.Object)
 meth public static java.lang.Boolean isFrozen(java.lang.Object)
 meth public static java.lang.Boolean isSealed(java.lang.Object)
 meth public static java.lang.Object $js(java.lang.Object)
-meth public static java.lang.Object $lazy(java.lang.Object,java.lang.String)
 meth public static java.lang.Object create(java.lang.Object)
 meth public static java.lang.Object create(java.lang.Object,net.java.html.lib.PropertyDescriptorMap)
 meth public static java.lang.Object defineProperties(java.lang.Object,net.java.html.lib.PropertyDescriptorMap)
@@ -784,20 +777,26 @@ meth public static net.java.html.lib.PropertyDescriptor getOwnPropertyDescriptor
 meth public void $delete(java.lang.String)
 meth public void $set(java.lang.String,java.lang.Object)
 supr java.lang.Object
-hfds $$fn$$deleteRaw_3,$$fn$$getRaw_1,$$fn$$setRaw_2,js
+hfds $$fn$$deleteRaw_3,$$fn$$getRaw_1,$$fn$$setRaw_2,$AS,js
+
+CLSS protected abstract static net.java.html.lib.Objs$Constructor<%0 extends net.java.html.lib.Objs>
+ outer net.java.html.lib.Objs
+cons protected init(java.lang.Class<{net.java.html.lib.Objs$Constructor%0}>)
+meth protected abstract {net.java.html.lib.Objs$Constructor%0} create(java.lang.Object)
+supr java.lang.Object
+hfds clazz,head,next
 
 CLSS public net.java.html.lib.PromiseLike<%0 extends java.lang.Object>
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.PromiseLike> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then()
 meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.PromiseLike%0},? extends net.java.html.lib.Union$A2<{%%0},net.java.html.lib.PromiseLike<{%%0}>>>)
 meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.PromiseLike%0},? extends net.java.html.lib.Union$A2<{%%0},net.java.html.lib.PromiseLike<{%%0}>>>,net.java.html.lib.Function$A1<? super java.lang.Object,? extends java.lang.Void>)
 meth public static net.java.html.lib.PromiseLike $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.PropertyDescriptor
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.PropertyDescriptor> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> configurable
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> enumerable
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> writable
@@ -809,41 +808,41 @@ meth public java.lang.Object get()
 meth public static net.java.html.lib.PropertyDescriptor $as(java.lang.Object)
 meth public void set(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.PropertyDescriptorMap
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.PropertyDescriptorMap> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 meth public net.java.html.lib.PropertyDescriptor $get(java.lang.String)
 meth public static net.java.html.lib.PropertyDescriptorMap $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.RangeError
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.RangeError> $AS
 fld public static net.java.html.lib.RangeError prototype
 meth public static net.java.html.lib.RangeError $as(java.lang.Object)
 meth public static net.java.html.lib.RangeError newRangeError()
 meth public static net.java.html.lib.RangeError newRangeError(java.lang.String)
 supr net.java.html.lib.Error
+hfds $AS
 
 CLSS public net.java.html.lib.ReferenceError
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.ReferenceError> $AS
 fld public static net.java.html.lib.ReferenceError prototype
 meth public static net.java.html.lib.ReferenceError $as(java.lang.Object)
 meth public static net.java.html.lib.ReferenceError newReferenceError()
 meth public static net.java.html.lib.ReferenceError newReferenceError(java.lang.String)
 supr net.java.html.lib.Error
+hfds $AS
 
 CLSS public net.java.html.lib.RegExp
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(java.lang.String)
 cons public init(java.lang.String,java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.RegExp> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> global
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> ignoreCase
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> multiline
@@ -872,60 +871,60 @@ meth public static net.java.html.lib.RegExp $as(java.lang.Object)
 meth public static net.java.html.lib.RegExp newRegExp(java.lang.String)
 meth public static net.java.html.lib.RegExp newRegExp(java.lang.String,java.lang.String)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.RegExpExecArray
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.RegExpExecArray> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Function$A0<java.lang.Number> index
 fld public net.java.html.lib.Function$A0<java.lang.String> input
 meth public java.lang.Number index()
 meth public java.lang.String input()
 meth public static net.java.html.lib.RegExpExecArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
+hfds $AS
 
 CLSS public net.java.html.lib.RegExpMatchArray
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.RegExpMatchArray> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Function$A0<java.lang.Number> index
 fld public net.java.html.lib.Function$A0<java.lang.String> input
 meth public java.lang.Number index()
 meth public java.lang.String input()
 meth public static net.java.html.lib.RegExpMatchArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
+hfds $AS
 
 CLSS public net.java.html.lib.SyntaxError
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.SyntaxError> $AS
 fld public static net.java.html.lib.SyntaxError prototype
 meth public static net.java.html.lib.SyntaxError $as(java.lang.Object)
 meth public static net.java.html.lib.SyntaxError newSyntaxError()
 meth public static net.java.html.lib.SyntaxError newSyntaxError(java.lang.String)
 supr net.java.html.lib.Error
+hfds $AS
 
 CLSS public net.java.html.lib.TemplateStringsArray
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.TemplateStringsArray> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Function$A0<java.lang.String[]> raw
 meth public java.lang.String[] raw()
 meth public static net.java.html.lib.TemplateStringsArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
+hfds $AS
 
 CLSS public net.java.html.lib.TypeError
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.TypeError> $AS
 fld public static net.java.html.lib.TypeError prototype
 meth public static net.java.html.lib.TypeError $as(java.lang.Object)
 meth public static net.java.html.lib.TypeError newTypeError()
 meth public static net.java.html.lib.TypeError newTypeError(java.lang.String)
 supr net.java.html.lib.Error
+hfds $AS
 
 CLSS public net.java.html.lib.TypedPropertyDescriptor<%0 extends java.lang.Object>
-cons protected init(java.lang.Class<?>,java.lang.Object)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.TypedPropertyDescriptor> $AS
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> configurable
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> enumerable
 fld public net.java.html.lib.Function$A0<java.lang.Boolean> writable
@@ -939,26 +938,26 @@ meth public net.java.html.lib.Function$A0<? extends {net.java.html.lib.TypedProp
 meth public net.java.html.lib.Function$A1<? super {net.java.html.lib.TypedPropertyDescriptor%0},? extends java.lang.Void> set()
 meth public static net.java.html.lib.TypedPropertyDescriptor $as(java.lang.Object)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.URIError
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.URIError> $AS
 fld public static net.java.html.lib.URIError prototype
 meth public static net.java.html.lib.URIError $as(java.lang.Object)
 meth public static net.java.html.lib.URIError newURIError()
 meth public static net.java.html.lib.URIError newURIError(java.lang.String)
 supr net.java.html.lib.Error
+hfds $AS
 
 CLSS public net.java.html.lib.Uint16Array
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Uint16Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -992,7 +991,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Uint16Array copyWithin(double,double)
 meth public net.java.html.lib.Uint16Array copyWithin(double,double,double)
@@ -1021,15 +1019,15 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Uint32Array
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Uint32Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -1063,7 +1061,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Uint32Array copyWithin(double,double)
 meth public net.java.html.lib.Uint32Array copyWithin(double,double,double)
@@ -1092,15 +1089,15 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Uint8Array
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Uint8Array> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -1134,7 +1131,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Uint8Array copyWithin(double,double)
 meth public net.java.html.lib.Uint8Array copyWithin(double,double,double)
@@ -1163,15 +1159,15 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>)
 meth public void set(net.java.html.lib.ArrayLike<java.lang.Number>,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public net.java.html.lib.Uint8ClampedArray
-cons protected init(java.lang.Class<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public final static net.java.html.lib.Function$A1<java.lang.Object,net.java.html.lib.Uint8ClampedArray> $AS
 fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
 fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
@@ -1205,7 +1201,6 @@ meth public java.lang.Number length()
 meth public java.lang.String join()
 meth public java.lang.String join(java.lang.String)
 meth public java.lang.String toLocaleString()
-meth public java.lang.String toString()
 meth public net.java.html.lib.ArrayBuffer buffer()
 meth public net.java.html.lib.Uint8ClampedArray copyWithin(double,double)
 meth public net.java.html.lib.Uint8ClampedArray copyWithin(double,double,double)
@@ -1234,6 +1229,7 @@ meth public void set(double,double)
 meth public void set(net.java.html.lib.Uint8ClampedArray)
 meth public void set(net.java.html.lib.Uint8ClampedArray,double)
 supr net.java.html.lib.Objs
+hfds $AS
 
 CLSS public final net.java.html.lib.Union
 cons public init()

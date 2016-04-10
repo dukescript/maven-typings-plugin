@@ -30,9 +30,15 @@ import net.java.html.js.JavaScriptBody;
  * #L%
  */
 public class Array<T> extends Objs implements java.lang.Iterable<T> {
-  protected Array(Class<? extends Object> clazz, java.lang.Object js) {
-    super(clazz, js);
-  }
+    protected Array(Constructor<?> constructor, java.lang.Object js) {
+        super(constructor, js);
+    }
+    private static final Constructor<Array> $AS = new Constructor<Array>(Array.class) {
+        @Override
+        public Array create(Object obj) {
+            return new Array(this, obj);
+        }
+    };
     /**
      * Casts given object to this class.
      *
@@ -40,17 +46,8 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
      * @return a view of the provided <code>obj</code> object
      */
     public static Array<?> $as(java.lang.Object obj) {
-        return new Array<>(Array.class, obj);
+        return $AS.create(obj);
     }
-    /** Function to cast given object to this class. Function that
-     * calls {@link #$as(java.lang.Object)}.
-     */
-    public static final Function.A1<java.lang.Object, Array> $AS = new Function.A1<Object, Array>() {
-        @Override
-        public Array call(Object obj) {
-            return $as(obj);
-        }
-    };
 
   /**
   * Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.
@@ -64,7 +61,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param items Additional items to add to the end of array1.
   */
   public Array<T> concat(T... items) {
-    return new Array<T>(Array.class, CoreTypes.concat$13($js(this), items));
+    return new Array<T>($AS, CoreTypes.concat$13($js(this), items));
   }
   /**
   * Determines whether all the members of an array satisfy the specified test.
@@ -88,7 +85,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
   public Array<T> filter(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Boolean> callbackfn, java.lang.Object thisArg) {
-    return new Array<T>(Array.class, CoreTypes.filter$16($js(this), callbackfn, /* AnyKeyword*/$js(thisArg)));
+    return new Array<T>($AS, CoreTypes.filter$16($js(this), callbackfn, /* AnyKeyword*/$js(thisArg)));
   }
   /**
   * Returns the elements of an array that meet the condition specified in a callback function.
@@ -96,7 +93,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
   public Array<T> filter(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Boolean> callbackfn) {
-    return new Array<T>(Array.class, CoreTypes.filter$17($js(this), callbackfn));
+    return new Array<T>($AS, CoreTypes.filter$17($js(this), callbackfn));
   }
   /**
   * Performs the specified action for each element in an array.
@@ -166,7 +163,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
   public <U> Array<U> map(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends U> callbackfn, java.lang.Object thisArg) {
-    return new Array<U>(Array.class, CoreTypes.map$26($js(this), callbackfn, /* AnyKeyword*/$js(thisArg)));
+    return new Array<U>($AS, CoreTypes.map$26($js(this), callbackfn, /* AnyKeyword*/$js(thisArg)));
   }
   /**
   * Calls a defined callback function on each element of an array, and returns an array that contains the results.
@@ -174,7 +171,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
   public <U> Array<U> map(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends U> callbackfn) {
-    return new Array<U>(Array.class, CoreTypes.map$27($js(this), callbackfn));
+    return new Array<U>($AS, CoreTypes.map$27($js(this), callbackfn));
   }
   /**
   * Removes the last element from an array and returns it.
@@ -225,7 +222,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * Reverses the elements in an Array.
   */
   public Array<T>reverse() {
-    return new Array<T>(Array.class, CoreTypes.reverse$34($js(this)));
+    return new Array<T>($AS, CoreTypes.reverse$34($js(this)));
   }
   /**
   * Removes the first element from an array and returns it.
@@ -301,7 +298,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param items Elements to insert into the array in place of the deleted elements.
   */
   public Array<T> splice(double start, double deleteCount, T... items) {
-    return new Array<>(Array.class, CoreTypes.splice$44($js(this), start, deleteCount, items));
+    return new Array<>($AS, CoreTypes.splice$44($js(this), start, deleteCount, items));
   }
   public java.lang.String toLocaleString() {
     return CoreTypes.toLocaleString$45($js(this));
@@ -334,15 +331,14 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   public static java.lang.Boolean/*TypePredicate*/ isArray(java.lang.Object arg) {
     return CoreTypes.isArray$49(/* AnyKeyword*/$js(arg));
   }
-  public static Array prototype;
   public Array(double arrayLength) {
-    this(Array.class, CoreTypes.new$50(arrayLength));
+    this($AS, CoreTypes.new$50(arrayLength));
   }
   public Array() {
-    this(Array.class, CoreTypes.new$51());
+    this($AS, CoreTypes.new$51());
   }
   public Array(T... items) {
-    this(Array.class, CoreTypes.new$52(items));
+    this($AS, CoreTypes.new$52(items));
   }
 
     @Override

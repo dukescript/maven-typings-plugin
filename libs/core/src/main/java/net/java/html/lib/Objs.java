@@ -28,8 +28,21 @@ package net.java.html.lib;
  */
 public class Objs extends java.lang.Object {
     private final java.lang.Object js;
+    private static final Constructor<Objs> $AS = new Constructor<Objs>(Objs.class) {
+        @Override
+        protected Objs create(Object any) {
+            return $as(any);
+        }
+    };
 
-    protected Objs(Class<? extends Object> clazz, java.lang.Object js) {
+    /** Constructor for auto-generated subclasses. From client code
+     * use {@link #$as(java.lang.Object)} or {@link #$as(java.lang.Class, java.lang.Object)}.
+     *
+     * @param constructor constructor {@link Constructor#Constructor(java.lang.Class) associated with this type}
+     * @param js any raw object to be wrapped by this instance
+     */
+    protected Objs(Constructor<?> constructor, java.lang.Object js) {
+        assert constructor.clazz == getClass();
         this.js = $js(js);
     }
 
@@ -39,18 +52,25 @@ public class Objs extends java.lang.Object {
      * @return a view of the provided <code>obj</code> object
      */
     public static Objs $as(java.lang.Object obj) {
-        return new Objs(Objs.class, obj);
+        return new Objs($AS, obj);
     }
 
-    /** Function to cast given object to this class. Function that
-     * calls {@link #$as(java.lang.Object)}.
+    /** Casts given object to requested class.
+     *
+     * @param <T> the type of requested object
+     * @param clazz identification of the type
+     * @param obj object to be converted
+     * @return a view of the provided <code>obj</code> object
+     * @throws ClassCastException if the <code>obj</code> cannot be cast to
+     *   the requested class
      */
-    public static final Function.A1<java.lang.Object,Objs> $AS = new Function.A1<Object, Objs>() {
-        @Override
-        public Objs call(Object obj) {
-            return $as(obj);
+    public static <T> T $as(java.lang.Class<T> clazz, java.lang.Object obj) {
+        Constructor<?> c = Constructor.find(clazz);
+        if (c != null) {
+            obj = c.create(obj);
         }
-    };
+        return clazz.cast(obj);
+    }
 
     /**
      * Unwraps the object into plain JavaScript one.
@@ -73,18 +93,19 @@ public class Objs extends java.lang.Object {
         return net.java.html.lib.Function.specialJs(obj);
     }
 
-    /**
-     * Wraps access to an object into a lazy value.
+    /** "Casts" this object to some other one. Creates
+     * a wrapper for the JavaScript object represented by this
+     * instance, so one can view it as different object.
      *
-     * @param obj the root JavaScript object
-     * @param propertyName the name of property to read from the
-     * <code>obj</code>
-     * @return a wrapper value that will read the property lazily when needed
+     * @param <T> type one requests
+     * @param clazz requested class
+     * @return instance of the requested type
+     * @throws ClassCastException if cast cannot be done
      */
-    public static java.lang.Object $lazy(java.lang.Object obj, java.lang.String propertyName) {
-        return new References(obj, propertyName);
+    public <T extends Objs> T $cast(Class<T> clazz) {
+        return $as(clazz, this);
     }
-    
+
   public java.lang.Object $get(java.lang.String n) {
     return getRaw($js(this), /* AnyKeyword*/$js(n));
   }
@@ -161,7 +182,7 @@ public class Objs extends java.lang.Object {
   * @param p Name of the property.
   */
   public static PropertyDescriptor getOwnPropertyDescriptor(java.lang.Object o, java.lang.String p) {
-    return new PropertyDescriptor(PropertyDescriptor.class, CoreTypes.getOwnPropertyDescriptor$494(/* AnyKeyword*/$js(o), p));
+    return PropertyDescriptor.$as(CoreTypes.getOwnPropertyDescriptor$494(/* AnyKeyword*/$js(o), p));
   }
   /**
   * Returns the names of the own properties of an object. The own properties of an object are those that are defined directly
@@ -254,15 +275,75 @@ public class Objs extends java.lang.Object {
     return (Array<String>)Array.$as(CoreTypes.keys$506(/* AnyKeyword*/$js(o)));
   }
   public Objs(java.lang.Object value) {
-    this(Object.class, CoreTypes.new$507(/* AnyKeyword*/$js(value)));
+    this($AS, CoreTypes.new$507(/* AnyKeyword*/$js(value)));
   }
   public Objs() {
-    this(Object.class, CoreTypes.new$508());
+    this($AS, CoreTypes.new$508());
   }
   public static java.lang.Object newObject() {
     return CoreTypes.newObject$509();
   }
   public static java.lang.Object newObject(java.lang.Object value) {
     return CoreTypes.newObject$510(/* AnyKeyword*/$js(value));
+  }
+
+  /** Factory for one subclass of {@link Objs} wrapper. It is used
+   * from {@link Objs#$as(java.lang.Class, java.lang.Object)} method.
+   *
+   * @param <T> type this constructor produces
+   */
+  protected static abstract class Constructor<T extends Objs> {
+      private static Constructor<?> head;
+      final Class<T> clazz;
+      final Constructor<?> next;
+
+      /** Registers the instance to the system.
+       *
+       * @param clazz subclass of {@link Objs} this constructor can handle
+       */
+      protected Constructor(Class<T> clazz) {
+          this.clazz = clazz;
+          this.next = head;
+          synchronized (Constructor.class) {
+              head = this;
+          }
+      }
+
+      /** Wraps any object into instance of associated {@link Objs} type.
+       *
+       * @param any object to be wrapped
+       * @return new instance of a wrapper
+       */
+      protected abstract T create(Object any);
+
+      static Constructor<?> find(Class<?> clazz) {
+          for (int i = 0; i <= 2; i++) {
+              Constructor<?> c = head;
+              for (;;) {
+                  if (c == null) {
+                      break;
+                  }
+                  if (c.clazz == clazz) {
+                      return c;
+                  }
+                  c = c.next;
+              }
+              initializeClass(clazz);
+          }
+          return null;
+      }
+
+        private static void initializeClass(Class<?> c) {
+            try {
+                // most simple way to run class initializations
+                c.newInstance();
+            } catch (Throwable ex) {
+                try {
+                    Class.forName(c.getName(), true, c.getClassLoader());
+                } catch (ClassNotFoundException ex1) {
+                    // We can't do more
+                }
+            }
+        }
   }
 }

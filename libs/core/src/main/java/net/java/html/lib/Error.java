@@ -26,8 +26,8 @@ package net.java.html.lib;
  * #L%
  */
 public class Error extends net.java.html.lib.Objs {
-  protected Error(Class<? extends Object> clazz, java.lang.Object js) {
-    super(clazz, js);
+  protected Error(Constructor<?> constructor, java.lang.Object js) {
+    super(constructor, js);
   }
     /**
      * Casts given object to this class.
@@ -36,17 +36,17 @@ public class Error extends net.java.html.lib.Objs {
      * @return a view of the provided <code>obj</code> object
      */
     public static Error $as(java.lang.Object obj) {
-      return obj == null ? null : new Error(Error.class, obj);
+      return obj == null ? null : new Error($AS, obj);
     }
     /**
      * Function to cast given object to this class. Function that calls
      * {@link #$as(java.lang.Object)}.
      */
-    public static final Function.A1<java.lang.Object, Error> $AS = new Function.A1<Object, Error>() {
-        @Override
-        public Error call(Object obj) {
-            return $as(obj);
-        }
+    private static final Constructor<Error> $AS = new Constructor<Error>(Error.class) {
+      @Override
+      protected Error create(Object any) {
+          return $as(any);
+      }
     };
     
   public net.java.html.lib.Function.A0<java.lang.String> name = net.java.html.lib.Function.$read(this, "name");
@@ -54,10 +54,10 @@ public class Error extends net.java.html.lib.Objs {
   // constructor ErrorConstructor
   public static Error prototype = Error.$as(CoreTypes.readStaticFields$131());
   public Error(java.lang.String message) {
-    this(Error.class, CoreTypes.new$182(message));
+    this($AS, CoreTypes.new$182(message));
   }
   public Error() {
-    this(Error.class, CoreTypes.new$183());
+    this($AS, CoreTypes.new$183());
   }
   public static Error newError(java.lang.String message) {
     return (Error)CoreTypes.newError$184(message);

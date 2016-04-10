@@ -29,10 +29,22 @@ import net.java.html.js.JavaScriptBody;
  * #L%
  */
 public class Function extends Objs {
-    protected Function(Class<? extends Object> clazz, java.lang.Object js) {
-        super(clazz, js);
+    protected Function(Constructor<?> constructor, java.lang.Object js) {
+        super(constructor, js);
     }
 
+    private static final Constructor<Function> $AS = new Constructor<Function>(Function.class) {
+        @Override
+        protected Function create(Object any) {
+            return any == null ? null : new Function(this, any);
+        }
+    };
+    private static final Constructor<JSFn> $ASJS = new Constructor<JSFn>(JSFn.class) {
+        @Override
+        protected JSFn create(Object any) {
+            return any == null ? null : new JSFn(any);
+        }
+    };
     /**
      * Casts given object to this class.
      *
@@ -40,18 +52,8 @@ public class Function extends Objs {
      * @return a view of the provided <code>obj</code> object
      */
     public static Function $as(java.lang.Object obj) {
-        return new JSFn(obj);
+        return $ASJS.create(obj);
     }
-    /**
-     * Function to cast given object to this class. Function that calls
-     * {@link #$as(java.lang.Object)}.
-     */
-    public static final Function.A1<java.lang.Object, Function> $AS = new A1<Object, Function>() {
-        @Override
-        public Function call(Object obj) {
-            return $as(obj);
-        }
-    };
 
   public static <T> Function.A0<T> $read(java.lang.Object obj, java.lang.String property) {
       return new A0<T>() {
@@ -65,6 +67,9 @@ public class Function extends Objs {
               return (T)Objs.setRaw(Objs.$js(obj), property, value);
           }
       };
+  }
+  public static <T> Function.A0<T> $read(Class<? extends Object> objsType, java.lang.Object obj, java.lang.String property) {
+      return $read(o -> Constructor.find(objsType).create(o), obj, property);
   }
   public static <T> Function.A0<T> $read(Function.A1<Object,? extends Object> factory, java.lang.Object obj, java.lang.String property) {
       return () -> (T)factory.call(Objs.getRaw(Objs.$js(obj), property));
@@ -105,13 +110,13 @@ public class Function extends Objs {
   * @param args A list of arguments the function accepts.
   */
   public Function(java.lang.String... args) {
-    this(Function.class, CoreTypes.new$305(args));
+    this($AS, CoreTypes.new$305(args));
   }
   public static net.java.html.lib.Function newFunction(java.lang.String... args) {
-    return new net.java.html.lib.Function(net.java.html.lib.Function.class, CoreTypes.newFunction$306(args));
+    return $as(CoreTypes.newFunction$306(args));
   }
   public static net.java.html.lib.Function newFunction(A5<? extends Object,? extends Object,? extends Object,? extends Object,? extends Object,? extends Object> customFunction) {
-    return new net.java.html.lib.Function(net.java.html.lib.Function.class, wrap(customFunction));
+    return $as(wrap(customFunction));
   }
 
   //
@@ -233,7 +238,7 @@ public class Function extends Objs {
 
     private static final class JSFn extends Function implements A0<Object> {
         JSFn(Object obj) {
-            super(Function.class, obj);
+            super(Function.$ASJS, obj);
         }
 
         @Override

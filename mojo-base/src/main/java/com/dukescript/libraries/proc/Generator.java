@@ -148,8 +148,9 @@ abstract class Generator<L> {
                     }
                     w.append(">");
                 }
+                final String objs = mangleName(true, "Object");
                 if (heritage.isEmpty()) {
-                    w.append(" extends ").append(mangleName(true, "Object"));
+                    w.append(" extends ").append(objs);
                 } else {
                     List<AST> types = heritage.get(0).getTypes();
                     final AST typeZero = types.get(0);
@@ -169,18 +170,22 @@ abstract class Generator<L> {
                     
                 }
                 w.append(" {\n");
-                w.append("  protected " + name + "(java.lang.Class<? extends Object> clazz, java.lang.Object js) {\n");
-                w.append("    super(clazz, js);\n");
+                w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js) {\n");
+                w.append("    super(c, js);\n");
                 w.append("  }\n");
-                w.append("  public static " + name + " $as(java.lang.Object obj) {\n");
-                w.append("    return obj == null ? null : new " + name + "(" + name + ".class, obj);\n");
-                w.append("  }\n");
-                w.append("  public static final net.java.html.lib.Function.A1<java.lang.Object," + name + "> $AS = new net.java.html.lib.Function.A1<java.lang.Object," + name + ">() {\n");
+                w.append("  private static final class $Constructor extends " + objs + ".Constructor<" + name + "> {\n");
+                w.append("    $Constructor() {\n");
+                w.append("      super(" + name + ".class);\n");
+                w.append("    }\n");
                 w.append("    @Override\n");
-                w.append("    public " + name + " call(java.lang.Object obj) {\n");
-                w.append("      return " + packageName + "." + name + ".$as(obj);\n");
+                w.append("    public " + name + " create(java.lang.Object obj) {\n");
+                w.append("      return obj == null ? null : new " + name + "(this, obj);\n");
                 w.append("    }\n");
                 w.append("  };\n");
+                w.append("  private static final $Constructor $AS = new $Constructor();\n");
+                w.append("  public static " + name + " $as(java.lang.Object obj) {\n");
+                w.append("    return $AS.create(obj);\n");
+                w.append("  }\n");
                 boolean isStatic = constructor != null && a == constructor.getName();
                 if (isStatic) {
                     constructor = null;
@@ -648,7 +653,7 @@ abstract class Generator<L> {
                     sep = ", ";
                 }
                 w.append(") {\n");
-                w.append("    this(").append(functionName).append(".class, ");
+                w.append("    this(").append(functionName).append(".$AS, ");
                 w.append("$Typings$.").append(implName);
                 w.append("(");
                 sep = "";
@@ -735,7 +740,7 @@ abstract class Generator<L> {
                         String prefix = javaType.contains(".") ? "" : packageName + ".";
                         w.append(mangleName(prefix, javaType));
                     }
-                    w.append(".$AS, ");
+                    w.append(".class, ");
                 }
                 w.append("this, ");
                 w.append("\"" + fieldName + "\");\n");
