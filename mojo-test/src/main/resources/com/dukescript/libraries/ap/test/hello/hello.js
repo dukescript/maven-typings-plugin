@@ -68,3 +68,14 @@ var firstValue = function() {
     };
 };
 
+var ab = {
+    b: {
+        a: {
+            b: "Hi"
+        }
+    }
+};
+function fAB() {
+    return ab;
+}
+

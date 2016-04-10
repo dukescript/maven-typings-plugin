@@ -35,3 +35,16 @@ interface FirstValue {
     <T>(value?: T): Get<T>;;
 }
 declare var firstValue: FirstValue;
+
+type AB = A | B | string;
+interface A {
+    b: AB;
+}
+
+interface B {
+    a: AB;
+}
+
+declare var ab : AB;
+
+declare function fAB(): AB;

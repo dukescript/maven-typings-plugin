@@ -27,6 +27,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import net.java.html.lib.Array;
 import net.java.html.junit.BrowserRunner;
+import net.java.html.lib.Union;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -98,5 +99,13 @@ public class HelloTest {
         assertFalse("Not instance of string", Exports.UnionInitialized.instanceOf(String.class));
         assertTrue("instance of boolean", Exports.UnionInitialized.instanceOf(Boolean.class));
         assertEquals(Boolean.TRUE, Exports.UnionInitialized.cast(Boolean.class));
+    }
+
+    @Test
+    public void complexUnionType() {
+        Union.A3<A, B, String> abUnion = Exports.ab;
+        A abViewAsA = abUnion.a();
+        assertNotNull(abViewAsA);
+        assertEquals(abViewAsA.getClass(), A.class);
     }
 }
