@@ -1278,22 +1278,17 @@ hcls Impl
 
 CLSS public abstract static net.java.html.lib.Union$A2<%0 extends java.lang.Object, %1 extends java.lang.Object>
  outer net.java.html.lib.Union
-meth public abstract {net.java.html.lib.Union$A2%0} a()
-meth public abstract {net.java.html.lib.Union$A2%1} b()
 supr net.java.html.lib.Union
 
 CLSS public abstract static net.java.html.lib.Union$A3<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object>
  outer net.java.html.lib.Union
-meth public abstract {net.java.html.lib.Union$A3%2} c()
 supr net.java.html.lib.Union$A2<{net.java.html.lib.Union$A3%0},{net.java.html.lib.Union$A3%1}>
 
 CLSS public abstract static net.java.html.lib.Union$A4<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object>
  outer net.java.html.lib.Union
-meth public abstract {net.java.html.lib.Union$A4%3} d()
 supr net.java.html.lib.Union$A3<{net.java.html.lib.Union$A4%0},{net.java.html.lib.Union$A4%1},{net.java.html.lib.Union$A4%2}>
 
 CLSS public abstract static net.java.html.lib.Union$A5<%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object>
  outer net.java.html.lib.Union
-meth public abstract {net.java.html.lib.Union$A5%4} e()
 supr net.java.html.lib.Union$A4<{net.java.html.lib.Union$A5%0},{net.java.html.lib.Union$A5%1},{net.java.html.lib.Union$A5%2},{net.java.html.lib.Union$A5%3}>
 

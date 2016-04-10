@@ -104,8 +104,13 @@ public class HelloTest {
     @Test
     public void complexUnionType() {
         Union.A3<A, B, String> abUnion = Exports.ab;
-        A abViewAsA = abUnion.a();
+        A abViewAsA = abUnion.cast(A.class);
         assertNotNull(abViewAsA);
         assertEquals(abViewAsA.getClass(), A.class);
+        Union.A3<A, B, String> abaUnion = abViewAsA.b.call();
+        B abaViewAsB = abaUnion.cast(B.class);
+        Union.A3<A, B, String> abbaUnion = abaViewAsB.a.call();
+        Union.A3<A, B, String> terminalUnion = abbaUnion.cast(A.class).b.call();
+        assertEquals("Hi", terminalUnion.cast(String.class));
     }
 }

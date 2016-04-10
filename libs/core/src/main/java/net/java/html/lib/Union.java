@@ -27,9 +27,17 @@ package net.java.html.lib;
  * #L%
  */
 
-public abstract class Union {
-    Union() {
+public abstract class Union extends Objs {
+    Union(Object obj) {
+        super($AS, obj);
     }
+
+    private static Constructor<Union> $AS = new Constructor<Union>(Union.class) {
+        @Override
+        protected Union create(Object any) {
+            return new Impl(any, Void.class, Void.class, Void.class, Void.class, Void.class);
+        }
+    };
 
     /** Casts the value in this union to requested type.
      *
@@ -122,74 +130,39 @@ public abstract class Union {
     }
 
     public static abstract class A2<P1, P2> extends Union {
-        A2() {}
-
-        public abstract P1 a();
-        public abstract P2 b();
+        A2(Object value) {
+            super(value);
+        }
     }
     public static abstract class A3<P1, P2, P3> extends A2<P1,P2> {
-        A3() {}
-        public abstract P3 c();
+        A3(Object value) {
+            super(value);
+        }
     }
     public static abstract class A4<P1, P2, P3, P4> extends A3<P1,P2,P3> {
-        A4() {}
-        public abstract P4 d();
+        A4(Object value) {
+            super(value);
+        }
     }
     public static abstract class A5<P1, P2, P3, P4, P5> extends A4<P1,P2,P3,P4> {
-        A5() {}
-        public abstract P5 e();
+        A5(Object value) {
+            super(value);
+        }
     }
 
     private static final class Impl<P1, P2, P3, P4, P5> extends A5<P1, P2, P3, P4, P5> {
-        private final Object value;
-        private final Class<P1> a;
-        private final Class<P2> b;
-        private final Class<P3> c;
-        private final Class<P4> d;
-        private final Class<P5> e;
-
         public Impl(Object value, Class<P1> a, Class<P2> b, Class<P3> c, Class<P4> d, Class<P5> e) {
-            this.value = value;
-            this.a = a;
-            this.b = b;
-            this.c = c;
-            this.d = d;
-            this.e = e;
-        }
-
-        @Override
-        public P5 e() {
-            return cast(e);
-        }
-
-        @Override
-        public P4 d() {
-            return cast(d);
-        }
-
-        @Override
-        public P3 c() {
-            return cast(c);
-        }
-
-        @Override
-        public P2 b() {
-            return cast(b);
-        }
-
-        @Override
-        public P1 a() {
-            return cast(a);
+            super(value);
         }
 
         @Override
         public <T> T cast(Class<T> type) {
-            return Objs.$as(type, value);
+            return Objs.$as(type, this);
         }
 
         @Override
         public boolean instanceOf(Class<?> type) {
-            return type.isInstance(value) || Objs.class.isAssignableFrom(type);
+            return type.isInstance($js(this)) || Objs.class.isAssignableFrom(type);
         }
     }
 }

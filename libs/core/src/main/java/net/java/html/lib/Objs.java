@@ -42,7 +42,7 @@ public class Objs extends java.lang.Object {
      * @param js any raw object to be wrapped by this instance
      */
     protected Objs(Constructor<?> constructor, java.lang.Object js) {
-        assert constructor.clazz == getClass();
+        assert constructor.clazz.isInstance(this);
         this.js = $js(js);
     }
 
@@ -65,6 +65,10 @@ public class Objs extends java.lang.Object {
      *   the requested class
      */
     public static <T> T $as(java.lang.Class<T> clazz, java.lang.Object obj) {
+        if (clazz.isInstance(obj)) {
+            return clazz.cast(obj);
+        }
+        obj = $js(obj);
         Constructor<?> c = Constructor.find(clazz);
         if (c != null) {
             obj = c.create(obj);
