@@ -49,28 +49,8 @@ public class Function extends Objs {
         return $AS.create(obj);
     }
 
-  public static <T> Function.A0<T> $read(java.lang.Object obj, java.lang.String property) {
-      return new A0<T>() {
-          @Override
-          public T call() {
-              return (T)Objs.getRaw(Objs.$js(obj), property);
-          }
-
-          @Override
-          public T call(Object value) {
-              return (T)Objs.setRaw(Objs.$js(obj), property, value);
-          }
-      };
-  }
-  public static <T> Function.A0<T> $read(Class<? extends Object> objsType, java.lang.Object obj, java.lang.String property) {
-      return $read(o -> Constructor.find(objsType).create(o), obj, property);
-  }
-  public static <T> Function.A0<T> $read(Function.A1<Object,? extends Object> factory, java.lang.Object obj, java.lang.String property) {
-      return () -> (T)factory.call(Objs.getRaw(Objs.$js(obj), property));
-  }
-  
   public java.lang.Object prototype;
-  public final net.java.html.lib.Function.A0<java.lang.Number> length = $read(this, "length");
+  public final Property<java.lang.Number> length = Property.create(this, java.lang.Number.class, "length");
   /**
   * Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.
   * @param thisArg The object to be used as the this object.

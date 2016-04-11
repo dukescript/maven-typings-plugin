@@ -47,31 +47,31 @@ public class ArrayTest {
     @Test
     public void arrayForEach() throws Exception {
         Array<java.lang.Number> arr = new Array<>();
-        assertNumber(arr.length.call(), 0.0, "Empty at first");
+        assertNumber(arr.length.get(), 0.0, "Empty at first");
         assertForEach(arr);
     }
 
     @Test
     public void arrayConcat() throws Exception {
         Array<java.lang.Number> arr = new Array<>();
-        assertNumber(arr.length.call(), 0.0, "Empty at first");
+        assertNumber(arr.length.get(), 0.0, "Empty at first");
         assertConcat(arr);
     }
 
     @Test
     public void arrayWithValues() throws Exception {
         Array<java.lang.Number> arr = new Array<>(1.0, 2.0);
-        assertNumber(arr.length.call(), 2.0, "Two at first: " + Arrays.toString(arr.slice()));
+        assertNumber(arr.length.get(), 2.0, "Two at first: " + Arrays.toString(arr.slice()));
         assertNumber(arr.shift(), 1.0);
         assertNumber(arr.shift(), 2.0);
-        assertNumber(arr.length.call(), 0.0, "Empty now");
+        assertNumber(arr.length.get(), 0.0, "Empty now");
         assertForEach(arr);
     }
 
     @Test
     public void arrayWithLength() throws Exception {
         Array<java.lang.Number> arr = new Array<>(2);
-        assertNumber(arr.length.call(), 2.0, "Two at first: " + Arrays.toString(arr.slice()));
+        assertNumber(arr.length.get(), 2.0, "Two at first: " + Arrays.toString(arr.slice()));
         assertNull(arr.shift());
         assertNull(arr.shift());
         assertForEach(arr);
@@ -80,7 +80,7 @@ public class ArrayTest {
     @Test
     public void arrayForEachLoop() throws Exception {
         Array<java.lang.Number> arr = new Array<>(5, 4, 3, 2, 1);
-        assertNumber(arr.length.call(), 5.0, "Five at first: " + Arrays.toString(arr.slice()));
+        assertNumber(arr.length.get(), 5.0, "Five at first: " + Arrays.toString(arr.slice()));
 
         int sum = 0;
         for (java.lang.Number n : arr) {
@@ -115,7 +115,7 @@ public class ArrayTest {
 
     private void assertConcat(Array<java.lang.Number> arr) {
         arr = arr.concat(1.1, 2.2, 3);
-        assertNumber(arr.length.call(), 3.0, "Three items");
+        assertNumber(arr.length.get(), 3.0, "Three items");
         assertEquals(arr.$get(0), 1.1, "1.1 is on position 0");
         assertEquals(arr.$get(1), 2.2, "2.2 is on position 1");
         assertEquals(arr.$get(2), 3.0, "3 is on position 2");
@@ -257,7 +257,7 @@ public class ArrayTest {
 
         Array<java.lang.String> res = arr.map(new ToStr());
         assertNotNull(res);
-        assertNumber(res.length.call(), 5);
+        assertNumber(res.length.get(), 5);
 
         assertStartsWith(res.$get(0), "5");
         assertStartsWith(res.$get(1), "4");
@@ -279,7 +279,7 @@ public class ArrayTest {
 
         Array<java.lang.Number> res = arr.filter(new Odd());
         assertNotNull(res);
-        assertNumber(res.length.call(), 3);
+        assertNumber(res.length.get(), 3);
 
         assertNumber(res.$get(0), 5);
         assertNumber(res.$get(1), 3);

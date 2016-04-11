@@ -49,8 +49,8 @@ public class Error extends net.java.html.lib.Objs {
       }
     };
     
-  public net.java.html.lib.Function.A0<java.lang.String> name = net.java.html.lib.Function.$read(this, "name");
-  public net.java.html.lib.Function.A0<java.lang.String> message = net.java.html.lib.Function.$read(this, "message");
+  public Property<java.lang.String> name = Property.create(this, String.class, "name");
+  public Property<java.lang.String> message = Property.create(this, String.class, "message");
   // constructor ErrorConstructor
   public static Error prototype = Error.$as(CoreTypes.readStaticFields$131());
   public Error(java.lang.String message) {

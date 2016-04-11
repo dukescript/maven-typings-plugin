@@ -726,7 +726,7 @@ abstract class Generator<L> {
             }
             final String javaType = type.getRawJavaType();
             if (instance) {
-                w.append("net.java.html.lib.Function.A0<");
+                w.append("net.java.html.lib.Objs.Property<");
                 final boolean useRaw = isTypeParameter(merge(typeParameters, null, null), type);
                 if (useRaw) {
                     w.append("net.java.html.lib.Objs");
@@ -735,17 +735,20 @@ abstract class Generator<L> {
                 }
                 w.append("> ").append(fieldName);
                 w.append(" = ");
-                w.append("net.java.html.lib.Function.$read(");
-                if (wrap) {
-                    if (useRaw) {
-                        w.append("net.java.html.lib.Objs");
-                    } else {
-                        String prefix = javaType.contains(".") ? "" : packageName + ".";
-                        w.append(mangleName(prefix, javaType));
-                    }
-                    w.append(".class, ");
-                }
+                w.append("net.java.html.lib.Objs.Property.create(");
                 w.append("this, ");
+                if (useRaw) {
+                    w.append("net.java.html.lib.Objs");
+                } else {
+                    String propType = type.getBoxedIntoJavaType();
+                    int at;
+                    if ((at = propType.indexOf("<")) >= 0) {
+                        propType = propType.substring(0, at);
+                    }
+                    String prefix = propType.contains(".") ? "" : packageName + ".";
+                    w.append(mangleName(prefix, propType));
+                }
+                w.append(".class, ");
                 w.append("\"" + fieldName + "\");\n");
             } else {
                 w.append(fieldType).append(" ").append(fieldName).append(" = ");
@@ -785,7 +788,7 @@ abstract class Generator<L> {
                         w.append(mangleName(true, type.getBoxedJavaType()));
                         w.append(" ").append(fieldName);
                         w.append("() { return ");
-                        w.append(fieldName).append(".call(); }\n");
+                        w.append(fieldName).append(".get(); }\n");
                     }
                 }
             }

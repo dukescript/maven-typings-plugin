@@ -28,7 +28,7 @@ cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public !varargs init({net.java.html.lib.Array%0}[])
 cons public init()
 cons public init(double)
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
 intf java.lang.Iterable<{net.java.html.lib.Array%0}>
 meth public !varargs double push({net.java.html.lib.Array%0}[])
 meth public !varargs double unshift({net.java.html.lib.Array%0}[])
@@ -76,7 +76,7 @@ hfds $$fn$$toArray_1,$AS
 CLSS public net.java.html.lib.ArrayBuffer
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(double)
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
 fld public static net.java.html.lib.ArrayBuffer prototype
 meth public java.lang.Number byteLength()
 meth public net.java.html.lib.ArrayBuffer slice(double)
@@ -89,9 +89,9 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ArrayBufferView
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 meth public java.lang.Number byteLength()
 meth public java.lang.Number byteOffset()
 meth public net.java.html.lib.ArrayBuffer buffer()
@@ -102,7 +102,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ArrayLike<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
 meth public java.lang.Number length()
 meth public static net.java.html.lib.ArrayLike $as(java.lang.Object)
 meth public {net.java.html.lib.ArrayLike%0} $get(double)
@@ -115,9 +115,9 @@ cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 meth public double getFloat32(double)
 meth public double getFloat32(double,java.lang.Boolean)
 meth public double getFloat64(double)
@@ -245,8 +245,8 @@ CLSS public net.java.html.lib.Error
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.String)
-fld public net.java.html.lib.Function$A0<java.lang.String> message
-fld public net.java.html.lib.Function$A0<java.lang.String> name
+fld public net.java.html.lib.Objs$Property<java.lang.String> message
+fld public net.java.html.lib.Objs$Property<java.lang.String> name
 fld public static net.java.html.lib.Error prototype
 meth public static net.java.html.lib.Error $as(java.lang.Object)
 meth public static net.java.html.lib.Error newError()
@@ -288,11 +288,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Float32Array prototype
 meth public !varargs static net.java.html.lib.Float32Array of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float32Array,? extends {%%0}>,{%%0})
@@ -359,11 +359,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Float64Array prototype
 meth public !varargs static net.java.html.lib.Float64Array of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Float64Array,? extends {%%0}>,{%%0})
@@ -426,7 +426,7 @@ hcls $Constructor
 CLSS public net.java.html.lib.Function
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public !varargs init(java.lang.String[])
-fld public final net.java.html.lib.Function$A0<java.lang.Number> length
+fld public final net.java.html.lib.Objs$Property<java.lang.Number> length
 fld public java.lang.Object prototype
 innr public abstract interface static A0
 innr public abstract interface static A1
@@ -438,13 +438,10 @@ meth public !varargs java.lang.Object apply(java.lang.Object,java.lang.Object[])
 meth public !varargs java.lang.Object bind(java.lang.Object,java.lang.Object[])
 meth public !varargs static java.lang.Object $call(java.lang.Object,java.lang.Object[])
 meth public !varargs static net.java.html.lib.Function newFunction(java.lang.String[])
-meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(java.lang.Class<?>,java.lang.Object,java.lang.String)
-meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(java.lang.Object,java.lang.String)
-meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(net.java.html.lib.Function$A1<java.lang.Object,?>,java.lang.Object,java.lang.String)
 meth public static net.java.html.lib.Function $as(java.lang.Object)
 meth public static net.java.html.lib.Function newFunction(net.java.html.lib.Function$A5<?,?,?,?,?,?>)
 supr net.java.html.lib.Objs
-hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1,$AS,$ASJS
+hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1,$AS
 hcls JSFn
 
 CLSS public abstract interface static net.java.html.lib.Function$A0<%0 extends java.lang.Object>
@@ -483,8 +480,8 @@ meth public abstract {net.java.html.lib.Function$A5%5} call({net.java.html.lib.F
 
 CLSS public net.java.html.lib.IArguments
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> callee
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function> callee
 meth public java.lang.Number length()
 meth public java.lang.Object $get(double)
 meth public net.java.html.lib.Function callee()
@@ -500,11 +497,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Int16Array prototype
 meth public !varargs static net.java.html.lib.Int16Array of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int16Array,? extends {%%0}>,{%%0})
@@ -571,11 +568,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Int32Array prototype
 meth public !varargs static net.java.html.lib.Int32Array of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int32Array,? extends {%%0}>,{%%0})
@@ -642,11 +639,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Int8Array prototype
 meth public !varargs static net.java.html.lib.Int8Array of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Int8Array,? extends {%%0}>,{%%0})
@@ -761,6 +758,7 @@ cons public init()
 cons public init(java.lang.Object)
 fld public static java.lang.Object prototype
 innr protected abstract static Constructor
+innr public final static Property
 meth public <%0 extends net.java.html.lib.Objs> {%%0} $cast(java.lang.Class<{%%0}>)
 meth public java.lang.Boolean hasOwnProperty(java.lang.String)
 meth public java.lang.Boolean isPrototypeOf(java.lang.Object)
@@ -800,6 +798,14 @@ meth protected abstract {net.java.html.lib.Objs$Constructor%0} create(java.lang.
 supr java.lang.Object
 hfds clazz,head,next
 
+CLSS public final static net.java.html.lib.Objs$Property<%0 extends java.lang.Object>
+ outer net.java.html.lib.Objs
+meth public static <%0 extends java.lang.Object> net.java.html.lib.Objs$Property<{%%0}> create(net.java.html.lib.Objs,java.lang.Class<?>,java.lang.String)
+meth public void set({net.java.html.lib.Objs$Property%0})
+meth public {net.java.html.lib.Objs$Property%0} get()
+supr java.lang.Object
+hfds constructor,js,property,type
+
 CLSS public net.java.html.lib.PromiseLike<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then()
@@ -812,10 +818,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.PropertyDescriptor
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> configurable
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> enumerable
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> writable
-fld public net.java.html.lib.Function$A0<java.lang.Object> value
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> configurable
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> enumerable
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> writable
+fld public net.java.html.lib.Objs$Property<java.lang.Object> value
 meth public java.lang.Boolean configurable()
 meth public java.lang.Boolean enumerable()
 meth public java.lang.Boolean writable()
@@ -862,11 +868,11 @@ CLSS public net.java.html.lib.RegExp
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init(java.lang.String)
 cons public init(java.lang.String,java.lang.String)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> global
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> ignoreCase
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> multiline
-fld public net.java.html.lib.Function$A0<java.lang.Number> lastIndex
-fld public net.java.html.lib.Function$A0<java.lang.String> source
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> global
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> ignoreCase
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> multiline
+fld public net.java.html.lib.Objs$Property<java.lang.Number> lastIndex
+fld public net.java.html.lib.Objs$Property<java.lang.String> source
 fld public static java.lang.String $1
 fld public static java.lang.String $2
 fld public static java.lang.String $3
@@ -895,8 +901,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.RegExpExecArray
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> index
-fld public net.java.html.lib.Function$A0<java.lang.String> input
+fld public net.java.html.lib.Objs$Property<java.lang.Number> index
+fld public net.java.html.lib.Objs$Property<java.lang.String> input
 meth public java.lang.Number index()
 meth public java.lang.String input()
 meth public static net.java.html.lib.RegExpExecArray $as(java.lang.Object)
@@ -906,8 +912,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.RegExpMatchArray
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> index
-fld public net.java.html.lib.Function$A0<java.lang.String> input
+fld public net.java.html.lib.Objs$Property<java.lang.Number> index
+fld public net.java.html.lib.Objs$Property<java.lang.String> input
 meth public java.lang.Number index()
 meth public java.lang.String input()
 meth public static net.java.html.lib.RegExpMatchArray $as(java.lang.Object)
@@ -929,7 +935,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.TemplateStringsArray
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String[]> raw
+fld public net.java.html.lib.Objs$Property<java.lang.String[]> raw
 meth public java.lang.String[] raw()
 meth public static net.java.html.lib.TemplateStringsArray $as(java.lang.Object)
 supr net.java.html.lib.Array<java.lang.String>
@@ -950,12 +956,12 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.TypedPropertyDescriptor<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> configurable
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> enumerable
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> writable
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A0<? extends {net.java.html.lib.TypedPropertyDescriptor%0}>> get
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super {net.java.html.lib.TypedPropertyDescriptor%0},? extends java.lang.Void>> set
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> value
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> configurable
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> enumerable
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> writable
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A0<? extends {net.java.html.lib.TypedPropertyDescriptor%0}>> get
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super {net.java.html.lib.TypedPropertyDescriptor%0},? extends java.lang.Void>> set
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> value
 meth public java.lang.Boolean configurable()
 meth public java.lang.Boolean enumerable()
 meth public java.lang.Boolean writable()
@@ -985,11 +991,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Uint16Array prototype
 meth public !varargs static net.java.html.lib.Uint16Array of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint16Array,? extends {%%0}>,{%%0})
@@ -1056,11 +1062,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Uint32Array prototype
 meth public !varargs static net.java.html.lib.Uint32Array of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint32Array,? extends {%%0}>,{%%0})
@@ -1127,11 +1133,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Uint8Array prototype
 meth public !varargs static net.java.html.lib.Uint8Array of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8Array,? extends {%%0}>,{%%0})
@@ -1198,11 +1204,11 @@ cons public init(net.java.html.lib.ArrayBuffer)
 cons public init(net.java.html.lib.ArrayBuffer,double)
 cons public init(net.java.html.lib.ArrayBuffer,double,double)
 cons public init(net.java.html.lib.ArrayLike<java.lang.Number>)
-fld public net.java.html.lib.Function$A0<java.lang.Number> BYTES_PER_ELEMENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteLength
-fld public net.java.html.lib.Function$A0<java.lang.Number> byteOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ArrayBuffer> buffer
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BYTES_PER_ELEMENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteLength
+fld public net.java.html.lib.Objs$Property<java.lang.Number> byteOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ArrayBuffer> buffer
 fld public static net.java.html.lib.Uint8ClampedArray prototype
 meth public !varargs static net.java.html.lib.Uint8ClampedArray of(double[])
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super java.lang.Number,? super java.lang.Number,? super net.java.html.lib.Uint8ClampedArray,? extends {%%0}>,{%%0})
@@ -1268,12 +1274,14 @@ innr public abstract static A3
 innr public abstract static A4
 innr public abstract static A5
 meth public abstract <%0 extends java.lang.Object> {%%0} cast(java.lang.Class<{%%0}>)
+meth public abstract boolean instanceOf(java.lang.Class<?>)
 meth public static <%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object, %4 extends java.lang.Object> net.java.html.lib.Union$A5<{%%0},{%%1},{%%2},{%%3},{%%4}> $as(java.lang.Object,java.lang.Class<{%%0}>,java.lang.Class<{%%1}>,java.lang.Class<{%%2}>,java.lang.Class<{%%3}>,java.lang.Class<{%%4}>)
 meth public static <%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object, %3 extends java.lang.Object> net.java.html.lib.Union$A4<{%%0},{%%1},{%%2},{%%3}> $as(java.lang.Object,java.lang.Class<{%%0}>,java.lang.Class<{%%1}>,java.lang.Class<{%%2}>,java.lang.Class<{%%3}>)
 meth public static <%0 extends java.lang.Object, %1 extends java.lang.Object, %2 extends java.lang.Object> net.java.html.lib.Union$A3<{%%0},{%%1},{%%2}> $as(java.lang.Object,java.lang.Class<{%%0}>,java.lang.Class<{%%1}>,java.lang.Class<{%%2}>)
 meth public static <%0 extends java.lang.Object, %1 extends java.lang.Object> net.java.html.lib.Union$A2<{%%0},{%%1}> $as(java.lang.Object,java.lang.Class<{%%0}>,java.lang.Class<{%%1}>)
 meth public static net.java.html.lib.Union $as(java.lang.Object)
-supr java.lang.Object
+supr net.java.html.lib.Objs
+hfds $AS
 hcls Impl
 
 CLSS public abstract static net.java.html.lib.Union$A2<%0 extends java.lang.Object, %1 extends java.lang.Object>

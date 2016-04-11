@@ -40,9 +40,9 @@ public class HelloTest {
         assertNotNull(obj);
         Array<Number> one = Exports.addVector(obj, 1);
         Array<Number> two = Exports.addVector(one, 2);
-        assertEquals("Two elements", 2, two.length.call().doubleValue(), 0.1);
+        assertEquals("Two elements", 2, two.length.get().doubleValue(), 0.1);
         two.push(3.0);
-        assertEquals("Three elements", 3, two.length.call().intValue());
+        assertEquals("Three elements", 3, two.length.get().intValue());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class HelloTest {
         stack.push("World");
         Array<Number> lens = stack.lengths();
         assertNotNull("Lengths found", lens);
-        assertEquals("Two items", 2, lens.length.call().intValue());
+        assertEquals("Two items", 2, lens.length.get().intValue());
         assertEquals("two for Hi", 2, lens.$get(0).intValue());
         assertEquals("five for World", 5, lens.$get(1).intValue());
     }
@@ -79,17 +79,18 @@ public class HelloTest {
     @Test
     public void nextStack() {
         StringStack stack = new StringStack(new StringStack());
-        assertEquals("Ahoj", stack.name.call());
-        assertNotNull(stack.next.call());
-        assertNull(stack.next.call().next.call());
+        assertEquals("Ahoj", stack.name.get());
+        assertNotNull(stack.next.get());
+        assertNull(stack.next.get().next.get());
     }
 
     @Test
     public void changeStackName() {
         StringStack stack = new StringStack();
-        assertEquals("Ahoj", stack.name.call());
-        String ret = stack.name.call("Hi");
-        assertEquals("Hi", stack.name.call());
+        assertEquals("Ahoj", stack.name.get());
+        stack.name.set("Hi");
+        String ret = stack.name.get();
+        assertEquals("Hi", stack.name.get());
         assertEquals("Hi", ret);
     }
 
@@ -107,10 +108,10 @@ public class HelloTest {
         A abViewAsA = abUnion.cast(A.class);
         assertNotNull(abViewAsA);
         assertEquals(abViewAsA.getClass(), A.class);
-        Union.A3<A, B, String> abaUnion = abViewAsA.b.call();
+        Union.A3<A, B, String> abaUnion = abViewAsA.b.get();
         B abaViewAsB = abaUnion.cast(B.class);
-        Union.A3<A, B, String> abbaUnion = abaViewAsB.a.call();
-        Union.A3<A, B, String> terminalUnion = abbaUnion.cast(A.class).b.call();
+        Union.A3<A, B, String> abbaUnion = abaViewAsB.a.get();
+        Union.A3<A, B, String> terminalUnion = abbaUnion.cast(A.class).b.get();
         assertEquals("Hi", terminalUnion.cast(String.class));
     }
 }

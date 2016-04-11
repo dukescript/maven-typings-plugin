@@ -18,7 +18,7 @@ meth public java.lang.String toString()
 CLSS public net.java.html.lib.Function
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public !varargs init(java.lang.String[])
-fld public final net.java.html.lib.Function$A0<java.lang.Number> length
+fld public final net.java.html.lib.Objs$Property<java.lang.Number> length
 fld public java.lang.Object prototype
 innr public abstract interface static A0
 innr public abstract interface static A1
@@ -30,13 +30,10 @@ meth public !varargs java.lang.Object apply(java.lang.Object,java.lang.Object[])
 meth public !varargs java.lang.Object bind(java.lang.Object,java.lang.Object[])
 meth public !varargs static java.lang.Object $call(java.lang.Object,java.lang.Object[])
 meth public !varargs static net.java.html.lib.Function newFunction(java.lang.String[])
-meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(java.lang.Class<?>,java.lang.Object,java.lang.String)
-meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(java.lang.Object,java.lang.String)
-meth public static <%0 extends java.lang.Object> net.java.html.lib.Function$A0<{%%0}> $read(net.java.html.lib.Function$A1<java.lang.Object,?>,java.lang.Object,java.lang.String)
 meth public static net.java.html.lib.Function $as(java.lang.Object)
 meth public static net.java.html.lib.Function newFunction(net.java.html.lib.Function$A5<?,?,?,?,?,?>)
 supr net.java.html.lib.Objs
-hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1,$AS,$ASJS
+hfds $$fn$$callFunction_3,$$fn$$isFunction_2,$$fn$$wrap_1,$AS
 hcls JSFn
 
 CLSS public net.java.html.lib.Objs
@@ -45,6 +42,7 @@ cons public init()
 cons public init(java.lang.Object)
 fld public static java.lang.Object prototype
 innr protected abstract static Constructor
+innr public final static Property
 meth public <%0 extends net.java.html.lib.Objs> {%%0} $cast(java.lang.Class<{%%0}>)
 meth public java.lang.Boolean hasOwnProperty(java.lang.String)
 meth public java.lang.Boolean isPrototypeOf(java.lang.Object)
@@ -84,9 +82,9 @@ hfds VM,last,p
 
 CLSS public net.java.html.lib.angular.ComponentDefinition
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String> type
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> loader
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.Type> component
+fld public net.java.html.lib.Objs$Property<java.lang.String> type
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function> loader
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.Type> component
 meth public java.lang.String type()
 meth public net.java.html.lib.Function loader()
 meth public net.java.html.lib.angular.Type component()
@@ -101,7 +99,7 @@ supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.angular.Function
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String[]> $inject
+fld public net.java.html.lib.Objs$Property<java.lang.String[]> $inject
 meth public java.lang.String[] $inject()
 meth public static net.java.html.lib.angular.Function $as(java.lang.Object)
 supr net.java.html.lib.Objs
@@ -118,7 +116,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IAnchorScrollService
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Object> yOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Object> yOffset
 meth public static net.java.html.lib.angular.IAnchorScrollService $as(java.lang.Object)
 meth public void $apply()
 meth public void $apply(java.lang.String)
@@ -128,8 +126,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IAngularBootstrapConfig
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> debugInfoEnabled
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> strictDi
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> debugInfoEnabled
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> strictDi
 meth public java.lang.Boolean debugInfoEnabled()
 meth public java.lang.Boolean strictDi()
 meth public static net.java.html.lib.angular.IAngularBootstrapConfig $as(java.lang.Object)
@@ -139,12 +137,12 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IAngularEvent
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> defaultPrevented
-fld public net.java.html.lib.Function$A0<java.lang.String> name
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> preventDefault
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> stopPropagation
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IScope> currentScope
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IScope> targetScope
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> defaultPrevented
+fld public net.java.html.lib.Objs$Property<java.lang.String> name
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function> preventDefault
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function> stopPropagation
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IScope> currentScope
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IScope> targetScope
 meth public java.lang.Boolean defaultPrevented()
 meth public java.lang.String name()
 meth public net.java.html.lib.Function preventDefault()
@@ -158,8 +156,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IAngularStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> version
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IAugmentedJQueryStatic> element
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> version
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IAugmentedJQueryStatic> element
 meth public !varargs java.lang.Object extend(java.lang.Object,java.lang.Object[])
 meth public !varargs java.lang.Object merge(java.lang.Object,java.lang.Object[])
 meth public !varargs net.java.html.lib.Function bind(java.lang.Object,net.java.html.lib.Function,java.lang.Object[])
@@ -252,7 +250,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IAttributes
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> $attr
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> $attr
 meth public <%0 extends java.lang.Object> net.java.html.lib.Function $observe(java.lang.String,net.java.html.lib.Function$A1<? super {%%0},?>)
 meth public java.lang.Object $get(java.lang.String)
 meth public java.lang.String $normalize(java.lang.String)
@@ -302,7 +300,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IBrowserService
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ITimeoutService> defer
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ITimeoutService> defer
 meth public !varargs <%0 extends java.lang.Object> net.java.html.lib.angular.IPromise<{%%0}> defer(net.java.html.lib.Function$A1<? super net.java.html.lib.Array<java.lang.Object>,? extends {%%0}>,double,java.lang.Boolean,java.lang.Object[])
 meth public <%0 extends java.lang.Object> net.java.html.lib.angular.IPromise<{%%0}> defer(net.java.html.lib.Function$A1<? super net.java.html.lib.Array<java.lang.Object>,? extends {%%0}>,double)
 meth public <%0 extends java.lang.Object> net.java.html.lib.angular.IPromise<{%%0}> defer(net.java.html.lib.Function$A1<? super net.java.html.lib.Array<java.lang.Object>,? extends {%%0}>,double,java.lang.Boolean)
@@ -383,8 +381,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ICompiledExpression
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> constant
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> literal
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> constant
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> literal
 meth public java.lang.Boolean constant()
 meth public java.lang.Boolean literal()
 meth public java.lang.Object $apply(java.lang.Object)
@@ -397,15 +395,15 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IComponentOptions
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> transclude
-fld public net.java.html.lib.Function$A0<java.lang.Object> bindings
-fld public net.java.html.lib.Function$A0<java.lang.Object> controller
-fld public net.java.html.lib.Function$A0<java.lang.String> controllerAs
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A0<? extends java.lang.Boolean>> $canActivate
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> require
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Function>> template
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Function>> templateUrl
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.RouteDefinition[]> $routeConfig
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> transclude
+fld public net.java.html.lib.Objs$Property<java.lang.Object> bindings
+fld public net.java.html.lib.Objs$Property<java.lang.Object> controller
+fld public net.java.html.lib.Objs$Property<java.lang.String> controllerAs
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A0<? extends java.lang.Boolean>> $canActivate
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> require
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Function>> template
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Function>> templateUrl
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.RouteDefinition[]> $routeConfig
 meth public java.lang.Boolean transclude()
 meth public java.lang.String controllerAs()
 meth public net.java.html.lib.Function$A0<? extends java.lang.Boolean> $canActivate()
@@ -454,7 +452,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IDeferred<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IPromise<{net.java.html.lib.angular.IDeferred%0}>> promise
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IPromise<{net.java.html.lib.angular.IDeferred%0}>> promise
 meth public net.java.html.lib.angular.IPromise<{net.java.html.lib.angular.IDeferred%0}> promise()
 meth public static net.java.html.lib.angular.IDeferred $as(java.lang.Object)
 meth public void notify(java.lang.Object)
@@ -469,22 +467,22 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IDirective
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> replace
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> terminal
-fld public net.java.html.lib.Function$A0<java.lang.Number> priority
-fld public net.java.html.lib.Function$A0<java.lang.Object> controller
-fld public net.java.html.lib.Function$A0<java.lang.Object> require
-fld public net.java.html.lib.Function$A0<java.lang.Object> scope
-fld public net.java.html.lib.Function$A0<java.lang.Object> transclude
-fld public net.java.html.lib.Function$A0<java.lang.String> controllerAs
-fld public net.java.html.lib.Function$A0<java.lang.String> name
-fld public net.java.html.lib.Function$A0<java.lang.String> restrict
-fld public net.java.html.lib.Function$A0<java.lang.String> templateNamespace
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.Boolean,net.java.html.lib.Objs>> bindToController
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Function>> template
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Function>> templateUrl
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<net.java.html.lib.angular.IDirectiveLinkFn,net.java.html.lib.angular.IDirectivePrePost>> link
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IDirectiveCompileFn> compile
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> replace
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> terminal
+fld public net.java.html.lib.Objs$Property<java.lang.Number> priority
+fld public net.java.html.lib.Objs$Property<java.lang.Object> controller
+fld public net.java.html.lib.Objs$Property<java.lang.Object> require
+fld public net.java.html.lib.Objs$Property<java.lang.Object> scope
+fld public net.java.html.lib.Objs$Property<java.lang.Object> transclude
+fld public net.java.html.lib.Objs$Property<java.lang.String> controllerAs
+fld public net.java.html.lib.Objs$Property<java.lang.String> name
+fld public net.java.html.lib.Objs$Property<java.lang.String> restrict
+fld public net.java.html.lib.Objs$Property<java.lang.String> templateNamespace
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.Boolean,net.java.html.lib.Objs>> bindToController
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Function>> template
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Function>> templateUrl
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<net.java.html.lib.angular.IDirectiveLinkFn,net.java.html.lib.angular.IDirectivePrePost>> link
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IDirectiveCompileFn> compile
 meth public java.lang.Boolean replace()
 meth public java.lang.Boolean terminal()
 meth public java.lang.Number priority()
@@ -524,8 +522,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IDirectivePrePost
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IDirectiveLinkFn> post
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IDirectiveLinkFn> pre
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IDirectiveLinkFn> post
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IDirectiveLinkFn> pre
 meth public static net.java.html.lib.angular.IDirectivePrePost $as(java.lang.Object)
 meth public void post(net.java.html.lib.angular.IScope,net.java.html.lib.angular.IAugmentedJQuery,net.java.html.lib.angular.IAttributes,net.java.html.lib.Objs,net.java.html.lib.angular.ITranscludeFunction)
 meth public void pre(net.java.html.lib.angular.IScope,net.java.html.lib.angular.IAugmentedJQuery,net.java.html.lib.angular.IAttributes,net.java.html.lib.Objs,net.java.html.lib.angular.ITranscludeFunction)
@@ -719,12 +717,12 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IFormController
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $dirty
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $invalid
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $pristine
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $submitted
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $valid
-fld public net.java.html.lib.Function$A0<java.lang.Object> $error
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $dirty
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $invalid
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $pristine
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $submitted
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $valid
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $error
 meth public java.lang.Boolean $dirty()
 meth public java.lang.Boolean $invalid()
 meth public java.lang.Boolean $pristine()
@@ -769,10 +767,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IHttpInterceptor
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super java.lang.Object,?>> requestError
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super java.lang.Object,?>> responseError
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.angular.IHttpPromiseCallbackArg<?>,? extends net.java.html.lib.Union$A2<net.java.html.lib.angular.IPromise<?>,?>>> response
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.angular.IRequestConfig,? extends net.java.html.lib.Union$A2<net.java.html.lib.angular.IRequestConfig,net.java.html.lib.angular.IPromise<net.java.html.lib.angular.IRequestConfig>>>> request
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super java.lang.Object,?>> requestError
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super java.lang.Object,?>> responseError
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.angular.IHttpPromiseCallbackArg<?>,? extends net.java.html.lib.Union$A2<net.java.html.lib.angular.IPromise<?>,?>>> response
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.angular.IRequestConfig,? extends net.java.html.lib.Union$A2<net.java.html.lib.angular.IRequestConfig,net.java.html.lib.angular.IPromise<net.java.html.lib.angular.IRequestConfig>>>> request
 meth public net.java.html.lib.Function$A1<? super java.lang.Object,?> requestError()
 meth public net.java.html.lib.Function$A1<? super java.lang.Object,?> responseError()
 meth public net.java.html.lib.Function$A1<? super net.java.html.lib.angular.IHttpPromiseCallbackArg<?>,? extends net.java.html.lib.Union$A2<net.java.html.lib.angular.IPromise<?>,?>> response()
@@ -809,11 +807,11 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IHttpPromiseCallbackArg<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> status
-fld public net.java.html.lib.Function$A0<java.lang.String> statusText
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> data
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IHttpHeadersGetter> headers
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IRequestConfig> config
+fld public net.java.html.lib.Objs$Property<java.lang.Number> status
+fld public net.java.html.lib.Objs$Property<java.lang.String> statusText
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> data
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IHttpHeadersGetter> headers
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IRequestConfig> config
 meth public java.lang.Number status()
 meth public java.lang.String headers(java.lang.String)
 meth public java.lang.String statusText()
@@ -826,8 +824,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IHttpProvider
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs[]> interceptors
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IHttpProviderDefaults> defaults
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs[]> interceptors
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IHttpProviderDefaults> defaults
 meth public java.lang.Boolean useApplyAsync()
 meth public net.java.html.lib.Objs[] interceptors()
 meth public net.java.html.lib.Union$A2<java.lang.Boolean,net.java.html.lib.angular.IHttpProvider> useLegacyPromiseExtensions(java.lang.Boolean)
@@ -840,14 +838,14 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IHttpProviderDefaults
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> withCredentials
-fld public net.java.html.lib.Function$A0<java.lang.Object> cache
-fld public net.java.html.lib.Function$A0<java.lang.String> xsrfCookieName
-fld public net.java.html.lib.Function$A0<java.lang.String> xsrfHeaderName
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> paramSerializer
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<net.java.html.lib.angular.IHttpRequestTransformer,net.java.html.lib.angular.IHttpRequestTransformer[]>> transformRequest
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<net.java.html.lib.angular.IHttpResponseTransformer,net.java.html.lib.angular.IHttpResponseTransformer[]>> transformResponse
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IHttpRequestConfigHeaders> headers
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> withCredentials
+fld public net.java.html.lib.Objs$Property<java.lang.Object> cache
+fld public net.java.html.lib.Objs$Property<java.lang.String> xsrfCookieName
+fld public net.java.html.lib.Objs$Property<java.lang.String> xsrfHeaderName
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> paramSerializer
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<net.java.html.lib.angular.IHttpRequestTransformer,net.java.html.lib.angular.IHttpRequestTransformer[]>> transformRequest
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<net.java.html.lib.angular.IHttpResponseTransformer,net.java.html.lib.angular.IHttpResponseTransformer[]>> transformResponse
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IHttpRequestConfigHeaders> headers
 meth public java.lang.Boolean withCredentials()
 meth public java.lang.String xsrfCookieName()
 meth public java.lang.String xsrfHeaderName()
@@ -859,11 +857,11 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IHttpRequestConfigHeaders
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> common
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> get
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> patch
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> post
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> put
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> common
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> get
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> patch
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> post
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs>> put
 meth public net.java.html.lib.Union$A2<java.lang.String,net.java.html.lib.Objs> $get(java.lang.String)
 meth public static net.java.html.lib.angular.IHttpRequestConfigHeaders $as(java.lang.Object)
 supr net.java.html.lib.Objs
@@ -888,8 +886,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IHttpService
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IHttpProviderDefaults> defaults
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IRequestConfig[]> pendingRequests
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IHttpProviderDefaults> defaults
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IRequestConfig[]> pendingRequests
 meth public <%0 extends java.lang.Object> net.java.html.lib.angular.IHttpPromise<{%%0}> $apply(net.java.html.lib.angular.IRequestConfig)
 meth public <%0 extends java.lang.Object> net.java.html.lib.angular.IHttpPromise<{%%0}> delete(java.lang.String)
 meth public <%0 extends java.lang.Object> net.java.html.lib.angular.IHttpPromise<{%%0}> delete(java.lang.String,net.java.html.lib.angular.IRequestShortcutConfig)
@@ -975,18 +973,18 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ILocaleDateTimeFormatDescriptor
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String> fullDate
-fld public net.java.html.lib.Function$A0<java.lang.String> longDate
-fld public net.java.html.lib.Function$A0<java.lang.String> medium
-fld public net.java.html.lib.Function$A0<java.lang.String> mediumDate
-fld public net.java.html.lib.Function$A0<java.lang.String> mediumTime
-fld public net.java.html.lib.Function$A0<java.lang.String> shortDate
-fld public net.java.html.lib.Function$A0<java.lang.String> shortTime
-fld public net.java.html.lib.Function$A0<java.lang.String[]> AMPMS
-fld public net.java.html.lib.Function$A0<java.lang.String[]> DAY
-fld public net.java.html.lib.Function$A0<java.lang.String[]> MONTH
-fld public net.java.html.lib.Function$A0<java.lang.String[]> SHORTDAY
-fld public net.java.html.lib.Function$A0<java.lang.String[]> SHORTMONTH
+fld public net.java.html.lib.Objs$Property<java.lang.String> fullDate
+fld public net.java.html.lib.Objs$Property<java.lang.String> longDate
+fld public net.java.html.lib.Objs$Property<java.lang.String> medium
+fld public net.java.html.lib.Objs$Property<java.lang.String> mediumDate
+fld public net.java.html.lib.Objs$Property<java.lang.String> mediumTime
+fld public net.java.html.lib.Objs$Property<java.lang.String> shortDate
+fld public net.java.html.lib.Objs$Property<java.lang.String> shortTime
+fld public net.java.html.lib.Objs$Property<java.lang.String[]> AMPMS
+fld public net.java.html.lib.Objs$Property<java.lang.String[]> DAY
+fld public net.java.html.lib.Objs$Property<java.lang.String[]> MONTH
+fld public net.java.html.lib.Objs$Property<java.lang.String[]> SHORTDAY
+fld public net.java.html.lib.Objs$Property<java.lang.String[]> SHORTMONTH
 meth public java.lang.String fullDate()
 meth public java.lang.String longDate()
 meth public java.lang.String medium()
@@ -1006,10 +1004,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ILocaleNumberFormatDescriptor
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String> CURRENCY_SYM
-fld public net.java.html.lib.Function$A0<java.lang.String> DECIMAL_SEP
-fld public net.java.html.lib.Function$A0<java.lang.String> GROUP_SEP
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ILocaleNumberPatternDescriptor[]> PATTERNS
+fld public net.java.html.lib.Objs$Property<java.lang.String> CURRENCY_SYM
+fld public net.java.html.lib.Objs$Property<java.lang.String> DECIMAL_SEP
+fld public net.java.html.lib.Objs$Property<java.lang.String> GROUP_SEP
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ILocaleNumberPatternDescriptor[]> PATTERNS
 meth public java.lang.String CURRENCY_SYM()
 meth public java.lang.String DECIMAL_SEP()
 meth public java.lang.String GROUP_SEP()
@@ -1021,15 +1019,15 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ILocaleNumberPatternDescriptor
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> gSize
-fld public net.java.html.lib.Function$A0<java.lang.Number> lgSize
-fld public net.java.html.lib.Function$A0<java.lang.Number> maxFrac
-fld public net.java.html.lib.Function$A0<java.lang.Number> minFrac
-fld public net.java.html.lib.Function$A0<java.lang.Number> minInt
-fld public net.java.html.lib.Function$A0<java.lang.String> negPre
-fld public net.java.html.lib.Function$A0<java.lang.String> negSuf
-fld public net.java.html.lib.Function$A0<java.lang.String> posPre
-fld public net.java.html.lib.Function$A0<java.lang.String> posSuf
+fld public net.java.html.lib.Objs$Property<java.lang.Number> gSize
+fld public net.java.html.lib.Objs$Property<java.lang.Number> lgSize
+fld public net.java.html.lib.Objs$Property<java.lang.Number> maxFrac
+fld public net.java.html.lib.Objs$Property<java.lang.Number> minFrac
+fld public net.java.html.lib.Objs$Property<java.lang.Number> minInt
+fld public net.java.html.lib.Objs$Property<java.lang.String> negPre
+fld public net.java.html.lib.Objs$Property<java.lang.String> negSuf
+fld public net.java.html.lib.Objs$Property<java.lang.String> posPre
+fld public net.java.html.lib.Objs$Property<java.lang.String> posSuf
 meth public java.lang.Number gSize()
 meth public java.lang.Number lgSize()
 meth public java.lang.Number maxFrac()
@@ -1046,10 +1044,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ILocaleService
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String> id
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super java.lang.Object,? extends java.lang.String>> pluralCat
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ILocaleDateTimeFormatDescriptor> DATETIME_FORMATS
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ILocaleNumberFormatDescriptor> NUMBER_FORMATS
+fld public net.java.html.lib.Objs$Property<java.lang.String> id
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super java.lang.Object,? extends java.lang.String>> pluralCat
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ILocaleDateTimeFormatDescriptor> DATETIME_FORMATS
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ILocaleNumberFormatDescriptor> NUMBER_FORMATS
 meth public java.lang.String id()
 meth public net.java.html.lib.Function$A1<? super java.lang.Object,? extends java.lang.String> pluralCat()
 meth public net.java.html.lib.angular.ILocaleDateTimeFormatDescriptor DATETIME_FORMATS()
@@ -1116,11 +1114,11 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ILogService
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ILogCall> debug
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ILogCall> error
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ILogCall> info
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ILogCall> log
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.ILogCall> warn
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ILogCall> debug
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ILogCall> error
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ILogCall> info
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ILogCall> log
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ILogCall> warn
 meth public !varargs void debug(java.lang.Object[])
 meth public !varargs void error(java.lang.Object[])
 meth public !varargs void info(java.lang.Object[])
@@ -1165,8 +1163,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IModule
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String> name
-fld public net.java.html.lib.Function$A0<java.lang.String[]> requires
+fld public net.java.html.lib.Objs$Property<java.lang.String> name
+fld public net.java.html.lib.Objs$Property<java.lang.String[]> requires
 meth public java.lang.String name()
 meth public java.lang.String[] requires()
 meth public net.java.html.lib.angular.IModule animation(java.lang.String,java.lang.Object[])
@@ -1211,22 +1209,22 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.INgModelController
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $dirty
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $invalid
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $pristine
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $touched
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $untouched
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $valid
-fld public net.java.html.lib.Function$A0<java.lang.Object> $error
-fld public net.java.html.lib.Function$A0<java.lang.Object> $modelValue
-fld public net.java.html.lib.Function$A0<java.lang.Object> $pending
-fld public net.java.html.lib.Function$A0<java.lang.Object> $viewValue
-fld public net.java.html.lib.Function$A0<java.lang.String> $name
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IAsyncModelValidators> $asyncValidators
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IModelFormatter[]> $formatters
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IModelParser[]> $parsers
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IModelValidators> $validators
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IModelViewChangeListener[]> $viewChangeListeners
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $dirty
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $invalid
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $pristine
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $touched
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $untouched
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $valid
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $error
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $modelValue
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $pending
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $viewValue
+fld public net.java.html.lib.Objs$Property<java.lang.String> $name
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IAsyncModelValidators> $asyncValidators
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IModelFormatter[]> $formatters
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IModelParser[]> $parsers
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IModelValidators> $validators
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IModelViewChangeListener[]> $viewChangeListeners
 meth public java.lang.Boolean $dirty()
 meth public java.lang.Boolean $invalid()
 meth public java.lang.Boolean $isEmpty(java.lang.Object)
@@ -1333,12 +1331,12 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IRepeatScope
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $even
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $first
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $last
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $middle
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> $odd
-fld public net.java.html.lib.Function$A0<java.lang.Number> $index
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $even
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $first
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $last
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $middle
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> $odd
+fld public net.java.html.lib.Objs$Property<java.lang.Number> $index
 meth public java.lang.Boolean $even()
 meth public java.lang.Boolean $first()
 meth public java.lang.Boolean $last()
@@ -1352,8 +1350,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IRequestConfig
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String> method
-fld public net.java.html.lib.Function$A0<java.lang.String> url
+fld public net.java.html.lib.Objs$Property<java.lang.String> method
+fld public net.java.html.lib.Objs$Property<java.lang.String> url
 meth public java.lang.String method()
 meth public java.lang.String url()
 meth public static net.java.html.lib.angular.IRequestConfig $as(java.lang.Object)
@@ -1363,10 +1361,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IRequestShortcutConfig
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Object> data
-fld public net.java.html.lib.Function$A0<java.lang.Object> params
-fld public net.java.html.lib.Function$A0<java.lang.String> responseType
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.Number,net.java.html.lib.angular.IPromise<java.lang.Object>>> timeout
+fld public net.java.html.lib.Objs$Property<java.lang.Object> data
+fld public net.java.html.lib.Objs$Property<java.lang.Object> params
+fld public net.java.html.lib.Objs$Property<java.lang.String> responseType
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.Number,net.java.html.lib.angular.IPromise<java.lang.Object>>> timeout
 meth public java.lang.String responseType()
 meth public static net.java.html.lib.angular.IRequestShortcutConfig $as(java.lang.Object)
 supr net.java.html.lib.angular.IHttpProviderDefaults
@@ -1382,11 +1380,11 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.IRootScopeService
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> $id
-fld public net.java.html.lib.Function$A0<java.lang.Object> $$isolateBindings
-fld public net.java.html.lib.Function$A0<java.lang.Object> $$phase
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IRootScopeService> $root
-fld public net.java.html.lib.Function$A0<net.java.html.lib.angular.IScope> $parent
+fld public net.java.html.lib.Objs$Property<java.lang.Number> $id
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $$isolateBindings
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $$phase
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IRootScopeService> $root
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.IScope> $parent
 meth public !varargs net.java.html.lib.angular.IAngularEvent $broadcast(java.lang.String,java.lang.Object[])
 meth public !varargs net.java.html.lib.angular.IAngularEvent $emit(java.lang.String,java.lang.Object[])
 meth public <%0 extends java.lang.Object> net.java.html.lib.Function $watch(java.lang.String,net.java.html.lib.Function$A3<? super {%%0},? super {%%0},? super net.java.html.lib.angular.IScope,?>)
@@ -1496,7 +1494,7 @@ hcls $Constructor
 CLSS public net.java.html.lib.angular.IServiceProvider
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public !varargs init(java.lang.Object[])
-fld public net.java.html.lib.Function$A0<java.lang.Object> $get
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $get
 meth public static net.java.html.lib.angular.IServiceProvider $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
@@ -1535,7 +1533,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ITemplateRequestService
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> totalPendingRequests
+fld public net.java.html.lib.Objs$Property<java.lang.Number> totalPendingRequests
 meth public java.lang.Number totalPendingRequests()
 meth public net.java.html.lib.angular.IPromise<java.lang.String> $apply(java.lang.String)
 meth public net.java.html.lib.angular.IPromise<java.lang.String> $apply(java.lang.String,java.lang.Boolean)
@@ -1579,15 +1577,15 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.RouteDefinition
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> useAsDefault
-fld public net.java.html.lib.Function$A0<java.lang.Object> data
-fld public net.java.html.lib.Function$A0<java.lang.Object[]> redirectTo
-fld public net.java.html.lib.Function$A0<java.lang.String> as
-fld public net.java.html.lib.Function$A0<java.lang.String> aux
-fld public net.java.html.lib.Function$A0<java.lang.String> name
-fld public net.java.html.lib.Function$A0<java.lang.String> path
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> loader
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A3<net.java.html.lib.angular.Type,net.java.html.lib.angular.ComponentDefinition,java.lang.String>> component
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> useAsDefault
+fld public net.java.html.lib.Objs$Property<java.lang.Object> data
+fld public net.java.html.lib.Objs$Property<java.lang.Object[]> redirectTo
+fld public net.java.html.lib.Objs$Property<java.lang.String> as
+fld public net.java.html.lib.Objs$Property<java.lang.String> aux
+fld public net.java.html.lib.Objs$Property<java.lang.String> name
+fld public net.java.html.lib.Objs$Property<java.lang.String> path
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function> loader
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A3<net.java.html.lib.angular.Type,net.java.html.lib.angular.ComponentDefinition,java.lang.String>> component
 meth public java.lang.Boolean useAsDefault()
 meth public java.lang.String as()
 meth public java.lang.String aux()
@@ -1624,143 +1622,143 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.dom.Window
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> closed
-fld public net.java.html.lib.Function$A0<java.lang.Number> animationStartTime
-fld public net.java.html.lib.Function$A0<java.lang.Number> devicePixelRatio
-fld public net.java.html.lib.Function$A0<java.lang.Number> innerHeight
-fld public net.java.html.lib.Function$A0<java.lang.Number> innerWidth
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<java.lang.Number> msAnimationStartTime
-fld public net.java.html.lib.Function$A0<java.lang.Number> outerHeight
-fld public net.java.html.lib.Function$A0<java.lang.Number> outerWidth
-fld public net.java.html.lib.Function$A0<java.lang.Number> pageXOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> pageYOffset
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenLeft
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenTop
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenX
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenY
-fld public net.java.html.lib.Function$A0<java.lang.Number> scrollX
-fld public net.java.html.lib.Function$A0<java.lang.Number> scrollY
-fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchcancel
-fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchend
-fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchmove
-fld public net.java.html.lib.Function$A0<java.lang.Object> ontouchstart
-fld public net.java.html.lib.Function$A0<java.lang.String> defaultStatus
-fld public net.java.html.lib.Function$A0<java.lang.String> doNotTrack
-fld public net.java.html.lib.Function$A0<java.lang.String> name
-fld public net.java.html.lib.Function$A0<java.lang.String> status
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.BeforeUnloadEvent,?>> onbeforeunload
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceMotionEvent,?>> ondevicemotion
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceOrientationEvent,?>> ondeviceorientation
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondrag
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragend
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragenter
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragleave
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragover
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragstart
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondrop
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onabort
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onafterprint
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onbeforeprint
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncanplay
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncanplaythrough
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onchange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncompassneedscalibration
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ondurationchange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onemptied
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onended
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oninput
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onload
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadeddata
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadedmetadata
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadstart
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onoffline
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ononline
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onorientationchange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onpause
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onplay
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onplaying
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onratechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onreset
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onseeked
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onseeking
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onstalled
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onsubmit
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onsuspend
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ontimeupdate
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onunload
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onvolumechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onwaiting
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?>> onblur
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?>> onfocus
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.HashChangeEvent,?>> onhashchange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeydown
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeypress
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeyup
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturedoubletap
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgestureend
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturehold
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturestart
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturetap
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsinertiastart
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointercancel
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerdown
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerenter
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerleave
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointermove
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerout
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerover
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerup
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MessageEvent,?>> onmessage
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onclick
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> ondblclick
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmousedown
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseenter
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseleave
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmousemove
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseout
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseover
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseup
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseWheelEvent,?>> onmousewheel
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?>> onpagehide
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?>> onpageshow
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PointerEvent,?>> oncontextmenu
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PopStateEvent,?>> onpopstate
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onprogress
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onreadystatechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.StorageEvent,?>> onstorage
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onresize
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onscroll
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onselect
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,java.lang.Boolean>> offscreenBuffering
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.String,java.lang.Number>> orientation
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.ApplicationCache> applicationCache
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> locationbar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> menubar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> personalbar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> scrollbars
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> statusbar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.BarProp> toolbar
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Crypto> crypto
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Document> document
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> frameElement
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.ErrorEventHandler> onerror
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Event> event
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.External> external
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.History> history
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Location> location
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Navigator> clientInformation
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Navigator> navigator
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Performance> performance
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Screen> screen
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.StyleMedia> styleMedia
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> frames
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> opener
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> parent
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> self
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> top
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Window> window
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> closed
+fld public net.java.html.lib.Objs$Property<java.lang.Number> animationStartTime
+fld public net.java.html.lib.Objs$Property<java.lang.Number> devicePixelRatio
+fld public net.java.html.lib.Objs$Property<java.lang.Number> innerHeight
+fld public net.java.html.lib.Objs$Property<java.lang.Number> innerWidth
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<java.lang.Number> msAnimationStartTime
+fld public net.java.html.lib.Objs$Property<java.lang.Number> outerHeight
+fld public net.java.html.lib.Objs$Property<java.lang.Number> outerWidth
+fld public net.java.html.lib.Objs$Property<java.lang.Number> pageXOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> pageYOffset
+fld public net.java.html.lib.Objs$Property<java.lang.Number> screenLeft
+fld public net.java.html.lib.Objs$Property<java.lang.Number> screenTop
+fld public net.java.html.lib.Objs$Property<java.lang.Number> screenX
+fld public net.java.html.lib.Objs$Property<java.lang.Number> screenY
+fld public net.java.html.lib.Objs$Property<java.lang.Number> scrollX
+fld public net.java.html.lib.Objs$Property<java.lang.Number> scrollY
+fld public net.java.html.lib.Objs$Property<java.lang.Object> ontouchcancel
+fld public net.java.html.lib.Objs$Property<java.lang.Object> ontouchend
+fld public net.java.html.lib.Objs$Property<java.lang.Object> ontouchmove
+fld public net.java.html.lib.Objs$Property<java.lang.Object> ontouchstart
+fld public net.java.html.lib.Objs$Property<java.lang.String> defaultStatus
+fld public net.java.html.lib.Objs$Property<java.lang.String> doNotTrack
+fld public net.java.html.lib.Objs$Property<java.lang.String> name
+fld public net.java.html.lib.Objs$Property<java.lang.String> status
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.BeforeUnloadEvent,?>> onbeforeunload
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceMotionEvent,?>> ondevicemotion
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DeviceOrientationEvent,?>> ondeviceorientation
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondrag
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragend
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragenter
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragleave
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragover
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondragstart
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.DragEvent,?>> ondrop
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onabort
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onafterprint
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onbeforeprint
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncanplay
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncanplaythrough
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onchange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oncompassneedscalibration
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ondurationchange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onemptied
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onended
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> oninput
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onload
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadeddata
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadedmetadata
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onloadstart
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onoffline
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ononline
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onorientationchange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onpause
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onplay
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onplaying
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onratechange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onreset
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onseeked
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onseeking
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onstalled
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onsubmit
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onsuspend
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> ontimeupdate
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onunload
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onvolumechange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.Event,?>> onwaiting
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?>> onblur
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.FocusEvent,?>> onfocus
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.HashChangeEvent,?>> onhashchange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeydown
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeypress
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.KeyboardEvent,?>> onkeyup
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturechange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturedoubletap
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgestureend
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturehold
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturestart
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsgesturetap
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSGestureEvent,?>> onmsinertiastart
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointercancel
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerdown
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerenter
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerleave
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointermove
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerout
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerover
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MSPointerEvent,?>> onmspointerup
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MessageEvent,?>> onmessage
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onclick
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> ondblclick
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmousedown
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseenter
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseleave
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmousemove
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseout
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseover
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseEvent,?>> onmouseup
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.MouseWheelEvent,?>> onmousewheel
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?>> onpagehide
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PageTransitionEvent,?>> onpageshow
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PointerEvent,?>> oncontextmenu
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.PopStateEvent,?>> onpopstate
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onprogress
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onreadystatechange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.StorageEvent,?>> onstorage
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onresize
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onscroll
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.UIEvent,?>> onselect
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,java.lang.Boolean>> offscreenBuffering
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.String,java.lang.Number>> orientation
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.ApplicationCache> applicationCache
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.BarProp> locationbar
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.BarProp> menubar
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.BarProp> personalbar
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.BarProp> scrollbars
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.BarProp> statusbar
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.BarProp> toolbar
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Crypto> crypto
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Document> document
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Element> frameElement
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.ErrorEventHandler> onerror
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Event> event
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.External> external
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.History> history
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Location> location
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Navigator> clientInformation
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Navigator> navigator
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Performance> performance
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Screen> screen
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.StyleMedia> styleMedia
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Window> frames
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Window> opener
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Window> parent
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Window> self
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Window> top
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Window> window
 meth public double msRequestAnimationFrame(net.java.html.lib.dom.FrameRequestCallback)
 meth public double requestAnimationFrame(net.java.html.lib.dom.FrameRequestCallback)
 meth public java.lang.Boolean closed()
@@ -1965,10 +1963,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQuery
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<java.lang.String> jquery
-fld public net.java.html.lib.Function$A0<java.lang.String> selector
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> context
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<java.lang.String> jquery
+fld public net.java.html.lib.Objs$Property<java.lang.String> selector
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Element> context
 meth public !varargs net.java.html.lib.Objs triggerHandler(java.lang.String,java.lang.Object[])
 meth public !varargs net.java.html.lib.Objs triggerHandler(net.java.html.lib.jquery.JQueryEventObject,java.lang.Object[])
 meth public !varargs net.java.html.lib.jquery.JQuery add(net.java.html.lib.dom.Element[])
@@ -2500,17 +2498,17 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> isReady
-fld public net.java.html.lib.Function$A0<java.lang.Object> cssNumber
-fld public net.java.html.lib.Function$A0<java.lang.Object> expr
-fld public net.java.html.lib.Function$A0<java.lang.Object> fn
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> cssHooks
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> fx
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryAjaxSettings> ajaxSettings
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryEasingFunctions> easing
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryEventConstructor> Event
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryParam> param
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQuerySupport> support
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> isReady
+fld public net.java.html.lib.Objs$Property<java.lang.Object> cssNumber
+fld public net.java.html.lib.Objs$Property<java.lang.Object> expr
+fld public net.java.html.lib.Objs$Property<java.lang.Object> fn
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> cssHooks
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> fx
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryAjaxSettings> ajaxSettings
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryEasingFunctions> easing
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryEventConstructor> Event
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryParam> param
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQuerySupport> support
 meth public !varargs java.lang.Object extend(java.lang.Boolean,java.lang.Object,java.lang.Object,java.lang.Object[])
 meth public !varargs java.lang.Object extend(java.lang.Object,java.lang.Object,java.lang.Object[])
 meth public !varargs java.lang.Object proxy(net.java.html.lib.Function$A1<? super net.java.html.lib.Array<java.lang.Object>,?>,net.java.html.lib.Objs,java.lang.Object[])

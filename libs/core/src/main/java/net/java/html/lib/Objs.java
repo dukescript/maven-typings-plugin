@@ -321,6 +321,11 @@ public class Objs extends java.lang.Object {
       protected abstract T create(Object any);
 
       static Constructor<?> find(Class<?> clazz) {
+          if (Union.class.isAssignableFrom(clazz)) {
+              clazz = Union.class;
+          } else if (Function.A5.class.isAssignableFrom(clazz)) {
+              clazz = Function.class;
+          }
           for (int i = 0; i <= 2; i++) {
               Constructor<?> c = head;
               for (;;) {
@@ -349,5 +354,55 @@ public class Objs extends java.lang.Object {
                 }
             }
         }
-  }
+    }
+
+    /** Represents a property of an {@link Objs} object.
+     *
+     * @param <T> the type of the property
+     */
+    public static final class Property<T> {
+        private final Objs js;
+        private final Class<T> type;
+        private final Constructor<?> constructor;
+        private final String property;
+
+        private Property(Objs objs, Class<T> type, java.lang.String property) {
+            this.js = objs;
+            this.type = type;
+            this.constructor = Constructor.find(type);
+            this.property = property;
+        }
+
+        /** Creates new property for the object.
+         *
+         * @param <T> type of the property
+         * @param obj the object the property belongs to
+         * @param propertyType type of the property
+         * @param property name of the property
+         * @return property instances {@link #get() to use} later
+         */
+        public static <T> Property<T> create(Objs obj, Class<? extends Object> propertyType, java.lang.String property) {
+            return new Property(obj, propertyType, property);
+        }
+
+        /** Get value of the property.
+         *
+         * @return the value
+         */
+        public T get() {
+            Object raw = getRaw(Objs.$js(js), property);
+            if (raw != null && constructor != null) {
+                raw = constructor.create(raw);
+            }
+            return type.cast(raw);
+        }
+
+        /** Sets value of the property.
+         *
+         * @param value the value to set
+         */
+        public void set(T value) {
+            Objs.setRaw(Objs.$js(js), property, Objs.$js(value));
+        }
+    }
 }

@@ -21,6 +21,7 @@ cons public init()
 cons public init(java.lang.Object)
 fld public static java.lang.Object prototype
 innr protected abstract static Constructor
+innr public final static Property
 meth public <%0 extends net.java.html.lib.Objs> {%%0} $cast(java.lang.Class<{%%0}>)
 meth public java.lang.Boolean hasOwnProperty(java.lang.String)
 meth public java.lang.Boolean isPrototypeOf(java.lang.Object)
@@ -55,21 +56,21 @@ hfds $$fn$$deleteRaw_3,$$fn$$getRaw_1,$$fn$$setRaw_2,$AS,js
 
 CLSS public net.java.html.lib.dom.Event
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> bubbles
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> cancelBubble
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> cancelable
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> defaultPrevented
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> isTrusted
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> returnValue
-fld public net.java.html.lib.Function$A0<java.lang.Number> AT_TARGET
-fld public net.java.html.lib.Function$A0<java.lang.Number> BUBBLING_PHASE
-fld public net.java.html.lib.Function$A0<java.lang.Number> CAPTURING_PHASE
-fld public net.java.html.lib.Function$A0<java.lang.Number> eventPhase
-fld public net.java.html.lib.Function$A0<java.lang.Number> timeStamp
-fld public net.java.html.lib.Function$A0<java.lang.String> type
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> srcElement
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.EventTarget> currentTarget
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.EventTarget> target
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> bubbles
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> cancelBubble
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> cancelable
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> defaultPrevented
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> isTrusted
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> returnValue
+fld public net.java.html.lib.Objs$Property<java.lang.Number> AT_TARGET
+fld public net.java.html.lib.Objs$Property<java.lang.Number> BUBBLING_PHASE
+fld public net.java.html.lib.Objs$Property<java.lang.Number> CAPTURING_PHASE
+fld public net.java.html.lib.Objs$Property<java.lang.Number> eventPhase
+fld public net.java.html.lib.Objs$Property<java.lang.Number> timeStamp
+fld public net.java.html.lib.Objs$Property<java.lang.String> type
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Element> srcElement
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.EventTarget> currentTarget
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.EventTarget> target
 meth public java.lang.Boolean bubbles()
 meth public java.lang.Boolean cancelBubble()
 meth public java.lang.Boolean cancelable()
@@ -112,24 +113,24 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.dom.XMLHttpRequest
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> withCredentials
-fld public net.java.html.lib.Function$A0<java.lang.Number> DONE
-fld public net.java.html.lib.Function$A0<java.lang.Number> HEADERS_RECEIVED
-fld public net.java.html.lib.Function$A0<java.lang.Number> LOADING
-fld public net.java.html.lib.Function$A0<java.lang.Number> OPENED
-fld public net.java.html.lib.Function$A0<java.lang.Number> UNSENT
-fld public net.java.html.lib.Function$A0<java.lang.Number> readyState
-fld public net.java.html.lib.Function$A0<java.lang.Number> status
-fld public net.java.html.lib.Function$A0<java.lang.Number> timeout
-fld public net.java.html.lib.Function$A0<java.lang.Object> response
-fld public net.java.html.lib.Function$A0<java.lang.Object> responseBody
-fld public net.java.html.lib.Function$A0<java.lang.Object> responseXML
-fld public net.java.html.lib.Function$A0<java.lang.String> msCaching
-fld public net.java.html.lib.Function$A0<java.lang.String> responseText
-fld public net.java.html.lib.Function$A0<java.lang.String> responseType
-fld public net.java.html.lib.Function$A0<java.lang.String> statusText
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onreadystatechange
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.XMLHttpRequestUpload> upload
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> withCredentials
+fld public net.java.html.lib.Objs$Property<java.lang.Number> DONE
+fld public net.java.html.lib.Objs$Property<java.lang.Number> HEADERS_RECEIVED
+fld public net.java.html.lib.Objs$Property<java.lang.Number> LOADING
+fld public net.java.html.lib.Objs$Property<java.lang.Number> OPENED
+fld public net.java.html.lib.Objs$Property<java.lang.Number> UNSENT
+fld public net.java.html.lib.Objs$Property<java.lang.Number> readyState
+fld public net.java.html.lib.Objs$Property<java.lang.Number> status
+fld public net.java.html.lib.Objs$Property<java.lang.Number> timeout
+fld public net.java.html.lib.Objs$Property<java.lang.Object> response
+fld public net.java.html.lib.Objs$Property<java.lang.Object> responseBody
+fld public net.java.html.lib.Objs$Property<java.lang.Object> responseXML
+fld public net.java.html.lib.Objs$Property<java.lang.String> msCaching
+fld public net.java.html.lib.Objs$Property<java.lang.String> responseText
+fld public net.java.html.lib.Objs$Property<java.lang.String> responseType
+fld public net.java.html.lib.Objs$Property<java.lang.String> statusText
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.dom.ProgressEvent,?>> onreadystatechange
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.XMLHttpRequestUpload> upload
 meth public java.lang.Boolean msCachingEnabled()
 meth public java.lang.Boolean withCredentials()
 meth public java.lang.Number DONE()
@@ -177,17 +178,17 @@ hfds VM,last,p
 
 CLSS public net.java.html.lib.jquery.BaseJQueryEventObject
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> metaKey
-fld public net.java.html.lib.Function$A0<java.lang.Number> pageX
-fld public net.java.html.lib.Function$A0<java.lang.Number> pageY
-fld public net.java.html.lib.Function$A0<java.lang.Number> which
-fld public net.java.html.lib.Function$A0<java.lang.Object> data
-fld public net.java.html.lib.Function$A0<java.lang.Object> result
-fld public net.java.html.lib.Function$A0<java.lang.String> namespace
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> delegateTarget
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> relatedTarget
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> target
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Event> originalEvent
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> metaKey
+fld public net.java.html.lib.Objs$Property<java.lang.Number> pageX
+fld public net.java.html.lib.Objs$Property<java.lang.Number> pageY
+fld public net.java.html.lib.Objs$Property<java.lang.Number> which
+fld public net.java.html.lib.Objs$Property<java.lang.Object> data
+fld public net.java.html.lib.Objs$Property<java.lang.Object> result
+fld public net.java.html.lib.Objs$Property<java.lang.String> namespace
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Element> delegateTarget
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Element> relatedTarget
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Element> target
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Event> originalEvent
 meth public java.lang.Boolean isDefaultPrevented()
 meth public java.lang.Boolean isImmediatePropagationStopped()
 meth public java.lang.Boolean isPropagationStopped()
@@ -237,10 +238,10 @@ supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.jquery.JQuery
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> length
-fld public net.java.html.lib.Function$A0<java.lang.String> jquery
-fld public net.java.html.lib.Function$A0<java.lang.String> selector
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Element> context
+fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+fld public net.java.html.lib.Objs$Property<java.lang.String> jquery
+fld public net.java.html.lib.Objs$Property<java.lang.String> selector
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Element> context
 meth public !varargs net.java.html.lib.Objs triggerHandler(java.lang.String,java.lang.Object[])
 meth public !varargs net.java.html.lib.Objs triggerHandler(net.java.html.lib.jquery.JQueryEventObject,java.lang.Object[])
 meth public !varargs net.java.html.lib.jquery.JQuery add(net.java.html.lib.dom.Element[])
@@ -772,35 +773,35 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryAjaxSettings
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> async
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> cache
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> crossDomain
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> global
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> ifModified
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> isLocal
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> processData
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> traditional
-fld public net.java.html.lib.Function$A0<java.lang.Number> timeout
-fld public net.java.html.lib.Function$A0<java.lang.Object> accepts
-fld public net.java.html.lib.Function$A0<java.lang.Object> contentType
-fld public net.java.html.lib.Function$A0<java.lang.Object> context
-fld public net.java.html.lib.Function$A0<java.lang.Object> data
-fld public net.java.html.lib.Function$A0<java.lang.Object> jsonp
-fld public net.java.html.lib.Function$A0<java.lang.Object> jsonpCallback
-fld public net.java.html.lib.Function$A0<java.lang.Object> xhr
-fld public net.java.html.lib.Function$A0<java.lang.String> dataType
-fld public net.java.html.lib.Function$A0<java.lang.String> method
-fld public net.java.html.lib.Function$A0<java.lang.String> mimeType
-fld public net.java.html.lib.Function$A0<java.lang.String> password
-fld public net.java.html.lib.Function$A0<java.lang.String> scriptCharset
-fld public net.java.html.lib.Function$A0<java.lang.String> type
-fld public net.java.html.lib.Function$A0<java.lang.String> url
-fld public net.java.html.lib.Function$A0<java.lang.String> username
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> contents
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> converters
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> headers
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> statusCode
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> xhrFields
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> async
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> cache
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> crossDomain
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> global
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> ifModified
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> isLocal
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> processData
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> traditional
+fld public net.java.html.lib.Objs$Property<java.lang.Number> timeout
+fld public net.java.html.lib.Objs$Property<java.lang.Object> accepts
+fld public net.java.html.lib.Objs$Property<java.lang.Object> contentType
+fld public net.java.html.lib.Objs$Property<java.lang.Object> context
+fld public net.java.html.lib.Objs$Property<java.lang.Object> data
+fld public net.java.html.lib.Objs$Property<java.lang.Object> jsonp
+fld public net.java.html.lib.Objs$Property<java.lang.Object> jsonpCallback
+fld public net.java.html.lib.Objs$Property<java.lang.Object> xhr
+fld public net.java.html.lib.Objs$Property<java.lang.String> dataType
+fld public net.java.html.lib.Objs$Property<java.lang.String> method
+fld public net.java.html.lib.Objs$Property<java.lang.String> mimeType
+fld public net.java.html.lib.Objs$Property<java.lang.String> password
+fld public net.java.html.lib.Objs$Property<java.lang.String> scriptCharset
+fld public net.java.html.lib.Objs$Property<java.lang.String> type
+fld public net.java.html.lib.Objs$Property<java.lang.String> url
+fld public net.java.html.lib.Objs$Property<java.lang.String> username
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> contents
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> converters
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> headers
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> statusCode
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> xhrFields
 meth public java.lang.Boolean async()
 meth public java.lang.Boolean cache()
 meth public java.lang.Boolean crossDomain()
@@ -830,17 +831,17 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryAnimationOptions
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Object> duration
-fld public net.java.html.lib.Function$A0<java.lang.Object> queue
-fld public net.java.html.lib.Function$A0<java.lang.String> easing
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A1<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,?>> start
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Object,?>> step
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A2<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,? super java.lang.Boolean,?>> always
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A2<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,? super java.lang.Boolean,?>> done
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A2<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,? super java.lang.Boolean,?>> fail
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A3<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,? super java.lang.Number,? super java.lang.Number,?>> progress
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function> complete
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> specialEasing
+fld public net.java.html.lib.Objs$Property<java.lang.Object> duration
+fld public net.java.html.lib.Objs$Property<java.lang.Object> queue
+fld public net.java.html.lib.Objs$Property<java.lang.String> easing
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,?>> start
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A2<? super java.lang.Number,? super java.lang.Object,?>> step
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A2<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,? super java.lang.Boolean,?>> always
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A2<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,? super java.lang.Boolean,?>> done
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A2<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,? super java.lang.Boolean,?>> fail
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A3<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,? super java.lang.Number,? super java.lang.Number,?>> progress
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function> complete
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> specialEasing
 meth public java.lang.String easing()
 meth public net.java.html.lib.Function complete()
 meth public net.java.html.lib.Function$A1<? super net.java.html.lib.jquery.JQueryPromise<java.lang.Object>,?> start()
@@ -879,8 +880,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryCoordinates
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> left
-fld public net.java.html.lib.Function$A0<java.lang.Number> top
+fld public net.java.html.lib.Objs$Property<java.lang.Number> left
+fld public net.java.html.lib.Objs$Property<java.lang.Number> top
 meth public java.lang.Number left()
 meth public java.lang.Number top()
 meth public static net.java.html.lib.jquery.JQueryCoordinates $as(java.lang.Object)
@@ -940,8 +941,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryEasingFunctions
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryEasingFunction> linear
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryEasingFunction> swing
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryEasingFunction> linear
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryEasingFunction> swing
 meth public double linear(double)
 meth public double swing(double)
 meth public net.java.html.lib.jquery.JQueryEasingFunction $get(java.lang.String)
@@ -978,10 +979,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryInputEventObject
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> altKey
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> ctrlKey
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> metaKey
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> shiftKey
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> altKey
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> ctrlKey
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> metaKey
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> shiftKey
 meth public java.lang.Boolean altKey()
 meth public java.lang.Boolean ctrlKey()
 meth public java.lang.Boolean metaKey()
@@ -993,9 +994,9 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryKeyEventObject
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> charCode
-fld public net.java.html.lib.Function$A0<java.lang.Number> keyCode
-fld public net.java.html.lib.Function$A0<java.lang.Object> key
+fld public net.java.html.lib.Objs$Property<java.lang.Number> charCode
+fld public net.java.html.lib.Objs$Property<java.lang.Number> keyCode
+fld public net.java.html.lib.Objs$Property<java.lang.Object> key
 meth public java.lang.Number charCode()
 meth public java.lang.Number keyCode()
 meth public static net.java.html.lib.jquery.JQueryKeyEventObject $as(java.lang.Object)
@@ -1005,15 +1006,15 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryMouseEventObject
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> button
-fld public net.java.html.lib.Function$A0<java.lang.Number> clientX
-fld public net.java.html.lib.Function$A0<java.lang.Number> clientY
-fld public net.java.html.lib.Function$A0<java.lang.Number> offsetX
-fld public net.java.html.lib.Function$A0<java.lang.Number> offsetY
-fld public net.java.html.lib.Function$A0<java.lang.Number> pageX
-fld public net.java.html.lib.Function$A0<java.lang.Number> pageY
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenX
-fld public net.java.html.lib.Function$A0<java.lang.Number> screenY
+fld public net.java.html.lib.Objs$Property<java.lang.Number> button
+fld public net.java.html.lib.Objs$Property<java.lang.Number> clientX
+fld public net.java.html.lib.Objs$Property<java.lang.Number> clientY
+fld public net.java.html.lib.Objs$Property<java.lang.Number> offsetX
+fld public net.java.html.lib.Objs$Property<java.lang.Number> offsetY
+fld public net.java.html.lib.Objs$Property<java.lang.Number> pageX
+fld public net.java.html.lib.Objs$Property<java.lang.Number> pageY
+fld public net.java.html.lib.Objs$Property<java.lang.Number> screenX
+fld public net.java.html.lib.Objs$Property<java.lang.Number> screenY
 meth public java.lang.Number button()
 meth public java.lang.Number clientX()
 meth public java.lang.Number clientY()
@@ -1085,8 +1086,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQuerySerializeArrayElement
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.String> name
-fld public net.java.html.lib.Function$A0<java.lang.String> value
+fld public net.java.html.lib.Objs$Property<java.lang.String> name
+fld public net.java.html.lib.Objs$Property<java.lang.String> value
 meth public java.lang.String name()
 meth public java.lang.String value()
 meth public static net.java.html.lib.jquery.JQuerySerializeArrayElement $as(java.lang.Object)
@@ -1096,17 +1097,17 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> isReady
-fld public net.java.html.lib.Function$A0<java.lang.Object> cssNumber
-fld public net.java.html.lib.Function$A0<java.lang.Object> expr
-fld public net.java.html.lib.Function$A0<java.lang.Object> fn
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> cssHooks
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> fx
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryAjaxSettings> ajaxSettings
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryEasingFunctions> easing
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryEventConstructor> Event
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQueryParam> param
-fld public net.java.html.lib.Function$A0<net.java.html.lib.jquery.JQuerySupport> support
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> isReady
+fld public net.java.html.lib.Objs$Property<java.lang.Object> cssNumber
+fld public net.java.html.lib.Objs$Property<java.lang.Object> expr
+fld public net.java.html.lib.Objs$Property<java.lang.Object> fn
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> cssHooks
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> fx
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryAjaxSettings> ajaxSettings
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryEasingFunctions> easing
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryEventConstructor> Event
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQueryParam> param
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.jquery.JQuerySupport> support
 meth public !varargs java.lang.Object extend(java.lang.Boolean,java.lang.Object,java.lang.Object,java.lang.Object[])
 meth public !varargs java.lang.Object extend(java.lang.Object,java.lang.Object,java.lang.Object[])
 meth public !varargs java.lang.Object proxy(net.java.html.lib.Function$A1<? super net.java.html.lib.Array<java.lang.Object>,?>,net.java.html.lib.Objs,java.lang.Object[])
@@ -1223,24 +1224,24 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQuerySupport
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> ajax
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> boxModel
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> changeBubbles
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> checkClone
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> checkOn
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> cors
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> cssFloat
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> hrefNormalized
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> htmlSerialize
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> leadingWhitespace
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> noCloneChecked
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> noCloneEvent
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> opacity
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> optDisabled
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> optSelected
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> style
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> submitBubbles
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> tbody
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> ajax
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> boxModel
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> changeBubbles
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> checkClone
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> checkOn
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> cors
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> cssFloat
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> hrefNormalized
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> htmlSerialize
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> leadingWhitespace
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> noCloneChecked
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> noCloneEvent
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> opacity
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> optDisabled
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> optSelected
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> style
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> submitBubbles
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> tbody
 meth public java.lang.Boolean ajax()
 meth public java.lang.Boolean boxModel()
 meth public java.lang.Boolean changeBubbles()
@@ -1267,7 +1268,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.jquery.JQueryXHR
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Object> responseJSON
+fld public net.java.html.lib.Objs$Property<java.lang.Object> responseJSON
 meth public net.java.html.lib.jquery.JQueryPromise<java.lang.Object> then(net.java.html.lib.Function$A3<? super java.lang.Object,? super java.lang.String,? super net.java.html.lib.jquery.JQueryXHR,? extends java.lang.Void>)
 meth public net.java.html.lib.jquery.JQueryPromise<java.lang.Object> then(net.java.html.lib.Function$A3<? super java.lang.Object,? super java.lang.String,? super net.java.html.lib.jquery.JQueryXHR,? extends java.lang.Void>,net.java.html.lib.Function$A3<? super net.java.html.lib.jquery.JQueryXHR,? super java.lang.String,? super java.lang.Object,? extends java.lang.Void>)
 meth public static net.java.html.lib.jquery.JQueryXHR $as(java.lang.Object)

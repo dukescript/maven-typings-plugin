@@ -78,7 +78,7 @@ public class LibCoreTest {
     @Test
     public void arrayOfAndSubArray() throws Exception {
         Int8Array value = new Int8Array(3);
-        assertEquals(value.length.call().doubleValue(), 3.0, 0.1, "Length is 3");
+        assertEquals(value.length.get().doubleValue(), 3.0, 0.1, "Length is 3");
     }
 
     @Test
@@ -139,8 +139,8 @@ public class LibCoreTest {
         TypeError te = new TypeError("an error");
         Error error = te;
         assertEquals(te, error, "Assigned");
-        assertEquals(error.message.call(), "an error");
-        assertEquals(error.name.call(), "TypeError");
+        assertEquals(error.message.get(), "an error");
+        assertEquals(error.name.get(), "TypeError");
     }
 
     @Test
@@ -174,7 +174,7 @@ public class LibCoreTest {
     @Test
     public void arrayForEach() throws Exception {
         Array<java.lang.Number> arr = new Array<>();
-        assertNumber(arr.length.call(), 0.0, "Empty at first");
+        assertNumber(arr.length.get(), 0.0, "Empty at first");
         arr.push(1.1, 2.2, 3);
         assertEquals(arr.$get(0), 1.1, "1.1 is on position 0");
         assertEquals(arr.$get(1), 2.2, "2.2 is on position 1");

@@ -61,7 +61,7 @@ public class FnTest {
     public void typedFunctionWithProperties() {
         FnT obj = Exports.fnT;
         assertNotNull("fnT", obj);
-        assertEquals(42, obj.fourtyTwo.call());
+        assertEquals(42, obj.fourtyTwo.get());
         assertEquals("Hi", Exports.fnT());
 //        assertEquals("Length4", Exports.fnT(4));
     }
@@ -70,7 +70,7 @@ public class FnTest {
     public void typedFunctionWithPropertiesOnObject() {
         FnT obj = Exports.fnT;
         assertNotNull("fnT", obj.FnT);
-        assertEquals(42, obj.FnT.call().fourtyTwo.call());
+        assertEquals(42, obj.FnT.get().fourtyTwo.get());
         assertEquals("Hi", obj.FnT());
 //        assertEquals("Length4", Exports.fnT(4));
     }
