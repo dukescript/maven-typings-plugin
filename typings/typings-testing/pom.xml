@@ -36,9 +36,6 @@ THE SOFTWARE.
     <name>Testing Environment for Typings</name>
     <artifactId>typings-testing</artifactId>
     <packaging>jar</packaging>
-    <properties>
-        <bck2brwsr.version>0.18</bck2brwsr.version>
-    </properties>
     <build>
         <plugins>
             <plugin>
