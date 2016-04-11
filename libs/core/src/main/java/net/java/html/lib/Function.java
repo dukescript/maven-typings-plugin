@@ -36,13 +36,7 @@ public class Function extends Objs {
     private static final Constructor<Function> $AS = new Constructor<Function>(Function.class) {
         @Override
         protected Function create(Object any) {
-            return any == null ? null : new Function(this, any);
-        }
-    };
-    private static final Constructor<JSFn> $ASJS = new Constructor<JSFn>(JSFn.class) {
-        @Override
-        protected JSFn create(Object any) {
-            return any == null ? null : new JSFn(any);
+            return any == null ? null : new JSFn(this, any);
         }
     };
     /**
@@ -52,7 +46,7 @@ public class Function extends Objs {
      * @return a view of the provided <code>obj</code> object
      */
     public static Function $as(java.lang.Object obj) {
-        return $ASJS.create(obj);
+        return $AS.create(obj);
     }
 
   public static <T> Function.A0<T> $read(java.lang.Object obj, java.lang.String property) {
@@ -231,14 +225,14 @@ public class Function extends Objs {
 
     private static Object unJS(Object obj) {
         if (isFunction(obj)) {
-            return new JSFn(obj);
+            return new JSFn($AS, obj);
         }
         return obj;
     }
 
     private static final class JSFn extends Function implements A0<Object> {
-        JSFn(Object obj) {
-            super(Function.$ASJS, obj);
+        JSFn(Constructor<?> c, Object obj) {
+            super(c, obj);
         }
 
         @Override
