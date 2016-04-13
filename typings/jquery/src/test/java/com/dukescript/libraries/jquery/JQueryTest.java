@@ -7,8 +7,11 @@ import static net.java.html.lib.dom.Exports.window;
 import net.java.html.lib.dom.HTMLElement;
 import net.java.html.junit.BrowserRunner;
 import net.java.html.junit.HTMLContent;
-import org.junit.runner.RunWith;
+import net.java.html.lib.Function;
 import static net.java.html.lib.jquery.Exports.$;
+import org.junit.runner.RunWith;
+import net.java.html.lib.jquery.JQuery;
+import net.java.html.lib.jquery.JQueryEventObject;
 
 /*
  * #%L
@@ -38,7 +41,11 @@ import static net.java.html.lib.jquery.Exports.$;
  */
 
 @RunWith(BrowserRunner.class)
-@HTMLContent("<span id='text'>Nothing yet</span>")
+@HTMLContent("\n"
+    + "<button id='press'>Press me!</button>\n"
+    + "<button id='clear'>Clear me!</button>\n"
+    + "<span id='text'>Nothing yet</span>\n"
+)
 public class JQueryTest {
     String assertText(String msg) {
         final Document doc = window.document();
@@ -56,5 +63,39 @@ public class JQueryTest {
         final String message = "Hello from JQuery!";
         $("#text").text(message);
         assertText(message);
+    }
+
+    @Test
+    public void callbackWithObjectArgs() throws Exception {
+        final String message = "Hello from JQuery!";
+        final JQuery textElement = $("#text");
+        textElement.text(message);
+        assertText(message);
+        $("#press").click(new Function.A1<Object, Object>() {
+            @Override
+            public Object call(Object p1) {
+                textElement.text("Clicked!");
+                return null;
+            }
+        });
+        $("#press").click();
+        assertText("Clicked!");
+    }
+
+    @Test
+    public void callbackWithRealArgs() throws Exception {
+        final String message = "Hello from JQuery!";
+        final JQuery textElement = $("#text");
+        textElement.text(message);
+        assertText(message);
+        $("#clear").click(new Function.A1<JQueryEventObject, Object>() {
+            @Override
+            public Object call(JQueryEventObject p1) {
+                textElement.text("Cleared!");
+                return null;
+            }
+        });
+        $("#clear").click();
+        assertText("Cleared!");
     }
 }

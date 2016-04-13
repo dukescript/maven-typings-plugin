@@ -1,5 +1,6 @@
 package net.java.html.lib;
 
+import java.lang.reflect.Method;
 import net.java.html.js.JavaScriptBody;
 
 /*
@@ -182,19 +183,24 @@ public class Function extends Objs {
         if (fn instanceof A0) {
             ret = ((A0) fn).call();
         } else if (fn instanceof A1) {
-            ret = ((A1) fn).call(unJS(params[0]));
+            params = unJsParams(fn.getClass(), params, 1);
+            ret = ((A1) fn).call(params[0]);
         } else if (fn instanceof A2) {
-            ret = ((A2) fn).call(unJS(params[0]), unJS(params[1]));
+            params = unJsParams(fn.getClass(), params, 2);
+            ret = ((A2) fn).call(params[0], params[1]);
         } else if (fn instanceof A3) {
-            ret = ((A3) fn).call(unJS(params[0]), unJS(params[1]), unJS(params[2]));
+            params = unJsParams(fn.getClass(), params, 3);
+            ret = ((A3) fn).call(params[0], params[1], params[2]);
         } else if (fn instanceof A4) {
-            ret = ((A4) fn).call(unJS(params[0]), unJS(params[1]), unJS(params[2]), unJS(params[3]));
+            params = unJsParams(fn.getClass(), params, 4);
+            ret = ((A4) fn).call(params[0], params[1], params[2], params[3]);
         } else if (fn instanceof A5) {
-            ret = ((A5) fn).call(unJS(params[0]), unJS(params[1]), unJS(params[2]), unJS(params[3]), unJS(params[4]));
+            params = unJsParams(fn.getClass(), params, 5);
+            ret = ((A5) fn).call(params[0], params[1], params[2], params[3], params[4]);
         } else {
             ret = callFunction(fn, params);
         }
-        return unJS(ret);
+        return unJS(Object.class, ret);
     }
 
     @JavaScriptBody(args = {"obj"}, body = "return typeof obj == 'function';")
@@ -203,11 +209,35 @@ public class Function extends Objs {
     @JavaScriptBody(args = {"fn", "params"}, body = "return fn.apply(null, params);")
     private static native Object callFunction(Object fn, Object[] params);
 
-    private static Object unJS(Object obj) {
+    private static Object unJS(Class<?> type, Object obj) {
         if (isFunction(obj)) {
             return new JSFn($AS, obj);
         }
-        return obj;
+        return Objs.$as(type, obj);
+    }
+
+    private static Object[] unJsParams(Class<?> lamda, Object[] params, int length) {
+        Class[] found = null;
+        OUTER: for (Method m : lamda.getDeclaredMethods()) {
+            if (!m.getName().equals("call")) {
+                continue;
+            }
+            Class[] paramTypes = m.getParameterTypes();
+            if (paramTypes.length != length) {
+                continue;
+            }
+            for (Class<?> param : m.getParameterTypes()) {
+                if (param != Object.class) {
+                    found = paramTypes;
+                    break OUTER;
+                }
+            }
+        }
+
+        for (int i = 0; i < length; i++) {
+            params[i] = unJS(found == null ? Object.class : found[i], params[i]);
+        }
+        return params;
     }
 
     private static final class JSFn extends Function implements A0<Object> {
@@ -218,7 +248,7 @@ public class Function extends Objs {
         @Override
         public Object call(Object p1, Object p2, Object p3, Object p4, Object p5) {
             Object ret = call0(Objs.$js(this), null, new Object[]{p1, p2, p3, p4, p5});
-            return unJS(ret);
+            return unJS(Object.class, ret);
         }
 
         @JavaScriptBody(args = {"fn", "thiz", "params"}, body = "return fn.apply(thiz, params);")
