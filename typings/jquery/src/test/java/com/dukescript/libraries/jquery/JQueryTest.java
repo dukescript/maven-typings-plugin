@@ -98,4 +98,32 @@ public class JQueryTest {
         $("#clear").click();
         assertText("Cleared!");
     }
+
+    @Test
+    public void lamdaWithObjectArgs() throws Exception {
+        final String message = "Hello from JQuery!";
+        final JQuery textElement = $("#text");
+        textElement.text(message);
+        assertText(message);
+        $("#press").click((Object p1) -> {
+            textElement.text("Clicked!");
+            return null;
+        });
+        $("#press").click();
+        assertText("Clicked!");
+    }
+
+    @Test
+    public void lamdaWithRealArgs() throws Exception {
+        final String message = "Hello from JQuery!";
+        final JQuery textElement = $("#text");
+        textElement.text(message);
+        assertText(message);
+        $("#clear").click((JQueryEventObject p1) -> {
+            textElement.text("Cleared!");
+            return null;
+        });
+        $("#clear").click();
+        assertText("Cleared!");
+    }
 }

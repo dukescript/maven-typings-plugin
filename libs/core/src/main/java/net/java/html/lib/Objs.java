@@ -75,6 +75,18 @@ public class Objs extends java.lang.Object {
         }
         return clazz.cast(obj);
     }
+    static java.lang.Object $as(String clazz, java.lang.Object obj) {
+        try {
+            return $as(Class.forName(clazz), obj);
+        } catch (ClassNotFoundException ex) {
+            obj = $js(obj);
+            Constructor<?> c = Constructor.find(clazz);
+            if (c != null) {
+                obj = c.create(obj);
+            }
+            return obj;
+        }
+    }
 
     /**
      * Unwraps the object into plain JavaScript one.
@@ -338,6 +350,25 @@ public class Objs extends java.lang.Object {
                   c = c.next;
               }
               initializeClass(clazz);
+          }
+          return null;
+      }
+
+      static Constructor<?> find(String clazz) {
+          if (clazz.startsWith(Union.class.getName())) {
+              return find(Union.class);
+          } else if (clazz.startsWith(Function.class.getName())) {
+              return find(Function.class);
+          }
+          Constructor<?> c = head;
+          for (;;) {
+              if (c == null) {
+                  break;
+              }
+              if (c.clazz.getName().equals(clazz)) {
+                  return c;
+              }
+              c = c.next;
           }
           return null;
       }

@@ -180,23 +180,8 @@ public class Function extends Objs {
      */
     public static Object $call(Object fn, Object... params) {
         Object ret;
-        if (fn instanceof A0) {
-            ret = ((A0) fn).call();
-        } else if (fn instanceof A1) {
-            params = unJsParams(fn.getClass(), params, 1);
-            ret = ((A1) fn).call(params[0]);
-        } else if (fn instanceof A2) {
-            params = unJsParams(fn.getClass(), params, 2);
-            ret = ((A2) fn).call(params[0], params[1]);
-        } else if (fn instanceof A3) {
-            params = unJsParams(fn.getClass(), params, 3);
-            ret = ((A3) fn).call(params[0], params[1], params[2]);
-        } else if (fn instanceof A4) {
-            params = unJsParams(fn.getClass(), params, 4);
-            ret = ((A4) fn).call(params[0], params[1], params[2], params[3]);
-        } else if (fn instanceof A5) {
-            params = unJsParams(fn.getClass(), params, 5);
-            ret = ((A5) fn).call(params[0], params[1], params[2], params[3], params[4]);
+        if (fn instanceof A5) {
+            ret = callJavaFunction(fn, params);
         } else {
             ret = callFunction(fn, params);
         }
@@ -238,6 +223,72 @@ public class Function extends Objs {
             params[i] = unJS(found == null ? Object.class : found[i], params[i]);
         }
         return params;
+    }
+
+    private static Object callJavaFunction(Object fn, Object[] params) {
+        int arity;
+        if (fn instanceof A0) {
+            return ((A0)fn).call();
+        } else if (fn instanceof A1) {
+            arity = 1;
+        } else if (fn instanceof A2) {
+            arity = 2;
+        } else if (fn instanceof A3) {
+            arity = 3;
+        } else if (fn instanceof A4) {
+            arity = 4;
+        } else {
+            arity = 5;
+        }
+        Object ret;
+        params = unJsParams(fn.getClass(), params, arity);
+        AGAIN: for (;;) {
+            try {
+                switch (arity) {
+                    case 1:
+                        ret = ((A1)fn).call(params[0]);
+                        break;
+                    case 2:
+                        ret = ((A2)fn).call(params[0], params[1]);
+                        break;
+                    case 3:
+                        ret = ((A3)fn).call(params[0], params[1], params[2]);
+                        break;
+                    case 4:
+                        ret = ((A4)fn).call(params[0], params[1], params[2], params[3]);
+                        break;
+                    default:
+                        ret = ((A5)fn).call(params[0], params[1], params[2], params[3], params[4]);
+                        break;
+                }
+                break;
+            } catch (ClassCastException ex) {
+                int depth = ex.getStackTrace().length;
+                int currentDepth = new Exception().getStackTrace().length;
+                if (depth == currentDepth) {
+                    String msg = ex.getMessage();
+                    final String cannotBe = "cannot be cast to";
+                    int at = msg.indexOf(cannotBe);
+                    if (at >= 0) {
+                        String oldName = msg.substring(0, at).trim();
+                        String newName = msg.substring(at + cannotBe.length()).trim();
+                        if (oldName != null) {
+                            for (int i = 0; i < 1; i++) {
+                                if (params[i] != null && params[i].getClass().getName().equals(oldName)) {
+                                    Object alternative = Objs.$as(newName, params[i]);
+                                    if (alternative != params[i]) {
+                                        params[i] = alternative;
+                                        continue AGAIN;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                throw ex;
+            }
+        }
+        return Objs.$js(ret);
     }
 
     private static final class JSFn extends Function implements A0<Object> {
