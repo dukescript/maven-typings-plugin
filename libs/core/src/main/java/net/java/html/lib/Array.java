@@ -53,6 +53,15 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.
   */
   public Property<Number> length = Property.create(this, Number.class, "length");
+
+  /**
+   * Returns length of the array.
+   * @return value of {@link #length} property converted to integer
+   */
+  public int length() {
+      return length.get().intValue();
+  }
+
   public T $get(double n) {
     return (T)CoreTypes.$get$12($js(this), n);
   }

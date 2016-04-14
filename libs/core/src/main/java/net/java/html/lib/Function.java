@@ -273,7 +273,7 @@ public class Function extends Objs {
                         String oldName = msg.substring(0, at).trim();
                         String newName = msg.substring(at + cannotBe.length()).trim();
                         if (oldName != null) {
-                            for (int i = 0; i < 1; i++) {
+                            for (int i = 0; i < arity; i++) {
                                 if (params[i] != null && params[i].getClass().getName().equals(oldName)) {
                                     Object alternative = Objs.$as(newName, params[i]);
                                     if (alternative != params[i]) {

@@ -298,6 +298,40 @@ public class ArrayTest {
         assertEquals(arr.toLocaleString(), "A,B,C");
     }
 
+    @Test
+    public void arrayOfArraysOfString() {
+        Array<Array<String>> arrOfArr = new Array<>(
+            new Array<>("Hello", "World!"),
+            new Array<>("Tschuss", "Welt!"),
+            new Array<>("Ciao", "Mondo!")
+        );
+        String res = arrOfArr.reduce((String currentValue, Array<String> arrOfStr, Number index, Array<Array<String>> thizArr) -> {
+            assertEquals(arrOfArr.length(), thizArr.length(), "The length of the arrays is the same");
+            return arrOfStr.reduce((A2<String, String, String>) (String now, String item) -> {
+                return now + " " + item;
+            }, currentValue);
+        }, "");
+        assertEquals(res, " Hello World! Tschuss Welt! Ciao Mondo!");
+    }
+
+    @Test
+    public void ignoreHomeMadeClassCastException() {
+        Array<Array<String>> arrOfArr = new Array<>(
+            new Array<>("Hello", "World!")
+        );
+        try {
+            String res = arrOfArr.reduce((A2<String, Array<String>, String>) (String currentValue, Array<String> arrOfStr) -> {
+                return arrOfStr.reduce((A2<String, String, String>) (String now, String item) -> {
+                    throw new ClassCastException("java.lang.Number cannot be cast to java.lang.Integer");
+                }, currentValue);
+            }, "");
+        } catch (Exception ex) {
+            // OK
+            return;
+        }
+        fail("There should be an exception");
+    }
+
     private static void assertNumber(java.lang.Number actual, double expected) {
         assertEquals(actual.doubleValue(), expected);
     }
