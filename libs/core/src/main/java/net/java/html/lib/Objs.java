@@ -98,13 +98,7 @@ public class Objs extends java.lang.Object {
     public static java.lang.Object $js(java.lang.Object obj) {
         if (obj instanceof Objs) {
             Objs objs = (Objs) obj;
-            if (objs.js instanceof References) {
-                References ref = ((References) objs.js);
-                Object value = ref.value();
-                return value;
-            } else {
-                return objs.js;
-            }
+            return objs.js;
         }
         return net.java.html.lib.Function.specialJs(obj);
     }
