@@ -2141,15 +2141,6 @@ final class CoreTypes {
   )
   static native java.lang.Object new$305(java.lang.Object args);
 
-  @net.java.html.js.JavaScriptBody(args={"args"}, body=
-    "var r = args;\n" +
-    "var r = Function.newFunction.apply(this, r);\n" +
-    "var t = typeof r;\n" + 
-    "return r;"
-
-  )
-  static native java.lang.Object newFunction$306(java.lang.Object args);
-
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "index"}, body=
     "var r = $dukescript$self[index];\n" +
     "return r;"

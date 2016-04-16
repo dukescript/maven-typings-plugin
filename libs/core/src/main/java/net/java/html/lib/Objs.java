@@ -46,6 +46,11 @@ public class Objs extends java.lang.Object {
         this.js = $js(js);
     }
 
+    Objs(Constructor<?> constructor) {
+        assert constructor.clazz.isInstance(this);
+        this.js = createJS();
+    }
+
     /** Casts given object to this class.
      *
      * @param obj any object
@@ -296,6 +301,10 @@ public class Objs extends java.lang.Object {
   public static java.lang.Object newObject(java.lang.Object value) {
     return CoreTypes.newObject$510(/* AnyKeyword*/$js(value));
   }
+
+    Object createJS() {
+        throw new IllegalStateException();
+    }
 
   /** Factory for one subclass of {@link Objs} wrapper. It is used
    * from {@link Objs#$as(java.lang.Class, java.lang.Object)} method.

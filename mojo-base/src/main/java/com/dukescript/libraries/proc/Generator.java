@@ -375,6 +375,41 @@ abstract class Generator<L> {
         return new ArrayList<>(all);
     }
 
+    static CharSequence toJSParam(Parameter parameter, List<String> typeParamNames) {
+        switch (parameter.getType().getKind()) {
+            case FunctionType: {
+                StringBuilder sb = new StringBuilder();
+                sb.append("net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(").append(parameter.getName().getSimpleName());
+                boolean first = true;
+                for (Parameter p : parameter.getType().getParameters()) {
+                    sb.append(", ");
+                    if (first) {
+                        sb.append("new Class[] {");
+                        first = false;
+                    }
+                    String rawType = p.getType().getBoxedJavaType();
+                    int params = rawType.indexOf('<');
+                    if (params >= 0) {
+                        rawType = rawType.substring(0, params);
+                    }
+                    if (typeParamNames.contains(rawType)) {
+                        sb.append("null");
+                    } else {
+                        sb.append(rawType).append(".class");
+                    }
+                }
+                if (!first) {
+                    sb.append("}");
+                }
+                sb.append("))");
+                return sb.toString();
+            }
+
+            default:
+                return parameter.getObjs();
+        }
+    }
+
     private static final class MethodKey {
         private final Identifier name;
         private final List<String> parameters;
@@ -585,7 +620,7 @@ abstract class Generator<L> {
                 }
                 for (Parameter p : parameters) {
                     w.append(sep);
-                    w.append(p.getObjs());
+                    w.append(toJSParam(p, allTypeParams));
                     sep = ", ";
                 }
                 if (wrap) {
@@ -662,7 +697,7 @@ abstract class Generator<L> {
                 sep = "";
                 for (Parameter p : parameters) {
                     w.append(sep);
-                    w.append(p.getObjs());
+                    w.append(toJSParam(p, mergedParams));
                     sep = ", ";
                 }
                 w.append("));\n");

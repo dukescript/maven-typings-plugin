@@ -33,6 +33,9 @@ public class Function extends Objs {
     protected Function(Constructor<?> constructor, java.lang.Object js) {
         super(constructor, js);
     }
+    Function(Constructor<?> constructor) {
+        super(constructor);
+    }
 
     private static final Constructor<Function> $AS = new Constructor<Function>(Function.class) {
         @Override
@@ -79,20 +82,152 @@ public class Function extends Objs {
     prototype = (java.lang.Object)arr[0];
     } catch (Exception ex) { ex.printStackTrace(); }
   }
-  // constructor FunctionConstructor
+  
   /**
-  * Creates a new function.
-  * @param args A list of arguments the function accepts.
-  */
-  public Function(java.lang.String... args) {
-    this($AS, CoreTypes.new$305(args));
-  }
-  public static net.java.html.lib.Function newFunction(java.lang.String... args) {
-    return $as(CoreTypes.newFunction$306(args));
-  }
-  public static net.java.html.lib.Function newFunction(A5<? extends Object,? extends Object,? extends Object,? extends Object,? extends Object,? extends Object> customFunction) {
-    return $as(wrap(customFunction));
-  }
+     * Creates a new function.
+     *
+     * @param args a list of arguments the function accepts followed by function's body
+     */
+    public Function(java.lang.String... args) {
+        this($AS, CoreTypes.new$305(args));
+    }
+
+    /** Calls the {@link #Function(java.lang.String...) constructor}.
+     *
+     * @param args a list of arguments the function accepts followed by function's body
+     * @return new instance of the function
+     */
+    public static Function newFunction(String... args) {
+        return new Function(args);
+    }
+
+    /**
+     * Factory method that wraps provided function interface into JavaScript
+     * function object. One can specify argument types of individual parameters.
+     *
+     * @param <A> type of parameter A
+     * @param fn implementation of the function to wrap
+     * @param argTypeA class of parameter A
+     * @return instance wrapping the JavaScript representation of the function
+     */
+    public static <A> net.java.html.lib.Function newFunction(
+        A1<? super A, ? extends Object> fn,
+        Class<A> argTypeA
+    ) {
+        return new JavaFn($AS, fn, argTypeA);
+    }
+
+    /**
+     * Factory method that wraps provided function interface into JavaScript
+     * function object. One can specify argument types of individual parameters.
+     *
+     * @param <A> type of parameter A
+     * @param <B> type of parameter B
+     * @param fn implementation of the function to wrap
+     * @param argTypeA class of parameter A
+     * @param argTypeB class of parameter B
+     * @return instance wrapping the JavaScript representation of the function
+     */
+    public static <A, B> net.java.html.lib.Function newFunction(
+        A2<? super A, ? super B, ? extends Object> fn,
+        Class<A> argTypeA, Class<B> argTypeB
+    ) {
+        return new JavaFn($AS, fn, argTypeA, argTypeB);
+    }
+
+    /**
+     * Factory method that wraps provided function interface into JavaScript
+     * function object. One can specify argument types of individual parameters.
+     *
+     * @param <A> type of parameter A
+     * @param <B> type of parameter B
+     * @param <C> type of parameter C
+     * @param fn implementation of the function to wrap
+     * @param argTypeA class of parameter A
+     * @param argTypeB class of parameter B
+     * @param argTypeC class of parameter C
+     * @return instance wrapping the JavaScript representation of the function
+     */
+    public static <A, B, C> net.java.html.lib.Function newFunction(
+        A3<? super A, ? super B, ? super C, ? extends Object> fn,
+        Class<A> argTypeA, Class<B> argTypeB, Class<C> argTypeC
+    ) {
+        return new JavaFn($AS, fn, argTypeA, argTypeB, argTypeC);
+    }
+
+    /**
+     * Factory method that wraps provided function interface into JavaScript
+     * function object. One can specify argument types of individual parameters.
+     *
+     * @param <A> type of parameter A
+     * @param <B> type of parameter B
+     * @param <C> type of parameter C
+     * @param <D> type of parameter D
+     * @param fn implementation of the function to wrap
+     * @param argTypeA class of parameter A
+     * @param argTypeB class of parameter B
+     * @param argTypeC class of parameter C
+     * @param argTypeD class of parameter D
+     * @return instance wrapping the JavaScript representation of the function
+     */
+    public static <A, B, C, D> net.java.html.lib.Function newFunction(
+        A4<? super A, ? super B, ? super C, ? super D, ? extends Object> fn,
+        Class<A> argTypeA, Class<B> argTypeB, Class<C> argTypeC, Class<D> argTypeD
+    ) {
+        return new JavaFn($AS, fn, argTypeA, argTypeB, argTypeC, argTypeD);
+    }
+
+    /**
+     * Factory method that wraps provided function interface into JavaScript
+     * function object. One can specify argument types of individual parameters.
+     *
+     * @param <A> type of parameter A
+     * @param <B> type of parameter B
+     * @param <C> type of parameter C
+     * @param <D> type of parameter D
+     * @param <E> type of parameter E
+     * @param fn implementation of the function to wrap
+     * @param argTypeA class of parameter A
+     * @param argTypeB class of parameter B
+     * @param argTypeC class of parameter C
+     * @param argTypeD class of parameter D
+     * @param argTypeE class of parameter E
+     * @return instance wrapping the JavaScript representation of the function
+     */
+    public static <A, B, C, D, E> net.java.html.lib.Function newFunction(
+        A5<? super A, ? super B, ? super C, ? super D, ? super E, ? extends Object> fn,
+        Class<A> argTypeA, Class<B> argTypeB, Class<C> argTypeC, Class<D> argTypeD, Class<E> argTypeE
+    ) {
+        return new JavaFn($AS, fn, argTypeA, argTypeB, argTypeC, argTypeD, argTypeE);
+    }
+
+    /**
+     * Factory method that wraps provided function interface into JavaScript
+     * function object.
+     *
+     * @param fn the implementation of the function
+     * @return instance wrapping the JavaScript representation of the function
+     */
+    public static net.java.html.lib.Function newFunction(
+        A5<? extends Object, ? extends Object, ? extends Object, ? extends Object, ? extends Object, ? extends Object> fn
+    ) {
+        return new JavaFn($AS, fn, (Class[]) null);
+    }
+
+    /**
+     * Factory method that wraps provided function interface into JavaScript
+     * function object. One can specify argument types of individual parameters.
+     *
+     * @param fn the implementation of the function
+     * @param argTypes array with classes of the arguments
+     * @return instance wrapping the JavaScript representation of the function
+     */
+    public static net.java.html.lib.Function newFunction(
+        A5<? extends Object, ? extends Object, ? extends Object, ? extends Object, ? extends Object, ? extends Object> fn,
+        Class[] argTypes
+    ) {
+        return new JavaFn($AS, fn, argTypes);
+    }
 
   //
   // Manual implementation of functions with arity
@@ -155,20 +290,12 @@ public class Function extends Objs {
 
     static Object specialJs(Object fn) {
         if (fn instanceof A5) {
-            return wrap(fn);
+            fn = new JavaFn($AS, (A5<?, ?, ?, ?, ?, ?>) fn, (Class[])null);
+            return Objs.$js(fn);
         } else {
             return fn;
         }
     }
-
-    @JavaScriptBody(args = {"fn"}, javacall = true, body
-        = "var obj = function(p1, p2, p3, p4, p5) {\n"
-        + "  return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)"
-        + "(fn, [ p1, p2, p3, p4, p5 ]);\n"
-        + "};\n"
-        + "return obj;\n"
-    )
-    private static native Object wrap(Object fn);
 
     /** Invokes an object that represents a function - e.g. {@link A0},
      * {@link A1}, etc.
@@ -289,6 +416,36 @@ public class Function extends Objs {
             }
         }
         return Objs.$js(ret);
+    }
+
+    private static final class JavaFn extends Function {
+        private final A5<?,?,?,?,?,?> delegate;
+        private Class[] types;
+
+        JavaFn(Constructor<?> c, A5<?,?,?,?,?,?> delegate, Class... types) {
+            super(c);
+            this.delegate = delegate;
+            this.types = types;
+        }
+
+        @Override
+        Object createJS() {
+            return wrap(this);
+        }
+
+        @Override
+        public Object apply(Object thisArg, Object... argArray) {
+            return $call(delegate, argArray);
+        }
+
+        @JavaScriptBody(args = {"fn"}, javacall = true, body
+            = "var obj = function(p1, p2, p3, p4, p5) {\n"
+            + "  return fn.@net.java.html.lib.Function::apply(Ljava/lang/Object;[Ljava/lang/Object;)"
+            + "(null, [ p1, p2, p3, p4, p5 ]);\n"
+            + "};\n"
+            + "return obj;\n"
+        )
+        private static native Object wrap(JavaFn fn);
     }
 
     private static final class JSFn extends Function implements A0<Object> {

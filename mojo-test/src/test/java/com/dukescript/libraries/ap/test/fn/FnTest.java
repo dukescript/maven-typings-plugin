@@ -41,10 +41,10 @@ public class FnTest {
         Function.A1<Integer,String> g = Integer::toHexString;
         Function.A1<Integer, ? extends String> h = Exports.compose(f, g);
 
-        assertEquals("ff", h.call(255));
+        assertEquals("ff", h.call(-255));
 
         Function raw = (Function) h;
-        assertEquals("f", raw.apply(null, 15));
+        assertEquals("f", raw.apply(null, -15));
     }
 
 
