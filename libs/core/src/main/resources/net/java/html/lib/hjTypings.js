@@ -69,6 +69,11 @@
         HtmlJavaArrayUpdate(this.arr, this);
         return ret === undefined ? null : ret;
     };
+    HtmlJavaArray.prototype.sort = function() {
+        this.arr.sort.apply(this.arr, arguments);
+        HtmlJavaArrayUpdate(this.arr, this);
+        return this;
+    };
     HtmlJavaArray.prototype.join = function() {
         return this.arr.join.apply(this.arr, arguments);
     };

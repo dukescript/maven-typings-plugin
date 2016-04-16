@@ -332,6 +332,30 @@ public class ArrayTest {
         fail("There should be an exception");
     }
 
+    @Test
+    public void sortStrings() {
+        Array<String> arr = new Array<>("U", "C", "A", "X", "P");
+        Array<String> ret = arr.sort();
+        assertEquals(ret.length(), 5);
+        assertEquals(ret.$get(0), "A");
+        assertEquals(ret.$get(1), "C");
+        assertEquals(ret.$get(2), "P");
+        assertEquals(ret.$get(3), "U");
+        assertEquals(ret.$get(4), "X");
+    }
+
+    @Test
+    public void sortNumbers() {
+        Array<Number> arr = new Array<>(5, 1, 8, 3, 2);
+        Array<Number> ret = arr.sort((p1, p2) -> p2.intValue() - p1.intValue());
+        assertEquals(ret.length(), 5);
+        assertEquals(ret.$get(0), 8);
+        assertEquals(ret.$get(1), 5);
+        assertEquals(ret.$get(2), 3);
+        assertEquals(ret.$get(3), 2);
+        assertEquals(ret.$get(4), 1);
+    }
+
     private static void assertNumber(java.lang.Number actual, double expected) {
         assertEquals(actual.doubleValue(), expected);
     }

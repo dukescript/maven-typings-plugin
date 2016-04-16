@@ -318,14 +318,14 @@ final class CoreTypes {
     "return r;"
 
   )
-  static native <T> T[] sort$41(java.lang.Object $dukescript$self, java.lang.Object compareFn);
+  static native Object sort$41(java.lang.Object $dukescript$self, java.lang.Object compareFn);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self"}, body=
     "var r = $dukescript$self.sort();\n" +
     "return r;"
 
   )
-  static native <T> T[] sort$42(java.lang.Object $dukescript$self);
+  static native Object sort$42(java.lang.Object $dukescript$self);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "start"}, body=
     "var r = $dukescript$self.splice(start);\n" +
