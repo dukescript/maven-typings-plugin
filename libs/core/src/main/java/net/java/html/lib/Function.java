@@ -29,6 +29,8 @@ import net.java.html.js.JavaScriptBody;
  * THE SOFTWARE.
  * #L%
  */
+/** Wrapper around JavaScript function.
+ */
 public class Function extends Objs {
     protected Function(Constructor<?> constructor, java.lang.Object js) {
         super(constructor, js);
@@ -233,6 +235,7 @@ public class Function extends Objs {
   // Manual implementation of functions with arity
   //
 
+    /** Java function with no arguments. */
     public interface A0<R> extends A1<java.lang.Object, R> {
 
         public R call();
@@ -243,6 +246,7 @@ public class Function extends Objs {
         }
     }
 
+    /** Java function with one argument. */
     public interface A1<P1, R> extends A2<P1, java.lang.Object, R> {
 
         public R call(P1 p1);
@@ -253,6 +257,7 @@ public class Function extends Objs {
         }
     }
 
+    /** Java function with two arguments. */
     public interface A2<P1, P2, R> extends A3<P1, P2, java.lang.Object, R> {
 
         public R call(P1 p1, P2 p2);
@@ -263,6 +268,7 @@ public class Function extends Objs {
         }
     }
 
+    /** Java function with three arguments. */
     public interface A3<P1, P2, P3, R> extends A4<P1, P2, P3, java.lang.Object, R> {
 
         public R call(P1 p1, P2 p2, P3 p3);
@@ -273,6 +279,7 @@ public class Function extends Objs {
         }
     }
 
+    /** Java function with four arguments. */
     public interface A4<P1, P2, P3, P4, R> extends A5<P1, P2, P3, P4, java.lang.Object, R> {
 
         public R call(P1 p1, P2 p2, P3 p3, P4 p4);
@@ -283,6 +290,7 @@ public class Function extends Objs {
         }
     }
 
+    /** Java function with five arguments. */
     public interface A5<P1, P2, P3, P4, P5, R> {
 
         public R call(P1 p1, P2 p2, P3 p3, P4 p4, P5 p5);
