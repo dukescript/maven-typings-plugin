@@ -33,12 +33,18 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
     protected Array(Constructor<?> constructor, java.lang.Object js) {
         super(constructor, js);
     }
-    private static final Constructor<Array> $AS = new Constructor<Array>(Array.class) {
+    private static final class $Constructor extends net.java.html.lib.Objs.Constructor<Array> {
+        $Constructor() {
+            super(Array.class);
+        }
+
         @Override
-        public Array create(Object obj) {
-            return new Array(this, obj);
+        public Array create(java.lang.Object obj) {
+            return obj == null ? null : new Array(this, obj);
         }
     };
+    private static final $Constructor $AS = new $Constructor();
+
     /**
      * Casts given object to this class.
      *
@@ -52,7 +58,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   /**
   * Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.
   */
-  public Property<Number> length = Property.create(this, Number.class, "length");
+  public net.java.html.lib.Objs.Property<java.lang.Number> length = net.java.html.lib.Objs.Property.create(this, java.lang.Number.class, "length");
 
   /**
    * Returns length of the array.
@@ -61,7 +67,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   public int length() {
       return length.get().intValue();
   }
-
+  
   public T $get(double n) {
     return (T)CoreTypes.$get$12($js(this), n);
   }
@@ -69,56 +75,56 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * Combines two or more arrays.
   * @param items Additional items to add to the end of array1.
   */
-  public Array<T> concat(T... items) {
-    return new Array<T>($AS, CoreTypes.concat$13($js(this), items));
+  public net.java.html.lib.Array<T> concat(T... items) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.concat$13($js(this), items));
   }
   /**
   * Determines whether all the members of an array satisfy the specified test.
   * @param callbackfn A function that accepts up to three arguments. The every method calls the callbackfn function for each element in array1 until the callbackfn returns false, or until the end of the array.
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public java.lang.Boolean every(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Boolean> callbackfn, java.lang.Object thisArg) {
-    return CoreTypes.every$14($js(this), callbackfn, /* AnyKeyword*/$js(thisArg));
+  public java.lang.Boolean every(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends java.lang.Boolean> callbackfn, java.lang.Object thisArg) {
+    return CoreTypes.every$14($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null})), /* AnyKeyword*/$js(thisArg));
   }
   /**
   * Determines whether all the members of an array satisfy the specified test.
   * @param callbackfn A function that accepts up to three arguments. The every method calls the callbackfn function for each element in array1 until the callbackfn returns false, or until the end of the array.
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public java.lang.Boolean every(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Boolean> callbackfn) {
-    return CoreTypes.every$15($js(this), callbackfn);
+  public java.lang.Boolean every(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends java.lang.Boolean> callbackfn) {
+    return CoreTypes.every$15($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null})));
   }
   /**
   * Returns the elements of an array that meet the condition specified in a callback function.
   * @param callbackfn A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array.
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public Array<T> filter(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Boolean> callbackfn, java.lang.Object thisArg) {
-    return new Array<T>($AS, CoreTypes.filter$16($js(this), callbackfn, /* AnyKeyword*/$js(thisArg)));
+  public net.java.html.lib.Array<T> filter(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends java.lang.Boolean> callbackfn, java.lang.Object thisArg) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.filter$16($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null})), /* AnyKeyword*/$js(thisArg)));
   }
   /**
   * Returns the elements of an array that meet the condition specified in a callback function.
   * @param callbackfn A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array.
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public Array<T> filter(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Boolean> callbackfn) {
-    return new Array<T>($AS, CoreTypes.filter$17($js(this), callbackfn));
+  public net.java.html.lib.Array<T> filter(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends java.lang.Boolean> callbackfn) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.filter$17($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null}))));
   }
   /**
   * Performs the specified action for each element in an array.
   * @param callbackfn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
   * @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public void forEach(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Void> callbackfn, java.lang.Object thisArg) {
-    CoreTypes.forEach$18($js(this), callbackfn, /* AnyKeyword*/$js(thisArg));
+  public void forEach(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends java.lang.Void> callbackfn, java.lang.Object thisArg) {
+    CoreTypes.forEach$18($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null})), /* AnyKeyword*/$js(thisArg));
   }
   /**
   * Performs the specified action for each element in an array.
   * @param callbackfn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
   * @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public void forEach(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Void> callbackfn) {
-    CoreTypes.forEach$19($js(this), callbackfn);
+  public void forEach(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends java.lang.Void> callbackfn) {
+    CoreTypes.forEach$19($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null})));
   }
   /**
   * Returns the index of the first occurrence of a value in an array.
@@ -171,16 +177,16 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public <U> Array<U> map(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends U> callbackfn, java.lang.Object thisArg) {
-    return new Array<U>($AS, CoreTypes.map$26($js(this), callbackfn, /* AnyKeyword*/$js(thisArg)));
+  public <U> net.java.html.lib.Array<U> map(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends U> callbackfn, java.lang.Object thisArg) {
+    return (net.java.html.lib.Array<U>)net.java.html.lib.Array.$as(CoreTypes.map$26($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null})), /* AnyKeyword*/$js(thisArg)));
   }
   /**
   * Calls a defined callback function on each element of an array, and returns an array that contains the results.
   * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public <U> Array<U> map(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends U> callbackfn) {
-    return new Array<U>($AS, CoreTypes.map$27($js(this), callbackfn));
+  public <U> net.java.html.lib.Array<U> map(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends U> callbackfn) {
+    return (net.java.html.lib.Array<U>)net.java.html.lib.Array.$as(CoreTypes.map$27($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null}))));
   }
   /**
   * Removes the last element from an array and returns it.
@@ -200,38 +206,38 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param callbackfn A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.
   * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
   */
-  public <U> U reduce(net.java.html.lib.Function.A4<? super U,? super T,? super java.lang.Number,? super Array<T>,? extends U> callbackfn, U initialValue) {
-    return (U)CoreTypes.reduce$30($js(this), callbackfn, /* FirstTypeNode*/$js(initialValue));
+  public <U> U reduce(net.java.html.lib.Function.A4<? super U,? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends U> callbackfn, U initialValue) {
+    return (U)CoreTypes.reduce$30($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, null, java.lang.Number.class, null})), /* FirstTypeNode*/$js(initialValue));
   }
   /**
   * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
   * @param callbackfn A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.
   * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
   */
-  public <U> U reduce(net.java.html.lib.Function.A4<? super U,? super T,? super java.lang.Number,? super Array<T>,? extends U> callbackfn) {
-    return (U)CoreTypes.reduce$31($js(this), callbackfn);
+  public <U> U reduce(net.java.html.lib.Function.A4<? super U,? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends U> callbackfn) {
+    return (U)CoreTypes.reduce$31($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, null, java.lang.Number.class, null})));
   }
   /**
   * Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
   * @param callbackfn A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array.
   * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
   */
-  public <U> U reduceRight(net.java.html.lib.Function.A4<? super U,? super T,? super java.lang.Number,? super Array<T>,? extends U> callbackfn, U initialValue) {
-    return (U)CoreTypes.reduceRight$32($js(this), callbackfn, /* FirstTypeNode*/$js(initialValue));
+  public <U> U reduceRight(net.java.html.lib.Function.A4<? super U,? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends U> callbackfn, U initialValue) {
+    return (U)CoreTypes.reduceRight$32($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, null, java.lang.Number.class, null})), /* FirstTypeNode*/$js(initialValue));
   }
   /**
   * Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
   * @param callbackfn A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array.
   * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
   */
-  public <U> U reduceRight(net.java.html.lib.Function.A4<? super U,? super T,? super java.lang.Number,? super Array<T>,? extends U> callbackfn) {
-    return (U)CoreTypes.reduceRight$33($js(this), callbackfn);
+  public <U> U reduceRight(net.java.html.lib.Function.A4<? super U,? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends U> callbackfn) {
+    return (U)CoreTypes.reduceRight$33($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, null, java.lang.Number.class, null})));
   }
   /**
   * Reverses the elements in an Array.
   */
-  public Array<T>reverse() {
-    return new Array<T>($AS, CoreTypes.reverse$34($js(this)));
+  public net.java.html.lib.Array<T> reverse() {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.reverse$34($js(this)));
   }
   /**
   * Removes the first element from an array and returns it.
@@ -244,61 +250,61 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param start The beginning of the specified portion of the array.
   * @param end The end of the specified portion of the array.
   */
-  public T[] slice(double start, double end) {
-    return CoreTypes.slice$36($js(this), start, end);
+  public net.java.html.lib.Array<T> slice(double start, double end) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.slice$36($js(this), start, end));
   }
   /**
   * Returns a section of an array.
   * @param start The beginning of the specified portion of the array.
   * @param end The end of the specified portion of the array.
   */
-  public T[] slice() {
-    return CoreTypes.slice$37($js(this));
+  public net.java.html.lib.Array<T> slice() {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.slice$37($js(this)));
   }
   /**
   * Returns a section of an array.
   * @param start The beginning of the specified portion of the array.
   * @param end The end of the specified portion of the array.
   */
-  public T[] slice(double start) {
-    return CoreTypes.slice$38($js(this), start);
+  public net.java.html.lib.Array<T> slice(double start) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.slice$38($js(this), start));
   }
   /**
   * Determines whether the specified callback function returns true for any element of an array.
   * @param callbackfn A function that accepts up to three arguments. The some method calls the callbackfn function for each element in array1 until the callbackfn returns true, or until the end of the array.
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public java.lang.Boolean some(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Boolean> callbackfn, java.lang.Object thisArg) {
-    return CoreTypes.some$39($js(this), callbackfn, /* AnyKeyword*/$js(thisArg));
+  public java.lang.Boolean some(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends java.lang.Boolean> callbackfn, java.lang.Object thisArg) {
+    return CoreTypes.some$39($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null})), /* AnyKeyword*/$js(thisArg));
   }
   /**
   * Determines whether the specified callback function returns true for any element of an array.
   * @param callbackfn A function that accepts up to three arguments. The some method calls the callbackfn function for each element in array1 until the callbackfn returns true, or until the end of the array.
   * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
   */
-  public java.lang.Boolean some(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super Array<T>,? extends java.lang.Boolean> callbackfn) {
-    return CoreTypes.some$40($js(this), callbackfn);
+  public java.lang.Boolean some(net.java.html.lib.Function.A3<? super T,? super java.lang.Number,? super net.java.html.lib.Array<T>,? extends java.lang.Boolean> callbackfn) {
+    return CoreTypes.some$40($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(callbackfn, new Class[] {null, java.lang.Number.class, null})));
   }
   /**
   * Sorts an array.
   * @param compareFn The name of the function used to determine the order of the elements. If omitted, the elements are sorted in ascending, ASCII character order.
   */
-  public T[] sort(net.java.html.lib.Function.A2<? super T,? super T,? extends java.lang.Number> compareFn) {
-    return CoreTypes.sort$41($js(this), compareFn);
+  public net.java.html.lib.Array<T> sort(net.java.html.lib.Function.A2<? super T,? super T,? extends java.lang.Number> compareFn) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.sort$41($js(this), net.java.html.lib.Objs.$js(net.java.html.lib.Function.newFunction(compareFn, new Class[] {null, null}))));
   }
   /**
   * Sorts an array.
   * @param compareFn The name of the function used to determine the order of the elements. If omitted, the elements are sorted in ascending, ASCII character order.
   */
-  public T[] sort() {
-    return CoreTypes.sort$42($js(this));
+  public net.java.html.lib.Array<T> sort() {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.sort$42($js(this)));
   }
   /**
   * Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
   * @param start The zero-based location in the array from which to start removing elements.
   */
-  public Array<T> splice(double start) {
-    return splice(start, Integer.MAX_VALUE);
+  public net.java.html.lib.Array<T> splice(double start) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.splice$43($js(this), start));
   }
   /**
   * Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
@@ -306,8 +312,8 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   * @param deleteCount The number of elements to remove.
   * @param items Elements to insert into the array in place of the deleted elements.
   */
-  public Array<T> splice(double start, double deleteCount, T... items) {
-    return new Array<>($AS, CoreTypes.splice$44($js(this), start, deleteCount, items));
+  public net.java.html.lib.Array<T> splice(double start, double deleteCount, T... items) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.splice$44($js(this), start, deleteCount, items));
   }
   public java.lang.String toLocaleString() {
     return CoreTypes.toLocaleString$45($js(this));
@@ -315,6 +321,42 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   /**
   * Returns a string representation of an array.
   */
+  /* cannot generate toString */
+  /**
+  * Inserts new elements at the start of an array.
+  * @param items  Elements to insert at the start of the Array.
+  */
+  public double unshift(T... items) {
+    return CoreTypes.unshift$47($js(this), items);
+  }
+  // constructor ArrayConstructor
+  public static java.lang.Boolean/*TypePredicate*/ isArray(java.lang.Object arg) {
+    return CoreTypes.isArray$49(/* AnyKeyword*/$js(arg));
+  }
+  public static Array<java.lang.Object> prototype = (Array<java.lang.Object>)net.java.html.lib.Array.$as(CoreTypes.readStaticFields$11());
+  public Array(double arrayLength) {
+    this(Array.$AS, CoreTypes.new$50(arrayLength));
+  }
+  public Array() {
+    this(Array.$AS, CoreTypes.new$51());
+  }
+  public Array(T... items) {
+    this(Array.$AS, CoreTypes.new$52(items));
+  }
+  public static <T> net.java.html.lib.Array<T> newArray(double arrayLength) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.newArray$53(arrayLength));
+  }
+  public static <T> net.java.html.lib.Array<T> newArray() {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.newArray$54());
+  }
+  public static <T> net.java.html.lib.Array<T> newArray(T... items) {
+    return (net.java.html.lib.Array<T>)net.java.html.lib.Array.$as(CoreTypes.newArray$55(items));
+  }
+
+  /**
+  * Returns a string representation of an array.
+  */
+  @Override
   public java.lang.String toString() {
     return CoreTypes.toString$46($js(this));
   }
@@ -328,27 +370,6 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
 
   @JavaScriptBody(args = { "arr" }, body = "return arr.arr;")
   private static native Object[] toArray(Object arr);
-
-  /**
-  * Inserts new elements at the start of an array.
-  * @param items  Elements to insert at the start of the Array.
-  */
-  public double unshift(T... items) {
-    return CoreTypes.unshift$47($js(this), items);
-  }
-  // constructor ArrayConstructor
-  public static java.lang.Boolean/*TypePredicate*/ isArray(java.lang.Object arg) {
-    return CoreTypes.isArray$49(/* AnyKeyword*/$js(arg));
-  }
-  public Array(double arrayLength) {
-    this($AS, CoreTypes.new$50(arrayLength));
-  }
-  public Array() {
-    this($AS, CoreTypes.new$51());
-  }
-  public Array(T... items) {
-    this($AS, CoreTypes.new$52(items));
-  }
 
     @Override
     public Iterator<T> iterator() {

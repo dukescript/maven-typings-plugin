@@ -308,7 +308,7 @@ public class Function extends Objs {
     public static Object $call(Object fn, Object... params) {
         Object ret;
         if (fn instanceof A5) {
-            ret = callJavaFunction(fn, params);
+            ret = callJavaFunction((A5)fn, params, null);
         } else {
             ret = callFunction(fn, params);
         }
@@ -328,31 +328,37 @@ public class Function extends Objs {
         return Objs.$as(type, obj);
     }
 
-    private static Object[] unJsParams(Class<?> lamda, Object[] params, int length) {
-        Class[] found = null;
-        OUTER: for (Method m : lamda.getDeclaredMethods()) {
-            if (!m.getName().equals("call")) {
-                continue;
-            }
-            Class[] paramTypes = m.getParameterTypes();
-            if (paramTypes.length != length) {
-                continue;
-            }
-            for (Class<?> param : m.getParameterTypes()) {
-                if (param != Object.class) {
-                    found = paramTypes;
-                    break OUTER;
+    private static Object[] unJsParams(JavaFn wrapper, Class<?> lamda, Object[] params, int length) {
+        Class[] found = wrapper == null ? null : wrapper.types;
+        if (found == null) {
+            OUTER: for (Method m : lamda.getDeclaredMethods()) {
+                if (!m.getName().equals("call")) {
+                    continue;
                 }
+                Class[] paramTypes = m.getParameterTypes();
+                if (paramTypes.length != length) {
+                    continue;
+                }
+                for (Class<?> param : m.getParameterTypes()) {
+                    if (param != Object.class) {
+                        found = paramTypes;
+                        break OUTER;
+                    }
+                }
+            }
+            if (wrapper != null && found != null) {
+                wrapper.types = found;
             }
         }
 
         for (int i = 0; i < length; i++) {
-            params[i] = unJS(found == null ? Object.class : found[i], params[i]);
+            Class<?> typeAt = found == null ? null : found[i];
+            params[i] = unJS(typeAt == null ? Object.class : typeAt, params[i]);
         }
         return params;
     }
 
-    private static Object callJavaFunction(Object fn, Object[] params) {
+    private static Object callJavaFunction(A5 fn, Object[] params, JavaFn wrapper) {
         int arity;
         if (fn instanceof A0) {
             return ((A0)fn).call();
@@ -368,7 +374,7 @@ public class Function extends Objs {
             arity = 5;
         }
         Object ret;
-        params = unJsParams(fn.getClass(), params, arity);
+        params = unJsParams(wrapper, fn.getClass(), params, arity);
         AGAIN: for (;;) {
             try {
                 switch (arity) {
@@ -405,6 +411,10 @@ public class Function extends Objs {
                                     Object alternative = Objs.$as(newName, params[i]);
                                     if (alternative != params[i]) {
                                         params[i] = alternative;
+                                        if (wrapper != null) {
+                                            assert alternative.getClass().getName().equals(newName);
+                                            wrapper.types[i] = alternative.getClass();
+                                        }
                                         continue AGAIN;
                                     }
                                 }
@@ -435,7 +445,7 @@ public class Function extends Objs {
 
         @Override
         public Object apply(Object thisArg, Object... argArray) {
-            return $call(delegate, argArray);
+            return callJavaFunction(delegate, argArray, this);
         }
 
         @JavaScriptBody(args = {"fn"}, javacall = true, body

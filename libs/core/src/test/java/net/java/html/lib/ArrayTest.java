@@ -61,7 +61,7 @@ public class ArrayTest {
     @Test
     public void arrayWithValues() throws Exception {
         Array<java.lang.Number> arr = new Array<>(1.0, 2.0);
-        assertNumber(arr.length.get(), 2.0, "Two at first: " + Arrays.toString(arr.slice()));
+        assertNumber(arr.length.get(), 2.0, "Two at first: " + Arrays.toString(arr.slice().toArray()));
         assertNumber(arr.shift(), 1.0);
         assertNumber(arr.shift(), 2.0);
         assertNumber(arr.length.get(), 0.0, "Empty now");
@@ -71,7 +71,7 @@ public class ArrayTest {
     @Test
     public void arrayWithLength() throws Exception {
         Array<java.lang.Number> arr = new Array<>(2);
-        assertNumber(arr.length.get(), 2.0, "Two at first: " + Arrays.toString(arr.slice()));
+        assertNumber(arr.length.get(), 2.0, "Two at first: " + Arrays.toString(arr.slice().toArray()));
         assertNull(arr.shift());
         assertNull(arr.shift());
         assertForEach(arr);
@@ -80,7 +80,7 @@ public class ArrayTest {
     @Test
     public void arrayForEachLoop() throws Exception {
         Array<java.lang.Number> arr = new Array<>(5, 4, 3, 2, 1);
-        assertNumber(arr.length.get(), 5.0, "Five at first: " + Arrays.toString(arr.slice()));
+        assertNumber(arr.length.get(), 5.0, "Five at first: " + Arrays.toString(arr.slice().toArray()));
 
         int sum = 0;
         for (java.lang.Number n : arr) {

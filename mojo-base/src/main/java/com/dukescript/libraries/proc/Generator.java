@@ -392,7 +392,7 @@ abstract class Generator<L> {
                     if (params >= 0) {
                         rawType = rawType.substring(0, params);
                     }
-                    if (typeParamNames.contains(rawType)) {
+                    if (typeParamNames.contains(rawType) || rawType.contains("[")) {
                         sb.append("null");
                     } else {
                         sb.append(rawType).append(".class");

@@ -108,7 +108,6 @@ final class CoreTypes {
   static native java.lang.Object[] readStaticFields$11();
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "n"}, body=
     "var r = $dukescript$self[n];\n" +
-    "var t = typeof r;\n" + 
     "return r;"
 
   )
@@ -123,42 +122,42 @@ final class CoreTypes {
   static native Object concat$13(java.lang.Object $dukescript$self, java.lang.Object items);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn", "thisArg"}, javacall = true, body=
-    "var r = $dukescript$self.every(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);}, thisArg);\n" +
+    "var r = $dukescript$self.every(callbackfn, thisArg);\n" +
     "return r;"
 
   )
   static native <T> java.lang.Boolean every$14(java.lang.Object $dukescript$self, java.lang.Object callbackfn, java.lang.Object thisArg);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn"}, javacall = true, body=
-    "var r = $dukescript$self.every(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);});\n" +
+    "var r = $dukescript$self.every(callbackfn);\n" +
     "return r;"
 
   )
   static native <T> java.lang.Boolean every$15(java.lang.Object $dukescript$self, java.lang.Object callbackfn);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn", "thisArg"}, javacall = true, body=
-    "var r = $dukescript$self.filter(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);}, thisArg);\n" +
+    "var r = $dukescript$self.filter(callbackfn, thisArg);\n" +
     "return r;"
 
   )
   static native <T> Object filter$16(java.lang.Object $dukescript$self, java.lang.Object callbackfn, java.lang.Object thisArg);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn"}, javacall = true, body=
-    "var r = $dukescript$self.filter(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);});\n" +
+    "var r = $dukescript$self.filter(callbackfn);\n" +
     "return r;"
 
   )
   static native <T> Object filter$17(java.lang.Object $dukescript$self, java.lang.Object callbackfn);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn", "thisArg"}, javacall = true, body=
-    "var r = $dukescript$self.forEach(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);}, thisArg);\n" +
+    "var r = $dukescript$self.forEach(callbackfn, thisArg);\n" +
     "return r;"
 
   )
   static native <T> void forEach$18(java.lang.Object $dukescript$self, java.lang.Object callbackfn, java.lang.Object thisArg);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn"}, javacall = true, body=
-    "var r = $dukescript$self.forEach(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);});\n" +
+    "var r = $dukescript$self.forEach(callbackfn);\n" +
     "return r;"
 
   )
@@ -207,14 +206,14 @@ final class CoreTypes {
   static native <T> double lastIndexOf$25(java.lang.Object $dukescript$self, java.lang.Object searchElement);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn", "thisArg"}, javacall = true, body=
-    "var r = $dukescript$self.map(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);}, thisArg);\n" +
+    "var r = $dukescript$self.map(callbackfn, thisArg);\n" +
     "return r;"
 
   )
   static native <T, U> Object map$26(java.lang.Object $dukescript$self, java.lang.Object callbackfn, java.lang.Object thisArg);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn"}, javacall = true, body=
-    "var r = $dukescript$self.map(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);});\n" +
+    "var r = $dukescript$self.map(callbackfn);\n" +
     "return r;"
 
   )
@@ -237,7 +236,7 @@ final class CoreTypes {
   static native <T> double push$29(java.lang.Object $dukescript$self, java.lang.Object items);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn", "initialValue"}, javacall = true, body=
-    "var r = $dukescript$self.reduce(function(p1,p2,p3,p4) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3,p4]);}, initialValue);\n" +
+    "var r = $dukescript$self.reduce(callbackfn, initialValue);\n" +
     "var t = typeof r;\n" + 
     "return r;"
 
@@ -245,7 +244,7 @@ final class CoreTypes {
   static native <T, U> java.lang.Object reduce$30(java.lang.Object $dukescript$self, java.lang.Object callbackfn, java.lang.Object initialValue);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn"}, javacall = true, body=
-    "var r = $dukescript$self.reduce(function(p1,p2,p3,p4) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3,p4]);});\n" +
+    "var r = $dukescript$self.reduce(callbackfn);\n" +
     "var t = typeof r;\n" + 
     "return r;"
 
@@ -253,7 +252,7 @@ final class CoreTypes {
   static native <T, U> java.lang.Object reduce$31(java.lang.Object $dukescript$self, java.lang.Object callbackfn);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn", "initialValue"}, javacall = true, body=
-    "var r = $dukescript$self.reduceRight(function(p1,p2,p3,p4) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3,p4]);}, initialValue);\n" +
+    "var r = $dukescript$self.reduceRight(callbackfn, initialValue);\n" +
     "var t = typeof r;\n" + 
     "return r;"
 
@@ -261,7 +260,7 @@ final class CoreTypes {
   static native <T, U> java.lang.Object reduceRight$32(java.lang.Object $dukescript$self, java.lang.Object callbackfn, java.lang.Object initialValue);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn"}, javacall = true, body=
-    "var r = $dukescript$self.reduceRight(function(p1,p2,p3,p4) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3,p4]);});\n" +
+    "var r = $dukescript$self.reduceRight(callbackfn);\n" +
     "var t = typeof r;\n" + 
     "return r;"
 
@@ -285,41 +284,37 @@ final class CoreTypes {
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "start", "end"}, body=
     "var r = $dukescript$self.slice(start, end);\n" +
-    "return r;"
-
+    "return hj.array(r);"
   )
-  static native <T> T[] slice$36(java.lang.Object $dukescript$self, java.lang.Object start, java.lang.Object end);
+  static native Object slice$36(java.lang.Object $dukescript$self, java.lang.Object start, java.lang.Object end);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self"}, body=
     "var r = $dukescript$self.slice();\n" +
-    "return r;"
-
+    "return hj.array(r);"
   )
-  static native <T> T[] slice$37(java.lang.Object $dukescript$self);
+  static native Object slice$37(java.lang.Object $dukescript$self);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "start"}, body=
     "var r = $dukescript$self.slice(start);\n" +
-    "return r;"
-
+    "return hj.array(r);"
   )
-  static native <T> T[] slice$38(java.lang.Object $dukescript$self, java.lang.Object start);
+  static native Object slice$38(java.lang.Object $dukescript$self, java.lang.Object start);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn", "thisArg"}, javacall = true, body=
-    "var r = $dukescript$self.some(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);}, thisArg);\n" +
+    "var r = $dukescript$self.some(callbackfn, thisArg);\n" +
     "return r;"
-
   )
   static native <T> java.lang.Boolean some$39(java.lang.Object $dukescript$self, java.lang.Object callbackfn, java.lang.Object thisArg);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "callbackfn"}, javacall = true, body=
-    "var r = $dukescript$self.some(function(p1,p2,p3) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(callbackfn, [p1,p2,p3]);});\n" +
+    "var r = $dukescript$self.some(callbackfn);\n" +
     "return r;"
 
   )
   static native <T> java.lang.Boolean some$40(java.lang.Object $dukescript$self, java.lang.Object callbackfn);
 
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "compareFn"}, javacall = true, body=
-    "var r = $dukescript$self.sort(function(p1,p2) { return @net.java.html.lib.Function::$call(Ljava/lang/Object;[Ljava/lang/Object;)(compareFn, [p1,p2]);});\n" +
+    "var r = $dukescript$self.sort(compareFn);\n" +
     "return r;"
 
   )
