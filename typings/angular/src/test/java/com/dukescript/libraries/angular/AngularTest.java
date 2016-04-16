@@ -77,7 +77,7 @@ public class AngularTest {
         net.java.html.lib.angular.Function.$as(initFn).$inject.set(new String[] { "$scope" });
 
         assertTrue("is function", angular.isFunction(initFn));
-        module.controller("SampleController", new Object[] { "$scope", Function.$js(initFn) });
+        module.controller("SampleController", new Object[] { "$scope", initFn });
 
         return new Runnable[] {
             () -> assertText("Hello DukeScript!"),

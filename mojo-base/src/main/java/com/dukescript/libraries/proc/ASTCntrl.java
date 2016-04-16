@@ -486,9 +486,9 @@ class ASTCntrl {
                 case VoidKeyword:
                 case NumberKeyword:
                 case BooleanKeyword:
-                case ArrayType:
                 case TypePredicate:
                     break;
+                case ArrayType:
                 case FunctionType :
                     return "/* " + type.getKind() + "*/"
                         + "$js(" + name.getSimpleName() + ")";

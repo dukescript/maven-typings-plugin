@@ -105,6 +105,20 @@ public class Objs extends java.lang.Object {
             Objs objs = (Objs) obj;
             return objs.js;
         }
+        if(obj instanceof Object[]) {
+            Object[] orig = (Object[]) obj;
+            Object[] copy = null;
+            for (int i = 0; i < orig.length; i++) {
+                Object at = $js(orig[i]);
+                if (at != orig[i]) {
+                    if (copy == null) {
+                        copy = orig.clone();
+                    }
+                    copy[i] = at;
+                }
+            }
+            return copy == null ? orig : copy;
+        }
         return net.java.html.lib.Function.specialJs(obj);
     }
 
