@@ -92,10 +92,10 @@ public class ArrayTest {
 
     private void assertForEach(Array<java.lang.Number> arr) {
         double length = arr.push(1.1, 2.2, 3);
-        assertEquals(length, 3.0, "length is 3");
-        assertEquals(arr.$get(0), 1.1, "1.1 is on position 0");
-        assertEquals(arr.$get(1), 2.2, "2.2 is on position 1");
-        assertEquals(arr.$get(2), 3.0, "3 is on position 2");
+        assertNumber(length, 3.0, "length is 3");
+        assertNumber(arr.$get(0), 1.1, "1.1 is on position 0");
+        assertNumber(arr.$get(1), 2.2, "2.2 is on position 1");
+        assertNumber(arr.$get(2), 3.0, "3 is on position 2");
         boolean[] called = { false };
         double[] sum = { 0.0 };
         arr.forEach(new net.java.html.lib.Function.A1<java.lang.Number,Void>() {
@@ -108,9 +108,9 @@ public class ArrayTest {
         });
         assertTrue(called[0], "forEach invoked");
         assertEquals(sum[0], 6.3, 0.1, "Sum computed");
-        assertEquals(arr.pop(), 3.0);
-        assertEquals(arr.pop(), 2.2);
-        assertEquals(arr.pop(), 1.1);
+        assertNumber(arr.pop(), 3.0);
+        assertNumber(arr.pop(), 2.2);
+        assertNumber(arr.pop(), 1.1);
     }
 
     private void assertConcat(Array<java.lang.Number> arr) {

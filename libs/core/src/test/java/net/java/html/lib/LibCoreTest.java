@@ -44,7 +44,9 @@ public class LibCoreTest {
 
     @Test
     public void testEval() throws Exception {
-        assertEquals(eval("6 * 7").toString().substring(0, 2), "42");
+        final Object fourtyTwo = eval("6 * 7");
+        assertTrue(fourtyTwo instanceof Number, "The result is number: " + fourtyTwo);
+        assertNumber((Number) fourtyTwo, 42, "Fourty two");
     }
     @Test
     public void uri() throws Exception {
@@ -176,9 +178,9 @@ public class LibCoreTest {
         Array<java.lang.Number> arr = new Array<>();
         assertNumber(arr.length.get(), 0.0, "Empty at first");
         arr.push(1.1, 2.2, 3);
-        assertEquals(arr.$get(0), 1.1, "1.1 is on position 0");
-        assertEquals(arr.$get(1), 2.2, "2.2 is on position 1");
-        assertEquals(arr.$get(2), 3.0, "3 is on position 2");
+        assertNumber(arr.$get(0), 1.1, "1.1 is on position 0");
+        assertNumber(arr.$get(1), 2.2, "2.2 is on position 1");
+        assertNumber(arr.$get(2), 3.0, "3 is on position 2");
         boolean[] called = { false };
         double[] sum = { 0.0 };
         arr.forEach(new net.java.html.lib.Function.A1<java.lang.Number,Void>() {
