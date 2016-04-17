@@ -162,14 +162,19 @@ public class LibCoreTest {
     public void toStringASync() throws Exception {
         Objs objs = new Objs();
         String[] res = { null };
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                res[0] = objs.toString();
-            }
-        };
-        t.start();
-        t.join();
+        try {
+            Thread t = new Thread() {
+                @Override
+                public void run() {
+                    res[0] = objs.toString();
+                }
+            };
+            t.start();
+            t.join();
+        } catch (SecurityException ex) {
+            // bck2brwsr doesn't support threads, skip the test
+            return;
+        }
         assertNotNull(res[0]);
     }
 
