@@ -409,7 +409,7 @@ public class Function extends Objs {
                 if (depth == currentDepth) {
                     String msg = ex.getMessage();
                     final String cannotBe = "cannot be cast to";
-                    int at = msg.indexOf(cannotBe);
+                    int at = msg == null ? -1 : msg.indexOf(cannotBe);
                     if (at >= 0) {
                         String oldName = msg.substring(0, at).trim();
                         String newName = msg.substring(at + cannotBe.length()).trim();

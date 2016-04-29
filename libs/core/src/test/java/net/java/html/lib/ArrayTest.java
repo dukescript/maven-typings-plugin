@@ -114,11 +114,12 @@ public class ArrayTest {
     }
 
     private void assertConcat(Array<java.lang.Number> arr) {
-        arr = arr.concat(1.1, 2.2, 3);
+        final Double twoPointTwo = 2.2;
+        arr = arr.concat(1.1, twoPointTwo, 3);
         assertNumber(arr.length.get(), 3.0, "Three items");
-        assertEquals(arr.$get(0), 1.1, "1.1 is on position 0");
-        assertEquals(arr.$get(1), 2.2, "2.2 is on position 1");
-        assertEquals(arr.$get(2), 3.0, "3 is on position 2");
+        assertNumber(arr.$get(0), 1.1, "1.1 is on position 0");
+        assertNumber(arr.$get(1), twoPointTwo, "2.2 is on position 1");
+        assertNumber(arr.$get(2), 3.0, "3 is on position 2");
         boolean[] called = { false };
         double[] sum = { 0.0 };
         arr.forEach(new net.java.html.lib.Function.A1<java.lang.Number,Void>() {
@@ -131,11 +132,11 @@ public class ArrayTest {
         });
         assertTrue(called[0], "forEach invoked");
         assertEquals(sum[0], 6.3, 0.1, "Sum computed");
-        arr.push(2.2);
-        assertEquals(arr.indexOf(2.2), 1.0, "2nd item is 2.2");
-        assertEquals(arr.indexOf(2.2, 2), 3.0, "4th item is second 2.2");
-        assertEquals(arr.lastIndexOf(2.2), 3.0, "4th item is last 2.2");
-        assertEquals(arr.lastIndexOf(2.2, 2), 1.0, "2nd 2.2 is at 1");
+        arr.push(twoPointTwo);
+        assertNumber(arr.indexOf(twoPointTwo), 1.0, "2nd item is 2.2");
+        assertNumber(arr.indexOf(twoPointTwo, 2), 3.0, "4th item is second 2.2");
+        assertNumber(arr.lastIndexOf(twoPointTwo), 3.0, "4th item is last 2.2");
+        assertNumber(arr.lastIndexOf(twoPointTwo, 2), 1.0, "2nd 2.2 is at 1");
     }
 
     @Test
@@ -251,6 +252,7 @@ public class ArrayTest {
         class ToStr implements A1<java.lang.Number,java.lang.String> {
             @Override
             public java.lang.String call(java.lang.Number p1) {
+                p1 = p1.doubleValue();
                 return p1.toString();
             }
         }
@@ -348,12 +350,12 @@ public class ArrayTest {
     public void sortNumbers() {
         Array<Number> arr = new Array<>(5, 1, 8, 3, 2);
         Array<Number> ret = arr.sort((p1, p2) -> p2.intValue() - p1.intValue());
-        assertEquals(ret.length(), 5);
-        assertEquals(ret.$get(0), 8);
-        assertEquals(ret.$get(1), 5);
-        assertEquals(ret.$get(2), 3);
-        assertEquals(ret.$get(3), 2);
-        assertEquals(ret.$get(4), 1);
+        assertNumber(ret.length(), 5);
+        assertNumber(ret.$get(0), 8);
+        assertNumber(ret.$get(1), 5);
+        assertNumber(ret.$get(2), 3);
+        assertNumber(ret.$get(3), 2);
+        assertNumber(ret.$get(4), 1);
     }
 
     private static void assertNumber(java.lang.Number actual, double expected) {
