@@ -51,7 +51,7 @@ THE SOFTWARE.
         <dependency>
             <groupId>com.dukescript.api</groupId>
             <artifactId>junit-browser-runner</artifactId>
-            <version>0.6</version>
+            <version>0.7</version>
         </dependency>
 
 
@@ -82,23 +82,6 @@ THE SOFTWARE.
         <dependency>
             <groupId>org.apidesign.bck2brwsr</groupId>
             <artifactId>launcher.http</artifactId>
-            <version>${bck2brwsr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apidesign.bck2brwsr</groupId>
-            <artifactId>emul</artifactId>
-            <classifier>rt</classifier>
-            <version>${bck2brwsr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apidesign.bck2brwsr</groupId>
-            <artifactId>emul</artifactId>
-            <version>${bck2brwsr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apidesign.bck2brwsr</groupId>
-            <artifactId>emul</artifactId>
-            <classifier>bck2brwsr</classifier>
             <version>${bck2brwsr.version}</version>
         </dependency>
     </dependencies>
