@@ -19,7 +19,7 @@ CLSS public net.java.html.lib.Function
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public !varargs init(java.lang.String[])
 fld public final net.java.html.lib.Objs$Property<java.lang.Number> length
-fld public java.lang.Object prototype
+fld public final net.java.html.lib.Objs$Property<net.java.html.lib.Objs> prototype
 innr public abstract interface static A0
 innr public abstract interface static A1
 innr public abstract interface static A2

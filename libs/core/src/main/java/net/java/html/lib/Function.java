@@ -55,7 +55,7 @@ public class Function extends Objs {
         return $AS.create(obj);
     }
 
-  public java.lang.Object prototype;
+  public final Property<Objs> prototype = Property.create(this, Objs.class, "prototype");
   public final Property<java.lang.Number> length = Property.create(this, java.lang.Number.class, "length");
   /**
   * Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.
@@ -77,12 +77,6 @@ public class Function extends Objs {
   */
   public java.lang.Object bind(java.lang.Object thisArg, java.lang.Object... argArray) {
     return CoreTypes.bind$302(Objs.$js(this), /* AnyKeyword*/Objs.$js(thisArg), argArray);
-  }
-  {
-    try {
-    java.lang.Object[] arr = CoreTypes.readFields$304(Objs.$js(this));
-    prototype = (java.lang.Object)arr[0];
-    } catch (Exception ex) { ex.printStackTrace(); }
   }
   
   /**

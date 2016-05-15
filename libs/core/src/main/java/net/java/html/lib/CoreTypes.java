@@ -468,10 +468,6 @@ final class CoreTypes {
   )
   static native java.lang.Object call$303(java.lang.Object $dukescript$self, java.lang.Object thisArg, java.lang.Object argArray);
 
-  @net.java.html.js.JavaScriptBody(args={"js"}, body =
-    "\nreturn [\n    js.prototype !== undefined ? js.prototype : null, \n    js.length !== undefined ? js.length : NaN, \n    js.arguments !== undefined ? js.arguments : null, \n    js.caller !== undefined ? js.caller : null];"
-  )
-  static native java.lang.Object[] readFields$304(java.lang.Object js);
   @net.java.html.js.JavaScriptBody(args={"args"}, body=
     "return new Function(args);"
   )
