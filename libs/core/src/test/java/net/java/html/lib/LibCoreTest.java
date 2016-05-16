@@ -13,10 +13,10 @@ package net.java.html.lib;
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -48,6 +48,16 @@ public class LibCoreTest {
         assertTrue(fourtyTwo instanceof Number, "The result is number: " + fourtyTwo);
         assertNumber((Number) fourtyTwo, 42, "Fourty two");
     }
+
+    @Test
+    public void testEvalObject() throws Exception {
+        final Object obj = eval("var x = {}; x.x = 'Hi'; x");
+        assertNotNull("Value returned", obj);
+        assertTrue(obj instanceof Objs, "The result is Objs: " + obj.getClass());
+        Objs js = (Objs) obj;
+        assertEquals(js.$get("x"), "Hi", "Has property x");
+    }
+
     @Test
     public void uri() throws Exception {
         final java.lang.String url = "http://dukescript.com";

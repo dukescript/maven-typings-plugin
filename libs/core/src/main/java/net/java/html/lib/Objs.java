@@ -70,15 +70,31 @@ public class Objs extends java.lang.Object {
      *   the requested class
      */
     public static <T> T $as(java.lang.Class<T> clazz, java.lang.Object obj) {
-        if (clazz.isInstance(obj)) {
-            return clazz.cast(obj);
+        Class<? extends T> castTo = clazz;
+        if (clazz == java.lang.Object.class) {
+            if (
+                obj instanceof java.lang.Number ||
+                obj instanceof java.lang.String ||
+                obj instanceof java.lang.Character ||
+                obj instanceof java.lang.Boolean
+            ) {
+                return clazz.cast(obj);
+            } else {
+                castTo = Objs.class.asSubclass(clazz);
+            }
+        }
+        return $asRaw(castTo, obj);
+    }
+    static <T> T $asRaw(java.lang.Class<? extends T> castTo, java.lang.Object obj) {
+        if (castTo.isInstance(obj)) {
+            return castTo.cast(obj);
         }
         obj = $js(obj);
-        Constructor<?> c = Constructor.find(clazz);
+        Constructor<?> c = Constructor.find(castTo);
         if (c != null) {
             obj = c.create(obj);
         }
-        return clazz.cast(obj);
+        return castTo.cast(obj);
     }
     static java.lang.Object $as(String clazz, java.lang.Object obj) {
         try {

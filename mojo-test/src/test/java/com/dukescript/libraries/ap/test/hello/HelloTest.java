@@ -27,6 +27,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import net.java.html.lib.Array;
 import net.java.html.junit.BrowserRunner;
+import net.java.html.lib.Objs;
 import net.java.html.lib.Union;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -34,6 +35,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(BrowserRunner.class)
 public class HelloTest {
+    @Test
+    public void testEvalObject() throws Exception {
+        final Object obj = Exports.compute("var x = {}; x.x = 'Hi'; x");
+        assertNotNull("Value returned", obj);
+        assertTrue("The result is Objs: " + obj.getClass(), obj instanceof Objs);
+        Objs js = (Objs) obj;
+        assertEquals("Has property x", js.$get("x"), "Hi");
+    }
+
     @Test
     public void workWithAnArray() {
         Array<Number> obj = Exports.emptyVector();

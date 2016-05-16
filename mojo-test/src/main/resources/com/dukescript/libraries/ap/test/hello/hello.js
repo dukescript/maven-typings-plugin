@@ -21,6 +21,8 @@
  * #L%
  */
 
+var compute = eval;
+
 function emptyVector() {
   return [];
 }

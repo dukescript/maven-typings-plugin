@@ -327,7 +327,7 @@ public class Function extends Objs {
         if (isFunction(obj)) {
             return new JSFn($AS, obj);
         }
-        return Objs.$as(type, obj);
+        return Objs.$asRaw(type, obj);
     }
 
     private static Object[] unJsParams(JavaFn wrapper, Class<?> lamda, Object[] params, int length) {

@@ -1,4 +1,6 @@
 
+declare function compute(x: string): any;
+
 declare function emptyVector(): Array<Number>;
 declare function addVector(v : Array<Number>, ...e : number): Array<Number>;
 

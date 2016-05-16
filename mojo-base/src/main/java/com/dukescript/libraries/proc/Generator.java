@@ -606,6 +606,9 @@ abstract class Generator<L> {
                         w.append("    return (").append(returnType.getBoxedIntoJavaType()).append(")");
                         w.append("net.java.html.lib.Array.$as(");
                         wrap = true;
+                    } else if (returnType.getKind() == SyntaxKind.AnyKeyword) {
+                        w.append("    return net.java.html.lib.Objs.$as(java.lang.Object.class, ");
+                        wrap = true;
                     } else {
                         w.append("    return ");
                     }
