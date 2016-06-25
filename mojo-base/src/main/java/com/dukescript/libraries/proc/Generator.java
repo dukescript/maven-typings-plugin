@@ -461,6 +461,54 @@ abstract class Generator<L> {
             return "MethodKey{" + "name=" + name + ", parameters=" + parameters + '}';
         }
     }
+    private static final class ConstructorKey {
+        private final String name;
+        private final List<String> parameters;
+
+        public ConstructorKey(String name, List<Type> parameters) {
+            this.name = name;
+            List<String> types = new ArrayList<>(parameters.size());
+            for (Type t : parameters) {
+
+                types.add(t.getRawJavaType());
+            }
+            this.parameters = types;
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 5;
+            hash = 79 * hash + Objects.hashCode(this.name);
+            hash = 79 * hash + Objects.hashCode(this.parameters);
+            return hash;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final ConstructorKey other = (ConstructorKey) obj;
+            if (!Objects.equals(this.name, other.name)) {
+                return false;
+            }
+            if (!Objects.equals(this.parameters, other.parameters)) {
+                return false;
+            }
+            return true;
+        }
+
+        @Override
+        public String toString() {
+            return "ConstructorKey{" + "name=" + name + ", parameters=" + parameters + '}';
+        }
+    }
 
 
     class Functions implements Visitor<Identifier, Type, List<Parameter>, List<AST>, String,Void> {
@@ -652,6 +700,7 @@ abstract class Generator<L> {
         private final Writer w;
         private final List<AST> typeParameters;
         private final Typings typings;
+        private final Set<ConstructorKey> generatedConstructors = new HashSet<>();
 
         public Constructors(Writer w, Typings typings, List<AST> typeParameters) {
             this.w = w;
@@ -678,6 +727,11 @@ abstract class Generator<L> {
             String sep;
             final String functionName = a.getSimpleName();
             for (List<Type> types : alternativeTypes(parameters)) {
+                final ConstructorKey fullConstructorKey = new ConstructorKey(functionName, types);
+                if (!generatedConstructors.add(fullConstructorKey)) {
+                    w.append("  // skipping " + fullConstructorKey + "\n");
+                    continue;
+                }
                 emitComment(w, "  ", comment);
                 w.append("  public ");
                 w.append(mangleName(false, functionName)).append("(");

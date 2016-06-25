@@ -65,6 +65,19 @@
                 <version>${project.version}</version>
                 <executions>
                     <execution>
+                        <id>generate-constructors</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <typings>src/main/resources/com/dukescript/libraries/ap/test/constructors/hello.ts</typings>
+                            <scripts>
+                                <script>hello.js</script>
+                            </scripts>
+                            <package>com.dukescript.libraries.ap.test.constructors</package>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>generate-fn</id>
                         <goals>
                             <goal>generate</goal>
