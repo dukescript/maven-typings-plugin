@@ -43,6 +43,7 @@ import static javax.lang.model.SourceVersion.isKeyword;
 
 abstract class Generator<L> {
     private Map<Identifier, Type> typeAliases;
+    private Set<String> classesAndInterfaces;
 
     protected abstract Writer createSourceFile(String string, L location) throws IOException;
     protected abstract L findType(String fqn);
@@ -85,6 +86,11 @@ abstract class Generator<L> {
                     case "Object":
                         return "net.java.html.lib.Objs";
                 }
+                for (String name: classesAndInterfaces){
+                    if(name.equals(typeStr)){
+                        return typeStr;
+                    }
+                }
                 for (String pkg : libraryImports) {
                     String fullName = pkg + "." + typeStr;
                     if (findType(fullName) != null) {
@@ -107,6 +113,8 @@ abstract class Generator<L> {
         w.append("  }\n");
         this.typeAliases = new HashMap<>();
         root.findTypeAliases(typeAliases);
+        this.classesAndInterfaces = new HashSet<>();
+        root.findClassesAndInterfaces(classesAndInterfaces);
         final Functions fn = new Functions(packageName, w, typings, false);
         root.visitFunctions(fn);
         final Fields fields = new Fields(fn, packageName, w, typings, false, null, Collections.emptyList());
@@ -278,6 +286,7 @@ abstract class Generator<L> {
                 return t;
             }
         }
+        
         root.visitInterfaces(new Interfaces());
         root.visitClasses(new Interfaces());
         typings.close();

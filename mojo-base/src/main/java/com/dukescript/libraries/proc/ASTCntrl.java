@@ -697,6 +697,15 @@ class ASTCntrl {
     }
 
     @ModelOperation
+    static void findClassesAndInterfaces(AST self, Set<String> classesAndInterfaces) {
+        for (AST ch : self.getChildren()) {
+            if (ch.getKind() == SyntaxKind.InterfaceDeclaration || ch.getKind() == SyntaxKind.ClassDeclaration ) {
+                classesAndInterfaces.add(ch.getName().getText());
+            }
+        }
+    }
+
+    @ModelOperation
     static void visitInterfaces(AST self, Visitor<Identifier,List<AST>,List<AST>,AST,List<Heritage>, Map<String,Set<Type>>> visitor) throws IOException {
         Map<String,AST> unique = new TreeMap<>();
         Map<String,Set<Type>> callSigs = findCallSignatures(self);
