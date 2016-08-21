@@ -25,7 +25,6 @@ package com.dukescript.libraries.ap.test.constructors;
 
 
 import net.java.html.junit.BrowserRunner;
-import net.java.html.lib.Objs;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
