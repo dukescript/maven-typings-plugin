@@ -60,13 +60,38 @@ abstract class Generator<L> {
         }
         return t;
     }
-    
+
     final void generateSources(
         final String[] libraryImports,
         final String[] libraryScripts,
         String packageName,
         String libraryTypingsName,
         InputStream libraryTypings,
+        L location
+    ) throws IOException {
+        for (int i = 0; i < libraryScripts.length; i++) {
+            if (!libraryScripts[i].startsWith("/")) {
+                libraryScripts[i] = "/" + packageName.replace('.', '/') + "/" + libraryScripts[i];
+            }
+        }
+
+        Parser p = new Parser();
+        AST root = p.parse(libraryTypingsName, libraryTypings);
+        processModule(root, libraryImports, libraryScripts, packageName, location);
+        root.visitModules(new Visitor<Identifier, AST, Void, Void, Void, Void>() {
+            @Override
+            public void visit(Identifier a, AST body, Void c, Void d, Void e, Void f) throws IOException {
+                String subPackage = packageName + "." + a.getSimpleName();
+
+                processModule(body, libraryImports, libraryScripts, subPackage, location);
+            }
+        });
+    }
+    private void processModule(
+        AST root,
+        final String[] libraryImports,
+        final String[] libraryScripts,
+        String packageName,
         L location
     ) throws IOException {
         Writer typingsFile = createSourceFile(packageName + ".$Typings$", location);
@@ -100,9 +125,6 @@ abstract class Generator<L> {
                 return typeStr;
             }
         };
-        
-        Parser p = new Parser();
-        AST root = p.parse(libraryTypingsName, libraryTypings);
 
         final Typings typings = new Typings(packageName, typingsFile, libraryScripts);
         Writer w = createSourceFile(packageName + ".Exports", location);
@@ -134,7 +156,7 @@ abstract class Generator<L> {
                     error("Cannot generate " + fqn + " " + ex.getClass().getSimpleName() + ": " + ex.getMessage(), location);
                 }
             }
-            
+
             private void generateType(
                 final String fqn, String name,
                 List<AST> typeParameters, List<Heritage> heritage,
@@ -178,7 +200,7 @@ abstract class Generator<L> {
                         }
                         w.append(">");
                     }
-                    
+
                 }
                 w.append(" {\n");
                 w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js) {\n");
@@ -286,7 +308,7 @@ abstract class Generator<L> {
                 return t;
             }
         }
-        
+
         root.visitInterfaces(new Interfaces());
         root.visitClasses(new Interfaces());
         typings.close();
@@ -316,7 +338,7 @@ abstract class Generator<L> {
         }
         return false;
     }
-    
+
     static String mangleName(String prefix, String name) {
         if (prefix != null && name.equals("Array")) {
             return "net.java.html.lib.Array";
@@ -631,7 +653,7 @@ abstract class Generator<L> {
                     sep = ", ";
                 }
                 w.append(") {\n");
-                boolean wrap = 
+                boolean wrap =
                     returnType.getKind().isTypeNode() ||
                     returnType.getKind() == SyntaxKind.FunctionType ||
                     returnType.getKind() == SyntaxKind.UnionType;
@@ -952,7 +974,7 @@ abstract class Generator<L> {
                     callback = true;
                 }
             }
-            boolean wrapReturn = 
+            boolean wrapReturn =
                 returnType.getKind().isTypeNode() ||
                 returnType.getKind() == SyntaxKind.UnionType ||
                 returnType.getKind() == SyntaxKind.ArrayType;

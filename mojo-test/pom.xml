@@ -65,6 +65,19 @@
                 <version>${project.version}</version>
                 <executions>
                     <execution>
+                        <id>generate-ns</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <typings>src/main/resources/com/dukescript/libraries/ap/test/ns/mod.ts</typings>
+                            <scripts>
+                                <script>mod-amd.js</script>
+                            </scripts>
+                            <package>com.dukescript.libraries.ap.test.ns</package>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>generate-constructors</id>
                         <goals>
                             <goal>generate</goal>

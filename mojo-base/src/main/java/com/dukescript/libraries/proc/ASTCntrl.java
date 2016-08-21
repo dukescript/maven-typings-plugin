@@ -57,6 +57,8 @@ import net.java.html.json.Property;
     @Property(name = "members", type = AST.class, array = true),
     @Property(name = "heritageClauses", type = Heritage.class, array = true),
     @Property(name = "expression", type = AST.class, array = true),
+    @Property(name = "body", type = AST.class, array = true),
+    @Property(name = "statements", type = AST.class, array = true),
 })
 class ASTCntrl {
     @Model(className = "VariableDeclarationList", properties = {
@@ -752,7 +754,6 @@ class ASTCntrl {
 
     @ModelOperation
     static void visitClasses(AST self, Visitor<Identifier,List<AST>,List<AST>,AST,List<Heritage>, Map<String,Set<Type>>> visitor) throws IOException {
-        Map<String,AST> unique = new TreeMap<>();
         Map<String,Set<Type>> callSigs = findCallSignatures(self);
         for (AST ch : self.getChildren()) {
             if (ch.getKind() != SyntaxKind.ClassDeclaration) {
@@ -760,6 +761,20 @@ class ASTCntrl {
             }
             final List<AST> filteredMembers = filteredMembers(ch.getTypeParameters(), true, ch.getMembers(), SyntaxKind.MethodSignature);
             visitor.visit(ch.getName(), ch.getTypeParameters(), filteredMembers, null, ch.getHeritageClauses(), callSigs);
+        }
+    }
+
+    @ModelOperation
+    static void visitModules(AST self, Visitor<Identifier,AST,Void,Void,Void,Void> visitor) throws IOException {
+        Map<String,Set<Type>> callSigs = findCallSignatures(self);
+        for (AST ch : self.getChildren()) {
+            if (ch.getKind() != SyntaxKind.ModuleDeclaration) {
+                continue;
+            }
+            for (AST ast : ch.getBody()) {
+                ch.getChildren().addAll(ast.getStatements());
+            }
+            visitor.visit(ch.getName(), ch, null, null, null, null);
         }
     }
 

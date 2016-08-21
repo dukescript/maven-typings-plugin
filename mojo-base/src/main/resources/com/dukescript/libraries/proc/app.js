@@ -43,8 +43,13 @@ function printChildTypes(root, source) {
     ts.forEachChild(root, function P(n) {
         log(space + n.kind + ' ' + ts.SyntaxKind[n.kind]);
         space += '  ';
-        copy.children.push(dumpObject(n, space, source));
+        nCopy = dumpObject(n, space, source);
+        copy.children.push(nCopy);
+        var prev = copy.children;
+        copy.children = [];
         ts.forEachChild(n, P);
+        nCopy.children = copy.children;
+        copy.children = prev;
         space = space.substring(2);
     });
     return copy;
