@@ -923,6 +923,8 @@ abstract class Generator<L> {
             w.append("  static {\n");
             w.append("    net.java.html.lib.Array.isArray(0.0);\n");
             w.append("  }\n");
+            w.append("  @net.java.html.js.JavaScriptBody(args={},body=\"\")\n");
+            w.append("  static native void selfInit();\n");
         }
 
         final String generateFunction(
