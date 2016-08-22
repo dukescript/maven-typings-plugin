@@ -21,6 +21,8 @@
  * #L%
  */
 
+export var circle: geo.Circle;
+
 export module geo {
     export class Circle {
 

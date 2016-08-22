@@ -699,10 +699,15 @@ class ASTCntrl {
     }
 
     @ModelOperation
-    static void findClassesAndInterfaces(AST self, Set<String> classesAndInterfaces) {
+    static void findClassesAndInterfaces(AST self, String pkg, Map<String,String> classesAndInterfaces) {
         for (AST ch : self.getChildren()) {
             if (ch.getKind() == SyntaxKind.InterfaceDeclaration || ch.getKind() == SyntaxKind.ClassDeclaration ) {
-                classesAndInterfaces.add(ch.getName().getText());
+                String name = ch.getName().getText();
+                if (pkg != null) {
+                    name = pkg + '.' + name;
+                }
+
+                classesAndInterfaces.put(ch.getName().getText(), name);
             }
         }
     }

@@ -29,12 +29,12 @@ import static javax.lang.model.SourceVersion.isKeyword;
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
@@ -43,7 +43,7 @@ import static javax.lang.model.SourceVersion.isKeyword;
 
 abstract class Generator<L> {
     private Map<Identifier, Type> typeAliases;
-    private Set<String> classesAndInterfaces;
+    private Map<String,String> classesAndInterfaces;
 
     protected abstract Writer createSourceFile(String string, L location) throws IOException;
     protected abstract L findType(String fqn);
@@ -77,6 +77,18 @@ abstract class Generator<L> {
 
         Parser p = new Parser();
         AST root = p.parse(libraryTypingsName, libraryTypings);
+
+        this.typeAliases = new HashMap<>();
+        this.classesAndInterfaces = new HashMap<>();
+        findTypesAndAliases(packageName, root);
+
+        root.visitModules(new Visitor<Identifier, AST, Void, Void, Void, Void>() {
+            @Override
+            public void visit(Identifier a, AST body, Void c, Void d, Void e, Void f) throws IOException {
+                String subPackage = packageName + "." + a.getSimpleName();
+                findTypesAndAliases(subPackage, body);
+            }
+        });
         processModule(root, libraryImports, libraryScripts, packageName, location);
         root.visitModules(new Visitor<Identifier, AST, Void, Void, Void, Void>() {
             @Override
@@ -111,10 +123,8 @@ abstract class Generator<L> {
                     case "Object":
                         return "net.java.html.lib.Objs";
                 }
-                for (String name: classesAndInterfaces){
-                    if(name.equals(typeStr)){
-                        return typeStr;
-                    }
+                if (classesAndInterfaces.containsKey(typeStr)) {
+                    return classesAndInterfaces.get(typeStr);
                 }
                 for (String pkg : libraryImports) {
                     String fullName = pkg + "." + typeStr;
@@ -133,10 +143,6 @@ abstract class Generator<L> {
         w.append("public final class Exports extends " + mangleName(true, "Object") + " {\n");
         w.append("  private Exports() {\n");
         w.append("  }\n");
-        this.typeAliases = new HashMap<>();
-        root.findTypeAliases(typeAliases);
-        this.classesAndInterfaces = new HashSet<>();
-        root.findClassesAndInterfaces(classesAndInterfaces);
         final Functions fn = new Functions(packageName, w, typings, false);
         root.visitFunctions(fn);
         final Fields fields = new Fields(fn, packageName, w, typings, false, null, Collections.emptyList());
@@ -312,6 +318,11 @@ abstract class Generator<L> {
         root.visitInterfaces(new Interfaces());
         root.visitClasses(new Interfaces());
         typings.close();
+    }
+
+    private void findTypesAndAliases(String packageName, AST root) {
+        root.findTypeAliases(typeAliases);
+        root.findClassesAndInterfaces(packageName, classesAndInterfaces);
     }
 
     static void typeParameters(Writer w, List<String> parameters) throws IOException {
