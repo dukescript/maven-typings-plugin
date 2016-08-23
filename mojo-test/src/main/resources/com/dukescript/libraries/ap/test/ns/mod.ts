@@ -25,7 +25,6 @@ export var circle: geo.Circle;
 
 export module geo {
     export class Circle {
-
     }
     export class Elipse extends Circle {
     }
@@ -34,6 +33,11 @@ export module geo {
 declare var math: math.MathStatic;
 declare namespace math {
     interface MathStatic {
-        hello(): String;
+        hello(): ComNum;
+    }
+    export module complex {
+        interface ComNum {
+            toString(): String;
+        }
     }
 }

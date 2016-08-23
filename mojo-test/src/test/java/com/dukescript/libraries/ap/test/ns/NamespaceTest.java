@@ -41,7 +41,7 @@ public class NamespaceTest {
 
     @Test
     public void checkNamespaces() {
-        String text = Exports.math.hello();
+        String text = Exports.math.hello().toString();
         Assert.assertEquals("Hello", text);
     }
 }

@@ -11,12 +11,12 @@ package com.dukescript.libraries.proc;
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
@@ -180,7 +180,7 @@ class ASTCntrl {
                 param.setType(paramType[0]);
             }
         }
-        
+
         @ModelOperation
         static void substitute(Type model, List<Type> names, List<Type> actualTypes) {
             for (int i = 0; i < Math.min(names.size(), actualTypes.size()); i++) {
@@ -771,7 +771,12 @@ class ASTCntrl {
 
     @ModelOperation
     static void visitModules(AST self, Visitor<Identifier,AST,Void,Void,Void,Void> visitor) throws IOException {
-        Map<String,Set<Type>> callSigs = findCallSignatures(self);
+        visitModulesImpl("", self, visitor);
+    }
+
+    private static void visitModulesImpl(
+        String prefix, AST self, Visitor<Identifier,AST,Void,Void,Void,Void> visitor
+    ) throws IOException {
         for (AST ch : self.getChildren()) {
             if (ch.getKind() != SyntaxKind.ModuleDeclaration) {
                 continue;
@@ -779,7 +784,10 @@ class ASTCntrl {
             for (AST ast : ch.getBody()) {
                 ch.getChildren().addAll(ast.getStatements());
             }
-            visitor.visit(ch.getName(), ch, null, null, null, null);
+            final Identifier fqn = ch.getName().clone();
+            fqn.setText(prefix + fqn.getText());
+            visitor.visit(fqn, ch, null, null, null, null);
+            visitModulesImpl(fqn.getText() + ".", ch, visitor);
         }
     }
 
