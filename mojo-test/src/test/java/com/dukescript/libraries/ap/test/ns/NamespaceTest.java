@@ -39,4 +39,9 @@ public class NamespaceTest {
         Assert.assertNull("Check the value", circle);
     }
 
+    @Test
+    public void checkNamespaces() {
+        String text = Exports.math.hello();
+        Assert.assertEquals("Hello", text);
+    }
 }

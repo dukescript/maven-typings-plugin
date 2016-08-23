@@ -28,6 +28,12 @@ export module geo {
 
     }
     export class Elipse extends Circle {
+    }
+}
 
+declare var math: math.MathStatic;
+declare namespace math {
+    interface MathStatic {
+        hello(): String;
     }
 }

@@ -25,6 +25,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+
+function define(deps, fn) {
+    fn(null, this);
+}
+
 define(["require", "exports"], function (require, exports) {
     var geo;
     (function (geo) {
@@ -43,4 +48,10 @@ define(["require", "exports"], function (require, exports) {
         })(Circle);
         geo.Elipse = Elipse;
     })(geo = exports.geo || (exports.geo = {}));
+
+    exports.math = {
+        hello : function () {
+            return "Hello";
+        }
+    };
 });
