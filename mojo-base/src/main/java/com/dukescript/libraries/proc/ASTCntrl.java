@@ -11,12 +11,12 @@ package com.dukescript.libraries.proc;
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- *
+ * 
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *
+ * 
  * You should have received a copy of the GNU General Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -59,6 +60,7 @@ import net.java.html.json.Property;
     @Property(name = "expression", type = AST.class, array = true),
     @Property(name = "body", type = AST.class, array = true),
     @Property(name = "statements", type = AST.class, array = true),
+    @Property(name = "moduleReference", type = AST.class, array = true),
 })
 class ASTCntrl {
     @Model(className = "VariableDeclarationList", properties = {
@@ -771,15 +773,35 @@ class ASTCntrl {
 
     @ModelOperation
     static void visitModules(AST self, Visitor<Identifier,AST,Void,Void,Void,Void> visitor) throws IOException {
-        visitModulesImpl("", self, visitor);
+        Map<String,String> moduleAliases = new HashMap<>();
+        for (AST ch : self.getChildren()) {
+            if (ch.getKind() != SyntaxKind.ImportEqualsDeclaration) {
+                continue;
+            }
+            final String newName = ch.getName().getText();
+            if (!ch.getModuleReference().isEmpty()) {
+                String oldName = ch.getModuleReference().get(0).getText();
+                if (oldName != null) {
+                    moduleAliases.put(oldName, newName);
+                }
+            }
+        }
+        visitModulesImpl("", moduleAliases, self, visitor);
     }
 
     private static void visitModulesImpl(
-        String prefix, AST self, Visitor<Identifier,AST,Void,Void,Void,Void> visitor
+        String prefix, Map<String,String> moduleAliases,
+        AST self, Visitor<Identifier,AST,Void,Void,Void,Void> visitor
     ) throws IOException {
         for (AST ch : self.getChildren()) {
             if (ch.getKind() != SyntaxKind.ModuleDeclaration) {
                 continue;
+            }
+            String rename = moduleAliases.get(ch.getName().getText());
+            if (rename != null) {
+                Identifier identity = ch.getName().clone();
+                identity.setText(rename);
+                ch.setName(identity);
             }
             for (AST ast : ch.getBody()) {
                 ch.getChildren().addAll(ast.getStatements());
@@ -787,7 +809,7 @@ class ASTCntrl {
             final Identifier fqn = ch.getName().clone();
             fqn.setText(prefix + fqn.getText());
             visitor.visit(fqn, ch, null, null, null, null);
-            visitModulesImpl(fqn.getText() + ".", ch, visitor);
+            visitModulesImpl(fqn.getText() + ".", moduleAliases, ch, visitor);
         }
     }
 

@@ -103,7 +103,7 @@
                 </executions>
                 <configuration>
                     <sigfile>src/main/java/angular.sigtest</sigfile>
-                    <packages>net.java.html.lib.angular</packages>
+                    <packages>net.java.html.lib.angular:net.java.html.lib.angular.ng:net.java.html.lib.angular.ng.auto</packages>
                 </configuration>
             </plugin>
             <plugin>
