@@ -62,9 +62,6 @@
                         <script>http://code.jquery.com/jquery-2.2.2.min.js</script>
                     </scripts>
                     <package>${publicPackages}</package>
-                    <imports>
-                        <import>net.java.html.lib.dom</import>
-                    </imports>
                 </configuration>
             </plugin>
             <plugin>

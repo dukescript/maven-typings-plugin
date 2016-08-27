@@ -49,6 +49,7 @@ abstract class Generator<L> {
     protected abstract L findType(String fqn);
     protected abstract void note(String message, L e);
     protected abstract void error(String message, L e);
+    protected abstract void registerPackages(String... packages) throws IOException;
 
     final Type findType(Type t) {
         if (t == null) {
@@ -78,6 +79,7 @@ abstract class Generator<L> {
         Parser p = new Parser();
         AST root = p.parse(libraryTypingsName, libraryTypings);
 
+        List<String> packages = new ArrayList<>();
         this.typeAliases = new HashMap<>();
         this.classesAndInterfaces = new HashMap<>();
         findTypesAndAliases(packageName, root);
@@ -86,9 +88,11 @@ abstract class Generator<L> {
             @Override
             public void visit(Identifier a, AST body, Void c, Void d, Void e, Void f) throws IOException {
                 String subPackage = packageName + "." + a.getSimpleName();
+                packages.add(subPackage);
                 findTypesAndAliases(subPackage, body);
             }
         });
+        packages.add(packageName);
         processModule(root, libraryImports, libraryScripts, packageName, location);
         root.visitModules(new Visitor<Identifier, AST, Void, Void, Void, Void>() {
             @Override
@@ -98,6 +102,7 @@ abstract class Generator<L> {
                 processModule(body, libraryImports, libraryScripts, subPackage, location);
             }
         });
+        registerPackages(packages.toArray(new String[0]));
     }
     private void processModule(
         AST root,

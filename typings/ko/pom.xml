@@ -54,9 +54,6 @@
                 <configuration>
                     <typings>src/main/java/knockout.d.ts</typings>
                     <package>net.java.html.lib.ko</package>
-                    <imports>
-                        <import>net.java.html.lib.dom</import>
-                    </imports>
                 </configuration>
             </plugin>
             <plugin>

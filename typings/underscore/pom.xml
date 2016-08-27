@@ -57,9 +57,6 @@
                     <scripts>
                         <script>http://underscorejs.org/underscore-min.js</script>
                     </scripts>
-                    <imports>
-                        <import>net.java.html.lib.dom</import>
-                    </imports>
                 </configuration>
             </plugin>
             <plugin>

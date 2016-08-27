@@ -2,8 +2,10 @@ package com.dukescript.libraries.proc;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Writer;
 import java.lang.reflect.Modifier;
 import java.net.MalformedURLException;
@@ -11,7 +13,10 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -129,8 +134,15 @@ public final class GenerateTypings extends AbstractMojo {
             }
         }
 
+
         try (FileInputStream is = new FileInputStream(typings)) {
-            generator.generateSources(array(imports),
+            List<String> activeImports;
+            if (imports == null) {
+                activeImports = generator.loadImports();
+            } else {
+                activeImports = imports;
+            }
+            generator.generateSources(array(activeImports),
                 libraryScripts,
                 packageName, typings.getName(), is, typings
             );
@@ -159,6 +171,42 @@ public final class GenerateTypings extends AbstractMojo {
                 throw new IOException("Cannot create " + dir);
             }
             return new FileWriter(new File(dir, fqn.substring(lastDot + 1) + ".java"));
+        }
+
+        @Override
+        protected void registerPackages(String... packages) throws IOException {
+            File imports = new File(new File(new File(classes, "META-INF"), "typings"), "package.properties");
+            Properties props = new Properties();
+            if (imports.exists()) {
+                try (InputStream is = new FileInputStream(imports)) {
+                    props.load(is);
+                }
+            } else {
+                imports.getParentFile().mkdirs();
+            }
+            for (String p : packages) {
+                props.setProperty(p, typings.getName());
+            }
+            try (FileOutputStream os = new FileOutputStream(imports)) {
+                props.store(os, null);
+            }
+        }
+
+        List<String> loadImports() throws IOException {
+            List<String> allImports = new ArrayList<>();
+            Enumeration<URL> en = classpath.getResources("META-INF/typings/package.properties");
+            while (en.hasMoreElements()) {
+                URL resource = en.nextElement();
+                Properties props = new Properties();
+                try (InputStream is = resource.openStream()) {
+                    props.load(is);
+                }
+                for (Map.Entry<Object, Object> entry : props.entrySet()) {
+                    Object packageImport = entry.getKey();
+                    allImports.add(packageImport.toString());
+                }
+            }
+            return allImports;
         }
 
         @Override

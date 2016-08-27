@@ -54,10 +54,6 @@
                 <configuration>
                     <typings>src/main/java/angular.d.ts</typings>
                     <package>net.java.html.lib.angular</package>
-                    <imports>
-                        <import>net.java.html.lib.dom</import>
-                        <import>net.java.html.lib.jquery</import>
-                    </imports>
                     <scripts>
                         <script>https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js</script>
                     </scripts>
