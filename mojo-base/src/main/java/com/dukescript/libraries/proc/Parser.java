@@ -69,7 +69,11 @@ final class Parser {
         File cache = new File(tmpDir, "ast-" + Integer.toHexString(text.hashCode()) + ".json");
 
         try (Closeable c = Fn.activate(js)) {
-            if (cache.exists()) {
+            NO_PARSING: if (cache.exists()) {
+                long validTill = cache.lastModified() + 10 * 60 * 1000;  // 10 min
+                if (validTill < System.currentTimeMillis()) {
+                    break NO_PARSING;
+                }
                 try (InputStream cachedStream = new FileInputStream(cache)) {
                     return Models.parse(ctx, AST.class, cachedStream);
                 }
