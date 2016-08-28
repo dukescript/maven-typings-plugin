@@ -10,6 +10,7 @@ import net.java.html.lib.angular.ng.IModule;
 import net.java.html.lib.angular.ng.IScope;
 import static net.java.html.lib.jquery.Exports.$;
 import net.java.html.lib.jquery.JQuery;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.runner.RunWith;
@@ -88,5 +89,19 @@ public class AngularTest {
                 assertText("Hello Great DukeScript!");
             }
         };
+    }
+
+    @Test
+    public void noNgExports() {
+        Class<?> ngExports;
+        try {
+            ngExports = Class.forName("net.java.html.lib.angular.ng.Exports");
+        } catch (ClassNotFoundException ex) {
+            // OK, if the class isn't found, great
+            return;
+        }
+        int methods = ngExports.getDeclaredMethods().length;
+        int fields = ngExports.getDeclaredMethods().length;
+        assertNotEquals("Something is exported", 0, methods + fields);
     }
 }

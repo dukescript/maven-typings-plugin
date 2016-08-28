@@ -2,6 +2,7 @@ package com.dukescript.libraries.proc;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -142,19 +143,12 @@ abstract class Generator<L> {
         };
 
         final Typings typings = new Typings(packageName, typingsFile, libraryScripts);
-        Writer w = createSourceFile(packageName + ".Exports", location);
-        w.append("package ").append(packageName).append(";\n");
-        w.append("@java.lang.SuppressWarnings(\"unchecked\")\n");
-        w.append("public final class Exports extends " + mangleName(true, "Object") + " {\n");
-        w.append("  private Exports() {\n");
-        w.append("  }\n");
-        final Functions fn = new Functions(packageName, w, typings, false);
-        root.visitFunctions(fn);
-        final Fields fields = new Fields(fn, packageName, w, typings, false, null, Collections.emptyList());
-        root.visitFields(fields);
-        fields.finish();
-        w.append("}\n");
-        w.close();
+        StringWriter w = new StringWriter();
+        if (dumpExports(w, packageName, typings, root)) {
+            try (Writer file = createSourceFile(packageName + ".Exports", location)) {
+                file.write(w.toString());
+            }
+        }
         class Interfaces implements Visitor<Identifier, List<AST>, List<AST>, AST, List<Heritage>, Map<String,Set<Type>>> {
             @Override
             public void visit(Identifier a, List<AST> typeParameters, List<AST> members, AST constructor, List<Heritage> heritage, Map<String,Set<Type>> callSigs) throws IOException {
@@ -323,6 +317,22 @@ abstract class Generator<L> {
         root.visitInterfaces(new Interfaces());
         root.visitClasses(new Interfaces());
         typings.close();
+    }
+
+    private boolean dumpExports(Writer w, String packageName, final Typings typings, AST root) throws IOException {
+        w.append("package ").append(packageName).append(";\n");
+        w.append("@java.lang.SuppressWarnings(\"unchecked\")\n");
+        w.append("public final class Exports extends " + mangleName(true, "Object") + " {\n");
+        w.append("  private Exports() {\n");
+        w.append("  }\n");
+        final Functions fn = new Functions(packageName, w, typings, false);
+        root.visitFunctions(fn);
+        final Fields fields = new Fields(fn, packageName, w, typings, false, null, Collections.emptyList());
+        root.visitFields(fields);
+        fields.finish();
+        w.append("}\n");
+        w.close();
+        return fn.count + fields.count > 0;
     }
 
     private void findTypesAndAliases(String packageName, AST root) {
@@ -566,6 +576,7 @@ abstract class Generator<L> {
         private final Typings typings;
         private final String packageName;
         private final Set<MethodKey> generated = new HashSet<>();
+        int count;
 
         public Functions(String pn, Writer w, Typings typings, boolean virtual, List<AST> typeParameters) {
             this.packageName = pn;
@@ -592,6 +603,7 @@ abstract class Generator<L> {
         @Override
         public void visit(Identifier a, Type returnType, List<Parameter> parameters, List<AST> typeParameters, String comment, Void ignore)
         throws IOException {
+            count++;
             generateFunctions(a, returnType, parameters, typeParameters, null, comment, ignore);
         }
         public void generateFunctions(Identifier name, Type returnType, List<Parameter> parameters, List<AST> typeParameters, List<Type> typeParameterNames, String comment, Void ignore)
@@ -820,6 +832,7 @@ abstract class Generator<L> {
         private final String packageName;
         private final Functions fnVisitor;
         private final Set<String> names;
+        int count;
 
         Fields(Functions fnVisitor, String pn, Writer w, Typings typings, boolean instance, String prefix, List<AST> typeParameters) {
             this.fnVisitor = fnVisitor;
@@ -834,6 +847,7 @@ abstract class Generator<L> {
 
         @Override
         public void visit(Identifier a, Type fullType, Set<Type> callableSignatures, Void d, String comment, Void ignore) throws IOException {
+            count++;
             Type type = findType(fullType).clone();
             type.anonimize();
             if (a.getSimpleName() == null || isKeyword(a.getSimpleName())) {

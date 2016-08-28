@@ -112,9 +112,6 @@ supr net.java.html.lib.Objs
 hfds $AS
 hcls $Constructor
 
-CLSS public final net.java.html.lib.angular.ng.Exports
-supr net.java.html.lib.Objs
-
 CLSS public net.java.html.lib.angular.ng.IAnchorScrollProvider
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 meth public static net.java.html.lib.angular.ng.IAnchorScrollProvider $as(java.lang.Object)
@@ -1577,9 +1574,6 @@ meth public static net.java.html.lib.angular.ng.Type $as(java.lang.Object)
 supr net.java.html.lib.Function
 hfds $AS
 hcls $Constructor
-
-CLSS public final net.java.html.lib.angular.ng.auto.Exports
-supr net.java.html.lib.Objs
 
 CLSS public net.java.html.lib.angular.ng.auto.IInjectorService
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
