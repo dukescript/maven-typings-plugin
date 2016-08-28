@@ -44,7 +44,7 @@ import static javax.lang.model.SourceVersion.isKeyword;
 
 abstract class Generator<L> {
     private Map<Identifier, Type> typeAliases;
-    private Map<String,String> classesAndInterfaces;
+    private Map<String,List<String>> classesAndInterfaces;
 
     protected abstract Writer createSourceFile(String string, L location) throws IOException;
     protected abstract L findType(String fqn);
@@ -116,7 +116,10 @@ abstract class Generator<L> {
 
         new Resolver() {
             @Override
-            String resolveFQN(String typeStr) {
+            String resolveFQN(String typeFqn) {
+                int lastDot = typeFqn.lastIndexOf('.');
+                String typeStr = typeFqn.substring(lastDot + 1);
+
                 String coreBase = "net.java.html.lib." + typeStr;
                 if (findType(coreBase) != null) {
                     return coreBase;
@@ -130,7 +133,13 @@ abstract class Generator<L> {
                         return "net.java.html.lib.Objs";
                 }
                 if (classesAndInterfaces.containsKey(typeStr)) {
-                    return classesAndInterfaces.get(typeStr);
+                    List<String> candidates = classesAndInterfaces.get(typeStr);
+                    for (String candidate : candidates) {
+                        if (candidate.endsWith(typeFqn)) {
+                            return candidate;
+                        }
+                    }
+                    return candidates.get(0);
                 }
                 for (String pkg : libraryImports) {
                     String fullName = pkg + "." + typeStr;
@@ -192,7 +201,7 @@ abstract class Generator<L> {
                 } else {
                     List<AST> types = heritage.get(0).getTypes();
                     final AST typeZero = types.get(0);
-                    String typeName = findTypeName(typeZero);
+                    String typeName = findTypeName(typeZero.getExpression());
                     String superClass = mangleName(true, typeName);
                     w.append(" extends " + Resolver.findFQN(superClass));
                     List<Type> typeArguments = types.get(0).getTypeArguments();
@@ -304,11 +313,19 @@ abstract class Generator<L> {
                 w.close();
             }
 
-            private String findTypeName(final AST typeZero) {
-                AST expr = typeZero.getExpression().get(0);
+            private String findTypeName(final List<AST> expression) {
+                AST expr = expression.get(0);
                 String t = expr.getText();
                 if (t == null) {
-                    return "Object";
+                    if (expr.getExpression().isEmpty()) {
+                        return "Object";
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(findTypeName(expr.getExpression()));
+                    sb.append(".");
+                    sb.append(expr.getName().getText());
+
+                    return sb.toString();
                 }
                 return t;
             }

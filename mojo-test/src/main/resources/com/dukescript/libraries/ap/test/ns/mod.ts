@@ -41,3 +41,22 @@ declare namespace math {
         }
     }
 }
+
+export module geo2d {
+    import * as geo from "geo";
+    export interface Elipse extends geo.Elipse {
+    }
+}
+
+export module geo3d {
+    import * as geo from "geo";
+    export interface Elipse extends geo.Elipse {
+    }
+}
+
+export module geo3dplus {
+    import * as geo3d from "geo3d";
+    export interface Elipse extends geo3d.Elipse {
+    }
+}
+

@@ -40,6 +40,27 @@ public class NamespaceTest {
     }
 
     @Test
+    public void elipseGeo2d() {
+        Elipse elipse;
+        elipse = com.dukescript.libraries.ap.test.ns.geo2d.Elipse.$as(this);
+        Assert.assertNotNull("Geo2d is elipse", elipse);
+    }
+
+    @Test
+    public void elipseGeo3d() {
+        Elipse elipse;
+        elipse = com.dukescript.libraries.ap.test.ns.geo3d.Elipse.$as(this);
+        Assert.assertNotNull("Geo3d is elipse", elipse);
+    }
+
+    @Test
+    public void elipseGeoBoth() {
+        com.dukescript.libraries.ap.test.ns.geo3d.Elipse elipse;
+        elipse = com.dukescript.libraries.ap.test.ns.geo3dplus.Elipse.$as(this);
+        Assert.assertNotNull("Geo3d is elipse", elipse);
+    }
+
+    @Test
     public void checkNamespaces() {
         String text = Exports.math.hello().toString();
         Assert.assertEquals("Hello", text);
