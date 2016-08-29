@@ -158,17 +158,37 @@ public class Objs extends java.lang.Object {
     "return self[n];\n"
   )
   static native java.lang.Object getRaw(java.lang.Object self, java.lang.Object n);
-  public void $set(java.lang.String k,java.lang.Object n) {
+  /**
+   * Sets a raw property on this JavaScript object. The <code>$set</code>
+   * method returns <code>this</code> which can be useful for chaining
+   * multiple calls:
+   * <pre>
+   * Objs js = new Objs().
+   *   $set("firstName", "John").
+   *   $set("lastName", "Cleese");
+   * </pre>
+   *
+   * @param k the name of the property
+   * @param n the value of the property
+   * @return this object
+   */
+  public Objs $set(java.lang.String k,java.lang.Object n) {
     setRaw($js(this), $js(k), $js(n));
+    return this;
   }
-  @net.java.html.js.JavaScriptBody(args={"self", "k", "n"}, body=
-    "return self[k] = n;\n"
+  @net.java.html.js.JavaScriptBody(args={"self", "k", "n"}, wait4js = false, body=
+    "self[k] = n;\n"
   )
-  static native Object setRaw(java.lang.Object self, java.lang.Object k, java.lang.Object n);
-  public void $delete(java.lang.String k) {
+  static native void setRaw(java.lang.Object self, java.lang.Object k, java.lang.Object n);
+  /** Removes a property for this JavaScript object.
+   *
+   * @param k the name of property to remove
+   */
+  public Objs $delete(java.lang.String k) {
     deleteRaw($js(this), $js(k));
+    return this;
   }
-  @net.java.html.js.JavaScriptBody(args={"self", "k"}, body=
+  @net.java.html.js.JavaScriptBody(args={"self", "k"}, wait4js = false, body=
     "delete self[k];\n"
   )
   private static native void deleteRaw(java.lang.Object self, java.lang.Object k);

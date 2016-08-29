@@ -32,6 +32,7 @@ import java.lang.reflect.Modifier;
 import static net.java.html.lib.Exports.*;
 import net.java.html.junit.BrowserRunner;
 import org.junit.Assert;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 import org.junit.Test;
@@ -156,10 +157,18 @@ public class LibCoreTest {
     }
 
     @Test
-    public void setGetProperty() throws Exception {
-        Objs obj = new Objs();
-        obj.$set("key", "value");
+    public void setGetProperties() throws Exception {
+        Objs obj = new Objs().
+            $set("key", "value").
+            $set("key2", "value2");
+
         assertEquals(obj.$get("key"), "value");
+        assertEquals(obj.$get("key2"), "value2");
+
+        obj.$delete("key2");
+
+        assertEquals(obj.$get("key"), "value");
+        assertNotEquals(obj.$get("key2"), "value2");
     }
 
     @Test
