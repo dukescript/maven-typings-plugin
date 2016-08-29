@@ -371,15 +371,15 @@ public class ArrayTest {
         assertNumber(ret.$get(4), 1);
     }
 
-    private static void assertNumber(java.lang.Number actual, double expected) {
+    static void assertNumber(java.lang.Number actual, double expected) {
         assertEquals(actual.doubleValue(), expected);
     }
 
-    private static void assertNumber(java.lang.Number actual, double expected, String msg) {
+    static void assertNumber(java.lang.Number actual, double expected, String msg) {
         assertEquals(actual.doubleValue(), expected, msg);
     }
 
-    private static void assertNotANumber(java.lang.Object actual) {
+    static void assertNotANumber(java.lang.Object actual) {
         if (actual instanceof Number) {
             fail("Expecting null, but was: " + actual);
         }

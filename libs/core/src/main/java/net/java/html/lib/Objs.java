@@ -185,7 +185,7 @@ public class Objs extends java.lang.Object {
    * @param k the name of property to remove
    */
   public Objs $delete(java.lang.String k) {
-    deleteRaw($js(this), $js(k));
+    deleteRaw($js(this), k);
     return this;
   }
   @net.java.html.js.JavaScriptBody(args={"self", "k"}, wait4js = false, body=
