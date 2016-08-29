@@ -113,6 +113,11 @@ final class CoreTypes {
   )
   static native <T> java.lang.Object $get$12(java.lang.Object $dukescript$self, java.lang.Object n);
 
+  @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "n", "v"}, wait4js = false, body=
+    "$dukescript$self.$set(n, v);\n"
+  )
+  static native void $set$12(java.lang.Object $dukescript$self, java.lang.Object n, java.lang.Object v);
+
   @net.java.html.js.JavaScriptBody(args={"$dukescript$self", "items"}, body=
     "var r = items;\n" +
     "var r = $dukescript$self.concat.apply($dukescript$self, r);\n" +

@@ -59,6 +59,19 @@ public class ArrayTest {
     }
 
     @Test
+    public void setAndGet() throws Exception {
+        Array<java.lang.Number> arr = new Array<>();
+        arr.$set(0, 10);
+        assertNumber(arr.length.get(), 1.0, "One element now");
+        arr.$set(2, 30);
+        assertNumber(arr.length.get(), 3.0, "Three elements now");
+
+        assertNumber(arr.$get(0), 10, "Ten");
+        assertNotANumber(arr.$get(1));
+        assertNumber(arr.$get(2), 30, "Ten");
+    }
+
+    @Test
     public void arrayWithValues() throws Exception {
         Array<java.lang.Number> arr = new Array<>(1.0, 2.0);
         assertNumber(arr.length.get(), 2.0, "Two at first: " + Arrays.toString(arr.slice().toArray()));
@@ -364,6 +377,12 @@ public class ArrayTest {
 
     private static void assertNumber(java.lang.Number actual, double expected, String msg) {
         assertEquals(actual.doubleValue(), expected, msg);
+    }
+
+    private static void assertNotANumber(java.lang.Object actual) {
+        if (actual instanceof Number) {
+            fail("Expecting null, but was: " + actual);
+        }
     }
 
     private static void assertStartsWith(java.lang.String actual, java.lang.String expected) {

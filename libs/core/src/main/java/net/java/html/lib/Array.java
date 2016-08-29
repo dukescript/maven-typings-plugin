@@ -67,10 +67,27 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
   public int length() {
       return length.get().intValue();
   }
-  
-  public T $get(double n) {
-    return (T)CoreTypes.$get$12($js(this), n);
+
+  /** Gets an item from the array.
+   *
+   * @param index the (integer) index to the array
+   * @return value at the index location
+   */
+  public T $get(double index) {
+    return (T)CoreTypes.$get$12($js(this), index);
   }
+
+  /** Sets a value at index in the array.
+   *
+   * @param index the (integer) index into the array
+   * @param value value to assign at that index
+   * @return instance of <code>this</code> array
+   */
+  public Array<T> $set(double index, Object value) {
+      CoreTypes.$set$12($js(this), index, value);
+      return this;
+  }
+
   /**
   * Combines two or more arrays.
   * @param items Additional items to add to the end of array1.

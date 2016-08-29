@@ -54,6 +54,11 @@
     HtmlJavaArray.prototype.pop = function() {
         return this.arr.pop.apply(this.arr, arguments);
     };
+    HtmlJavaArray.prototype.$set = function(n, v) {
+        this.arr[n] = v;
+        HtmlJavaArrayUpdate(this.arr, this);
+        return this;
+    };
     HtmlJavaArray.prototype.slice = function() {
         var ret = this.arr.slice.apply(this.arr, arguments);
         HtmlJavaArrayUpdate(this.arr, this);
