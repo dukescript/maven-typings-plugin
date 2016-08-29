@@ -12044,9 +12044,10 @@ interface Worker extends EventTarget, AbstractWorker {
     onmessage: (ev: MessageEvent) => any;
     postMessage(message: any, ports?: any): void;
     terminate(): void;
+    onerror: (ev: Event) => any;
     addEventListener(type: "error", listener: (ev: ErrorEvent) => any, useCapture?: boolean): void;
-    addEventListener(type: "message", listener: (ev: MessageEvent) => any, useCapture?: boolean): void;
     addEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): void;
+    addEventListener(type: "message", listener: (ev: MessageEvent) => any, useCapture?: boolean): void;
 }
 
 declare var Worker: {
@@ -12215,8 +12216,6 @@ declare var XSLTProcessor: {
 
 interface AbstractWorker {
     onerror: (ev: Event) => any;
-    addEventListener(type: "error", listener: (ev: ErrorEvent) => any, useCapture?: boolean): void;
-    addEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): void;
 }
 
 interface ChildNode {

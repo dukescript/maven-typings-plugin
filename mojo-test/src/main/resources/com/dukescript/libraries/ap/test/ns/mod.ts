@@ -50,7 +50,7 @@ export module geo2d {
 
 export module geo3d {
     import * as geo from "geo";
-    export interface Elipse extends geo.Elipse {
+    export interface Elipse extends math.complex.ComNum, geo.Elipse {
     }
 }
 

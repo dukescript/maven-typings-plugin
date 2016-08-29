@@ -199,12 +199,10 @@ abstract class Generator<L> {
                 if (heritage.isEmpty()) {
                     w.append(" extends ").append(objs);
                 } else {
-                    List<AST> types = heritage.get(0).getTypes();
-                    final AST typeZero = types.get(0);
-                    String typeName = findTypeName(typeZero.getExpression());
+                    List<Type> typeArguments = new ArrayList<>();
+                    String typeName = findBestSuperclass(name, heritage, typeArguments);
                     String superClass = mangleName(true, typeName);
                     w.append(" extends " + Resolver.findFQN(superClass));
-                    List<Type> typeArguments = types.get(0).getTypeArguments();
                     if (!typeArguments.isEmpty()) {
                         w.append("<");
                         String sep = "";
@@ -311,6 +309,24 @@ abstract class Generator<L> {
                 }
                 w.append("}\n");
                 w.close();
+            }
+
+            private String findBestSuperclass(String name, List<Heritage> heritage, List<Type> typeArguments) {
+                AST bestSuperType = null;
+                String bestTypeName = null;
+                for (AST superType : heritage.get(0).getTypes()) {
+                    final String typeName = findTypeName(superType.getExpression());
+                    final boolean relatedFromAnotherNamespace = typeName.endsWith('.' + name);
+                    if (relatedFromAnotherNamespace || bestTypeName == null) {
+                        bestTypeName = typeName;
+                        bestSuperType = superType;
+                        if (relatedFromAnotherNamespace) {
+                            break;
+                        }
+                    }
+                }
+                typeArguments.addAll(bestSuperType.getTypeArguments());
+                return bestTypeName;
             }
 
             private String findTypeName(final List<AST> expression) {
