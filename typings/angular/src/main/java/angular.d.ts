@@ -339,7 +339,7 @@ declare namespace angular {
         /**
          * Set DOM element attribute value.
          */
-        $set(key: string, value: any): void;
+  //    $set(key: string, value: any): void;
 
         /**
          * Observes an interpolated attribute.
