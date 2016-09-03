@@ -21,6 +21,7 @@ cons public init()
 cons public init(java.lang.Object)
 fld public static java.lang.Object prototype
 innr protected abstract static Constructor
+innr public final static Property
 meth public <%0 extends net.java.html.lib.Objs> {%%0} $cast(java.lang.Class<{%%0}>)
 meth public java.lang.Boolean hasOwnProperty(java.lang.String)
 meth public java.lang.Boolean isPrototypeOf(java.lang.Object)
@@ -29,6 +30,8 @@ meth public java.lang.Object $get(java.lang.String)
 meth public java.lang.Object valueOf()
 meth public java.lang.String toLocaleString()
 meth public java.lang.String toString()
+meth public net.java.html.lib.Objs $delete(java.lang.String)
+meth public net.java.html.lib.Objs $set(java.lang.String,java.lang.Object)
 meth public static <%0 extends java.lang.Object> {%%0} $as(java.lang.Class<{%%0}>,java.lang.Object)
 meth public static <%0 extends java.lang.Object> {%%0} freeze({%%0})
 meth public static <%0 extends java.lang.Object> {%%0} preventExtensions({%%0})
@@ -48,8 +51,6 @@ meth public static java.lang.String[] getOwnPropertyNames(java.lang.Object)
 meth public static net.java.html.lib.Array<java.lang.String> keys(java.lang.Object)
 meth public static net.java.html.lib.Objs $as(java.lang.Object)
 meth public static net.java.html.lib.PropertyDescriptor getOwnPropertyDescriptor(java.lang.Object,java.lang.String)
-meth public void $delete(java.lang.String)
-meth public void $set(java.lang.String,java.lang.Object)
 supr java.lang.Object
 hfds $$fn$$deleteRaw_3,$$fn$$getRaw_1,$$fn$$setRaw_2,$AS,js
 
@@ -74,10 +75,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutArrayChange<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Number> index
-fld public net.java.html.lib.Function$A0<java.lang.Number> moved
-fld public net.java.html.lib.Function$A0<java.lang.String> status
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> value
+fld public net.java.html.lib.Objs$Property<java.lang.Number> index
+fld public net.java.html.lib.Objs$Property<java.lang.Number> moved
+fld public net.java.html.lib.Objs$Property<java.lang.String> status
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> value
 meth public java.lang.Number index()
 meth public java.lang.Number moved()
 meth public java.lang.String status()
@@ -88,15 +89,15 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutBindingContext
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Object> $component
-fld public net.java.html.lib.Function$A0<java.lang.Object> $data
-fld public net.java.html.lib.Function$A0<java.lang.Object> $parent
-fld public net.java.html.lib.Function$A0<java.lang.Object> $root
-fld public net.java.html.lib.Function$A0<java.lang.Object[]> $parents
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Union$A2<java.lang.Object,net.java.html.lib.ko.KnockoutObservable<java.lang.Object>>> $rawData
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Node[]> $componentTemplateNodes
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingContext> $parentContext
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutObservable<java.lang.Number>> $index
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $component
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $data
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $parent
+fld public net.java.html.lib.Objs$Property<java.lang.Object> $root
+fld public net.java.html.lib.Objs$Property<java.lang.Object[]> $parents
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Union$A2<java.lang.Object,net.java.html.lib.ko.KnockoutObservable<java.lang.Object>>> $rawData
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Node[]> $componentTemplateNodes
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingContext> $parentContext
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutObservable<java.lang.Number>> $index
 meth public java.lang.Object createChildContext(java.lang.Object)
 meth public java.lang.Object createChildContext(java.lang.Object,java.lang.Object)
 meth public java.lang.Object createChildContext(java.lang.Object,java.lang.Object,net.java.html.lib.Function)
@@ -112,11 +113,11 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutBindingHandler
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Object> options
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Array<java.lang.String>> after
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A3<? super java.lang.String,? super java.lang.String,? super net.java.html.lib.Function$A2<? super java.lang.String,? super java.lang.String,? extends java.lang.Void>,? extends java.lang.String>> preprocess
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A5<? super java.lang.Object,? super net.java.html.lib.Function$A0<?>,? super net.java.html.lib.ko.KnockoutAllBindingsAccessor,? super java.lang.Object,? super net.java.html.lib.ko.KnockoutBindingContext,? extends java.lang.Void>> update
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A5<? super java.lang.Object,? super net.java.html.lib.Function$A0<?>,? super net.java.html.lib.ko.KnockoutAllBindingsAccessor,? super java.lang.Object,? super net.java.html.lib.ko.KnockoutBindingContext,? extends net.java.html.lib.Union$A2<java.lang.Void,net.java.html.lib.Objs>>> init
+fld public net.java.html.lib.Objs$Property<java.lang.Object> options
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Array<java.lang.String>> after
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A3<? super java.lang.String,? super java.lang.String,? super net.java.html.lib.Function$A2<? super java.lang.String,? super java.lang.String,? extends java.lang.Void>,? extends java.lang.String>> preprocess
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A5<? super java.lang.Object,? super net.java.html.lib.Function$A0<?>,? super net.java.html.lib.ko.KnockoutAllBindingsAccessor,? super java.lang.Object,? super net.java.html.lib.ko.KnockoutBindingContext,? extends java.lang.Void>> update
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A5<? super java.lang.Object,? super net.java.html.lib.Function$A0<?>,? super net.java.html.lib.ko.KnockoutAllBindingsAccessor,? super java.lang.Object,? super net.java.html.lib.ko.KnockoutBindingContext,? extends net.java.html.lib.Union$A2<java.lang.Void,net.java.html.lib.Objs>>> init
 meth public net.java.html.lib.Array<java.lang.String> after()
 meth public net.java.html.lib.Function$A3<? super java.lang.String,? super java.lang.String,? super net.java.html.lib.Function$A2<? super java.lang.String,? super java.lang.String,? extends java.lang.Void>,? extends java.lang.String> preprocess()
 meth public net.java.html.lib.Function$A5<? super java.lang.Object,? super net.java.html.lib.Function$A0<?>,? super net.java.html.lib.ko.KnockoutAllBindingsAccessor,? super java.lang.Object,? super net.java.html.lib.ko.KnockoutBindingContext,? extends java.lang.Void> update()
@@ -128,29 +129,29 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutBindingHandlers
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> attr
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> checked
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> click
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> component
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> css
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> disable
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> enable
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> event
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> foreach
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> hasfocus
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> html
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> ifnot
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> options
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> selectedOptions
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> style
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> submit
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> template
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> text
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> textInput
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> uniqueName
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> value
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> visible
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandler> with
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> attr
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> checked
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> click
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> component
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> css
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> disable
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> enable
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> event
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> foreach
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> hasfocus
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> html
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> ifnot
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> options
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> selectedOptions
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> style
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> submit
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> template
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> text
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> textInput
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> uniqueName
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> value
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> visible
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandler> with
 meth public net.java.html.lib.ko.KnockoutBindingHandler $get(java.lang.String)
 meth public net.java.html.lib.ko.KnockoutBindingHandler attr()
 meth public net.java.html.lib.ko.KnockoutBindingHandler checked()
@@ -192,7 +193,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutComputed<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutComputedFunctions<java.lang.Object>> fn
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutComputedFunctions<java.lang.Object>> fn
 meth public double getDependenciesCount()
 meth public java.lang.Boolean isActive()
 meth public net.java.html.lib.ko.KnockoutComputed<{net.java.html.lib.ko.KnockoutComputed%0}> extend(net.java.html.lib.Objs)
@@ -205,8 +206,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutComputedContext
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> isSleeping
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Function$A0<? extends java.lang.Boolean>> isInitial
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> isSleeping
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A0<? extends java.lang.Boolean>> isInitial
 meth public double getDependenciesCount()
 meth public java.lang.Boolean isSleeping()
 meth public net.java.html.lib.Function$A0<? extends java.lang.Boolean> isInitial()
@@ -217,10 +218,10 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutComputedDefine<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> deferEvaluation
-fld public net.java.html.lib.Function$A0<java.lang.Boolean> pure
-fld public net.java.html.lib.Function$A0<java.lang.Object> owner
-fld public net.java.html.lib.Function$A0<net.java.html.lib.dom.Node> disposeWhenNodeIsRemoved
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> deferEvaluation
+fld public net.java.html.lib.Objs$Property<java.lang.Boolean> pure
+fld public net.java.html.lib.Objs$Property<java.lang.Object> owner
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.dom.Node> disposeWhenNodeIsRemoved
 meth public java.lang.Boolean deferEvaluation()
 meth public java.lang.Boolean disposeWhen()
 meth public java.lang.Boolean pure()
@@ -242,7 +243,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutComputedStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutComputedFunctions<java.lang.Object>> fn
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutComputedFunctions<java.lang.Object>> fn
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutComputed<{%%0}> $apply()
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutComputed<{%%0}> $apply(net.java.html.lib.Function$A0<? extends {%%0}>)
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutComputed<{%%0}> $apply(net.java.html.lib.Function$A0<? extends {%%0}>,java.lang.Object)
@@ -290,8 +291,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutObservable<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> valueHasMutated
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> valueWillMutate
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> valueHasMutated
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> valueWillMutate
 meth public java.lang.Object valueHasMutated()
 meth public java.lang.Object valueWillMutate()
 meth public net.java.html.lib.ko.KnockoutObservable<{net.java.html.lib.ko.KnockoutObservable%0}> extend(net.java.html.lib.Objs)
@@ -343,7 +344,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutObservableArrayStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutObservableArrayFunctions<java.lang.Object>> fn
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutObservableArrayFunctions<java.lang.Object>> fn
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutObservableArray<{%%0}> $apply()
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutObservableArray<{%%0}> $apply({%%0}[])
 meth public net.java.html.lib.ko.KnockoutObservableArrayFunctions<java.lang.Object> fn()
@@ -363,7 +364,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutObservableStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutObservableFunctions<java.lang.Object>> fn
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutObservableFunctions<java.lang.Object>> fn
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutObservable<{%%0}> $apply()
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutObservable<{%%0}> $apply({%%0})
 meth public net.java.html.lib.ko.KnockoutObservableFunctions<java.lang.Object> fn()
@@ -374,24 +375,24 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> bindingProvider
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> expressionRewriting
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> jqueryTmplTemplateEngine
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> nativeTemplateEngine
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> selectExtensions
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> templateEngine
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> templateRewriting
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutBindingHandlers> bindingHandlers
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutComputedContext> computedContext
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutComputedStatic> computed
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutExtenders> extenders
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutMemoization> memoization
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutObservableArrayStatic> observableArray
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutObservableStatic> observable
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutSubscribableStatic> subscribable
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutTemplateSources> templateSources
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutUtils> utils
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutVirtualElements> virtualElements
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> bindingProvider
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> expressionRewriting
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> jqueryTmplTemplateEngine
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> nativeTemplateEngine
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> selectExtensions
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> templateEngine
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> templateRewriting
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutBindingHandlers> bindingHandlers
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutComputedContext> computedContext
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutComputedStatic> computed
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutExtenders> extenders
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutMemoization> memoization
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutObservableArrayStatic> observableArray
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutObservableStatic> observable
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutSubscribableStatic> subscribable
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutTemplateSources> templateSources
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutUtils> utils
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutVirtualElements> virtualElements
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutComputed<{%%0}> computed()
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutComputed<{%%0}> computed(net.java.html.lib.Function$A0<? extends {%%0}>)
 meth public <%0 extends java.lang.Object> net.java.html.lib.ko.KnockoutComputed<{%%0}> computed(net.java.html.lib.Function$A0<? extends {%%0}>,java.lang.Object)
@@ -490,7 +491,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutSubscribableStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.ko.KnockoutSubscribableFunctions<java.lang.Object>> fn
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.ko.KnockoutSubscribableFunctions<java.lang.Object>> fn
 meth public net.java.html.lib.ko.KnockoutSubscribableFunctions<java.lang.Object> fn()
 meth public static net.java.html.lib.ko.KnockoutSubscribableStatic $as(java.lang.Object)
 supr net.java.html.lib.Objs
@@ -529,8 +530,8 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutTemplateSources
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> anonymousTemplate
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> domElement
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> anonymousTemplate
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> domElement
 meth public static net.java.html.lib.ko.KnockoutTemplateSources $as(java.lang.Object)
 supr net.java.html.lib.Objs
 hfds $AS
@@ -549,9 +550,9 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutUtils
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<java.lang.Object[]> fieldsIncludedWithJsonPost
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> domData
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> domNodeDisposal
+fld public net.java.html.lib.Objs$Property<java.lang.Object[]> fieldsIncludedWithJsonPost
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> domData
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> domNodeDisposal
 meth public <%0 extends java.lang.Object, %1 extends java.lang.Object> net.java.html.lib.Array<{%%1}> arrayMap({%%0}[],net.java.html.lib.Function$A1<? super {%%0},? extends {%%1}>)
 meth public <%0 extends java.lang.Object> double arrayIndexOf({%%0}[],{%%0})
 meth public <%0 extends java.lang.Object> net.java.html.lib.Array<net.java.html.lib.ko.KnockoutArrayChange<{%%0}>> compareArrays({%%0}[],{%%0}[])
@@ -599,7 +600,7 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.ko.KnockoutVirtualElements
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
-fld public net.java.html.lib.Function$A0<net.java.html.lib.Objs> allowedBindings
+fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> allowedBindings
 meth public net.java.html.lib.Array<net.java.html.lib.dom.Node> childNodes(net.java.html.lib.ko.KnockoutVirtualElement)
 meth public net.java.html.lib.dom.Node nextSibling(net.java.html.lib.ko.KnockoutVirtualElement)
 meth public net.java.html.lib.ko.KnockoutVirtualElement firstChild(net.java.html.lib.ko.KnockoutVirtualElement)
