@@ -362,9 +362,8 @@ abstract class Generator<L> {
         w.append("  private Exports() {\n");
         w.append("  }\n");
         if (moduleName != null) {
-            w.append("  private static java.lang.Object selfModule() {\n");
-            w.append("    net.java.html.lib.Objs module = net.java.html.lib.Modules.find(\"" + moduleName + "\");\n");
-            w.append("    return net.java.html.lib.Objs.$js(module);\n");
+            w.append("  private static net.java.html.lib.Objs selfModule() {\n");
+            w.append("    return net.java.html.lib.Modules.find(\"" + moduleName + "\");\n");
             w.append("  }\n");
         }
         final Functions fn = new Functions(packageName, w, typings, false);
@@ -774,7 +773,7 @@ abstract class Generator<L> {
                     w.append("($js(this)");
                     sep = ", ";
                 } else if (useModule) {
-                    w.append("(selfModule()");
+                    w.append("($js(selfModule())");
                     sep = ", ";
                 } else {
                     w.append("(");
@@ -931,7 +930,7 @@ abstract class Generator<L> {
                 wrap = false;
             }
             final String javaType = type.getRawJavaType();
-            if (instance) {
+            if (instance || useModule) {
                 w.append("net.java.html.lib.Objs.Property<");
                 final boolean useRaw = isTypeParameter(merge(typeParameters, null, null), type);
                 if (useRaw) {
@@ -942,7 +941,11 @@ abstract class Generator<L> {
                 w.append("> ").append(fieldName);
                 w.append(" = ");
                 w.append("net.java.html.lib.Objs.Property.create(");
-                w.append("this, ");
+                if (useModule) {
+                    w.append("selfModule(), ");
+                } else {
+                    w.append("this, ");
+                }
                 if (useRaw) {
                     w.append("net.java.html.lib.Objs");
                 } else {
@@ -1003,7 +1006,7 @@ abstract class Generator<L> {
         private void readStatic(String fieldName, String type, String defaultValue) throws IOException {
             w.append("$Typings$.").append(typings.readStatics(useModule, prefix, fieldName, type, defaultValue));
             if (useModule) {
-                w.append("(selfModule())");
+                w.append("($js(selfModule()))");
             } else {
                 w.append("()");
             }

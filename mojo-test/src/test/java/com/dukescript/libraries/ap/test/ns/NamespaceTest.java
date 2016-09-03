@@ -91,8 +91,12 @@ public class NamespaceTest {
 
     @Test
     public void staticModuleValue() {
-        double c = com.dukescript.libraries.ap.test.ns.geo.Exports.countCircle;
-        Assert.assertEquals("33", 33, c, 0.1);
+        final Objs.Property<Number> countCircle = com.dukescript.libraries.ap.test.ns.geo.Exports.countCircle;
+        int before = countCircle.get().intValue();
+        Circle c = com.dukescript.libraries.ap.test.ns.geo.Exports.createCircle();
+        assertNotNull("Circle is returned", c);
+        int after = countCircle.get().intValue();
+        Assert.assertEquals("Plus one", before + 1, after);
     }
 
     private static final class ProviderImpl extends Modules.Provider {
