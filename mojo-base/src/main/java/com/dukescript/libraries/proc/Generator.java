@@ -373,7 +373,12 @@ abstract class Generator<L> {
         final Functions fn = new Functions(packageName, w, typings, false);
         fn.useModule = moduleName != null;
         root.visitFunctions(fn);
-        final Fields fields = new Fields(fn, packageName, w, typings, false, null, Collections.emptyList());
+        final Fields fields = new Fields(
+            fn, packageName, w, typings, false,
+            moduleName != null ? "self$dukescript" : null, 
+            Collections.emptyList()
+        );
+        fields.useModule = moduleName != null;
         root.visitFields(fields);
         fields.finish();
         w.append("}\n");
@@ -882,6 +887,7 @@ abstract class Generator<L> {
         private final String packageName;
         private final Functions fnVisitor;
         private final Set<String> names;
+        private boolean useModule;
         int count;
 
         Fields(Functions fnVisitor, String pn, Writer w, Typings typings, boolean instance, String prefix, List<AST> typeParameters) {
@@ -998,7 +1004,12 @@ abstract class Generator<L> {
         }
 
         private void readStatic(String fieldName, String type, String defaultValue) throws IOException {
-            w.append("$Typings$.").append(typings.readStatics(prefix, fieldName, type, defaultValue) + "()");
+            w.append("$Typings$.").append(typings.readStatics(useModule, prefix, fieldName, type, defaultValue));
+            if (useModule) {
+                w.append("(selfModule())");
+            } else {
+                w.append("()");
+            }
         }
 
         public void finish() throws IOException {
@@ -1213,16 +1224,26 @@ abstract class Generator<L> {
             return implName;
         }
 
-        private String readStatics(String prefix, String fieldName, String type, String defaultValue) throws IOException {
+        private String readStatics(boolean useModules, 
+            String prefix, String fieldName, String type, String defaultValue
+        ) throws IOException {
             String implName = "readStaticFields$" + ++cnt;
-            w.append("  @net.java.html.js.JavaScriptBody(args = {}, body = \"return ");
+            w.append("  @net.java.html.js.JavaScriptBody(args = {");
+            if (useModules) {
+                w.append("\"self$dukescript\"");
+            }
+            w.append("}, body = \"return ");
             if (prefix != null) {
                 w.append(prefix).append(".");
             } else {
                 w.append("typeof ").append(fieldName).append(" === 'undefined' ? " + defaultValue + " : ");
             }
             w.append(fieldName).append(";\")\n");
-            w.append("  static native ").append(type).append(" ").append(implName).append("();\n");
+            w.append("  static native ").append(type).append(" ").append(implName).append("(");
+            if (useModules) {
+                w.append("java.lang.Object self$dukescript");
+            }
+            w.append(");\n");
             return implName;
         }
 
