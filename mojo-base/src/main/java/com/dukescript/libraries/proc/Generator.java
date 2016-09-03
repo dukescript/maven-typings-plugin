@@ -362,11 +362,8 @@ abstract class Generator<L> {
         w.append("  private Exports() {\n");
         w.append("  }\n");
         if (moduleName != null) {
-            w.append("  private static net.java.html.lib.Objs module;\n");
             w.append("  private static java.lang.Object selfModule() {\n");
-            w.append("    if (module == null) {\n");
-            w.append("      module = net.java.html.lib.Modules.find(\"" + moduleName + "\");\n");
-            w.append("    }\n");
+            w.append("    net.java.html.lib.Objs module = net.java.html.lib.Modules.find(\"" + moduleName + "\");\n");
             w.append("    return net.java.html.lib.Objs.$js(module);\n");
             w.append("  }\n");
         }
