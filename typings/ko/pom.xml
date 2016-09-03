@@ -37,6 +37,11 @@
     <artifactId>net.java.html.lib.ko</artifactId>
     <name>Java Typings for Knockout</name>
     <packaging>jar</packaging>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <net.java.html.version>1.3</net.java.html.version>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -133,8 +138,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
 </project>

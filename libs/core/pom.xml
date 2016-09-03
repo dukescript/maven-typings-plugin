@@ -39,6 +39,7 @@
     <packaging>bundle</packaging>
     <properties>
         <publicPackages>net.java.html.lib</publicPackages>
+        <net.java.html.version>1.3</net.java.html.version>
     </properties>
     <build>
         <plugins>
