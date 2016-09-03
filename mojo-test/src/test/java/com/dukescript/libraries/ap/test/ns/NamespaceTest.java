@@ -11,12 +11,12 @@ package com.dukescript.libraries.ap.test.ns;
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
@@ -26,12 +26,29 @@ package com.dukescript.libraries.ap.test.ns;
 import com.dukescript.libraries.ap.test.ns.geo.Circle;
 import com.dukescript.libraries.ap.test.ns.geo.Elipse;
 import net.java.html.junit.BrowserRunner;
+import net.java.html.lib.Modules;
+import net.java.html.lib.Objs;
+import org.junit.AfterClass;
 import org.junit.Assert;
+import static org.junit.Assert.assertNotNull;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(BrowserRunner.class)
 public class NamespaceTest {
+    private static ProviderImpl provider;
+
+    @BeforeClass
+    public static void registerModuleProvider() {
+        provider = new ProviderImpl();
+    }
+
+    @AfterClass
+    public static void unregisterModuleProvider() {
+        provider.remove();
+    }
+
     @Test
     public void elipseIsCircle() {
         Elipse elipse = null;
@@ -64,5 +81,25 @@ public class NamespaceTest {
     public void checkNamespaces() {
         String text = Exports.math.hello().toString();
         Assert.assertEquals("Hello", text);
+    }
+
+    @Test
+    public void staticModuleFunction() {
+        Circle c = com.dukescript.libraries.ap.test.ns.geo.Exports.createCircle();
+        assertNotNull("Circle is returned", c);
+    }
+
+    private static final class ProviderImpl extends Modules.Provider {
+        @Override
+        protected Objs find(String id) {
+            if (id.equals("geo")) {
+                return Objs.$as(Exports.geo);
+            }
+            return null;
+        }
+
+        void remove() {
+            super.dispose();
+        }
     }
 }

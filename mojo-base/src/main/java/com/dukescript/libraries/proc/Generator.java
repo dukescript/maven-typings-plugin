@@ -94,18 +94,19 @@ abstract class Generator<L> {
             }
         });
         packages.add(packageName);
-        processModule(root, libraryImports, libraryScripts, packageName, location);
+        processModule(null, root, libraryImports, libraryScripts, packageName, location);
         root.visitModules(new Visitor<Identifier, AST, Void, Void, Void, Void>() {
             @Override
             public void visit(Identifier a, AST body, Void c, Void d, Void e, Void f) throws IOException {
                 String subPackage = packageName + "." + a.getSimpleName();
 
-                processModule(body, libraryImports, libraryScripts, subPackage, location);
+                processModule(a.getSimpleName(), body, libraryImports, libraryScripts, subPackage, location);
             }
         });
         registerPackages(packages.toArray(new String[0]));
     }
     private void processModule(
+        String moduleName,
         AST root,
         final String[] libraryImports,
         final String[] libraryScripts,
@@ -153,7 +154,7 @@ abstract class Generator<L> {
 
         final Typings typings = new Typings(packageName, typingsFile, libraryScripts);
         StringWriter w = new StringWriter();
-        if (dumpExports(w, packageName, typings, root)) {
+        if (dumpExports(w, moduleName, packageName, typings, root)) {
             try (Writer file = createSourceFile(packageName + ".Exports", location)) {
                 file.write(w.toString());
             }
@@ -352,13 +353,25 @@ abstract class Generator<L> {
         typings.close();
     }
 
-    private boolean dumpExports(Writer w, String packageName, final Typings typings, AST root) throws IOException {
+    private boolean dumpExports(Writer w, 
+        String moduleName, String packageName, final Typings typings, AST root
+    ) throws IOException {
         w.append("package ").append(packageName).append(";\n");
         w.append("@java.lang.SuppressWarnings(\"unchecked\")\n");
         w.append("public final class Exports extends " + mangleName(true, "Object") + " {\n");
         w.append("  private Exports() {\n");
         w.append("  }\n");
+        if (moduleName != null) {
+            w.append("  private static net.java.html.lib.Objs module;\n");
+            w.append("  private static java.lang.Object selfModule() {\n");
+            w.append("    if (module == null) {\n");
+            w.append("      module = net.java.html.lib.Modules.find(\"" + moduleName + "\");\n");
+            w.append("    }\n");
+            w.append("    return net.java.html.lib.Objs.$js(module);\n");
+            w.append("  }\n");
+        }
         final Functions fn = new Functions(packageName, w, typings, false);
+        fn.useModule = moduleName != null;
         root.visitFunctions(fn);
         final Fields fields = new Fields(fn, packageName, w, typings, false, null, Collections.emptyList());
         root.visitFields(fields);
@@ -604,6 +617,7 @@ abstract class Generator<L> {
     class Functions implements Visitor<Identifier, Type, List<Parameter>, List<AST>, String,Void> {
         private final Writer w;
         private final boolean virtual;
+        private boolean useModule;
         private final String prefix;
         private final List<AST> typeParameters;
         private final Typings typings;
@@ -665,7 +679,7 @@ abstract class Generator<L> {
             returnType = findType(returnType);
             int[] firstOptional = { 0 };
             final List<String> allTypeParams = merge(this.typeParameters, typeParameters, typeParameterNames);
-            String implName = typings.generateFunction(virtual, parameters, allTypeParams,
+            String implName = typings.generateFunction(virtual || useModule, parameters, allTypeParams,
                 name, returnType, prefix, firstOptional
             );
             for (List<Type> types : alternativeTypes(parameters)) {
@@ -756,6 +770,9 @@ abstract class Generator<L> {
                 w.append("$Typings$.").append(implName);
                 if (virtual) {
                     w.append("($js(this)");
+                    sep = ", ";
+                } else if (useModule) {
+                    w.append("(selfModule()");
                     sep = ", ";
                 } else {
                     w.append("(");

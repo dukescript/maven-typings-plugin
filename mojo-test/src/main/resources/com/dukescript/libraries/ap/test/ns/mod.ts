@@ -22,12 +22,15 @@
  */
 
 export var circle: geo.Circle;
+export var geo: any;
 
 export module geo {
     export class Circle {
     }
     export class Elipse extends Circle {
     }
+    export function createCircle(): Circle;
+    export var countCircle: number;
 }
 
 declare var math: math.MathStatic;

@@ -47,6 +47,10 @@ define(["require", "exports"], function (require, exports) {
             return Elipse;
         })(Circle);
         geo.Elipse = Elipse;
+        geo.createCircle = function() {
+            return new Circle();
+        };
+        geo.countCircle = 33;
     })(geo = exports.geo || (exports.geo = {}));
 
     exports.math = {
