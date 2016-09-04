@@ -52,10 +52,13 @@ import org.junit.runner.RunWith;
 public class AngularTest {
     IScope scope;
 
-    String assertText(String msg) {
+    String assertContainsText(String msg) {
         JQuery element = $("#text");
         String txt = element.text();
         if (msg == null) {
+            return txt;
+        }
+        if (txt.contains(msg)) {
             return txt;
         }
         Assert.assertEquals(msg, txt);
@@ -81,30 +84,22 @@ public class AngularTest {
         module.controller("SampleController", new Object[] { "$scope", initFn });
 
         return new Runnable[] {
-            () -> assertText("Hello DukeScript!"),
+            () -> assertContainsText("Hello DukeScript!"),
             () -> {
                 $("#change").click();
             },
-            () -> {},
-            () -> {},
-            () -> {},
             () -> {
-                assertText("Hello Great DukeScript!");
+                $("#change").click();
+            },
+            () -> {
+                $("#change").click();
+            },
+            () -> {
+                $("#change").click();
+            },
+            () -> {
+                assertContainsText("Great DukeScript!");
             }
         };
-    }
-
-    @Test
-    public void noNgExports() {
-        Class<?> ngExports;
-        try {
-            ngExports = Class.forName("net.java.html.lib.angular.ng.Exports");
-        } catch (ClassNotFoundException ex) {
-            // OK, if the class isn't found, great
-            return;
-        }
-        int methods = ngExports.getDeclaredMethods().length;
-        int fields = ngExports.getDeclaredMethods().length;
-        assertNotEquals("Something is exported", 0, methods + fields);
     }
 }
