@@ -85,6 +85,9 @@ public class AngularTest {
             () -> {
                 $("#change").click();
             },
+            () -> {},
+            () -> {},
+            () -> {},
             () -> {
                 assertText("Hello Great DukeScript!");
             }
