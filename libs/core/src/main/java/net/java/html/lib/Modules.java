@@ -56,6 +56,7 @@ public final class Modules {
             if (result != null) {
                 return result;
             }
+            l = l.next;
         }
         return null;
     }
