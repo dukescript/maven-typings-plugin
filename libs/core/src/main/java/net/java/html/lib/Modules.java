@@ -66,13 +66,13 @@ public final class Modules {
      * used by generated typings <code>Exports</code> classes.
      * @since 0.4
      */
-    public static abstract class Provider {
+    public static abstract class Provider implements AutoCloseable {
         private Provider next;
 
         /** Constructor for subclasses. Once the provider is instantiated
          * it gets registered in the system and is available to answer
          * {@link Modules#find(java.lang.String)} queries. Use
-         * {@link #dispose()} to unregister the provider.
+         * {@link #close()} to unregister the provider.
          * @since 0.4
          */
         protected Provider() {
@@ -94,7 +94,8 @@ public final class Modules {
         /** Unregisters this provider from the system.
          * @since 0.4
          */
-        protected final void dispose() {
+        @Override
+        public final void close() {
             synchronized (Modules.class) {
                 Provider l = loaders;
                 if (l == this) {

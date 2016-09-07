@@ -28,25 +28,25 @@ import com.dukescript.libraries.ap.test.ns.geo.Elipse;
 import net.java.html.junit.BrowserRunner;
 import net.java.html.lib.Modules;
 import net.java.html.lib.Objs;
-import org.junit.AfterClass;
+import org.junit.After;
 import org.junit.Assert;
 import static org.junit.Assert.assertNotNull;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(BrowserRunner.class)
 public class NamespaceTest {
-    private static ProviderImpl provider;
+    private ProviderImpl provider;
 
-    @BeforeClass
-    public static void registerModuleProvider() {
+    @Before
+    public void registerModuleProvider() {
         provider = new ProviderImpl();
     }
 
-    @AfterClass
-    public static void unregisterModuleProvider() {
-        provider.remove();
+    @After
+    public void unregisterModuleProvider() {
+        provider.close();
     }
 
     @Test
@@ -106,10 +106,6 @@ public class NamespaceTest {
                 return Objs.$as(Exports.geo);
             }
             return null;
-        }
-
-        void remove() {
-            super.dispose();
         }
     }
 }
