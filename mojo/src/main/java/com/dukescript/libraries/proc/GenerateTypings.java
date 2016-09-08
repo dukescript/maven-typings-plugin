@@ -39,12 +39,12 @@ import org.apache.maven.project.MavenProjectHelper;
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
@@ -78,6 +78,9 @@ public final class GenerateTypings extends AbstractMojo {
 
     @org.apache.maven.plugins.annotations.Parameter(defaultValue = "${project.build.outputDirectory}")
     private File classes;
+
+    @org.apache.maven.plugins.annotations.Parameter(defaultValue = "")
+    private String globalModuleName;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -161,6 +164,11 @@ public final class GenerateTypings extends AbstractMojo {
 
         public MojoGenerator(ClassLoader classpath) {
             this.classpath = classpath;
+        }
+
+        @Override
+        protected String globalModuleName() {
+            return globalModuleName == null || globalModuleName.isEmpty() ? null : globalModuleName;
         }
 
         @Override

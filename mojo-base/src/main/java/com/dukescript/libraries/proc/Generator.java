@@ -51,6 +51,14 @@ abstract class Generator<L> {
     protected abstract void note(String message, L e);
     protected abstract void error(String message, L e);
     protected abstract void registerPackages(String... packages) throws IOException;
+    /**
+     * Name of global module. If non-null, the generated code will use
+     * <code>Modules.find</code> to access global symbols in <code>Exports</code>.
+     * @return by default returns <code>null</code>
+     */
+    protected String globalModuleName() {
+        return null;
+    }
 
     final Type findType(Type t) {
         if (t == null) {
@@ -94,7 +102,7 @@ abstract class Generator<L> {
             }
         });
         packages.add(packageName);
-        processModule(null, root, libraryImports, libraryScripts, packageName, location);
+        processModule(globalModuleName(), root, libraryImports, libraryScripts, packageName, location);
         root.visitModules(new Visitor<Identifier, AST, Void, Void, Void, Void>() {
             @Override
             public void visit(Identifier a, AST body, Void c, Void d, Void e, Void f) throws IOException {
