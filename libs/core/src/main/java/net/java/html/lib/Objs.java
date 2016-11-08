@@ -428,12 +428,13 @@ public class Objs extends java.lang.Object {
 
         private static void initializeClass(Class<?> c) {
             try {
-                // most simple way to run class initializations
-                c.newInstance();
+                // classical way to initialze a class
+                Class.forName(c.getName(), true, c.getClassLoader());
             } catch (Throwable ex) {
                 try {
-                    Class.forName(c.getName(), true, c.getClassLoader());
-                } catch (ClassNotFoundException ex1) {
+                    // most forceful way
+                    c.newInstance();
+                } catch (Exception ex1) {
                     // We can't do more
                 }
             }
