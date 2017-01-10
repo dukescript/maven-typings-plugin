@@ -7,8 +7,7 @@ before_script:
   - sleep 3
 script:
   - java -version
-  - mvn install -DskipTests
-  - mvn test
+  - mvn install -DskipTests -X
 os:
   - linux
   - osx
