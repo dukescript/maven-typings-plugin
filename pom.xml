@@ -91,9 +91,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mojo.java.html.version>1.2.3</mojo.java.html.version>
-        <net.java.html.version>1.3</net.java.html.version>
+        <net.java.html.version>1.5.1</net.java.html.version>
         <netbeans.compile.on.save>none</netbeans.compile.on.save>
-        <bck2brwsr.version>0.19</bck2brwsr.version>
+        <bck2brwsr.version>0.23</bck2brwsr.version>
     </properties>
     <modules>
         <module>mojo-base</module>
@@ -108,8 +108,18 @@
             <dependency>
                 <groupId>com.dukescript.api</groupId>
                 <artifactId>junit-browser-runner</artifactId>
-                <version>0.8</version>
+                <version>1.0</version>
                 <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>net.java.html</artifactId>
+                        <groupId>org.netbeans.html</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>net.java.html.boot</artifactId>
+                        <groupId>org.netbeans.html</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>

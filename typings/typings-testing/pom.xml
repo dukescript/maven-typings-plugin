@@ -36,9 +36,6 @@ THE SOFTWARE.
     <name>Testing Environment for Typings</name>
     <artifactId>typings-testing</artifactId>
     <packaging>jar</packaging>
-    <properties>
-        <net.java.html.version>1.3</net.java.html.version>
-    </properties>
     <build>
         <plugins>
             <plugin>
