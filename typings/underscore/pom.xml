@@ -55,7 +55,7 @@
                     <typings>underscore.d.ts</typings>
                     <package>net.java.html.lib.underscore</package>
                     <scripts>
-                        <script>http://underscorejs.org/underscore-min.js</script>
+                        <script>https://underscorejs.org/underscore-min.js</script>
                     </scripts>
                 </configuration>
             </plugin>
