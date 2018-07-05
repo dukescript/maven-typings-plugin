@@ -84,5 +84,17 @@ THE SOFTWARE.
             <artifactId>launcher.http</artifactId>
             <version>${bck2brwsr.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apidesign.bck2brwsr</groupId>
+            <artifactId>emul</artifactId>
+            <classifier>rt</classifier>
+            <version>${bck2brwsr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apidesign.bck2brwsr</groupId>
+            <artifactId>emul</artifactId>
+            <classifier>bck2brwsr</classifier>
+            <version>${bck2brwsr.version}</version>
+        </dependency>
     </dependencies>
 </project>

@@ -119,6 +119,10 @@
                         <artifactId>net.java.html.boot</artifactId>
                         <groupId>org.netbeans.html</groupId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.apidesign.bck2brwsr</groupId>
+                        <artifactId>emul</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
         </dependencies>
