@@ -43,7 +43,7 @@ public class ASTTest {
             + "    \"typeName\": null,\n"
             + "    \"type\": [\n"
             + "        {\n"
-            + "            \"kind\": \"FirstTypeNode\",\n"
+            + "            \"kind\": \"TypeReference\",\n"
             + "            \"typeName\": {\n"
             + "                \"text\": \"Array\"\n"
             + "            },\n"
@@ -53,7 +53,7 @@ public class ASTTest {
             + "            ],\n"
             + "            \"typeArguments\": [\n"
             + "                {\n"
-            + "                    \"kind\": \"FirstTypeNode\",\n"
+            + "                    \"kind\": \"TypeReference\",\n"
             + "                    \"typeName\": {\n"
             + "                        \"text\": \"T\"\n"
             + "                    },\n"
@@ -95,7 +95,7 @@ public class ASTTest {
             + "                \"text\": \"arr\"\n"
             + "            },\n"
             + "            \"type\": {\n"
-            + "                \"kind\": \"FirstTypeNode\",\n"
+            + "                \"kind\": \"TypeReference\",\n"
             + "                \"typeName\": {\n"
             + "                    \"text\": \"Array\"\n"
             + "                },\n"
@@ -105,7 +105,7 @@ public class ASTTest {
             + "                ],\n"
             + "                \"typeArguments\": [\n"
             + "                    {\n"
-            + "                        \"kind\": \"FirstTypeNode\",\n"
+            + "                        \"kind\": \"TypeReference\",\n"
             + "                        \"typeName\": {\n"
             + "                            \"text\": \"T\"\n"
             + "                        },\n"
@@ -163,7 +163,7 @@ public class ASTTest {
 "            ],\n" +
 "            \"types\": [\n" +
 "                {\n" +
-"                    \"kind\": \"FirstTypeNode\",\n" +
+"                    \"kind\": \"TypeReference\",\n" +
 "                    \"typeName\": {\n" +
 "                        \"text\": \"IPromise\"\n" +
 "                    },\n" +
@@ -173,7 +173,7 @@ public class ASTTest {
 "                    ],\n" +
 "                    \"typeArguments\": [\n" +
 "                        {\n" +
-"                            \"kind\": \"FirstTypeNode\",\n" +
+"                            \"kind\": \"TypeReference\",\n" +
 "                            \"typeName\": {\n" +
 "                                \"text\": \"T\"\n" +
 "                            },\n" +
@@ -199,7 +199,7 @@ public class ASTTest {
 "                    ]\n" +
 "                },\n" +
 "                {\n" +
-"                    \"kind\": \"FirstTypeNode\",\n" +
+"                    \"kind\": \"TypeReference\",\n" +
 "                    \"typeName\": {\n" +
 "                        \"text\": \"T\"\n" +
 "                    },\n" +
@@ -237,7 +237,7 @@ public class ASTTest {
 "                \"text\": \"response\"\n" +
 "            },\n" +
 "            \"type\": {\n" +
-"                \"kind\": \"FirstTypeNode\",\n" +
+"                \"kind\": \"TypeReference\",\n" +
 "                \"typeName\": {\n" +
 "                    \"text\": \"IHttpPromiseCallbackArg\"\n" +
 "                },\n" +
@@ -247,7 +247,7 @@ public class ASTTest {
 "                ],\n" +
 "                \"typeArguments\": [\n" +
 "                    {\n" +
-"                        \"kind\": \"FirstTypeNode\",\n" +
+"                        \"kind\": \"TypeReference\",\n" +
 "                        \"typeName\": {\n" +
 "                            \"text\": \"T\"\n" +
 "                        },\n" +

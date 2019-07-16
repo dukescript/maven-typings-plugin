@@ -151,13 +151,17 @@ enum SyntaxKind {
     IsKeyword,
     ModuleKeyword,
     NamespaceKeyword,
+    NeverKeyword,
+    ReadOnlyKeyword,
     RequireKeyword,
     NumberKeyword,
     SetKeyword,
     StringKeyword,
     SymbolKeyword,
     TypeKeyword,
+    UndefinedKeyword,
     FromKeyword,
+    GlobalKeyword,
     OfKeyword,
     QualifiedName,
     ComputedPropertyName,
@@ -185,6 +189,8 @@ enum SyntaxKind {
     UnionType,
     IntersectionType,
     ParenthesizedType,
+    ThisType,
+    LiteralType,
     ObjectBindingPattern,
     ArrayBindingPattern,
     BindingElement,
@@ -214,6 +220,7 @@ enum SyntaxKind {
     OmittedExpression,
     ExpressionWithTypeArguments,
     AsExpression,
+    NonNullExpression,
     TemplateSpan,
     SemicolonClassElement,
     Block,
@@ -245,6 +252,7 @@ enum SyntaxKind {
     ModuleDeclaration,
     ModuleBlock,
     CaseBlock,
+    NamespaceExportDeclaration,
     ImportEqualsDeclaration,
     ImportDeclaration,
     ImportClause,
@@ -295,6 +303,13 @@ enum SyntaxKind {
     JSDocReturnTag,
     JSDocTypeTag,
     JSDocTemplateTag,
+    JSDocTypedefTag,
+    JSDocPropertyTag,
+    JSDocTypeLiteral,
+    JSDocLiteralType,
+    JSDocNullKeyword,
+    JSDocUndefinedKeyword,
+    JSDocNeverKeyword,
     SyntaxList,
     Count,
     FirstAssignment,
@@ -319,9 +334,13 @@ enum SyntaxKind {
     LastTemplateToken,
     FirstBinaryOperator,
     LastBinaryOperator,
-    FirstNode,;
+    FirstNode,
+    FirstJSDocNode,
+    LastJSDocNode,
+    FirstJSDocTagNode,
+    LastJSDocTagNode;
 
     boolean isTypeNode() {
-        return this == FirstTypeNode || this == LastTypeNode;
+        return this == TypeReference || this == ParenthesizedType;
     }
 }

@@ -117,8 +117,8 @@ class ASTCntrl {
                 case AnyKeyword:
                 case StringKeyword:
                 case VoidKeyword:
-                case FirstTypeNode:
-                case LastTypeNode:
+                case TypeReference:
+                case ParenthesizedType:
                 case ArrayType:
                 case FunctionType:
                 case UnionType:
@@ -146,7 +146,7 @@ class ASTCntrl {
                 }
                 List<Type> replace = new ArrayList<>();
                 for (Type t : typeArgs) {
-                    replace.add(new Type(SyntaxKind.FirstTypeNode, null, new Identifier(null, "?")));
+                    replace.add(new Type(SyntaxKind.TypeReference, null, new Identifier(null, "?")));
                 }
                 substitute(model, typeArgs, replace);
             }
@@ -210,12 +210,13 @@ class ASTCntrl {
                 case AnyKeyword:
                 case StringKeyword:
                 case VoidKeyword:
-                case FirstTypeNode:
-                case LastTypeNode:
+                case TypeReference:
+                case ParenthesizedType:
                 case ArrayType:
                 case FunctionType:
                 case UnionType:
                 case TupleType:
+                case LiteralType:
                 case TypePredicate:
                 case BooleanKeyword:
                     add.append("(").append(model.getBoxedJavaType()).append(")").append(expr);
@@ -281,13 +282,14 @@ class ASTCntrl {
                     return "java.lang.Object";
                 case StringLiteral:
                 case SymbolKeyword:
-                case StringKeyword: return "java.lang.String";
+                case StringKeyword:
+                case LiteralType: return "java.lang.String";
                 case NumberKeyword: return boxed ? "java.lang.Number" : "double";
                 case TypePredicate: return "java.lang.Boolean/*TypePredicate*/";
                 case BooleanKeyword: return "java.lang.Boolean";
                 case VoidKeyword: return boxed ? "java.lang.Void" : "void";
-                case FirstTypeNode:
-                case LastTypeNode: {
+                case TypeReference:
+                case ParenthesizedType: {
                     String typeStr = typeName == null ? null : typeName.getSimpleName();
                     if (typeStr == null) {
                         return "net.java.html.lib.Objs";
@@ -364,11 +366,12 @@ class ASTCntrl {
                 case NumberKeyword: return false;
                 case BooleanKeyword: return false;
                 case VoidKeyword: return false;
-                case FirstTypeNode: return false;
-                case LastTypeNode: return false;
+                case TypeReference: return false;
+                case ParenthesizedType: return false;
                 case TypeQuery: return false;
                 case ArrayType: return elementType.get(0).isAnyUsed();
                 case FunctionType: return false;
+                case LiteralType: return false;
                 case PropertySignature:
                 case IndexSignature: return false;
                 case UnionType: return true;
@@ -389,6 +392,7 @@ class ASTCntrl {
         static String typingsType(SyntaxKind kind, Identifier typeName, List<Type> elementType) {
             switch (kind) {
                 case StringKeyword:
+                case LiteralType:
                     return "java.lang.String";
                 case NumberKeyword:
                     return "double";
@@ -398,8 +402,8 @@ class ASTCntrl {
                 case VoidKeyword:
                     return "void";
                 case AnyKeyword:
-                case FirstTypeNode:
-                case LastTypeNode:
+                case TypeReference:
+                case ParenthesizedType:
                 case ArrayType:
                 case TypeLiteral:
                 case FunctionType:
@@ -487,6 +491,7 @@ class ASTCntrl {
         static String objs(Identifier name, Type type) {
             switch (type.getKind()) {
                 case StringKeyword:
+                case LiteralType:
                 case VoidKeyword:
                 case NumberKeyword:
                 case BooleanKeyword:
@@ -497,7 +502,7 @@ class ASTCntrl {
                     return "/* " + type.getKind() + "*/"
                         + "$js(" + name.getSimpleName() + ")";
                 case AnyKeyword:
-                case FirstTypeNode:
+                case TypeReference:
                 case UnionType:
                 case TypeLiteral: {
                 final String javaType = type.getJavaType();

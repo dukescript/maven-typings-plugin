@@ -79,7 +79,7 @@ function dumpObject(n, space, source) {
             continue;
         }
         if (p === 'kind' || p === 'token') {
-            v = ts.SyntaxKind[v];
+            v = transform(ts.SyntaxKind[v]);
         }
         log(space + '[' + p + '] = ' + v);
         if (typeof v === 'object') {
@@ -90,6 +90,67 @@ function dumpObject(n, space, source) {
     }
     log(space + 'functions: ' + fns.substring(0, 40));
     return copy;
+}
+
+// hack: restore original SyntaxKinds hidden by Markers in bidirectional SyntaxKind map in 'typescript.js'
+function transform(k) {
+    switch (k) {
+        case 'FirstAssignment':
+            return 'EqualsToken';
+        case 'LastAssignment':
+            return 'CaretEqualsToken';
+        case 'FirstReservedWord':
+            return 'BreakKeyword';
+        case 'LastReservedWord':
+            return 'WithKeyword';
+        case 'FirstKeyword':
+            return 'BreakKeyword';
+        case 'LastKeyword':
+            return 'OfKeyword';
+        case 'FirstFutureReservedWord':
+            return 'ImplementsKeyword';
+        case 'LastFutureReservedWord':
+            return 'YieldKeyword';
+        case 'FirstTypeNode':
+            return 'TypePredicate';
+        case 'LastTypeNode':
+            return 'LiteralType';
+        case 'FirstPunctuation':
+            return 'OpenBraceToken';
+        case 'LastPunctuation':
+            return 'CaretEqualsToken';
+        case 'FirstToken':
+            return 'Unknown';
+        case 'LastToken':
+            return 'OfKeyword';
+        case 'FirstTriviaToken':
+            return 'SingleLineCommentTrivia';
+        case 'LastTriviaToken':
+            return 'ConflictMarkerTrivia';
+        case 'FirstLiteralToken':
+            return 'NumericLiteral';
+        case 'LastLiteralToken':
+            return 'NoSubstitutionTemplateLiteral';
+        case 'FirstTemplateToken':
+            return 'NoSubstitutionTemplateLiteral';
+        case 'LastTemplateToken':
+            return 'TemplateTail';
+        case 'FirstBinaryOperator':
+            return 'LessThanToken';
+        case 'LastBinaryOperator':
+            return 'CaretEqualsToken';
+        case 'FirstNode':
+            return 'QualifiedName';
+        case 'FirstJSDocNode':
+            return 'JSDocTypeExpression';
+        case 'LastJSDocNode':
+            return 'JSDocLiteralType';
+        case 'FirstJSDocTagNode':
+            return 'JSDocComment';
+        case 'LastJSDocTagNode':
+            return 'JSDocNeverKeyword';
+    }
+    return k;
 }
 
 function parseTypeScript(filename, source, wantText) {

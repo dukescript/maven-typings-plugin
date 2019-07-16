@@ -64,7 +64,7 @@ abstract class Generator<L> {
         if (t == null) {
             return null;
         }
-        if (typeAliases != null && t.getKind() == SyntaxKind.FirstTypeNode) {
+        if (typeAliases != null && t.getKind() == SyntaxKind.TypeReference) {
             Type alt = typeAliases.get(t.getTypeName());
             return alt == null ? t : alt;
         }
@@ -258,12 +258,12 @@ abstract class Generator<L> {
                         continue;
                     }
                     if (m.getKind() == SyntaxKind.IndexSignature) {
-                        Identifier getter = new Identifier(SyntaxKind.FirstTypeNode, "$get");
+                        Identifier getter = new Identifier(SyntaxKind.TypeReference, "$get");
                         fn.visit(getter, m.getType(), m.getParameters(), m.getTypeParameters(), m.getComment(), null);
                         continue;
                     }
                     if (m.getKind() == SyntaxKind.CallSignature) {
-                        Identifier getter = new Identifier(SyntaxKind.FirstTypeNode, "$apply");
+                        Identifier getter = new Identifier(SyntaxKind.TypeReference, "$apply");
                         fn.visit(getter, m.getType(), m.getParameters(), m.getTypeParameters(), null, null);
                     }
                     if (
@@ -298,7 +298,7 @@ abstract class Generator<L> {
                             continue;
                         }
                         if (m.getKind() == SyntaxKind.CallSignature) {
-                            Identifier create = new Identifier(SyntaxKind.FirstTypeNode, "new" + name);
+                            Identifier create = new Identifier(SyntaxKind.TypeReference, "new" + name);
                             factory.visit(create, m.getType(), m.getParameters(), m.getTypeParameters(), m.getComment(), null);
                             continue;
                         }
