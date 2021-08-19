@@ -705,6 +705,8 @@ abstract class Generator<L> {
                 }
                 typeParameters(w, merge(null, typeParameters, typeParameterNames));
                 String javaReturn;
+                String javaReturnPrefix = null;
+                String javaReturnPostfix = "";
                 String methodName = name.getSimpleName();
                 if (methodName == null) methodName = "nullName";
                 if (methodName.equals("valueOf")) {
@@ -716,6 +718,8 @@ abstract class Generator<L> {
                     }
                     if (javaReturn.equals("java.lang.Number")) {
                         javaReturn = "double";
+                        javaReturnPrefix = "((java.lang.Number)";
+                        javaReturnPostfix = ").doubleValue()";
                     }
                 }
                 w.append(javaReturn);
@@ -747,10 +751,16 @@ abstract class Generator<L> {
                         javaType.equals("java.lang.Object") ||
                         isTypeParameter(allTypeParams, returnType)
                     ) {
-                        w.append("    return (").append(javaType).append(')');
+                        if (javaReturnPrefix == null) {
+                            javaReturnPrefix = "(" + javaType + ")";
+                        }
+                        w.append("    return ").append(javaReturnPrefix);
                         wrap = false;
                     } else {
-                        w.append("    return (").append(javaReturn).append(")");
+                        if (javaReturnPrefix == null) {
+                            javaReturnPrefix = "(" + javaReturn + ")";
+                        }
+                        w.append("    return ").append(javaReturnPrefix);
                         if (returnType.getKind() == SyntaxKind.FunctionType) {
                             w.append("net.java.html.lib.Function.$as(");
                         } else if (!javaType.startsWith("java.lang.")) {
@@ -774,6 +784,9 @@ abstract class Generator<L> {
                         wrap = true;
                     } else {
                         w.append("    return ");
+                        if (javaReturnPrefix != null) {
+                            w.append(javaReturnPrefix);
+                        }
                     }
                 }
                 w.append("$Typings$.").append(implName);
@@ -795,7 +808,7 @@ abstract class Generator<L> {
                 if (wrap) {
                     w.append(')');
                 }
-                w.append(");\n");
+                w.append(")").append(javaReturnPostfix).append(";\n");
                 w.append("  }\n");
             }
             return firstOptional[0];
