@@ -30,6 +30,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 import net.java.html.BrwsrCtx;
 import net.java.html.boot.script.Scripts;
 import net.java.html.js.JavaScriptBody;
@@ -41,7 +43,11 @@ import org.netbeans.html.boot.spi.Fn;
 final class Parser {
     private final Fn.Presenter js;
     Parser() throws IOException {
-        js = Scripts.createPresenter();
+        ScriptEngine eng = findEngine(new ScriptEngineManager());
+        if (eng == null) {
+            eng = findEngine(new ScriptEngineManager(ClassLoader.getSystemClassLoader()));
+        }
+        js = Scripts.newPresenter().engine(eng).build();
         try (Closeable c = Fn.activate(js)) {
             TypeScript.initialize();
             initialize();
@@ -93,4 +99,12 @@ final class Parser {
         "return parseTypeScript(filename, source, wantText);"
     )
     private static native Object[] parseTypeScript(String filename, String source, boolean wantText);
+
+    private static ScriptEngine findEngine(ScriptEngineManager manager) {
+        ScriptEngine e = manager.getEngineByMimeType("text/javascript");
+        if (e == null) {
+            e = manager.getEngineByName("javascript");
+        }
+        return e;
+    }
 }
