@@ -405,19 +405,23 @@ public class Function extends Objs {
                     final String cannotBe = "cannot be cast to";
                     int at = msg == null ? -1 : msg.indexOf(cannotBe);
                     if (at >= 0) {
-                        String oldName = msg.substring(0, at).trim();
-                        String newName = msg.substring(at + cannotBe.length()).trim();
-                        if (oldName != null) {
-                            for (int i = 0; i < arity; i++) {
+                        String[] oldNames = msg.substring(0, at).trim().split(" ");
+                        String[] newNames = msg.substring(at + cannotBe.length()).trim().split(" ");
+                        for (int i = 0; i < arity; i++) {
+                            for (String oldName : oldNames) {
                                 if (params[i] != null && params[i].getClass().getName().equals(oldName)) {
-                                    Object alternative = Objs.$as(newName, params[i]);
-                                    if (alternative != params[i]) {
-                                        params[i] = alternative;
-                                        if (wrapper != null) {
-                                            assert alternative.getClass().getName().equals(newName);
-                                            wrapper.types[i] = alternative.getClass();
+                                    for (String newName : newNames) {
+                                        Object alternative = Objs.$as(newName, params[i]);
+                                        if (alternative == null || !alternative.getClass().getName().equals(newName)) {
+                                            continue;
                                         }
-                                        continue AGAIN;
+                                        if (alternative != params[i]) {
+                                            params[i] = alternative;
+                                            if (wrapper != null) {
+                                                wrapper.types[i] = alternative.getClass();
+                                            }
+                                            continue AGAIN;
+                                        }
                                     }
                                 }
                             }
