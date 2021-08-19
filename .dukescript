@@ -1,0 +1,40 @@
+#!groovy
+
+node ('Mac') {
+    stage('Build') {
+        checkout scm
+
+        jdk = tool name: 'JDK8u221'
+        env.JAVA_HOME = "${jdk}"
+
+        if (env.GPG_DIR) {
+            env.PATH="${env.PATH}:${env.GPG_DIR}"
+        }
+
+        pom = readFile 'pom.xml'
+        if (pom.contains('-SNAPSHOT</version>')) {
+            mvnargs=''
+        } else {
+            mvnargs='-DskipTests'
+        }
+        withMaven(
+            maven : 'M3',
+            mavenSettingsConfig : '1745afa9-9479-4838-b15d-14029f4cfc8d'
+        ) {
+            withCredentials([file(credentialsId: 'PRIVATE_KEY', variable: 'KEY')]) {
+                sh "gpg --batch --import ${env.KEY}"
+                sh "gpgconf --kill gpg-agent"
+                sh "gpg-agent --daemon --allow-preset-passphrase --batch"
+                if (env.GPG_PASSPHRASE) {
+                    withCredentials([usernamePassword(credentialsId: 'd0aa9e41-82e0-4562-bb67-b42364e8aa35',
+                        passwordVariable: 'GPG_PASSWD', usernameVariable: 'GPG_ID')
+                    ]) {
+                        sh "${env.GPG_PASSPHRASE} --preset --passphrase ${GPG_PASSWD} ${GPG_ID}"
+                    }
+                }
+                sh "mvn ${mvnargs} clean install -Prelease -Dgpg.useagent=true"
+                sh "mvn -DskipTests deploy -Prelease -Dgpg.useagent=true"
+            }
+        }
+    }
+}
