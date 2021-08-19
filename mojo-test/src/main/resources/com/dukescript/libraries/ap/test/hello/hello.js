@@ -45,7 +45,7 @@ StringStack.prototype.pop = function() {
 StringStack.prototype.lengths = function() {
     var arr = [];
     for (var i = 0; i < this.stack.length; i++) {
-        arr.push(this.stack[i].length());
+        arr.push(this.stack[i].length);
     }
     return arr;
 };
