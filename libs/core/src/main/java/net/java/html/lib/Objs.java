@@ -255,7 +255,12 @@ public class Objs extends java.lang.Object {
   * @param o Object that contains the own properties.
   */
   public static java.lang.String[] getOwnPropertyNames(java.lang.Object o) {
-    return CoreTypes.getOwnPropertyNames$495(/* AnyKeyword*/$js(o));
+    Object[] arr = CoreTypes.getOwnPropertyNames$495(/* AnyKeyword*/$js(o));
+    String[] res = new String[arr.length];
+    for (int i = 0; i < arr.length; i++) {
+        res[i] = arr[i].toString();
+    }
+    return res;
   }
   /**
   * Creates an object that has the specified prototype, and that optionally contains specified properties.

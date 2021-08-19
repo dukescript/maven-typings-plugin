@@ -396,14 +396,14 @@ final class CoreTypes {
     "return r;"
 
   )
-  static native <T> T[] newArray$53(java.lang.Object arrayLength);
+  static native Object newArray$53(java.lang.Object arrayLength);
 
   @net.java.html.js.JavaScriptBody(args={}, body=
     "var r = Array.newArray();\n" +
     "return r;"
 
   )
-  static native <T> T[] newArray$54();
+  static native Object newArray$54();
 
   @net.java.html.js.JavaScriptBody(args={"items"}, body=
     "var r = items;\n" +
@@ -411,7 +411,7 @@ final class CoreTypes {
     "return r;"
 
   )
-  static native <T> T[] newArray$55(java.lang.Object items);
+  static native Object newArray$55(java.lang.Object items);
 
   @net.java.html.js.JavaScriptBody(args = {}, body = "return Error.prototype;")
   static native java.lang.Object readStaticFields$131();
@@ -541,7 +541,7 @@ final class CoreTypes {
     "return r;"
 
   )
-  static native java.lang.String[] getOwnPropertyNames$495(java.lang.Object o);
+  static native java.lang.Object[] getOwnPropertyNames$495(java.lang.Object o);
 
   @net.java.html.js.JavaScriptBody(args={"o", "properties"}, body=
     "var r = Object.create(o, properties);\n" +
