@@ -96,7 +96,7 @@
         <mojo.java.html.version>1.7.2</mojo.java.html.version>
         <net.java.html.version>1.7.2</net.java.html.version>
         <netbeans.compile.on.save>none</netbeans.compile.on.save>
-        <bck2brwsr.version>1.0-SNAPSHOT</bck2brwsr.version>
+        <bck2brwsr.version>0.52</bck2brwsr.version>
     </properties>
     <modules>
         <module>mojo-base</module>
