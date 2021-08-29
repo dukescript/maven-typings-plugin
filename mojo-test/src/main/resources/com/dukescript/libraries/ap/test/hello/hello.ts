@@ -34,7 +34,7 @@ interface SingletonNumber {
 declare var singletonNumber: SingletonNumber;
 
 interface FirstValue {
-    <T>(value?: T): Get<T>;;
+    <T>(value?: T): Get<T>;
 }
 declare var firstValue: FirstValue;
 
