@@ -1,5 +1,6 @@
 package net.java.html.lib;
 
+
 /*
  * #%L
  * DukeScript Libraries Processor - a library from the DukeScript project.
@@ -27,6 +28,8 @@ package net.java.html.lib;
  * #L%
  */
 
+import java.lang.reflect.Type;
+
 public abstract class Union extends Objs {
     Union(Object obj) {
         super($AS, obj);
@@ -39,7 +42,7 @@ public abstract class Union extends Objs {
         }
 
         @Override
-        protected Union create(Object any, Class<?>... typeParameters) {
+        protected Union create(Object any, Type... typeParameters) {
             return new Impl(any,
                 at(typeParameters, 0),
                 at(typeParameters, 1),
@@ -49,8 +52,11 @@ public abstract class Union extends Objs {
             );
         }
 
-        private Class<?> at(Class<?>[] arr, int index) {
-            return arr == null || index >= arr.length ? null : arr[index];
+        private Class<?> at(Type[] arr, int index) {
+            if (arr != null && index < arr.length && arr[index] instanceof Class<?>) {
+                return (Class<?>)arr[index];
+            }
+            return Void.class;
         }
     };
 

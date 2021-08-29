@@ -1,5 +1,7 @@
 package net.java.html.lib;
 
+import java.lang.reflect.Type;
+
 /*
  * #%L
  * ES6 Core Library - a library from the DukeScript project.
@@ -400,7 +402,7 @@ public class Objs extends java.lang.Object {
        * @return  new instance of a wrapper
        * @since 0.20
        */
-      protected T create(Object any, Class<?>... typeParameters) {
+      protected T create(Object any, Type... typeParameters) {
           return create(any);
       }
 

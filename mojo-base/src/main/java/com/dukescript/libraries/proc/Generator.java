@@ -236,7 +236,7 @@ abstract class Generator<L> {
                 w.append("      return obj == null ? null : new " + name + "(this, obj);\n");
                 w.append("    }\n");
                 w.append("    @Override\n");
-                w.append("    public " + name + " create(java.lang.Object obj, Class<?>... typeParameters) {\n");
+                w.append("    public " + name + " create(java.lang.Object obj, java.lang.reflect.Type... typeParameters) {\n");
                 w.append("      return obj == null ? null : new " + name + "(this, obj);\n");
                 w.append("    }\n");
                 w.append("  };\n");
@@ -245,7 +245,7 @@ abstract class Generator<L> {
                 w.append("    return $AS.create(obj);\n");
                 w.append("  }\n");
                 if (!typeParameters.isEmpty()) {
-                    w.append("  public static " + name + " $as(java.lang.Object obj, Class<?>... typeParameters) {\n");
+                    w.append("  public static " + name + " $as(java.lang.Object obj, java.lang.reflect.Type... typeParameters) {\n");
                     w.append("    return $AS.create(obj, typeParameters);\n");
                     w.append("  }\n");
                 }
@@ -822,18 +822,22 @@ abstract class Generator<L> {
                     if (typeParameters != null) {
                         for (AST tp : typeParameters) {
                             if (containsComponent(tp.getName().getText(), typeArg)) {
-                                typeName = "java.lang.Object";
+                                typeName = null;
                                 break;
                             }
                         }
                     }
                     for (String tpn : allTypeParams) {
                         if (containsComponent(tpn, typeArg)) {
-                            typeName = "java.lang.Object";
+                            typeName = null;
                             break;
                         }
                     }
-                    w.append(", ").append(typeName).append(".class");
+                    if (typeName == null) {
+                        w.append(", null");
+                    } else {
+                        w.append(", ").append(typeName).append(".class");
+                    }
                 }
                 w.append(")").append(javaReturnPostfix).append(";\n");
                 w.append("  }\n");

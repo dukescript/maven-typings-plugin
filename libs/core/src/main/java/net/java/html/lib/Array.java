@@ -1,5 +1,6 @@
 package net.java.html.lib;
 
+import java.lang.reflect.Type;
 import java.util.Iterator;
 import net.java.html.js.JavaScriptBody;
 
@@ -59,9 +60,17 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
         }
 
         @Override
-        public Array create(java.lang.Object obj, Class<?>... typeParameters) {
-            Class<?> elementType = typeParameters != null && typeParameters.length > 0 ? typeParameters[0] : null;
-            return obj == null ? null : new Array(this, obj, elementType);
+        public Array create(java.lang.Object obj, Type... arr) {
+            if (obj == null) {
+                return null;
+            }
+            Class<?> elementType;
+            if (arr != null && arr.length > 0 && arr[0] instanceof Class<?>) {
+                elementType = (Class<?>)arr[0];
+            } else {
+                elementType = null;
+            }
+            return new Array(this, obj, elementType);
         }
     };
     private static final $Constructor $AS = new $Constructor();
@@ -84,7 +93,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
      * @return a view of the provided <code>obj</code> object
      * @sicne 0.20
      */
-    public static Array<?> $as(java.lang.Object obj, Class<?>... elementType) {
+    public static Array<?> $as(java.lang.Object obj, Type... elementType) {
         return $AS.create(obj, elementType);
     }
 

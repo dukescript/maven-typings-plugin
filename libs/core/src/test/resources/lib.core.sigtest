@@ -1,6 +1,9 @@
 #Signature file v4.1
 #Version 1.0-SNAPSHOT
 
+CLSS public abstract interface java.lang.AutoCloseable
+meth public abstract void close() throws java.lang.Exception
+
 CLSS public abstract interface java.lang.Iterable<%0 extends java.lang.Object>
 meth public abstract java.util.Iterator<{java.lang.Iterable%0}> iterator()
 
@@ -23,7 +26,7 @@ meth public java.lang.Object net_java_html_lib_Function$$call$Ljava_lang_Object_
 meth public java.lang.Object net_java_html_lib_Function$apply$Ljava_lang_Object_2_3Ljava_lang_Object_2(net.java.html.lib.Function,java.lang.Object,java.lang.Object) throws java.lang.Throwable
 meth public java.lang.Object raw$net_java_html_lib_Function$apply$Ljava_lang_Object_2_3Ljava_lang_Object_2(java.lang.Object,java.lang.Object,java.lang.Object) throws java.lang.Throwable
 supr java.lang.Object
-hfds VM,last,p
+hfds VM,next,ref
 
 CLSS public net.java.html.lib.Array<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -38,6 +41,7 @@ meth public !varargs double unshift({net.java.html.lib.Array%0}[])
 meth public !varargs net.java.html.lib.Array<{net.java.html.lib.Array%0}> concat({net.java.html.lib.Array%0}[])
 meth public !varargs net.java.html.lib.Array<{net.java.html.lib.Array%0}> splice(double,double,{net.java.html.lib.Array%0}[])
 meth public !varargs static <%0 extends java.lang.Object> net.java.html.lib.Array<{%%0}> newArray({%%0}[])
+meth public !varargs static net.java.html.lib.Array<?> $as(java.lang.Object,java.lang.reflect.Type[])
 meth public <%0 extends java.lang.Object> net.java.html.lib.Array<{%%0}> map(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>)
 meth public <%0 extends java.lang.Object> net.java.html.lib.Array<{%%0}> map(net.java.html.lib.Function$A3<? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>,java.lang.Object)
 meth public <%0 extends java.lang.Object> {%%0} reduce(net.java.html.lib.Function$A4<? super {%%0},? super {net.java.html.lib.Array%0},? super java.lang.Number,? super net.java.html.lib.Array<{net.java.html.lib.Array%0}>,? extends {%%0}>)
@@ -79,7 +83,7 @@ meth public {net.java.html.lib.Array%0} $get(double)
 meth public {net.java.html.lib.Array%0} pop()
 meth public {net.java.html.lib.Array%0} shift()
 supr net.java.html.lib.Objs
-hfds $$fn$$toArray_1,$AS
+hfds $$fn$$toArray_1,$AS,typeParameter
 hcls $Constructor
 
 CLSS public net.java.html.lib.ArrayBuffer
@@ -112,6 +116,7 @@ hcls $Constructor
 CLSS public net.java.html.lib.ArrayLike<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 fld public net.java.html.lib.Objs$Property<java.lang.Number> length
+meth public !varargs static net.java.html.lib.ArrayLike $as(java.lang.Object,java.lang.reflect.Type[])
 meth public java.lang.Number length()
 meth public static net.java.html.lib.ArrayLike $as(java.lang.Object)
 meth public {net.java.html.lib.ArrayLike%0} $get(double)
@@ -767,6 +772,21 @@ supr net.java.html.lib.Objs
 hfds $AS
 hcls $Constructor
 
+CLSS public final net.java.html.lib.Modules
+innr public abstract static Provider
+meth public static net.java.html.lib.Objs find(java.lang.String)
+supr java.lang.Object
+hfds loaders
+
+CLSS public abstract static net.java.html.lib.Modules$Provider
+ outer net.java.html.lib.Modules
+cons protected init()
+intf java.lang.AutoCloseable
+meth protected abstract net.java.html.lib.Objs find(java.lang.String)
+meth public final void close()
+supr java.lang.Object
+hfds next
+
 CLSS public net.java.html.lib.Objs
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
@@ -809,6 +829,7 @@ hfds $$fn$$deleteRaw_3,$$fn$$getRaw_1,$$fn$$setRaw_2,$AS,js
 CLSS protected abstract static net.java.html.lib.Objs$Constructor<%0 extends net.java.html.lib.Objs>
  outer net.java.html.lib.Objs
 cons protected init(java.lang.Class<{net.java.html.lib.Objs$Constructor%0}>)
+meth protected !varargs {net.java.html.lib.Objs$Constructor%0} create(java.lang.Object,java.lang.reflect.Type[])
 meth protected abstract {net.java.html.lib.Objs$Constructor%0} create(java.lang.Object)
 supr java.lang.Object
 hfds clazz,head,next
@@ -823,6 +844,7 @@ hfds constructor,js,property,type
 
 CLSS public net.java.html.lib.PromiseLike<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+meth public !varargs static net.java.html.lib.PromiseLike $as(java.lang.Object,java.lang.reflect.Type[])
 meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then()
 meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.PromiseLike%0},? extends net.java.html.lib.Union$A2<{%%0},net.java.html.lib.PromiseLike<{%%0}>>>)
 meth public <%0 extends java.lang.Object> net.java.html.lib.PromiseLike<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.PromiseLike%0},? extends net.java.html.lib.Union$A2<{%%0},net.java.html.lib.PromiseLike<{%%0}>>>,net.java.html.lib.Function$A1<? super java.lang.Object,? extends java.lang.Void>)
@@ -977,6 +999,7 @@ fld public net.java.html.lib.Objs$Property<java.lang.Boolean> writable
 fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A0<? extends {net.java.html.lib.TypedPropertyDescriptor%0}>> get
 fld public net.java.html.lib.Objs$Property<net.java.html.lib.Function$A1<? super {net.java.html.lib.TypedPropertyDescriptor%0},? extends java.lang.Void>> set
 fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> value
+meth public !varargs static net.java.html.lib.TypedPropertyDescriptor $as(java.lang.Object,java.lang.reflect.Type[])
 meth public java.lang.Boolean configurable()
 meth public java.lang.Boolean enumerable()
 meth public java.lang.Boolean writable()
