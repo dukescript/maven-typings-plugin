@@ -47,4 +47,43 @@ public class ArrTest {
         assertEquals(1, corners.$get(3).x().doubleValue(), 0.1);
         assertEquals(1, corners.$get(3).y().doubleValue(), 0.1);
     }
+
+    @Test
+    public void unitSquareNavigable() {
+        Navigable<Number, Point> corners = Exports.squareNav(0, 0, 1);
+        assertNavigableUnitSquare(corners);
+    }
+
+    private static void assertNavigableUnitSquare(Navigable<Number, Point> corners) {
+        assertEquals(0, corners.nav(0).x().doubleValue(), 0.1);
+        assertEquals(0, corners.nav(0).y().doubleValue(), 0.1);
+
+        assertEquals(1, corners.nav(1).x().doubleValue(), 0.1);
+        assertEquals(0, corners.nav(1).y().doubleValue(), 0.1);
+
+        assertEquals(0, corners.nav(2).x().doubleValue(), 0.1);
+        assertEquals(1, corners.nav(2).y().doubleValue(), 0.1);
+
+        assertEquals(1, corners.nav(3).x().doubleValue(), 0.1);
+        assertEquals(1, corners.nav(3).y().doubleValue(), 0.1);
+    }
+
+    @Test
+    public void unitSquareList() {
+        List<Point> corners = Exports.squareList(0, 0, 1);
+
+        assertEquals(0, corners.$get(0).x().doubleValue(), 0.1);
+        assertEquals(0, corners.$get(0).y().doubleValue(), 0.1);
+
+        assertEquals(1, corners.$get(1).x().doubleValue(), 0.1);
+        assertEquals(0, corners.$get(1).y().doubleValue(), 0.1);
+
+        assertEquals(0, corners.$get(2).x().doubleValue(), 0.1);
+        assertEquals(1, corners.$get(2).y().doubleValue(), 0.1);
+
+        assertEquals(1, corners.$get(3).x().doubleValue(), 0.1);
+        assertEquals(1, corners.$get(3).y().doubleValue(), 0.1);
+
+        assertNavigableUnitSquare(corners);
+    }
 }

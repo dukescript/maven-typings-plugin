@@ -1,4 +1,7 @@
 package net.java.html.lib;
+
+import java.lang.reflect.Type;
+
 /*
  * #%L
  * ES6 Core Library - a library from the DukeScript project.
@@ -26,9 +29,17 @@ package net.java.html.lib;
  * #L%
  */
 public class Error extends net.java.html.lib.Objs {
-  protected Error(Constructor<?> constructor, java.lang.Object js) {
-    super(constructor, js);
-  }
+    protected Error(Constructor<?> constructor, java.lang.Object js) {
+        this(constructor, js, (Type[])null);
+    }
+
+    /**
+     * @since 0.20
+     */
+    protected Error(Constructor<?> constructor, java.lang.Object js, Type... typeParameters) {
+        super(constructor, js, typeParameters);
+    }
+
     /**
      * Casts given object to this class.
      *

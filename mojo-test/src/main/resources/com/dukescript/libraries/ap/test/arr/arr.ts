@@ -29,3 +29,13 @@ interface Point {
 
 declare function square(lx : number, ly: number, size: number): Array<Point>;
 
+interface Navigable<K,V> {
+    nav(index: K) : V;
+}
+
+interface List<T> extends Navigable<number,T> {
+    [index: number]: T;
+}
+
+declare function squareNav(lx : number, ly: number, size: number): Navigable<number, Point>;
+declare function squareList(lx : number, ly: number, size: number): List<Point>;

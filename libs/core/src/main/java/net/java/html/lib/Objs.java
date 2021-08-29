@@ -44,6 +44,21 @@ public class Objs extends java.lang.Object {
      * @param js any raw object to be wrapped by this instance
      */
     protected Objs(Constructor<?> constructor, java.lang.Object js) {
+        this(constructor, js, (Type[]) null);
+    }
+    
+    /**
+     * Constructor for auto-generated subclasses with type parameter specification.
+     * From client code use {@link #$as(java.lang.Object)} or 
+     * {@link #$as(java.lang.Class, java.lang.Object)}.
+     *
+     * @param constructor constructor
+     * {@link Constructor#Constructor(java.lang.Class) associated with this type}
+     * @param js any raw object to be wrapped by this instance
+     * @param typeParameters {@code null} or suggested type parameters
+     * @since 0.20
+     */
+    protected Objs(Constructor<?> constructor, java.lang.Object js, Type... typeParameters) {
         assert constructor.clazz.isInstance(this);
         this.js = $js(js);
     }

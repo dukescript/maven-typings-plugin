@@ -30,3 +30,21 @@ function square(lx, ly, size) {
         { x : lx + size, y : ly + size }
     ];
 }
+
+function squareList(lx, ly, size) {
+    var value = square(lx, ly, size);
+    var ret = {
+        nav : function(at) { return value[at]; }
+    };
+    for (var i in value) {
+        ret[i] = value[i];
+    }
+    return ret;
+}
+
+function squareNav(lx, ly, size) {
+    var value = square(lx, ly, size);
+    return {
+        nav : function(at) { return value[at]; }
+    };
+}

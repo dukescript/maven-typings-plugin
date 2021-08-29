@@ -205,10 +205,10 @@ abstract class Generator<L> {
                     w.append(">");
                 }
                 final String objs = mangleName(true, "Object");
+                List<Type> typeArguments = new ArrayList<>();
                 if (heritage.isEmpty()) {
                     w.append(" extends ").append(objs);
                 } else {
-                    List<Type> typeArguments = new ArrayList<>();
                     String typeName = findBestSuperclass(name, heritage, typeArguments);
                     String superClass = mangleName(true, typeName);
                     w.append(" extends " + Resolver.findFQN(superClass));
@@ -225,8 +225,31 @@ abstract class Generator<L> {
                 }
                 w.append(" {\n");
                 w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js) {\n");
-                w.append("    super(c, js);\n");
+                w.append("    super(c, js");
+                for (int i = 0; i < typeArguments.size(); i++) {
+                    w.append(", null");
+                }
+                w.append(");\n");
+                for (AST type : typeParameters) {
+                    w.append("    this.type_").append(type.getName().getSimpleName()).append(" = java.lang.Object.class;\n");
+                }
                 w.append("  }\n");
+                if (!typeParameters.isEmpty()) {
+                    for (AST type : typeParameters) {
+                        w.append("  private final Class<?> type_").append(type.getName().getSimpleName()).append(";\n");
+                    }
+                    w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js");
+                    for (AST type : typeParameters) {
+                        w.append(", Class<?> type_").append(type.getName().getSimpleName());
+                    }
+                    w.append(") {\n");
+                    w.append("    super(c, js");
+                    w.append(");\n");
+                    for (AST type : typeParameters) {
+                        w.append("    this.type_").append(type.getName().getSimpleName()).append(" = type_").append(type.getName().getSimpleName()).append(";\n");
+                    }
+                    w.append("  }\n");
+                }
                 w.append("  private static final class $Constructor extends " + objs + ".Constructor<" + name + "> {\n");
                 w.append("    $Constructor() {\n");
                 w.append("      super(" + name + ".class);\n");
@@ -237,8 +260,17 @@ abstract class Generator<L> {
                 w.append("    }\n");
                 w.append("    @Override\n");
                 w.append("    public " + name + " create(java.lang.Object obj, java.lang.reflect.Type... typeParameters) {\n");
-                w.append("      return obj == null ? null : new " + name + "(this, obj);\n");
+                w.append("      return obj == null ? null : new " + name + "(this, obj");
+                for (int i = 0; i < typeParameters.size(); i++) {
+                    w.append(", findType(typeParameters, " + i + ")");
+                }
+                w.append(");\n");
                 w.append("    }\n");
+                if (!typeParameters.isEmpty()) {
+                    w.append("    private static Class<?> findType(java.lang.reflect.Type[] arr, int index) {\n");
+                    w.append("      return arr == null || arr.length <= index || !(arr[index] instanceof Class<?>) ? java.lang.Object.class : (Class<?>)arr[index];\n");
+                    w.append("    }\n");
+                }
                 w.append("  };\n");
                 w.append("  private static final $Constructor $AS = new $Constructor();\n");
                 w.append("  public static " + name + " $as(java.lang.Object obj) {\n");
@@ -764,7 +796,21 @@ abstract class Generator<L> {
                             javaReturnPrefix = "(" + javaType + ")";
                         }
                         w.append("    return ").append(javaReturnPrefix);
-                        wrap = false;
+                        boolean isTypeParam = false;
+                        if (this.typeParameters != null) {
+                            for (AST p : this.typeParameters) {
+                                if (javaType.equals(p.getName().getSimpleName())) {
+                                    isTypeParam = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (isTypeParam) {
+                            w.append("net.java.html.lib.Objs.$as(type_").append(javaType).append(", ");
+                            wrap = true;
+                        } else {
+                            wrap = false;
+                        }
                     } else {
                         if (javaReturnPrefix == null) {
                             javaReturnPrefix = "(" + javaReturn + ")";

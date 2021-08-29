@@ -41,12 +41,18 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
      *
      * @param constructor the constructor
      * @param js the JavaScript object to represent
-     * @param typeParameter {@code null} or element type to use
+     * @param typeParameters {@code null} or elements type to use
      * @since 0.20
      */
-    Array(Constructor<?> constructor, java.lang.Object js, Class<T> typeParameter) {
+    protected Array(Constructor<?> constructor, java.lang.Object js, Type... typeParameters) {
         super(constructor, js);
-        this.typeParameter = typeParameter;
+        Class<T> elementType;
+        if (typeParameters != null && typeParameters.length > 0 && typeParameters[0] instanceof Class<?>) {
+            elementType = (Class<T>) typeParameters[0];
+        } else {
+            elementType = null;
+        }
+        this.typeParameter = elementType;
     }
 
     private static final class $Constructor extends net.java.html.lib.Objs.Constructor<Array> {
@@ -64,13 +70,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
             if (obj == null) {
                 return null;
             }
-            Class<?> elementType;
-            if (arr != null && arr.length > 0 && arr[0] instanceof Class<?>) {
-                elementType = (Class<?>)arr[0];
-            } else {
-                elementType = null;
-            }
-            return new Array(this, obj, elementType);
+            return new Array(this, obj, arr);
         }
     };
     private static final $Constructor $AS = new $Constructor();

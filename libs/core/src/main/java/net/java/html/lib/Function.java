@@ -1,6 +1,7 @@
 package net.java.html.lib;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import net.java.html.js.JavaScriptBody;
 
 /*
@@ -33,8 +34,16 @@ import net.java.html.js.JavaScriptBody;
  */
 public class Function extends Objs {
     protected Function(Constructor<?> constructor, java.lang.Object js) {
-        super(constructor, js);
+        this(constructor, js, (Type[])null);
     }
+
+    /**
+     * @since 0.20
+     */
+    protected Function(Constructor<?> constructor, java.lang.Object js, Type... typeParameters) {
+        super(constructor, js, typeParameters);
+    }
+
     Function(Constructor<?> constructor) {
         super(constructor);
     }
