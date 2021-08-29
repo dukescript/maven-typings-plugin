@@ -86,4 +86,22 @@ public class ArrTest {
 
         assertNavigableUnitSquare(corners);
     }
+
+    @Test
+    public void singletonArray() {
+        MapSingle map = Exports.singletonArray();
+        Array<Point> corners = Exports.square(0, 0, 10);
+        final Point lastOne = corners.$get(corners.length() - 1);
+        Array<Point> lastArr = Array.$as(map.nav(lastOne), Point.class);
+
+        assertEquals(1, lastArr.length());
+        assertEquals(lastOne.x().doubleValue(), lastArr.$get(0).x().doubleValue(), 0.1);
+        assertEquals(lastOne.y().doubleValue(), lastArr.$get(0).y().doubleValue(), 0.1);
+    }
+
+    @Test
+    public void navigableArray() {
+        NavArr<Number> arr = Exports.navigableArray();
+        arr.nav(42);
+    }
 }

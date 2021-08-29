@@ -39,3 +39,13 @@ interface List<T> extends Navigable<number,T> {
 
 declare function squareNav(lx : number, ly: number, size: number): Navigable<number, Point>;
 declare function squareList(lx : number, ly: number, size: number): List<Point>;
+
+interface MapSingle extends Navigable<Point,Array<Point>> {
+}
+
+declare function singletonArray(): MapSingle;
+
+interface NavArr<T> extends Navigable<number,T[]> {
+}
+
+declare function navigableArray(): NavArr<number>;

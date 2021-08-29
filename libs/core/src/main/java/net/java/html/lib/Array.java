@@ -41,18 +41,12 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
      *
      * @param constructor the constructor
      * @param js the JavaScript object to represent
-     * @param typeParameters {@code null} or elements type to use
+     * @param elementType type of element to check for
      * @since 0.20
      */
-    protected Array(Constructor<?> constructor, java.lang.Object js, Type... typeParameters) {
+    protected Array(Constructor<?> constructor, java.lang.Object js, Class<?> elementType) {
         super(constructor, js);
-        Class<T> elementType;
-        if (typeParameters != null && typeParameters.length > 0 && typeParameters[0] instanceof Class<?>) {
-            elementType = (Class<T>) typeParameters[0];
-        } else {
-            elementType = null;
-        }
-        this.typeParameter = elementType;
+        this.typeParameter = (Class<T>) elementType;
     }
 
     private static final class $Constructor extends net.java.html.lib.Objs.Constructor<Array> {
@@ -70,7 +64,13 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
             if (obj == null) {
                 return null;
             }
-            return new Array(this, obj, arr);
+            Class<?> elementType;
+            if (arr != null && arr.length > 0 && arr[0] instanceof Class<?>) {
+                elementType = (Class<?>) arr[0];
+            } else {
+                elementType = Object.class;
+            }
+            return new Array(this, obj, elementType);
         }
     };
     private static final $Constructor $AS = new $Constructor();
@@ -89,12 +89,12 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
      * Casts given object to this class.
      *
      * @param obj any object
-     * @param elementType optional specification of the element type
+     * @param typeParameters optional specification of the array element type
      * @return a view of the provided <code>obj</code> object
      * @sicne 0.20
      */
-    public static Array<?> $as(java.lang.Object obj, Type... elementType) {
-        return $AS.create(obj, elementType);
+    public static Array $as(java.lang.Object obj, Type... typeParameters) {
+        return $AS.create(obj, typeParameters);
     }
 
   /**

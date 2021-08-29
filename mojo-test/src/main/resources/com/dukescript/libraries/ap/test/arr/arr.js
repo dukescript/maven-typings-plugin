@@ -48,3 +48,15 @@ function squareNav(lx, ly, size) {
         nav : function(at) { return value[at]; }
     };
 }
+
+function singletonArray() {
+    return {
+        nav: function(p) { return [p]; }
+    };
+}
+
+function navigableArray() {
+    return {
+        nav: function(n) { return [n]; }
+    };
+}

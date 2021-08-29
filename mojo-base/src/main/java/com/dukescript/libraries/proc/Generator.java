@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -113,6 +114,31 @@ abstract class Generator<L> {
         });
         registerPackages(packages.toArray(new String[0]));
     }
+
+    static boolean containsComponent(Collection<String> typeVars, Type type) {
+        if (type == null) {
+            return false;
+        }
+        if (typeVars.contains(type.getRawJavaType())) {
+            return true;
+        }
+        for (Type e : type.getElementType()) {
+            if (containsComponent(typeVars, e)) {
+                return true;
+            }
+        }
+        for (Type e : type.getElementTypes()) {
+            if (containsComponent(typeVars, e)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static boolean containsComponent(String typeVar, Type type) {
+        return containsComponent(Collections.singleton(typeVar), type);
+    }
+
     private void processModule(
         String moduleName,
         AST root,
@@ -224,10 +250,21 @@ abstract class Generator<L> {
 
                 }
                 w.append(" {\n");
+                Set<String> knownTypeVariales = new TreeSet<>();
+                for (AST type : typeParameters) {
+                    final String typeVar = type.getName().getSimpleName();
+                    w.append("  private final Class<?> type_").append(typeVar).append(";\n");
+                    knownTypeVariales.add(typeVar);
+                }
                 w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js) {\n");
                 w.append("    super(c, js");
-                for (int i = 0; i < typeArguments.size(); i++) {
-                    w.append(", null");
+                for (Type arg : typeArguments) {
+                    final String argRawType = arg.getBoxedJavaTypeRaw();
+                    if (containsComponent(knownTypeVariales, arg)) {
+                        w.append(", java.lang.Object.class");
+                    } else {
+                        w.append(", ").append(argRawType).append(".class");
+                    }
                 }
                 w.append(");\n");
                 for (AST type : typeParameters) {
@@ -235,15 +272,24 @@ abstract class Generator<L> {
                 }
                 w.append("  }\n");
                 if (!typeParameters.isEmpty()) {
-                    for (AST type : typeParameters) {
-                        w.append("  private final Class<?> type_").append(type.getName().getSimpleName()).append(";\n");
-                    }
                     w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js");
                     for (AST type : typeParameters) {
                         w.append(", Class<?> type_").append(type.getName().getSimpleName());
                     }
                     w.append(") {\n");
                     w.append("    super(c, js");
+                    for (Type superArg : typeArguments) {
+                        String superName = superArg.getBoxedJavaTypeRaw();
+                        if (knownTypeVariales.contains(superName)) {
+                            w.append(", type_").append(superName);
+                        } else {
+                            if (containsComponent(knownTypeVariales, superArg)) {
+                                w.append(", java.lang.Object.class");
+                            } else {
+                                w.append(", ").append(superName).append(".class");
+                            }
+                        }
+                    }
                     w.append(");\n");
                     for (AST type : typeParameters) {
                         w.append("    this.type_").append(type.getName().getSimpleName()).append(" = type_").append(type.getName().getSimpleName()).append(";\n");
@@ -889,26 +935,6 @@ abstract class Generator<L> {
                 w.append("  }\n");
             }
             return firstOptional[0];
-        }
-
-        private boolean containsComponent(String typeVar, Type type) {
-            if (type == null) {
-                return false;
-            }
-            if (typeVar.equals(type.getRawJavaType())) {
-                return true;
-            }
-            for (Type e : type.getElementType()) {
-                if (containsComponent(typeVar, e)) {
-                    return true;
-                }
-            }
-            for (Type e : type.getElementTypes()) {
-                if (containsComponent(typeVar, e)) {
-                    return true;
-                }
-            }
-            return false;
         }
 
         private boolean isInObject(String methodName, List<Parameter> parameters) {
