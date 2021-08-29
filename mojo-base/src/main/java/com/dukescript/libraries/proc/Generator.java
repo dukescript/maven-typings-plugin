@@ -235,11 +235,20 @@ abstract class Generator<L> {
                 w.append("    public " + name + " create(java.lang.Object obj) {\n");
                 w.append("      return obj == null ? null : new " + name + "(this, obj);\n");
                 w.append("    }\n");
+                w.append("    @Override\n");
+                w.append("    public " + name + " create(java.lang.Object obj, Class<?>... typeParameters) {\n");
+                w.append("      return obj == null ? null : new " + name + "(this, obj);\n");
+                w.append("    }\n");
                 w.append("  };\n");
                 w.append("  private static final $Constructor $AS = new $Constructor();\n");
                 w.append("  public static " + name + " $as(java.lang.Object obj) {\n");
                 w.append("    return $AS.create(obj);\n");
                 w.append("  }\n");
+                if (!typeParameters.isEmpty()) {
+                    w.append("  public static " + name + " $as(java.lang.Object obj, Class<?>... typeParameters) {\n");
+                    w.append("    return $AS.create(obj, typeParameters);\n");
+                    w.append("  }\n");
+                }
                 boolean isStatic = constructor != null && a == constructor.getName();
                 if (isStatic) {
                     constructor = null;
@@ -808,10 +817,48 @@ abstract class Generator<L> {
                 if (wrap) {
                     w.append(')');
                 }
+                for (Type typeArg : returnType.getTypeArguments()) {
+                    String typeName = typeArg.getRawJavaType();
+                    if (typeParameters != null) {
+                        for (AST tp : typeParameters) {
+                            if (containsComponent(tp.getName().getText(), typeArg)) {
+                                typeName = "java.lang.Object";
+                                break;
+                            }
+                        }
+                    }
+                    for (String tpn : allTypeParams) {
+                        if (containsComponent(tpn, typeArg)) {
+                            typeName = "java.lang.Object";
+                            break;
+                        }
+                    }
+                    w.append(", ").append(typeName).append(".class");
+                }
                 w.append(")").append(javaReturnPostfix).append(";\n");
                 w.append("  }\n");
             }
             return firstOptional[0];
+        }
+
+        private boolean containsComponent(String typeVar, Type type) {
+            if (type == null) {
+                return false;
+            }
+            if (typeVar.equals(type.getRawJavaType())) {
+                return true;
+            }
+            for (Type e : type.getElementType()) {
+                if (containsComponent(typeVar, e)) {
+                    return true;
+                }
+            }
+            for (Type e : type.getElementTypes()) {
+                if (containsComponent(typeVar, e)) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private boolean isInObject(String methodName, List<Parameter> parameters) {

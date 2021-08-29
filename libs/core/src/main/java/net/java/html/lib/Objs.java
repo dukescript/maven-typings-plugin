@@ -390,6 +390,20 @@ public class Objs extends java.lang.Object {
        */
       protected abstract T create(Object any);
 
+      /** Wraps any object into instance of associated {@link Objs} type
+       * including suggested type parameters. Classes supporting type parameters
+       * are encouraged to implement this method. The default implementation
+       * just calls {@link #create(java.lang.Object)}.
+       *
+       * @param any object to be wrapped
+       * @param typeParameters optional type parameters or {@code null}
+       * @return  new instance of a wrapper
+       * @since 0.20
+       */
+      protected T create(Object any, Class<?>... typeParameters) {
+          return create(any);
+      }
+
       static Constructor<?> find(Class<?> clazz) {
           if (Union.class.isAssignableFrom(clazz)) {
               clazz = Union.class;

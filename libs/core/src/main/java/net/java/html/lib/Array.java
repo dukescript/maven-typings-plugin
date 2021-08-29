@@ -30,9 +30,24 @@ import net.java.html.js.JavaScriptBody;
  * #L%
  */
 public class Array<T> extends Objs implements java.lang.Iterable<T> {
+    private final Class<T> typeParameter;
+
     protected Array(Constructor<?> constructor, java.lang.Object js) {
-        super(constructor, js);
+        this(constructor, js, null);
     }
+
+    /** Construct an array with possibly known element type.
+     *
+     * @param constructor the constructor
+     * @param js the JavaScript object to represent
+     * @param typeParameter {@code null} or element type to use
+     * @since 0.20
+     */
+    Array(Constructor<?> constructor, java.lang.Object js, Class<T> typeParameter) {
+        super(constructor, js);
+        this.typeParameter = typeParameter;
+    }
+
     private static final class $Constructor extends net.java.html.lib.Objs.Constructor<Array> {
         $Constructor() {
             super(Array.class);
@@ -41,6 +56,12 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
         @Override
         public Array create(java.lang.Object obj) {
             return obj == null ? null : new Array(this, obj);
+        }
+
+        @Override
+        public Array create(java.lang.Object obj, Class<?>... typeParameters) {
+            Class<?> elementType = typeParameters != null && typeParameters.length > 0 ? typeParameters[0] : null;
+            return obj == null ? null : new Array(this, obj, elementType);
         }
     };
     private static final $Constructor $AS = new $Constructor();
@@ -53,6 +74,18 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
      */
     public static Array<?> $as(java.lang.Object obj) {
         return $AS.create(obj);
+    }
+
+    /**
+     * Casts given object to this class.
+     *
+     * @param obj any object
+     * @param elementType optional specification of the element type
+     * @return a view of the provided <code>obj</code> object
+     * @sicne 0.20
+     */
+    public static Array<?> $as(java.lang.Object obj, Class<?>... elementType) {
+        return $AS.create(obj, elementType);
     }
 
   /**
@@ -74,7 +107,11 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
    * @return value at the index location
    */
   public T $get(double index) {
-    return (T)CoreTypes.$get$12($js(this), index);
+      Object ret = CoreTypes.$get$12($js(this), index);
+      if (typeParameter != null) {
+          return Objs.$as(typeParameter, ret);
+      }
+      return (T)ret;
   }
 
   /** Sets a value at index in the array.

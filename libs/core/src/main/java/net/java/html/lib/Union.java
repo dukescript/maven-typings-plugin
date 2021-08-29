@@ -37,6 +37,21 @@ public abstract class Union extends Objs {
         protected Union create(Object any) {
             return new Impl(any, Void.class, Void.class, Void.class, Void.class, Void.class);
         }
+
+        @Override
+        protected Union create(Object any, Class<?>... typeParameters) {
+            return new Impl(any,
+                at(typeParameters, 0),
+                at(typeParameters, 1),
+                at(typeParameters, 2),
+                at(typeParameters, 3),
+                at(typeParameters, 4)
+            );
+        }
+
+        private Class<?> at(Class<?>[] arr, int index) {
+            return arr == null || index >= arr.length ? null : arr[index];
+        }
     };
 
     /** Casts the value in this union to requested type.

@@ -101,6 +101,19 @@
                         </configuration>
                     </execution>
                     <execution>
+                        <id>generate-arr</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <typings>src/main/resources/com/dukescript/libraries/ap/test/arr/arr.ts</typings>
+                            <scripts>
+                                <script>arr.js</script>
+                            </scripts>
+                            <package>com.dukescript.libraries.ap.test.arr</package>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>generate-hello</id>
                         <goals>
                             <goal>generate</goal>
