@@ -93,7 +93,7 @@ public class Array<T> extends Objs implements java.lang.Iterable<T> {
      * @return a view of the provided <code>obj</code> object
      * @sicne 0.20
      */
-    public static Array<?> $as(java.lang.Object obj, Type... elementType) {
+    public static <T> Array<T> $as(java.lang.Object obj, Class<T> elementType) {
         return $AS.create(obj, elementType);
     }
 

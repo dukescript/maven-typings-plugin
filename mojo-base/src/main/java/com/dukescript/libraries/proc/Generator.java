@@ -224,10 +224,21 @@ abstract class Generator<L> {
 
                 }
                 w.append(" {\n");
+                Set<String> knownTypes = new TreeSet<>();
+                for (AST type : typeParameters) {
+                    final String typeVar = type.getName().getSimpleName();
+                    w.append("  private final Class<?> type_").append(typeVar).append(";\n");
+                    knownTypes.add(typeVar);
+                }
                 w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js) {\n");
                 w.append("    super(c, js");
-                for (int i = 0; i < typeArguments.size(); i++) {
-                    w.append(", null");
+                for (Type arg : typeArguments) {
+                    final String argRawType = arg.getBoxedJavaTypeRaw();
+                    if (knownTypes.contains(argRawType)) {
+                        w.append(", java.lang.Object.class");
+                    } else {
+                        w.append(", ").append(argRawType).append(".class");
+                    }
                 }
                 w.append(");\n");
                 for (AST type : typeParameters) {
@@ -235,15 +246,20 @@ abstract class Generator<L> {
                 }
                 w.append("  }\n");
                 if (!typeParameters.isEmpty()) {
-                    for (AST type : typeParameters) {
-                        w.append("  private final Class<?> type_").append(type.getName().getSimpleName()).append(";\n");
-                    }
                     w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js");
                     for (AST type : typeParameters) {
                         w.append(", Class<?> type_").append(type.getName().getSimpleName());
                     }
                     w.append(") {\n");
                     w.append("    super(c, js");
+                    for (Type superArg : typeArguments) {
+                        String superName = superArg.getBoxedJavaTypeRaw();
+                        if (knownTypes.contains(superName)) {
+                            w.append(", type_").append(superName);
+                        } else {
+                            w.append(", ").append(superName).append(".class");
+                        }
+                    }
                     w.append(");\n");
                     for (AST type : typeParameters) {
                         w.append("    this.type_").append(type.getName().getSimpleName()).append(" = type_").append(type.getName().getSimpleName()).append(";\n");

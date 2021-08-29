@@ -259,6 +259,15 @@ class ASTCntrl {
             return javaType(true, false, false, kind, typeName, elementType, type, types, parameters, typeArguments);
         }
         @ComputedProperty
+        static String boxedJavaTypeRaw(
+            SyntaxKind kind, Identifier typeName,
+            List<Type> elementType, List<Type> type,
+            List<Type> types, List<Parameter> parameters,
+            List<Type> typeArguments
+        ) {
+            return javaType(true, false, true, kind, typeName, elementType, type, types, parameters, typeArguments);
+        }
+        @ComputedProperty
         static String boxedIntoJavaType(
             SyntaxKind kind, Identifier typeName,
             List<Type> elementType, List<Type> type,
