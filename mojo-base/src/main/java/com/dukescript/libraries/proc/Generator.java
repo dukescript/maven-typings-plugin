@@ -274,7 +274,7 @@ abstract class Generator<L> {
                 if (!typeParameters.isEmpty()) {
                     w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js");
                     for (AST type : typeParameters) {
-                        w.append(", Class<?> type_").append(type.getName().getSimpleName());
+                        w.append(", java.lang.reflect.Type type_").append(type.getName().getSimpleName());
                     }
                     w.append(") {\n");
                     w.append("    super(c, js");
@@ -288,7 +288,7 @@ abstract class Generator<L> {
                     }
                     w.append(");\n");
                     for (AST type : typeParameters) {
-                        w.append("    this.type_").append(type.getName().getSimpleName()).append(" = type_").append(type.getName().getSimpleName()).append(";\n");
+                        w.append("    this.type_").append(type.getName().getSimpleName()).append(" = (Class<?>)type_").append(type.getName().getSimpleName()).append(";\n");
                     }
                     w.append("  }\n");
                 }
@@ -309,8 +309,8 @@ abstract class Generator<L> {
                 w.append(");\n");
                 w.append("    }\n");
                 if (!typeParameters.isEmpty()) {
-                    w.append("    private static Class<?> findType(java.lang.reflect.Type[] arr, int index) {\n");
-                    w.append("      return arr == null || arr.length <= index || !(arr[index] instanceof Class<?>) ? java.lang.Object.class : (Class<?>)arr[index];\n");
+                    w.append("    private static java.lang.reflect.Type findType(java.lang.reflect.Type[] arr, int index) {\n");
+                    w.append("      return arr == null || arr.length <= index || arr[index] == null ? java.lang.Object.class : arr[index];\n");
                     w.append("    }\n");
                 }
                 w.append("  };\n");
