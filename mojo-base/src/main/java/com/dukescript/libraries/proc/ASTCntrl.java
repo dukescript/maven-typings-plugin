@@ -259,13 +259,13 @@ class ASTCntrl {
             return javaType(true, false, false, kind, typeName, elementType, type, types, parameters, typeArguments);
         }
         @ComputedProperty
-        static String boxedJavaTypeRaw(
+        static String boxedIntoJavaTypeRaw(
             SyntaxKind kind, Identifier typeName,
             List<Type> elementType, List<Type> type,
             List<Type> types, List<Parameter> parameters,
             List<Type> typeArguments
         ) {
-            return javaType(true, false, true, kind, typeName, elementType, type, types, parameters, typeArguments);
+            return javaType(true, true, true, kind, typeName, elementType, type, types, parameters, typeArguments);
         }
         @ComputedProperty
         static String boxedIntoJavaType(
@@ -319,9 +319,13 @@ class ASTCntrl {
                 }
                 case TupleType:
                     return "java.lang.Object[]";
-                case ArrayType: return intoJava ?
-                    "net.java.html.lib.Array<" + elementType.get(0).getBoxedJavaType() + ">" :
-                    elementType.get(0).getJavaType() + "[]";
+                case ArrayType: 
+                    if (rawType) {
+                        return "net.java.html.lib.Array";
+                    }
+                    return intoJava ? 
+                        "net.java.html.lib.Array<" + elementType.get(0).getBoxedJavaType() + ">"
+                        : elementType.get(0).getJavaType() + "[]";
                 case FunctionType: {
                     StringBuilder sb = new StringBuilder();
                     sb.append("net.java.html.lib.Function");

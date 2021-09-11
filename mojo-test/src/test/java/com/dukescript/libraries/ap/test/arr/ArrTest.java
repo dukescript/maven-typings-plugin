@@ -102,6 +102,8 @@ public class ArrTest {
     @Test
     public void navigableArray() {
         NavArr<Number> arr = Exports.navigableArray();
-        arr.nav(42);
+        Array<Number> res = arr.nav(42);
+        assertEquals(1, res.length());
+        assertEquals(42, res.$get(0));
     }
 }

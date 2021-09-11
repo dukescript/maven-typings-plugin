@@ -16,6 +16,7 @@ meth public int hashCode()
 meth public java.lang.String toString()
 
 CLSS public net.java.html.lib.Function
+cons protected !varargs init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.reflect.Type[])
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public !varargs init(java.lang.String[])
 fld public final net.java.html.lib.Objs$Property<java.lang.Number> length
@@ -43,6 +44,7 @@ hfds $$fn$$callFunction_2,$$fn$$isFunction_1,$AS
 hcls JSFn,JavaFn
 
 CLSS public net.java.html.lib.Objs
+cons protected !varargs init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.reflect.Type[])
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 cons public init()
 cons public init(java.lang.Object)
@@ -97,7 +99,7 @@ hcls $Constructor
 CLSS public final net.java.html.lib.angular.ng.$JsCallbacks$
 meth public java.lang.Object net_java_html_lib_Function$$call$Ljava_lang_Object_2_3Ljava_lang_Object_2(java.lang.Object,java.lang.Object) throws java.lang.Throwable
 supr java.lang.Object
-hfds VM,last,p
+hfds VM,next,ref
 
 CLSS public net.java.html.lib.angular.ng.ComponentDefinition
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
@@ -194,13 +196,11 @@ meth public java.lang.String toJson(java.lang.Object)
 meth public java.lang.String toJson(java.lang.Object,java.lang.Boolean)
 meth public java.lang.String uppercase(java.lang.String)
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery element()
-meth public net.java.html.lib.angular.ng.IAugmentedJQuery element(java.lang.Object[])
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery element(java.lang.String)
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery element(java.lang.String,java.lang.Object)
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery element(net.java.html.lib.Function)
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery element(net.java.html.lib.Objs)
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery element(net.java.html.lib.dom.Element)
-meth public net.java.html.lib.angular.ng.IAugmentedJQuery element(net.java.html.lib.dom.Element[])
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery element(net.java.html.lib.jquery.JQuery)
 meth public net.java.html.lib.angular.ng.IModule module(java.lang.String)
 meth public net.java.html.lib.angular.ng.IModule module(java.lang.String,java.lang.String[])
@@ -290,7 +290,6 @@ hcls $Constructor
 CLSS public net.java.html.lib.angular.ng.IAugmentedJQueryStatic
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery $apply()
-meth public net.java.html.lib.angular.ng.IAugmentedJQuery $apply(java.lang.Object[])
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery $apply(java.lang.String)
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery $apply(java.lang.String,java.lang.Object)
 meth public net.java.html.lib.angular.ng.IAugmentedJQuery $apply(net.java.html.lib.Function)
@@ -457,7 +456,9 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IDeferred<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.Class<?>)
 fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ng.IPromise<{net.java.html.lib.angular.ng.IDeferred%0}>> promise
+meth public !varargs static net.java.html.lib.angular.ng.IDeferred $as(java.lang.Object,java.lang.reflect.Type[])
 meth public net.java.html.lib.angular.ng.IPromise<{net.java.html.lib.angular.ng.IDeferred%0}> promise()
 meth public static net.java.html.lib.angular.ng.IDeferred $as(java.lang.Object)
 meth public void notify(java.lang.Object)
@@ -467,7 +468,7 @@ meth public void resolve()
 meth public void resolve(net.java.html.lib.angular.ng.IPromise<{net.java.html.lib.angular.ng.IDeferred%0}>)
 meth public void resolve({net.java.html.lib.angular.ng.IDeferred%0})
 supr net.java.html.lib.Objs
-hfds $AS
+hfds $AS,type_T
 hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IDirective
@@ -596,10 +597,12 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IFilterFilterComparatorFunc<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.Class<?>)
+meth public !varargs static net.java.html.lib.angular.ng.IFilterFilterComparatorFunc $as(java.lang.Object,java.lang.reflect.Type[])
 meth public java.lang.Boolean $apply({net.java.html.lib.angular.ng.IFilterFilterComparatorFunc%0},{net.java.html.lib.angular.ng.IFilterFilterComparatorFunc%0})
 meth public static net.java.html.lib.angular.ng.IFilterFilterComparatorFunc $as(java.lang.Object)
 supr net.java.html.lib.Objs
-hfds $AS
+hfds $AS,type_T
 hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IFilterFilterPatternObject
@@ -612,10 +615,12 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IFilterFilterPredicateFunc<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.Class<?>)
+meth public !varargs static net.java.html.lib.angular.ng.IFilterFilterPredicateFunc $as(java.lang.Object,java.lang.reflect.Type[])
 meth public java.lang.Boolean $apply({net.java.html.lib.angular.ng.IFilterFilterPredicateFunc%0},double,{net.java.html.lib.angular.ng.IFilterFilterPredicateFunc%0}[])
 meth public static net.java.html.lib.angular.ng.IFilterFilterPredicateFunc $as(java.lang.Object)
 supr net.java.html.lib.Objs
-hfds $AS
+hfds $AS,type_T
 hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IFilterJson
@@ -795,28 +800,34 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IHttpPromise<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.Class<?>)
+meth public !varargs static net.java.html.lib.angular.ng.IHttpPromise $as(java.lang.Object,java.lang.reflect.Type[])
 meth public net.java.html.lib.angular.ng.IHttpPromise<{net.java.html.lib.angular.ng.IHttpPromise%0}> error(net.java.html.lib.angular.ng.IHttpPromiseCallback<java.lang.Object>)
 meth public net.java.html.lib.angular.ng.IHttpPromise<{net.java.html.lib.angular.ng.IHttpPromise%0}> success(net.java.html.lib.angular.ng.IHttpPromiseCallback<{net.java.html.lib.angular.ng.IHttpPromise%0}>)
 meth public static net.java.html.lib.angular.ng.IHttpPromise $as(java.lang.Object)
 supr net.java.html.lib.angular.ng.IPromise<net.java.html.lib.angular.ng.IHttpPromiseCallbackArg<{net.java.html.lib.angular.ng.IHttpPromise%0}>>
-hfds $AS
+hfds $AS,type_T
 hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IHttpPromiseCallback<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.Class<?>)
+meth public !varargs static net.java.html.lib.angular.ng.IHttpPromiseCallback $as(java.lang.Object,java.lang.reflect.Type[])
 meth public static net.java.html.lib.angular.ng.IHttpPromiseCallback $as(java.lang.Object)
 meth public void $apply({net.java.html.lib.angular.ng.IHttpPromiseCallback%0},double,net.java.html.lib.angular.ng.IHttpHeadersGetter,net.java.html.lib.angular.ng.IRequestConfig)
 supr net.java.html.lib.Objs
-hfds $AS
+hfds $AS,type_T
 hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IHttpPromiseCallbackArg<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.Class<?>)
 fld public net.java.html.lib.Objs$Property<java.lang.Number> status
 fld public net.java.html.lib.Objs$Property<java.lang.String> statusText
 fld public net.java.html.lib.Objs$Property<net.java.html.lib.Objs> data
 fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ng.IHttpHeadersGetter> headers
 fld public net.java.html.lib.Objs$Property<net.java.html.lib.angular.ng.IRequestConfig> config
+meth public !varargs static net.java.html.lib.angular.ng.IHttpPromiseCallbackArg $as(java.lang.Object,java.lang.reflect.Type[])
 meth public java.lang.Number status()
 meth public java.lang.String headers(java.lang.String)
 meth public java.lang.String statusText()
@@ -824,7 +835,7 @@ meth public net.java.html.lib.Objs headers()
 meth public net.java.html.lib.angular.ng.IRequestConfig config()
 meth public static net.java.html.lib.angular.ng.IHttpPromiseCallbackArg $as(java.lang.Object)
 supr net.java.html.lib.Objs
-hfds $AS
+hfds $AS,type_T
 hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IHttpProvider
@@ -1262,21 +1273,25 @@ hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IPromise<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.Class<?>)
+meth public !varargs static net.java.html.lib.angular.ng.IPromise $as(java.lang.Object,java.lang.reflect.Type[])
 meth public <%0 extends java.lang.Object> net.java.html.lib.angular.ng.IPromise<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.angular.ng.IPromise%0},? extends net.java.html.lib.Union$A2<net.java.html.lib.angular.ng.IPromise<{%%0}>,{%%0}>>)
 meth public <%0 extends java.lang.Object> net.java.html.lib.angular.ng.IPromise<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.angular.ng.IPromise%0},? extends net.java.html.lib.Union$A2<net.java.html.lib.angular.ng.IPromise<{%%0}>,{%%0}>>,net.java.html.lib.Function$A1<? super java.lang.Object,?>)
 meth public <%0 extends java.lang.Object> net.java.html.lib.angular.ng.IPromise<{%%0}> then(net.java.html.lib.Function$A1<? super {net.java.html.lib.angular.ng.IPromise%0},? extends net.java.html.lib.Union$A2<net.java.html.lib.angular.ng.IPromise<{%%0}>,{%%0}>>,net.java.html.lib.Function$A1<? super java.lang.Object,?>,net.java.html.lib.Function$A1<? super java.lang.Object,?>)
 meth public static net.java.html.lib.angular.ng.IPromise $as(java.lang.Object)
 supr net.java.html.lib.Objs
-hfds $AS
+hfds $AS,type_T
 hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IQResolveReject<%0 extends java.lang.Object>
 cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object)
+cons protected init(net.java.html.lib.Objs$Constructor<?>,java.lang.Object,java.lang.Class<?>)
+meth public !varargs static net.java.html.lib.angular.ng.IQResolveReject $as(java.lang.Object,java.lang.reflect.Type[])
 meth public static net.java.html.lib.angular.ng.IQResolveReject $as(java.lang.Object)
 meth public void $apply()
 meth public void $apply({net.java.html.lib.angular.ng.IQResolveReject%0})
 supr net.java.html.lib.Objs
-hfds $AS
+hfds $AS,type_T
 hcls $Constructor
 
 CLSS public net.java.html.lib.angular.ng.IQService
@@ -1384,7 +1399,6 @@ meth public net.java.html.lib.Function $watch(net.java.html.lib.Function$A1<? su
 meth public net.java.html.lib.Function $watch(net.java.html.lib.Function$A1<? super net.java.html.lib.angular.ng.IScope,?>,java.lang.String)
 meth public net.java.html.lib.Function $watch(net.java.html.lib.Function$A1<? super net.java.html.lib.angular.ng.IScope,?>,java.lang.String,java.lang.Boolean)
 meth public net.java.html.lib.Function $watchGroup(java.lang.Object[],net.java.html.lib.Function$A3<? super java.lang.Object,? super java.lang.Object,? super net.java.html.lib.angular.ng.IScope,?>)
-meth public net.java.html.lib.Function $watchGroup(net.java.html.lib.Objs[],net.java.html.lib.Function$A3<? super java.lang.Object,? super java.lang.Object,? super net.java.html.lib.angular.ng.IScope,?>)
 meth public net.java.html.lib.angular.ng.IRootScopeService $root()
 meth public net.java.html.lib.angular.ng.IScope $new()
 meth public net.java.html.lib.angular.ng.IScope $new(java.lang.Boolean)

@@ -242,7 +242,7 @@ abstract class Generator<L> {
                         w.append("<");
                         String sep = "";
                         for (Type type : typeArguments) {
-                            w.append(sep).append(type.getBoxedJavaType());
+                            w.append(sep).append(type.getBoxedIntoJavaType());
                             sep = ", ";
                         }
                         w.append(">");
@@ -259,8 +259,8 @@ abstract class Generator<L> {
                 w.append("  protected " + name + "(" + objs + ".Constructor<?> c, java.lang.Object js) {\n");
                 w.append("    super(c, js");
                 for (Type arg : typeArguments) {
-                    final String argRawType = arg.getBoxedJavaTypeRaw();
-                    if (containsComponent(knownTypeVariales, arg)) {
+                    final String argRawType = arg.getBoxedIntoJavaTypeRaw();
+                    if (knownTypeVariales.contains(argRawType)) {
                         w.append(", java.lang.Object.class");
                     } else {
                         w.append(", ").append(argRawType).append(".class");
@@ -279,15 +279,11 @@ abstract class Generator<L> {
                     w.append(") {\n");
                     w.append("    super(c, js");
                     for (Type superArg : typeArguments) {
-                        String superName = superArg.getBoxedJavaTypeRaw();
-                        if (knownTypeVariales.contains(superName)) {
-                            w.append(", type_").append(superName);
+                        String argRawType = superArg.getBoxedIntoJavaTypeRaw();
+                        if (knownTypeVariales.contains(argRawType)) {
+                            w.append(", type_").append(argRawType);
                         } else {
-                            if (containsComponent(knownTypeVariales, superArg)) {
-                                w.append(", java.lang.Object.class");
-                            } else {
-                                w.append(", ").append(superName).append(".class");
-                            }
+                            w.append(", ").append(argRawType).append(".class");
                         }
                     }
                     w.append(");\n");
