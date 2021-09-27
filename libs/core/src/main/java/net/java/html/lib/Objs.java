@@ -484,13 +484,13 @@ public class Objs extends java.lang.Object {
     public static final class Property<T> {
         private final Objs js;
         private final Class<T> type;
-        private final Constructor<?> constructor;
         private final String property;
+        private Constructor<?> constructor;
+        private boolean constructorInitialized;
 
         private Property(Objs objs, Class<T> type, java.lang.String property) {
             this.js = objs;
             this.type = type;
-            this.constructor = Constructor.find(type);
             this.property = property;
         }
 
@@ -512,7 +512,7 @@ public class Objs extends java.lang.Object {
          */
         public T get() {
             Object raw = getRaw(Objs.$js(js), property);
-            if (raw != null && constructor != null) {
+            if (raw != null && findConstructor()) {
                 raw = constructor.create(raw);
             }
             return type.cast(raw);
@@ -524,6 +524,13 @@ public class Objs extends java.lang.Object {
          */
         public void set(T value) {
             Objs.setRaw(Objs.$js(js), property, Objs.$js(value));
+        }
+
+        private boolean findConstructor() {
+            if (!constructorInitialized) {
+                constructor = Constructor.find(type);
+            }
+            return constructor != null;
         }
     }
 }
