@@ -136,6 +136,9 @@ public class Objs extends java.lang.Object {
     public static java.lang.Object $js(java.lang.Object obj) {
         if (obj instanceof Objs) {
             Objs objs = (Objs) obj;
+            if (objs.js instanceof LazyValue) {
+                return ((LazyValue)objs.js).get();
+            }
             return objs.js;
         }
         if(obj instanceof Object[]) {
@@ -475,6 +478,11 @@ public class Objs extends java.lang.Object {
                 }
             }
         }
+    }
+
+    @FunctionalInterface
+    public static interface LazyValue {
+        Object get();
     }
 
     /** Represents a property of an {@link Objs} object.

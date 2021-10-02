@@ -1107,7 +1107,7 @@ abstract class Generator<L> {
                         w.append(packageName).append('.');
                     }
                     w.append(mangleName(true, javaType));
-                    w.append(".$as(");
+                    w.append(".$as((net.java.html.lib.Objs.LazyValue)() -> ");
                 }
                 readStatic(fieldName, type.getTypingsType(), type.getDefaultValue());
                 if (wrap) {
