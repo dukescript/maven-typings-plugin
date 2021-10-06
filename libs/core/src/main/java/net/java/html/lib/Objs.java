@@ -422,6 +422,9 @@ public class Objs extends java.lang.Object {
       }
 
       static Constructor<?> find(Class<?> clazz) {
+          if (String.class == clazz || clazz.isPrimitive()) {
+              return null;
+          }
           if (Union.class.isAssignableFrom(clazz)) {
               clazz = Union.class;
           } else if (Function.A5.class.isAssignableFrom(clazz)) {
@@ -484,13 +487,12 @@ public class Objs extends java.lang.Object {
     public static final class Property<T> {
         private final Objs js;
         private final Class<T> type;
-        private final Constructor<?> constructor;
         private final String property;
+        private /* Constructor<?> | this */ Object constructor;
 
         private Property(Objs objs, Class<T> type, java.lang.String property) {
             this.js = objs;
             this.type = type;
-            this.constructor = Constructor.find(type);
             this.property = property;
         }
 
@@ -512,9 +514,7 @@ public class Objs extends java.lang.Object {
          */
         public T get() {
             Object raw = getRaw(Objs.$js(js), property);
-            if (raw != null && constructor != null) {
-                raw = constructor.create(raw);
-            }
+            raw = applyConstructor(raw);
             return type.cast(raw);
         }
 
@@ -524,6 +524,25 @@ public class Objs extends java.lang.Object {
          */
         public void set(T value) {
             Objs.setRaw(Objs.$js(js), property, Objs.$js(value));
+        }
+
+        private Object applyConstructor(Object raw) {
+            if (raw == null || constructor == this) {
+                return raw;
+            }
+            Constructor<?> c;
+            if (constructor == null) {
+                c = Constructor.find(type);
+                if (c == null) {
+                    // no constructor found
+                    constructor = this;
+                    return raw;
+                }
+                constructor = c;
+            } else {
+                c = (Constructor<?>) constructor;
+            }
+            return c.create(raw);
         }
     }
 }
